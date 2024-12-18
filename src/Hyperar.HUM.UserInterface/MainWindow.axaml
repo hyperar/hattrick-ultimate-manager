@@ -2,8 +2,143 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Hyperar.HUM.UserInterface.ViewModels"
+        xmlns:m="using:Hyperar.HUM.UserInterface.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Hyperar.HUM.UserInterface.MainWindow"
-        Title="Hyperar.HUM.UserInterface">
-    Welcome to Avalonia!
+        x:DataType="vm:MainWindowViewModel"
+        MinHeight="900"
+        MinWidth="1600"
+        RequestedThemeVariant="Default"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- Title Bar -->
+        <Border Grid.Row="0"
+                Height="40">
+
+            <StackPanel Orientation="Horizontal"
+                        Spacing="5"
+                        VerticalAlignment="Center">
+
+                <Button HorizontalAlignment="Center"
+                        Margin="4"
+                        Command="{Binding ToggleMenuCommand}"
+                        VerticalAlignment="Center">
+
+                    <PathIcon Data="{DynamicResource MenuIcon}"
+                              Height="20"
+                              Width="20" />
+                </Button>
+
+                <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window }}"
+                           VerticalAlignment="Center" Margin="10 0" />
+            </StackPanel>
+        </Border>
+
+        <!-- Cpllapsable Menu -->
+        <SplitView Grid.Row="1"
+                   DisplayMode="CompactInline"
+                   IsPaneOpen="{Binding IsMenuOpen}"
+                   CompactPaneLength="52"
+                   OpenPaneLength="300">
+
+            <SplitView.Pane>
+
+                <StackPanel Orientation="Vertical"
+                            Spacing="5"
+                            Margin="0 10 0 0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            IsEnabled="{Binding CanNavigate}">
+
+                    <ListBox Margin="0 0 -100 0"
+                             Padding="0"
+                             ItemsSource="{Binding MenuItems}"
+                             SelectedItem="{Binding SelectedItem}">
+
+                        <ListBox.Styles>
+
+                            <Style Selector="ListBoxItem" x:DataType="m:MenuItemTemplate">
+
+                                <Setter Property="Padding" Value="14 8" />
+                                <Setter Property="Cursor" Value="Hand" />
+                                <Setter Property="IsHitTestVisible" Value="{Binding IsSelectable}" />
+                            </Style>
+
+                            <Style Selector="StackPanel">
+
+                                <Setter Property="Orientation" Value="Horizontal" />
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+
+                            <Style Selector="TextBlock">
+
+                                <Setter Property="Margin" Value="16 0" />
+                            </Style>
+
+                            <Style Selector="TextBlock.title">
+
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Style>
+
+                            <Style Selector="PathIcon">
+
+                                <Setter Property="Height" Value="20" />
+                                <Setter Property="Width" Value="20" />
+                            </Style>
+
+                            <Style Selector="Separator">
+
+                                <Setter Property="Margin" Value="0 0 100 0" />
+                            </Style>
+                        </ListBox.Styles>
+
+                        <ListBox.DataTemplates>
+
+                            <DataTemplate DataType="{x:Type m:MenuItemViewTemplate}">
+
+                                <StackPanel ToolTip.Tip="{Binding Text}"
+                                            IsEnabled="{Binding IsEnabled}">
+
+                                    <PathIcon Data="{Binding Icon}" />
+                                    <TextBlock Text="{Binding Text}" />
+                                </StackPanel>
+                            </DataTemplate>
+
+                            <!--<DataTemplate DataType="{x:Type m:SeparatorItemTemplate}">
+
+                                <Separator />
+                            </DataTemplate>
+
+                            <DataTemplate DataType="{x:Type m:GroupTitleItemTemplate}">
+
+                                <StackPanel>
+
+                                    <Separator Width="20" Margin="0" />
+                                    <TextBlock Classes="title"
+                                               Text="{Binding Text}"
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>-->
+                        </ListBox.DataTemplates>
+                    </ListBox>
+                </StackPanel>
+            </SplitView.Pane>
+
+            <SplitView.Content>
+
+                <Border CornerRadius="10 0 0 0"
+                        Background="{DynamicResource ControlFillColorDefault}"
+                        Padding="25">
+
+                    <TransitioningContentControl Content="{Binding CurrentViewModel}"
+                                                 HorizontalContentAlignment="Center"
+                                                 VerticalContentAlignment="Center" />
+                </Border>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
 </Window>
