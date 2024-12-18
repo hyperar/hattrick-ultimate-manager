@@ -1,8 +1,7 @@
+# Hattrick Ultimate Manager
+.NET Open Source Hattrick Assistant Manager for Windows (requires a [Hattrick][1] account).
 
 ![HUM Logo][2]
-
-# Hattrick Ultimate Manager
-.NET Open Source Hattrick Assistant Manager for Windows (requires a [Hattrick][1]).
 
 ## Features and characteristics
 - Supports multi-team accounts.
