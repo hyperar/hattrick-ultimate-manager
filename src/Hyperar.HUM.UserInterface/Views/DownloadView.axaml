@@ -2,7 +2,192 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Hyperar.HUM.UserInterface.DownloadView">
-  Welcome to Avalonia!
+             xmlns:globalization="clr-namespace:Hyperar.HUM.Globalization;assembly=Hyperar.HUM.Globalization"
+             xmlns:commonConstants="clr-namespace:Hyperar.HUM.Shared.Constants;assembly=Hyperar.HUM.Shared"
+             xmlns:vm="clr-namespace:Hyperar.HUM.UserInterface.ViewModels"
+             xmlns:converters="clr-namespace:Hyperar.HUM.UserInterface.Converters"
+             xmlns:sharedModels="clr-namespace:Hyperar.HUM.Shared.Models;assembly=Hyperar.HUM.Shared"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             Padding="20"
+             mc:Ignorable="d"
+             x:Class="Hyperar.HUM.UserInterface.Views.DownloadView"
+             x:DataType="vm:DownloadViewModel">
+
+    <UserControl.Resources>
+
+        <converters:EnumToTranslatedStringConverter x:Key="enumToTranslatedStringConverter" />
+
+    </UserControl.Resources>
+
+    <StackPanel Spacing="10">
+
+        <StackPanel Width="750">
+
+            <Border Background="{DynamicResource ControlFillColorDefault}"
+                    CornerRadius="{DynamicResource OverlayCornerRadius}"
+                    Padding="10">
+
+                <StackPanel Spacing="10">
+
+                    <!-- Task Grid -->
+                    <DataGrid x:Name="DataGridTasks"
+                              AutoGenerateColumns="False"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns="False"
+                              GridLinesVisibility="All"
+                              Height="400"
+                              IsReadOnly="True"
+                              ItemsSource="{Binding DownloadReport.DownloadTasks, Mode=OneWay}"
+                              SelectedItem="{Binding DownloadReport.CurrentTask, Mode=OneWay}"
+                              IsScrollInertiaEnabled="True"
+                              SelectionChanged="DataGrid_SelectionChanged"
+                              SelectionMode="Single">
+
+                        <DataGrid.Styles>
+
+                            <Style Selector="TextBlock">
+
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="Padding" Value="5 0" />
+
+                            </Style>
+
+                        </DataGrid.Styles>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn Header="{x:Static globalization:Controls.File}"
+                                                    Width="2*">
+
+                                <DataGridTemplateColumn.CellTemplate>
+
+                                    <DataTemplate>
+
+                                        <TextBlock Text="{Binding Title}"
+                                                   TextAlignment="Left"
+                                                   VerticalAlignment="Center" />
+
+                                    </DataTemplate>
+
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{x:Static globalization:Controls.Type}"
+                                                    Width="*">
+
+                                <DataGridTemplateColumn.CellTemplate>
+
+                                    <DataTemplate>
+
+                                        <TextBlock Text="{Binding FileType,
+                                                          Converter={StaticResource enumToTranslatedStringConverter}}"
+                                                   TextAlignment="Center"
+                                                   VerticalAlignment="Center" />
+
+                                    </DataTemplate>
+
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{x:Static globalization:Controls.Status}"
+                                                    Width="*">
+
+                                <DataGridTemplateColumn.CellTemplate>
+
+                                    <DataTemplate>
+
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Spacing="5">
+
+                                            <TextBlock Text="{Binding Status,
+                                                              Converter={StaticResource enumToTranslatedStringConverter}}"
+                                                       TextAlignment="Center"
+                                                       VerticalAlignment="Center" />
+
+                                            <PathIcon Data="{DynamicResource ErrorIcon}"
+                                                      Height="16"
+                                                      Cursor="Hand"
+                                                      ToolTip.Tip="{Binding ErrorMessage}"
+                                                      IsVisible="{Binding HasError}" />
+
+                                        </StackPanel>
+
+                                    </DataTemplate>
+
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <!-- Progress Bar -->
+                    <Grid ColumnDefinitions="50,*,50" RowDefinitions="*,*">
+
+                        <TextBlock Grid.Column="0"
+                                   Text="{Binding DownloadReport.CompletedTasks, FallbackValue=0}"
+                                   TextAlignment="Center" />
+
+                        <ProgressBar Grid.Column="1"
+                                     Maximum="{Binding DownloadReport.Tasks, FallbackValue=100}"
+                                     Value="{Binding DownloadReport.CompletedTasks, FallbackValue=0}" />
+
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding DownloadReport.Tasks, FallbackValue=0}"
+                                   TextAlignment="Center" />
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel HorizontalAlignment="Center"
+                Orientation="Horizontal"
+                Spacing="10">
+
+            <Button Command="{Binding ExecuteDownloadCommand}"
+                    IsEnabled="{Binding !DownloadReport.IsDownloading, FallbackValue=true}"
+                    HorizontalAlignment="Center"
+                    Width="125">
+
+                <StackPanel Orientation="Horizontal"
+                            Spacing="5">
+
+                    <PathIcon Data="{DynamicResource DownloadIcon}" Height="12" />
+                    <TextBlock Text="{x:Static globalization:Controls.Download}" />
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Command="{Binding CancelDownloadCommand}"
+                    IsEnabled="{Binding DownloadReport.IsDownloading, FallbackValue=false}"
+                    HorizontalAlignment="Center"
+                    Width="125">
+
+                <StackPanel Orientation="Horizontal"
+                            Spacing="5">
+
+                    <PathIcon Data="{DynamicResource CancelIcon}" Height="12" />
+                    <TextBlock Text="{x:Static globalization:Controls.Cancel}" />
+
+                </StackPanel>
+
+            </Button>
+
+        </StackPanel>
+
+    </StackPanel>
+
 </UserControl>

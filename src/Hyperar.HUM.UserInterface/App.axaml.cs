@@ -1,13 +1,14 @@
 namespace Hyperar.HUM.UserInterface
 {
-    using System.Threading.Tasks;
     using Avalonia;
     using Avalonia.Controls.ApplicationLifetimes;
     using Avalonia.Data.Core.Plugins;
     using Avalonia.Markup.Xaml;
     using Hyperar.HUM.Domain.Interfaces;
     using Hyperar.HUM.UserInterface.ExtensionMethods.HostBuilder;
-    using Hyperar.HUM.UserInterface.State.Enums;
+    using Hyperar.HUM.UserInterface.State.Interfaces;
+    using Hyperar.HUM.UserInterface.Store.Interfaces;
+    using Hyperar.HUM.UserInterface.ViewModels;
     using Hyperar.HUM.UserInterface.ViewModels.Interfaces;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -22,15 +23,14 @@ namespace Hyperar.HUM.UserInterface
 
         public override async void OnFrameworkInitializationCompleted()
         {
-            IHost host = Host.CreateDefaultBuilder()
+            var host = Host.CreateDefaultBuilder()
                 .RegisterConfiguration()
-                .RegisterControllers()
                 .RegisterDatabaseObjects()
                 .RegisterMediatR()
-                //.RegisterServices()
+                .RegisterServices()
                 .RegisterStateObjects()
+                .RegisterStores()
                 .RegisterViewModels()
-                //.RegisterFileDownloadStepProcesses()
                 .Build();
 
             if (this.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
@@ -39,23 +39,32 @@ namespace Hyperar.HUM.UserInterface
                 // Without this line you will get duplicate validations from both Avalonia and CT
                 BindingPlugins.DataValidators.RemoveAt(0);
 
-                SplashScreenWindow splashScreenWindow = new SplashScreenWindow();
+                var splashScreenWindow = new SplashScreenWindow();
 
                 splashScreenWindow.Show();
 
                 desktop.MainWindow = splashScreenWindow;
 
-                using (IServiceScope scope = host.Services.CreateScope())
+                using (var scope = host.Services.CreateScope())
                 {
                     await scope.ServiceProvider.GetRequiredService<IDatabaseContext>()
                         .MigrateAsync();
                 }
 
-                MainWindow mainWindow = new MainWindow(host.Services.GetRequiredService<IConfiguration>());
+                var mainWindow = new MainWindow(host.Services.GetRequiredService<IConfiguration>());
 
-                IViewModelFactory viewModelFactory = host.Services.GetRequiredService<IViewModelFactory>();
+                var landingViewFactory = host.Services.GetRequiredService<ILandingViewFactory>();
 
-                mainWindow.DataContext = await viewModelFactory.CreateViewModelAsync(ViewType.Main);
+                var mainViewModel = new MainWindowViewModel(
+                    host.Services.GetRequiredService<INavigator>(),
+                    host.Services.GetRequiredService<ISessionStore>(),
+                    host.Services.GetRequiredService<IMainMenuBuilderFactory>(),
+                    host.Services.GetRequiredService<IViewModelFactory>(),
+                    await landingViewFactory.GetLandingViewAsync());
+
+                await mainViewModel.InitializeAsync();
+
+                mainWindow.DataContext = mainViewModel;
 
                 desktop.MainWindow = mainWindow;
 

@@ -10,7 +10,7 @@
 
         private const string DevelopmentConfigurationFile = "appSettings.debug.json";
 
-        private const string KeysConfigurationFile = "appSettings.debug.json";
+        private const string KeysConfigurationFile = "appSettings.keys.json";
 
         private const string ProductionConfigurationFile = "appSettings.production.json";
 

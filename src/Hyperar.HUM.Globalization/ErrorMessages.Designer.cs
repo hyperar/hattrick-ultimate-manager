@@ -61,6 +61,24 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unavailable.
+        /// </summary>
+        public static string UnavailableValue {
+            get {
+                return ResourceManager.GetString("UnavailableValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected Node. Expected: {0}. Found: {1}..
+        /// </summary>
+        public static string UnexpectedNode {
+            get {
+                return ResourceManager.GetString("UnexpectedNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown environment.
         /// </summary>
         public static string UnknownEnvironment {

@@ -117,7 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccessToken" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="AccessTokenSecret" xml:space="preserve">
+    <value>Secreto</value>
+  </data>
+  <data name="AddUserProfile" xml:space="preserve">
+    <value>Agregar Perfil de Usuario</value>
+  </data>
+  <data name="Authorize" xml:space="preserve">
+    <value>Autorizar</value>
+  </data>
+  <data name="Authorized" xml:space="preserve">
+    <value>Autorizado</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="CheckAuthorization" xml:space="preserve">
+    <value>Verificar Autorización</value>
+  </data>
+  <data name="CreatedOn" xml:space="preserve">
+    <value>Creado en</value>
+  </data>
+  <data name="Deauthorize" xml:space="preserve">
+    <value>Desautorizar</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="ExpiresOn" xml:space="preserve">
+    <value>Expira en</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Archivo</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Inicio</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>No autorizado</value>
+  </data>
+  <data name="OpenAuthorizationWebPage" xml:space="preserve">
+    <value>Abrir página web de Autorización</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="StepOne" xml:space="preserve">
+    <value>Paso 1</value>
+  </data>
+  <data name="StepThree" xml:space="preserve">
+    <value>Paso 3</value>
+  </data>
+  <data name="StepTwo" xml:space="preserve">
+    <value>Paso 2</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>Código de Verificación</value>
   </data>
 </root>

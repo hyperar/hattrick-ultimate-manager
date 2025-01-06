@@ -1,13 +1,29 @@
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-
-namespace Hyperar.HUM.UserInterface;
-
-public partial class DownloadView : UserControl
+namespace Hyperar.HUM.UserInterface.Views
 {
-    public DownloadView()
+    using System;
+    using Avalonia.Controls;
+    using Hyperar.HUM.Shared.Models.Download;
+
+    public partial class DownloadView : UserControl
     {
-        InitializeComponent();
+        public DownloadView()
+        {
+            this.InitializeComponent();
+        }
+
+        protected override void OnDataContextChanged(EventArgs e)
+        {
+            base.OnDataContextChanged(e);
+        }
+
+        private void DataGrid_SelectionChanged(object? sender, Avalonia.Controls.SelectionChangedEventArgs e)
+        {
+            if (this.DataGridTasks.SelectedItem is DownloadTask downloadTask)
+            {
+                this.DataGridTasks.ScrollIntoView(
+                    downloadTask,
+                    this.DataGridTasks.Columns[0]);
+            }
+        }
     }
 }

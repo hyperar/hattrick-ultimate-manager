@@ -3,16 +3,10 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class UserProfile : AuditableEntityConfigurationBase<Domain.UserProfile>
+    internal class UserProfile : EntityConfigurationBase<Domain.UserProfile>
     {
         public override void MapProperties(EntityTypeBuilder<Domain.UserProfile> builder)
         {
-            builder.Property(x => x.SupporterTier)
-                .HasColumnOrder(
-                    this.GetColumnOrder())
-                .HasColumnType(Constants.ColumnType.Int)
-                .IsRequired();
-
             builder.Property(x => x.LastDownloadDate)
                 .HasColumnOrder(
                     this.GetColumnOrder())

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.UserInterface.State.Interfaces;
     using Hyperar.HUM.UserInterface.ViewModels;
 
@@ -13,7 +14,7 @@
 
         private long? selectedTeamHattrickId;
 
-        private Guid? selectedUserProfileId;
+        private ViewType? targetViewType;
 
         public event Action? CanNavigateChanged;
 
@@ -21,7 +22,7 @@
 
         public event Func<Task>? SelectedTeamChanged;
 
-        public event Func<Task>? SelectedUserProfileChanged;
+        public event Action? TargetViewTypeChanged;
 
         public bool CanNavigate
         {
@@ -68,40 +69,43 @@
             }
         }
 
-        public Guid? SelectedUserProfileId
+        public ViewType? TargetViewType
         {
             get
             {
-                return this.selectedUserProfileId;
+                return this.targetViewType;
             }
 
             private set
             {
-                this.selectedUserProfileId = value;
+                this.targetViewType = value;
 
-                this.SelectedUserProfileChanged?.Invoke();
+                if (value is not null)
+                {
+                    this.TargetViewTypeChanged?.Invoke();
+                }
             }
         }
 
-        public Task ResumeNavigationAsync()
+        public void ResumeNavigation()
         {
             this.CanNavigate = true;
-
-            return Task.CompletedTask;
         }
 
-        public Task SetSelectedTeamAsync(long selectedTeamHattrickId)
+        public void SetCurrentViewModel(ViewModelBase viewModel)
         {
-            this.SelectedTeamHattrickId = selectedTeamHattrickId;
-
-            return Task.CompletedTask;
+            this.CurrentViewModel = viewModel;
         }
 
-        public Task SuspendNavigationAsync()
+        public void SetTargetViewType(ViewType viewType)
+        {
+            this.TargetViewType = viewType;
+            this.targetViewType = null;
+        }
+
+        public void SuspendNavigation()
         {
             this.CanNavigate = false;
-
-            return Task.CompletedTask;
         }
     }
 }

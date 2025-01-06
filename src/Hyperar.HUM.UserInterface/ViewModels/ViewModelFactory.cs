@@ -2,40 +2,46 @@
 {
     using System;
     using System.Threading.Tasks;
-    using Hyperar.HUM.UserInterface.State.Enums;
+    using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.UserInterface.ViewModels.Interfaces;
 
     internal delegate Task<TViewModel> CreateViewModelAsync<TViewModel>() where TViewModel : ViewModelBase;
 
     internal class ViewModelFactory : IViewModelFactory
     {
+        private readonly CreateViewModelAsync<AuthorizationViewModel> createAuthorizationViewModelAsync;
+
         private readonly CreateViewModelAsync<DownloadViewModel> createDownloadViewModelAsync;
 
         private readonly CreateViewModelAsync<HomeViewModel> createHomeViewModelAsync;
 
-        private readonly CreateViewModelAsync<MainWindowViewModel> createMainWindowViewModelAsync;
+        private readonly CreateViewModelAsync<TeamSelectionViewModel> createTeamSelectionViewModelAsync;
 
-        private readonly CreateViewModelAsync<UserProfileViewModel> createUserProfileViewModelAsync;
+        private readonly CreateViewModelAsync<UserProfileSelectionViewModel> createUserProfileSelectionViewModelAsync;
 
         public ViewModelFactory(
+            CreateViewModelAsync<AuthorizationViewModel> createAuthorizationViewModelAsync,
             CreateViewModelAsync<DownloadViewModel> createDownloadViewModelAsync,
             CreateViewModelAsync<HomeViewModel> createHomeViewModelAsync,
-            CreateViewModelAsync<MainWindowViewModel> createMainWindowViewModelAsync,
-            CreateViewModelAsync<UserProfileViewModel> createUserProfileViewModelAsync)
+            CreateViewModelAsync<UserProfileSelectionViewModel> createUserProfileSelectionViewModelAsync,
+            CreateViewModelAsync<TeamSelectionViewModel> createTeamSelectionViewModelAsync)
         {
+            this.createAuthorizationViewModelAsync = createAuthorizationViewModelAsync;
             this.createDownloadViewModelAsync = createDownloadViewModelAsync;
             this.createHomeViewModelAsync = createHomeViewModelAsync;
-            this.createMainWindowViewModelAsync = createMainWindowViewModelAsync;
-            this.createUserProfileViewModelAsync = createUserProfileViewModelAsync;
+            this.createTeamSelectionViewModelAsync = createTeamSelectionViewModelAsync;
+            this.createUserProfileSelectionViewModelAsync = createUserProfileSelectionViewModelAsync;
         }
 
         public async Task<ViewModelBase> CreateViewModelAsync(ViewType viewType)
         {
             return viewType switch
             {
+                ViewType.Authorization => await this.createAuthorizationViewModelAsync(),
+                ViewType.Download => await this.createDownloadViewModelAsync(),
                 ViewType.Home => await this.createHomeViewModelAsync(),
-                ViewType.Main => await this.createMainWindowViewModelAsync(),
-                ViewType.UserProfile => await this.createUserProfileViewModelAsync(),
+                ViewType.TeamSelection => await this.createTeamSelectionViewModelAsync(),
+                ViewType.UserProfileSelection => await this.createUserProfileSelectionViewModelAsync(),
                 _ => throw new ArgumentOutOfRangeException(nameof(viewType))
             };
         }

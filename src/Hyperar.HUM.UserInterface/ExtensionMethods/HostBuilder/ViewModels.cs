@@ -2,10 +2,11 @@
 {
     using System;
     using System.Threading.Tasks;
-    using Hyperar.HUM.Application.Controllers;
     using Hyperar.HUM.UserInterface.State.Interfaces;
+    using Hyperar.HUM.UserInterface.Store.Interfaces;
     using Hyperar.HUM.UserInterface.ViewModels;
     using Hyperar.HUM.UserInterface.ViewModels.Interfaces;
+    using MediatR;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
 
@@ -17,19 +18,38 @@
             {
                 services.AddSingleton<IViewModelFactory, ViewModelFactory>();
 
+                services.AddTransient<CreateViewModelAsync<UserProfileSelectionViewModel>>(services => () => CreateUserProfileSelectionViewModelAsync(services));
                 services.AddTransient<CreateViewModelAsync<DownloadViewModel>>(services => () => CreateDownloadViewModelAsync(services));
+                services.AddTransient<CreateViewModelAsync<TeamSelectionViewModel>>(services => () => CreateTeamSelectionViewModelAsync(services));
                 services.AddTransient<CreateViewModelAsync<HomeViewModel>>(services => () => CreateHomeViewModelAsync(services));
-                services.AddSingleton<CreateViewModelAsync<MainWindowViewModel>>(services => () => CreateMainWindowViewModelAsync(services));
-                services.AddTransient<CreateViewModelAsync<UserProfileViewModel>>(services => () => CreateUserProfileViewModelAsync(services));
+                services.AddTransient<CreateViewModelAsync<AuthorizationViewModel>>(services => () => CreateAuthorizationViewModelAsync(services));
             });
 
             return host;
         }
 
+        private static async Task<AuthorizationViewModel> CreateAuthorizationViewModelAsync(IServiceProvider services)
+        {
+            var scope = services.CreateScope();
+
+            var viewModel = new AuthorizationViewModel(
+                services.GetRequiredService<INavigator>(),
+                services.GetRequiredService<ISessionStore>(),
+                scope.ServiceProvider.GetRequiredService<ISender>());
+
+            await viewModel.InitializeAsync();
+
+            return viewModel;
+        }
+
         private static async Task<DownloadViewModel> CreateDownloadViewModelAsync(IServiceProvider services)
         {
-            DownloadViewModel viewModel = new DownloadViewModel(
-                services.GetRequiredService<INavigator>());
+            var scope = services.CreateScope();
+
+            var viewModel = new DownloadViewModel(
+                services.GetRequiredService<INavigator>(),
+                services.GetRequiredService<ISessionStore>(),
+                scope.ServiceProvider.GetRequiredService<ISender>());
 
             await viewModel.InitializeAsync();
 
@@ -38,31 +58,34 @@
 
         private static async Task<HomeViewModel> CreateHomeViewModelAsync(IServiceProvider services)
         {
-            HomeViewModel viewModel = new HomeViewModel(
-                services.GetRequiredService<INavigator>());
+            var viewModel = new HomeViewModel(
+                services.GetRequiredService<INavigator>(),
+                services.GetRequiredService<ISessionStore>());
 
             await viewModel.InitializeAsync();
 
             return viewModel;
         }
 
-        private static async Task<MainWindowViewModel> CreateMainWindowViewModelAsync(IServiceProvider services)
+        private static async Task<TeamSelectionViewModel> CreateTeamSelectionViewModelAsync(IServiceProvider services)
+        {
+            var viewModel = new TeamSelectionViewModel(
+                services.GetRequiredService<INavigator>(),
+                services.GetRequiredService<ISessionStore>());
+
+            await viewModel.InitializeAsync();
+
+            return viewModel;
+        }
+
+        private static async Task<UserProfileSelectionViewModel> CreateUserProfileSelectionViewModelAsync(IServiceProvider services)
         {
             var scope = services.CreateScope();
 
-            MainWindowViewModel viewModel = new MainWindowViewModel(
+            var viewModel = new UserProfileSelectionViewModel(
                 services.GetRequiredService<INavigator>(),
-                scope.ServiceProvider.GetRequiredService<IMainMenuBuilderFactory>());
-
-            await viewModel.InitializeAsync();
-
-            return viewModel;
-        }
-
-        private static async Task<UserProfileViewModel> CreateUserProfileViewModelAsync(IServiceProvider services)
-        {
-            UserProfileViewModel viewModel = new UserProfileViewModel(
-                services.GetRequiredService<INavigator>());
+                services.GetRequiredService<ISessionStore>(),
+                scope.ServiceProvider.GetRequiredService<ISender>());
 
             await viewModel.InitializeAsync();
 

@@ -17,7 +17,7 @@
 
         public async Task DeleteAsync(long hattickId)
         {
-            TEntity? entity = await this.GetByIdAsync(hattickId);
+            var entity = await this.GetByIdAsync(hattickId);
 
             ArgumentNullException.ThrowIfNull(entity);
 
@@ -26,7 +26,7 @@
 
         public async Task DeleteRangeAsync(ICollection<long> hattrickIds)
         {
-            List<TEntity> entities = await this.Query(x => hattrickIds.Contains(x.HattrickId))
+            var entities = await this.Query(x => hattrickIds.Contains(x.HattrickId))
                 .ToListAsync();
 
             await base.DeleteAsync(entities);

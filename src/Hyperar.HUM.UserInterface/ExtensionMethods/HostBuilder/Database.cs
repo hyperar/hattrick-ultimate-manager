@@ -13,7 +13,7 @@
         {
             host.ConfigureServices((context, services) =>
             {
-                string? connectionString = context.Configuration.GetConnectionString("LocalDb");
+                var connectionString = context.Configuration.GetConnectionString("LocalDb");
 
                 void configureDbContext(DbContextOptionsBuilder o)
                 {

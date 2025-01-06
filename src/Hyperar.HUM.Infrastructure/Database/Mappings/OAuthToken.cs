@@ -3,11 +3,11 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class OAuthToken : AuditableEntityConfigurationBase<Domain.OAuthToken>
+    internal class OAuthToken : EntityConfigurationBase<Domain.OAuthToken>
     {
         public override void MapProperties(EntityTypeBuilder<Domain.OAuthToken> builder)
         {
-            builder.Property(x => x.Key)
+            builder.Property(x => x.Token)
                 .HasColumnOrder(
                     this.GetColumnOrder())
                 .HasColumnType(Constants.ColumnType.NVarChar)
@@ -44,7 +44,7 @@
         {
             builder.HasOne(x => x.UserProfile)
                 .WithOne(x => x.OAuthToken)
-                .HasConstraintName("OAuthToken_UserProfile_FK")
+                .HasConstraintName("FK_OAuthToken_UserProfile")
                 .HasForeignKey<Domain.OAuthToken>(x => x.UserProfileId);
         }
 

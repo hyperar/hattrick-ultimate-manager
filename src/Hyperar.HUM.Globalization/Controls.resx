@@ -117,7 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccessToken" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="AccessTokenSecret" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="AddUserProfile" xml:space="preserve">
+    <value>Add User Profile</value>
+  </data>
+  <data name="Authorize" xml:space="preserve">
+    <value>Authorize</value>
+  </data>
+  <data name="Authorized" xml:space="preserve">
+    <value>Authorized</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CheckAuthorization" xml:space="preserve">
+    <value>Check Authorization</value>
+  </data>
+  <data name="CreatedOn" xml:space="preserve">
+    <value>Created on</value>
+  </data>
+  <data name="Deauthorize" xml:space="preserve">
+    <value>De-authorize</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="ExpiresOn" xml:space="preserve">
+    <value>Expires on</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Not authorized</value>
+  </data>
+  <data name="OpenAuthorizationWebPage" xml:space="preserve">
+    <value>Open Authorization Web Page</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StepOne" xml:space="preserve">
+    <value>Step 1</value>
+  </data>
+  <data name="StepThree" xml:space="preserve">
+    <value>Step 3</value>
+  </data>
+  <data name="StepTwo" xml:space="preserve">
+    <value>Step 2</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>Verificacion Code</value>
   </data>
 </root>

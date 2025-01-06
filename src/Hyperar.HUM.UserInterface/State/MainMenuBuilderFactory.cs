@@ -1,36 +1,26 @@
 ﻿namespace Hyperar.HUM.UserInterface.State
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Hyperar.HUM.Application.Controllers;
     using Hyperar.HUM.UserInterface.State.Interfaces;
-    using Hyperar.HUM.UserInterface.State.Strategies.MainMenuBuilder;
     using Microsoft.Extensions.DependencyInjection;
 
     internal class MainMenuBuilderFactory : IMainMenuBuilderFactory
     {
-        private readonly NoUserProfileFound noUserProfileFoundStrategy;
+        private readonly INavigator navigator;
 
         private readonly IServiceScopeFactory serviceScopeFactory;
 
         public MainMenuBuilderFactory(
-            IServiceScopeFactory serviceScopeFactory,
-            NoUserProfileFound noUserProfileFoundStrategy)
+            INavigator navigator,
+            IServiceScopeFactory serviceScopeFactory)
         {
+            this.navigator = navigator;
             this.serviceScopeFactory = serviceScopeFactory;
-            this.noUserProfileFoundStrategy = noUserProfileFoundStrategy;
         }
 
-        public async Task<IMainMenuBuilderStrategy> GetBuilderAsync()
+        public IMainMenuBuilderStrategy GetMainMenuBuilderAsync()
         {
-            var userProfileController = this.serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<UserProfileController>();
-
-            var userProfiles = await userProfileController.ListAsync();
-
-            return this.noUserProfileFoundStrategy;
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Infrastructure.Database
 {
     using System;
+    using System.Data;
     using System.Diagnostics;
     using System.Threading.Tasks;
     using Hyperar.HUM.Domain.Interfaces;
@@ -26,7 +27,7 @@
                 throw new InvalidOperationException(nameof(this.BeginTransactionAsync));
             }
 
-            await this.Database.BeginTransactionAsync();
+            await this.Database.BeginTransactionAsync(IsolationLevel.ReadUncommitted);
         }
 
         public void Cancel()
@@ -72,7 +73,7 @@
 
         private static async Task EnsureDatabaseInstanceIsReadyAsync()
         {
-            Process process = new Process
+            var process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {

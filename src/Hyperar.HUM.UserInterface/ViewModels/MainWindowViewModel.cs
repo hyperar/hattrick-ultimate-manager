@@ -1,16 +1,24 @@
 ﻿namespace Hyperar.HUM.UserInterface.ViewModels
 {
+    using System;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Threading.Tasks;
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
-    using Hyperar.HUM.Application.Controllers;
-    using Hyperar.HUM.UserInterface.Models;
-    using Hyperar.HUM.UserInterface.State;
+    using Hyperar.HUM.Shared.Enums;
+    using Hyperar.HUM.Shared.Models.Main;
+    using Hyperar.HUM.UserInterface.Command;
     using Hyperar.HUM.UserInterface.State.Interfaces;
+    using Hyperar.HUM.UserInterface.Store.Interfaces;
+    using Hyperar.HUM.UserInterface.ViewModels.Interfaces;
 
-    internal partial class MainWindowViewModel : ViewModelBase
+    internal partial class MainWindowViewModel : ViewModelBase, IDisposable
     {
+        protected readonly AsyncCommandBase UpdateCurrentViewModelCommand;
+
+        private readonly ViewType landingViewType;
+
         private readonly IMainMenuBuilderFactory mainMenuBuilderFactory;
 
         [ObservableProperty]
@@ -21,16 +29,26 @@
 
         public MainWindowViewModel(
             INavigator navigator,
-            IMainMenuBuilderFactory mainMenuBuilderFactory) : base(navigator)
+            ISessionStore sessionStore,
+            IMainMenuBuilderFactory mainMenuBuilderFactory,
+            IViewModelFactory viewModelFactory,
+            ViewType landingViewType) : base(navigator, sessionStore)
         {
             this.mainMenuBuilderFactory = mainMenuBuilderFactory;
+            this.landingViewType = landingViewType;
+
+            this.Navigator.CanNavigateChanged += this.Navigator_CanNavigateChanged;
+            this.Navigator.CurrentViewModelChanged += this.Navigator_CurrentViewModelChanged;
+            this.Navigator.TargetViewTypeChanged += this.Navigator_TargetViewTypeChanged;
+            this.ToggleMenuCommand = new RelayCommand(this.ToggleMenu);
+            this.UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this.Navigator, viewModelFactory);
         }
 
         public bool CanNavigate
         {
             get
             {
-                return this.navigator.CanNavigate;
+                return this.Navigator.CanNavigate;
             }
         }
 
@@ -38,25 +56,56 @@
         {
             get
             {
-                return this.navigator.CurrentViewModel;
+                return this.Navigator.CurrentViewModel;
             }
         }
 
         public ObservableCollection<MenuItemTemplate> MenuItems { get; private set; } = new ObservableCollection<MenuItemTemplate>();
 
+        public RelayCommand ToggleMenuCommand { get; }
+
+        public void Dispose()
+        {
+            this.Navigator.TargetViewTypeChanged -= this.Navigator_TargetViewTypeChanged;
+            this.Navigator.CurrentViewModelChanged -= this.Navigator_CurrentViewModelChanged;
+            this.Navigator.CanNavigateChanged -= this.Navigator_CanNavigateChanged;
+        }
+
         public override async Task InitializeAsync()
         {
-            await this.BuildMenu();
+            this.Navigator.SuspendNavigation();
+
+            await this.UpdateCurrentViewModelCommand.ExecuteAsync(this.landingViewType);
+
+            await base.InitializeAsync();
         }
 
-        private async Task BuildMenu()
+        private void Navigator_CanNavigateChanged()
         {
-            var builder = await this.mainMenuBuilderFactory.GetBuilderAsync();
-
-            var menuItems = await builder.GetMenuItemsAsync();
+            this.OnPropertyChanged(nameof(this.CanNavigate));
         }
 
-        [RelayCommand]
+        private void Navigator_CurrentViewModelChanged()
+        {
+            this.OnPropertyChanged(nameof(this.CurrentViewModel));
+        }
+
+        private void Navigator_TargetViewTypeChanged()
+        {
+            var selectedItem = this.MenuItems.Where(x => x is MenuItemViewTemplate m
+                                                  && m.ViewType == this.Navigator.TargetViewType)
+                                             .SingleOrDefault();
+
+            if (selectedItem != null)
+            {
+                this.SelectedItem = selectedItem;
+            }
+            else
+            {
+                this.UpdateCurrentViewModelCommand.Execute(this.Navigator.TargetViewType);
+            }
+        }
+
         private void ToggleMenu()
         {
             this.IsMenuOpen = !this.IsMenuOpen;

@@ -16,26 +16,17 @@
 
         public async Task DeleteAsync(Guid id)
         {
-            TEntity? entity = await this.GetByIdAsync(id);
+            var entity = await this.GetByIdAsync(id);
 
             ArgumentNullException.ThrowIfNull(entity);
-
-            entity.DeletedOn = DateTime.Now;
-
-            await base.UpdateAsync(entity);
 
             await base.DeleteAsync(entity);
         }
 
         public async Task DeleteRangeAsync(ICollection<Guid> ids)
         {
-            List<TEntity> entities = await this.Query(x => ids.Contains(x.Id))
+            var entities = await this.Query(x => ids.Contains(x.Id))
                 .ToListAsync();
-
-            entities.ForEach(x =>
-            {
-                x.DeletedOn = DateTime.Now;
-            });
 
             await base.UpdateAsync(entities);
 

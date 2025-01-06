@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -10,19 +10,26 @@
         <PackageIcon></PackageIcon>
     </PropertyGroup>
     <ItemGroup>
+      <None Remove="Assets\Images\BotTeamLogo.png" />
+      <None Remove="Assets\Images\DefaultManagerAvatar.png" />
+      <None Remove="Assets\Images\DefaultTeamLogo.png" />
       <None Remove="Assets\Images\Logo_256.png" />
     </ItemGroup>
     <ItemGroup>
+      <AvaloniaResource Include="Assets\Images\BotTeamLogo.png" />
+      <AvaloniaResource Include="Assets\Images\DefaultCountryFlag.png" />
+      <AvaloniaResource Include="Assets\Images\DefaultManagerAvatar.png" />
+      <AvaloniaResource Include="Assets\Images\DefaultTeamLogo.png" />
       <AvaloniaResource Include="Assets\Images\Logo_256.png" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.2.2" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.2.2" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.2" />
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.2" />
+        <PackageReference Include="Avalonia" Version="11.2.3" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.2.3" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.3" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.3" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.2.2">
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.2.3">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
@@ -37,14 +44,17 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Hyperar.HUM.ChppApiClient\Hyperar.HUM.ChppApiClient.csproj" />
         <ProjectReference Include="..\Hyperar.HUM.Domain\Hyperar.HUM.Domain.csproj" />
         <ProjectReference Include="..\Hyperar.HUM.Globalization\Hyperar.HUM.Globalization.csproj" />
         <ProjectReference Include="..\Hyperar.HUM.Infrastructure\Hyperar.HUM.Infrastructure.csproj" />
+        <ProjectReference Include="..\Hyperar.HUM.Shared\Hyperar.HUM.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -54,6 +64,9 @@
         <None Update="appSettings.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Update="appSettings.keys.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <None Update="appSettings.production.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
@@ -61,12 +74,14 @@
 
     <ItemGroup>
         <Folder Include="Assets\Styles\" />
-        <Folder Include="State\Strategies\MainMenuBuilder\" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Update="SplashScreenWindow.axaml.cs">
         <DependentUpon>SplashScreenWindow.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\AuthorizationView.axaml.cs">
+        <DependentUpon>AuthorizationView.axaml</DependentUpon>
       </Compile>
     </ItemGroup>
 </Project>

@@ -61,11 +61,191 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Token.
+        /// </summary>
+        public static string AccessToken {
+            get {
+                return ResourceManager.GetString("AccessToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret.
+        /// </summary>
+        public static string AccessTokenSecret {
+            get {
+                return ResourceManager.GetString("AccessTokenSecret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add User Profile.
+        /// </summary>
+        public static string AddUserProfile {
+            get {
+                return ResourceManager.GetString("AddUserProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authorize.
+        /// </summary>
+        public static string Authorize {
+            get {
+                return ResourceManager.GetString("Authorize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authorized.
+        /// </summary>
+        public static string Authorized {
+            get {
+                return ResourceManager.GetString("Authorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check Authorization.
+        /// </summary>
+        public static string CheckAuthorization {
+            get {
+                return ResourceManager.GetString("CheckAuthorization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created on.
+        /// </summary>
+        public static string CreatedOn {
+            get {
+                return ResourceManager.GetString("CreatedOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to De-authorize.
+        /// </summary>
+        public static string Deauthorize {
+            get {
+                return ResourceManager.GetString("Deauthorize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string Download {
+            get {
+                return ResourceManager.GetString("Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expires on.
+        /// </summary>
+        public static string ExpiresOn {
+            get {
+                return ResourceManager.GetString("ExpiresOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File.
+        /// </summary>
+        public static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not authorized.
+        /// </summary>
+        public static string NotAuthorized {
+            get {
+                return ResourceManager.GetString("NotAuthorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Authorization Web Page.
+        /// </summary>
+        public static string OpenAuthorizationWebPage {
+            get {
+                return ResourceManager.GetString("OpenAuthorizationWebPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step 1.
+        /// </summary>
+        public static string StepOne {
+            get {
+                return ResourceManager.GetString("StepOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step 3.
+        /// </summary>
+        public static string StepThree {
+            get {
+                return ResourceManager.GetString("StepThree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step 2.
+        /// </summary>
+        public static string StepTwo {
+            get {
+                return ResourceManager.GetString("StepTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verificacion Code.
+        /// </summary>
+        public static string VerificationCode {
+            get {
+                return ResourceManager.GetString("VerificationCode", resourceCulture);
             }
         }
     }

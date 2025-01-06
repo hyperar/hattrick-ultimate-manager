@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -12,10 +12,20 @@
           <AutoGen>True</AutoGen>
           <DependentUpon>Controls.resx</DependentUpon>
         </Compile>
+        <Compile Update="Enums.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Enums.resx</DependentUpon>
+        </Compile>
         <Compile Update="ErrorMessages.Designer.cs">
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
             <DependentUpon>ErrorMessages.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Messages.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Messages.resx</DependentUpon>
         </Compile>
     </ItemGroup>
 
@@ -24,9 +34,17 @@
           <Generator>PublicResXFileCodeGenerator</Generator>
           <LastGenOutput>Controls.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+        <EmbeddedResource Update="Enums.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Enums.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
         <EmbeddedResource Update="ErrorMessages.resx">
             <Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Messages.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Messages.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
 

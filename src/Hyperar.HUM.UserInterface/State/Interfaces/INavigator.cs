@@ -1,7 +1,7 @@
 ﻿namespace Hyperar.HUM.UserInterface.State.Interfaces
 {
     using System;
-    using System.Threading.Tasks;
+    using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.UserInterface.ViewModels;
 
     internal interface INavigator
@@ -10,22 +10,20 @@
 
         event Action? CurrentViewModelChanged;
 
-        event Func<Task>? SelectedTeamChanged;
-
-        event Func<Task>? SelectedUserProfileChanged;
+        event Action? TargetViewTypeChanged;
 
         bool CanNavigate { get; }
 
         ViewModelBase? CurrentViewModel { get; }
 
-        long? SelectedTeamHattrickId { get; }
+        ViewType? TargetViewType { get; }
 
-        Guid? SelectedUserProfileId { get; }
+        void ResumeNavigation();
 
-        Task ResumeNavigationAsync();
+        void SetCurrentViewModel(ViewModelBase viewModel);
 
-        Task SetSelectedTeamAsync(long selectedTeamHattrickId);
+        void SetTargetViewType(ViewType viewType);
 
-        Task SuspendNavigationAsync();
+        void SuspendNavigation();
     }
 }

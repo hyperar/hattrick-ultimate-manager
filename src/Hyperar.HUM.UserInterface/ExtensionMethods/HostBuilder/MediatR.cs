@@ -1,6 +1,6 @@
 ﻿namespace Hyperar.HUM.UserInterface.ExtensionMethods.HostBuilder
 {
-    using Hyperar.HUM.Infrastructure.Database;
+    using System.Reflection;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
 
@@ -13,9 +13,9 @@
                 services.AddMediatR((config) =>
                 {
                     config.Lifetime = ServiceLifetime.Scoped;
+
                     config.RegisterServicesFromAssembly(
-                        typeof(DatabaseContext)
-                            .Assembly);
+                        Assembly.Load("Hyperar.HUM.Application"));
                 });
             });
 

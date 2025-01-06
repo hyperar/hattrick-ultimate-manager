@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:Hyperar.HUM.UserInterface.ViewModels"
-        xmlns:m="using:Hyperar.HUM.UserInterface.Models"
+        xmlns:sharedModels="clr-namespace:Hyperar.HUM.Shared.Models;assembly=Hyperar.HUM.Shared"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Hyperar.HUM.UserInterface.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -20,12 +20,13 @@
                 Height="40">
 
             <StackPanel Orientation="Horizontal"
-                        Spacing="5"
-                        VerticalAlignment="Center">
+                        VerticalAlignment="Center"
+                        Spacing="5">
 
                 <Button HorizontalAlignment="Center"
-                        Margin="4"
                         Command="{Binding ToggleMenuCommand}"
+                        Margin="11 4"
+                        Padding="4"
                         VerticalAlignment="Center">
 
                     <PathIcon Data="{DynamicResource MenuIcon}"
@@ -34,11 +35,15 @@
                 </Button>
 
                 <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window }}"
-                           VerticalAlignment="Center" Margin="10 0" />
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="10 0" />
+
             </StackPanel>
+
         </Border>
 
-        <!-- Cpllapsable Menu -->
+        <!-- Collapsable Menu -->
         <SplitView Grid.Row="1"
                    DisplayMode="CompactInline"
                    IsPaneOpen="{Binding IsMenuOpen}"
@@ -61,59 +66,69 @@
 
                         <ListBox.Styles>
 
-                            <Style Selector="ListBoxItem" x:DataType="m:MenuItemTemplate">
+                            <Style Selector="ListBoxItem" x:DataType="sharedModels:Main.MenuItemTemplate">
 
                                 <Setter Property="Padding" Value="14 8" />
                                 <Setter Property="Cursor" Value="Hand" />
                                 <Setter Property="IsHitTestVisible" Value="{Binding IsSelectable}" />
+                                <Setter Property="IsEnabled" Value="{Binding IsEnabled}" />
+
                             </Style>
 
                             <Style Selector="StackPanel">
 
                                 <Setter Property="Orientation" Value="Horizontal" />
                                 <Setter Property="Height" Value="18" />
+
                             </Style>
 
                             <Style Selector="TextBlock">
 
                                 <Setter Property="Margin" Value="16 0" />
+
                             </Style>
 
                             <Style Selector="TextBlock.title">
 
                                 <Setter Property="FontWeight" Value="Bold" />
+
                             </Style>
 
                             <Style Selector="PathIcon">
 
                                 <Setter Property="Height" Value="20" />
                                 <Setter Property="Width" Value="20" />
+
                             </Style>
 
                             <Style Selector="Separator">
 
                                 <Setter Property="Margin" Value="0 0 100 0" />
+
                             </Style>
+
                         </ListBox.Styles>
 
                         <ListBox.DataTemplates>
 
-                            <DataTemplate DataType="{x:Type m:MenuItemViewTemplate}">
+                            <DataTemplate DataType="{x:Type sharedModels:Main.MenuItemViewTemplate}">
 
                                 <StackPanel ToolTip.Tip="{Binding Text}"
                                             IsEnabled="{Binding IsEnabled}">
 
                                     <PathIcon Data="{Binding Icon}" />
                                     <TextBlock Text="{Binding Text}" />
+
                                 </StackPanel>
+
                             </DataTemplate>
 
-                            <!--<DataTemplate DataType="{x:Type m:SeparatorItemTemplate}">
+                            <!--<DataTemplate DataType="{x:Type sharedModels:Main.SeparatorItemTemplate}">
 
                                 <Separator />
                             </DataTemplate>
 
-                            <DataTemplate DataType="{x:Type m:GroupTitleItemTemplate}">
+                            <DataTemplate DataType="{x:Type sharedModels:Main.GroupTitleItemTemplate}">
 
                                 <StackPanel>
 
@@ -123,22 +138,31 @@
                                                VerticalAlignment="Center" />
                                 </StackPanel>
                             </DataTemplate>-->
+
                         </ListBox.DataTemplates>
+
                     </ListBox>
+
                 </StackPanel>
+
             </SplitView.Pane>
 
             <SplitView.Content>
 
-                <Border CornerRadius="10 0 0 0"
+                <Border CornerRadius="8 0 0 0"
                         Background="{DynamicResource ControlFillColorDefault}"
                         Padding="25">
 
                     <TransitioningContentControl Content="{Binding CurrentViewModel}"
                                                  HorizontalContentAlignment="Center"
                                                  VerticalContentAlignment="Center" />
+
                 </Border>
+
             </SplitView.Content>
+
         </SplitView>
+
     </Grid>
+
 </Window>
