@@ -3,9 +3,9 @@
 
 ![HUM Logo][2]
 
-[![.NET Build](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/dotnet-build.yml/badge.svg?event=status)](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/dotnet-build.yml)
-[![SonarCloud](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/sonarcloud.yml/badge.svg?event=status)](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/sonarcloud.yml)
-[![CodeQL](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/github-code-scanning/codeql/badge.svg?event=status)](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/github-code-scanning/codeql)
+[![.NET Build](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/dotnet-build.yml)
+[![SonarCloud](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/sonarcloud.yml)
+[![CodeQL](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/hyperar/hattrick-ultimate-manager/actions/workflows/github-code-scanning/codeql)
 
 ## Features and characteristics
 - Supports multi-team accounts.
