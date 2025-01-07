@@ -1,4 +1,4 @@
-name: .NET Core Desktop
+name: .NET Build
 
 on:
   push:
@@ -43,9 +43,12 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
+    - name: Publish artifacts to default path
+      run: dotnet publish $env:Solution_Name
+
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: Binaries
-        path: ${{ env.Output_Directory }}\${{ env.Configuration }}net8.0
+        path: ${{ env.Output_Directory }}\${{ env.Configuration }}net8.0\publish\
