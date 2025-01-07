@@ -38,7 +38,7 @@ jobs:
         id: cache-sonar-scanner
         uses: actions/cache@v4
         with:
-          path: $env:Solution_Folder\.sonar\scanner
+          path: ${{env:Solution_Folder}}\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
 
