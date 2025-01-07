@@ -19,7 +19,6 @@ jobs:
 
     env:
       Solution_Name: src\Hyperar.HUM.sln                        # Replace with your solution name, i.e. MyWpfApp.sln.
-      Output_Directory: src\Hyperar.HUM.UserInterface\bin
 
     steps:
     - name: Checkout
@@ -36,19 +35,3 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
-
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
-
-    - name: Publish artifacts to default path
-      run: dotnet publish $env:Solution_Name
-
-    # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: Binaries
-        path: ${{ env.Output_Directory }}\${{ env.Configuration }}net8.0\publish\
