@@ -55,5 +55,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"hyperar_hattrick-ultimate-manager" /o:"hyperar" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+          dotnet build $env:Solution_Name /t:Restore /p:Configuration=RELEASE
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
