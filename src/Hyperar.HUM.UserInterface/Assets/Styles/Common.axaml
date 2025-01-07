@@ -1,0 +1,52 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="Button">
+
+        <Setter Property="Cursor" Value="Hand" />
+
+    </Style>
+
+    <Style Selector="PathIcon.MotherClubIcon">
+
+        <Setter Property="Foreground" Value="#DD4140" />
+
+    </Style>
+
+    <Style Selector="PathIcon.YellowCardIcon">
+
+        <Setter Property="Foreground" Value="#FFCC00" />
+
+    </Style>
+
+    <Style Selector="PathIcon.RedCardIcon">
+
+        <Setter Property="Foreground" Value="#FF3333" />
+
+    </Style>
+
+    <Style Selector="PathIcon.BruisedIcon">
+
+        <Setter Property="Foreground" Value="#F7C3B0" />
+
+    </Style>
+
+    <Style Selector="PathIcon.InjuredIcon">
+
+        <Setter Property="Foreground" Value="#FF3333" />
+
+    </Style>
+
+    <Style Selector="PathIcon.UpChevronIcon">
+
+        <Setter Property="Foreground" Value="#50A03F" />
+
+    </Style>
+
+    <Style Selector="PathIcon.DownChevronIcon">
+
+        <Setter Property="Foreground" Value="#D15E5E" />
+
+    </Style>
+
+</Styles>

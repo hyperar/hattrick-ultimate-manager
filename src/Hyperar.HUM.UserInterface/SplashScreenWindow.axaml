@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        Height="350"
+        Width="300"
+        x:Class="Hyperar.HUM.UserInterface.SplashScreenWindow">
+
+    <StackPanel HorizontalAlignment="Center"
+                Orientation="Vertical"
+                Spacing="10"
+                VerticalAlignment="Center">
+
+        <Image Source="avares://Hyperar.HUM.UserInterface/Assets/Images/Logo_256.png"
+               Stretch="None" />
+
+        <ProgressBar IsIndeterminate="True" />
+
+        <TextBlock Text="Loading..."
+                   TextAlignment="Center" />
+    </StackPanel>
+</Window>

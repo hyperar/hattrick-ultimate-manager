@@ -1,0 +1,10 @@
+{
+    "profiles": {
+        "Hyperar.HUM.UserInterface": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "DOTNET_ENVIRONMENT": "Development"
+            }
+        }
+    }
+}

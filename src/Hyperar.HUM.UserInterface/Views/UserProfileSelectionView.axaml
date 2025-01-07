@@ -1,0 +1,140 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:globalization="clr-namespace:Hyperar.HUM.Globalization;assembly=Hyperar.HUM.Globalization"
+             xmlns:vm="clr-namespace:Hyperar.HUM.UserInterface.ViewModels"
+             xmlns:converters="clr-namespace:Hyperar.HUM.UserInterface.Converters"
+             xmlns:shared="clr-namespace:Hyperar.HUM.Shared;assembly=Hyperar.HUM.Shared"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             Padding="20"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="Hyperar.HUM.UserInterface.Views.UserProfileSelectionView"
+             x:DataType="vm:UserProfileSelectionViewModel">
+
+    <UserControl.Resources>
+
+        <Image Source="/Assets/Images/DefaultManagerAvatar.png" x:Key="defaultManagerAvatar" />
+        <Image Source="/Assets/Images/DefaultCountryFlag.png" x:Key="defaultCountryFlag" />
+        <converters:ByteArrayToBitmapConverter x:Key="byteArrayToBitmapConverter" />
+
+    </UserControl.Resources>
+
+    <StackPanel Orientation="Vertical"
+                Spacing="10">
+
+        <Border CornerRadius="{DynamicResource OverlayCornerRadius}"
+                Background="{DynamicResource ControlFillColorDefault}"
+                Padding="25"
+                IsVisible="{Binding !ShowUserProfileSelector}">
+
+            <TextBlock FontSize="{DynamicResource ControlContentThemeFontSize}"
+                       TextAlignment="Center"
+                       Text="{x:Static globalization:Messages.NoUserProfilesFound}" />
+
+        </Border>
+
+        <ItemsControl ItemsSource="{Binding UserProfiles}"
+                      IsVisible="{Binding ShowUserProfileSelector}">
+
+            <ItemsControl.ItemsPanel>
+
+                <ItemsPanelTemplate>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="10">
+
+                    </StackPanel>
+
+                </ItemsPanelTemplate>
+
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+
+                <DataTemplate x:DataType="{x:Type shared:Models.UserProfileSelection.UserProfile}">
+
+                    <Button Command="{Binding $parent.((vm:UserProfileSelectionViewModel)DataContext).SelectUserProfileCommand}"
+                            CommandParameter="{Binding Id}">
+
+                        <StackPanel Orientation="Vertical"
+                                    Spacing="5">
+
+                            <!-- Manager Avatar -->
+                            <Image Source="{Binding AvatarBytes,
+                                            Converter={StaticResource byteArrayToBitmapConverter},
+                                            ConverterParameter={StaticResource defaultManagerAvatar}}"
+                                   Stretch="None"
+                                   Height="155"
+                                   Width="110" />
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="4">
+
+                                <!-- Country Flag -->
+                                <Image Source="{Binding CountryFlagBytes,
+                                                Converter={StaticResource byteArrayToBitmapConverter},
+                                                ConverterParameter={StaticResource defaultCountryFlag}}"
+                                       Stretch="None"
+                                       Height="12"
+                                       Width="20" />
+
+                                <!-- User Name and Id -->
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center">
+
+                                    <TextBlock.Text>
+
+                                        <MultiBinding StringFormat="{}{0} ({1})">
+
+                                            <Binding Path="UserName"
+                                                     TargetNullValue="{x:Static globalization:ErrorMessages.UnavailableValue}"
+                                                     FallbackValue="{x:Static globalization:ErrorMessages.UnavailableValue}" />
+
+                                            <Binding Path="HattrickId"
+                                                     TargetNullValue="0"
+                                                     FallbackValue="0" />
+
+                                        </MultiBinding>
+
+                                    </TextBlock.Text>
+
+                                </TextBlock>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Button>
+
+                </DataTemplate>
+
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
+        <Button Command="{Binding CreateUserProfileCommand}"
+                HorizontalAlignment="Center"
+                IsEnabled="{Binding CanCreateUserProfile}">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Spacing="5">
+
+                <PathIcon Data="{DynamicResource AddUserProfile}" />
+                <TextBlock Text="{x:Static globalization:Controls.AddUserProfile}" />
+
+            </StackPanel>
+
+        </Button>
+
+    </StackPanel>
+
+</UserControl>
