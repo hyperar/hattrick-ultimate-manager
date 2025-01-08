@@ -7,10 +7,6 @@
 
     internal static class XmlReaderMethods
     {
-        private const string comma = ",";
-
-        private const string period = ".";
-
         internal static bool CheckNode(this XmlReader reader, params string[] expectedNames)
         {
             return Array.Exists(expectedNames, x => x.Equals(reader.Name, StringComparison.OrdinalIgnoreCase));
@@ -36,18 +32,9 @@
         {
             var value = await reader.ReadElementContentAsStringAsync();
 
-            var numberDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-
-            if (value.Contains(period, StringComparison.CurrentCulture) && numberDecimalSeparator != period)
-            {
-                return decimal.Parse(value.Replace(period, numberDecimalSeparator));
-            }
-            else
-            {
-                return decimal.Parse(
-                        NormalizeDecimalValue(
-                            value));
-            }
+            return decimal.Parse(
+                    NormalizeDecimalValue(
+                        value));
         }
 
         internal static async Task<Guid> ReadGuidAsync(this XmlReader reader)
@@ -122,10 +109,6 @@
             if (string.IsNullOrWhiteSpace(value))
             {
                 return null;
-            }
-            else if (value.Contains(period, StringComparison.CurrentCulture) && numberDecimalSeparator != period)
-            {
-                return decimal.Parse(value.Replace(period, numberDecimalSeparator));
             }
             else
             {
