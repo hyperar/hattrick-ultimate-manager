@@ -11,7 +11,7 @@
     {
         protected readonly IFileDownloadTaskFactory fileDownloadTaskFactory;
 
-        public XmlFileExtractorBase(IFileDownloadTaskFactory fileDownloadTaskFactory)
+        protected XmlFileExtractorBase(IFileDownloadTaskFactory fileDownloadTaskFactory)
         {
             this.fileDownloadTaskFactory = fileDownloadTaskFactory;
         }
@@ -24,7 +24,7 @@
             {
                 this.fileDownloadTaskFactory.BuildImageFileDownloadTask(
                     avatar.BackgroundImage);
-            };
+            }
 
             if (avatar.Layers is not null)
             {

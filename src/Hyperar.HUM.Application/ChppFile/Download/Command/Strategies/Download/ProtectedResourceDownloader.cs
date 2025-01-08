@@ -8,7 +8,7 @@
     using Hyperar.HUM.Domain.Interfaces;
     using Hyperar.HUM.Shared.Models.Authorization;
 
-    public class ProtectedResourceDownloader : XmlFileDownloader, IFileDownloaderStrategy
+    public class ProtectedResourceDownloader : XmlFileDownloader
     {
         public ProtectedResourceDownloader(
             IRepository<OAuthToken> oauthTokenRepository,

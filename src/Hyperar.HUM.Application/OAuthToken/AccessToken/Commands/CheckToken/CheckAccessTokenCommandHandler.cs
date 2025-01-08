@@ -22,7 +22,7 @@
 
             try
             {
-                var apiResponse = await this.hattrickService.CheckTokenAsync(
+                await this.hattrickService.CheckTokenAsync(
                     new AccessToken(
                         request.UserProfileToken.Token,
                         request.UserProfileToken.Secret,

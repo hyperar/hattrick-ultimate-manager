@@ -8,6 +8,7 @@
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
+    using Hyperar.HUM.Application.Exceptions;
     using Hyperar.HUM.Shared.Models.Chpp.WorldDetails;
 
     public class WorldDetailsParser : XmlParserBase, IFileParseStrategy
@@ -35,7 +36,11 @@
         {
             if (!xmlReader.CheckNode(NodeName.Country))
             {
-                throw new Exception($"Unexpected Node. Expected: {NodeName.Country}. Found: {xmlReader.Name}");
+                throw new BusinessException(
+                    string.Format(
+                        Globalization.ErrorMessages.InvalidXmlElement,
+                        NodeName.Country,
+                        xmlReader.Name));
             }
 
             var available = xmlReader.GetAttribute(NodeName.Available) == bool.TrueString;
@@ -65,7 +70,7 @@
             return country;
         }
 
-        private static async Task<Cup> ReadCupNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<Cup> ReadCupNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
@@ -83,11 +88,15 @@
             return cup;
         }
 
-        private static async Task<IEnumerable<Cup>> ReadCupsNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<IEnumerable<Cup>> ReadCupsNodeAsync(XmlReader xmlReader)
         {
             if (!xmlReader.CheckNode(NodeName.Cups))
             {
-                throw new Exception($"Unexpected Node. Expected: {NodeName.Cups}. Found: {xmlReader.Name}");
+                throw new BusinessException(
+                    string.Format(
+                        Globalization.ErrorMessages.InvalidXmlElement,
+                        NodeName.Cups,
+                        xmlReader.Name));
             }
 
             var cups = new List<Cup>();
@@ -98,8 +107,7 @@
             {
                 cups.Add(
                     await ReadCupNodeAsync(
-                        xmlReader,
-                        cancellationToken));
+                        xmlReader));
             }
 
             await xmlReader.ReadAsync();
@@ -111,7 +119,11 @@
         {
             if (!xmlReader.CheckNode(NodeName.LeagueList))
             {
-                throw new Exception($"Unexpected Node. Expected: {NodeName.LeagueList}. Found: {xmlReader.Name}");
+                throw new BusinessException(
+                    string.Format(
+                        Globalization.ErrorMessages.InvalidXmlElement,
+                        NodeName.LeagueList,
+                        xmlReader.Name));
             }
 
             var leagues = new List<League>();
@@ -147,8 +159,11 @@
                 await xmlReader.ReadStringAsync(),
                 await xmlReader.ReadLongAsync(),
                 await xmlReader.ReadStringAsync(),
-                await ReadCountryNodeAsync(xmlReader, cancellationToken),
-                await ReadCupsNodeAsync(xmlReader, cancellationToken),
+                await ReadCountryNodeAsync(
+                    xmlReader,
+                    cancellationToken),
+                await ReadCupsNodeAsync(
+                    xmlReader),
                 await xmlReader.ReadLongAsync(),
                 await xmlReader.ReadLongAsync(),
                 await xmlReader.ReadIntAsync(),

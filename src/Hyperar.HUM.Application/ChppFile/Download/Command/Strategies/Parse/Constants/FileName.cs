@@ -1,6 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants
 {
-    internal class FileName
+    internal static class FileName
     {
         internal const string CheckToken = "check_token";
 

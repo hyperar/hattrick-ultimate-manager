@@ -44,9 +44,9 @@
             }
             else
             {
-                return value.Contains(comma, StringComparison.CurrentCulture) && numberDecimalSeparator != comma
-                     ? decimal.Parse(value.Replace(comma, numberDecimalSeparator))
-                     : decimal.Parse(value);
+                return decimal.Parse(
+                        NormalizeDecimalValue(
+                            value));
             }
         }
 
@@ -95,11 +95,9 @@
 
             var numberDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 
-            var decimalValue = value.Contains(period, StringComparison.CurrentCulture) && numberDecimalSeparator != period
-                ? decimal.Parse(value.Replace(period, numberDecimalSeparator))
-                : value.Contains(comma, StringComparison.CurrentCulture) && numberDecimalSeparator != comma
-                             ? decimal.Parse(value.Replace(comma, numberDecimalSeparator))
-                             : decimal.Parse(value);
+            var decimalValue = decimal.Parse(
+                    NormalizeDecimalValue(
+                        value));
 
             return nullValue.HasValue && nullValue.Value == decimalValue
                  ? null
@@ -110,7 +108,9 @@
             this XmlReader reader,
             params string[]? expectedNames)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
+            expectedNames ??= Array.Empty<string>();
+
+            if (expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
             {
                 return null;
             }
@@ -129,9 +129,9 @@
             }
             else
             {
-                return value.Contains(comma, StringComparison.CurrentCulture) && numberDecimalSeparator != comma
-                     ? decimal.Parse(value.Replace(comma, numberDecimalSeparator))
-                     : decimal.Parse(value);
+                return decimal.Parse(
+                    NormalizeDecimalValue(
+                        value));
             }
         }
 
@@ -210,6 +210,14 @@
         internal static async Task<string> ReadStringAsync(this XmlReader reader)
         {
             return await reader.ReadElementContentAsStringAsync();
+        }
+
+        private static string NormalizeDecimalValue(string value)
+        {
+            string actualSeparator = value.Single(x => !char.IsDigit(x))
+                .ToString();
+
+            return value.Replace(actualSeparator, CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
         }
     }
 }

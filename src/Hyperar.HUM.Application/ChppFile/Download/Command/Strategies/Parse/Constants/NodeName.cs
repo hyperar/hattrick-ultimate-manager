@@ -1,6 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants
 {
-    internal class NodeName
+    internal static class NodeName
     {
         internal const string Arena = "Arena";
 

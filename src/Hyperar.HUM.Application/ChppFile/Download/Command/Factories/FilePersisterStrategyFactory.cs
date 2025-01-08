@@ -4,6 +4,7 @@
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Persist;
+    using Hyperar.HUM.Application.Exceptions;
     using Hyperar.HUM.Shared.Enums;
 
     public class FilePersisterStrategyFactory : IFilePersisterStrategyFactory
@@ -41,7 +42,11 @@
             }
             else
             {
-                throw new ArgumentOutOfRangeException(nameof(xmlFileDownloadTask));
+                throw new BusinessException(
+                    string.Format(
+                        Globalization.ErrorMessages.TypeOutOfRange,
+                        fileDownloadTask.GetType(),
+                        nameof(fileDownloadTask)));
             }
         }
     }

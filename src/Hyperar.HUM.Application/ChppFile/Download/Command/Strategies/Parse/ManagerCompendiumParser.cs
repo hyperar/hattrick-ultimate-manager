@@ -8,6 +8,7 @@
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
+    using Hyperar.HUM.Application.Exceptions;
     using Hyperar.HUM.Shared.Models.Chpp.ManagerCompendium;
 
     public class ManagerCompendiumParser : XmlParserBase, IFileParseStrategy
@@ -28,11 +29,10 @@
                 fetchetDate,
                 await ReadManagerNodeAsync(
                     xmlReader,
-                    cancellationToken)
-                );
+                    cancellationToken));
         }
 
-        private static async Task<Currency> ReadCurrencyNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<Currency> ReadCurrencyNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
@@ -45,7 +45,7 @@
             return currency;
         }
 
-        private static async Task<IEnumerable<string>> ReadLastLoginsNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<IEnumerable<string>> ReadLastLoginsNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
@@ -62,7 +62,7 @@
             return lastLogins;
         }
 
-        private static async Task<League> ReadLeagueNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<League> ReadLeagueNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
@@ -85,8 +85,7 @@
                 await xmlReader.ReadStringAsync(),
                 await xmlReader.ReadStringAsync(),
                 await ReadLastLoginsNodeAsync(
-                    xmlReader,
-                    cancellationToken),
+                    xmlReader),
                 await ReadIdNameNodeAsync(
                     xmlReader,
                     NodeName.Language,
@@ -96,8 +95,7 @@
                     NodeName.Country,
                     cancellationToken),
                 await ReadCurrencyNodeAsync(
-                    xmlReader,
-                    cancellationToken),
+                    xmlReader),
                 await ReadTeamsNodeAsync(
                     xmlReader,
                     cancellationToken),
@@ -132,8 +130,7 @@
                     NodeName.Arena,
                     cancellationToken),
                 await ReadLeagueNodeAsync(
-                    xmlReader,
-                    cancellationToken),
+                    xmlReader),
                 await ReadIdNameNodeAsync(
                     xmlReader,
                     NodeName.Country,
@@ -161,9 +158,9 @@
         {
             if (!xmlReader.CheckNode(NodeName.Teams))
             {
-                throw new Exception(
+                throw new BusinessException(
                     string.Format(
-                        Globalization.ErrorMessages.UnexpectedNode,
+                        Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.Teams,
                         xmlReader.Name));
             }

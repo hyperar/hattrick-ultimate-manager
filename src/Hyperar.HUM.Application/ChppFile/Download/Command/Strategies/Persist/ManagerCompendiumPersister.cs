@@ -75,7 +75,7 @@
 
                 ArgumentNullException.ThrowIfNull(country);
 
-                manager = await this.managerRepository.InsertAsync(new Domain.Manager
+                await this.managerRepository.InsertAsync(new Domain.Manager
                 {
                     HattrickId = managerNode.UserId,
                     UserName = managerNode.LoginName,

@@ -16,7 +16,7 @@
 
         private readonly IRepository<Domain.OAuthToken> oauthTokenRepository;
 
-        public XmlFileDownloader(
+        protected XmlFileDownloader(
             IRepository<Domain.OAuthToken> oauthTokenRepository,
             IHattrickService hattrickService)
         {
@@ -31,7 +31,7 @@
             ArgumentNullException.ThrowIfNull(xmlFileDownloadTask);
 
             var oauthToken = await this.oauthTokenRepository.Query(x => x.UserProfileId == xmlFileDownloadTask.UserProfileId)
-                .SingleAsync();
+                .SingleAsync(cancellationToken);
 
             xmlFileDownloadTask.FileContent = await this.CallApiAsync(
                 new AccessToken(

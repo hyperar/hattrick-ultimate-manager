@@ -32,10 +32,6 @@
 
                 await this.oauthTokenRepository.DeleteAsync(request.OAuthTokenId);
             }
-            catch
-            {
-                throw;
-            }
             finally
             {
                 await this.databaseContext.EndTransactionAsync();

@@ -97,10 +97,7 @@
             {
                 foreach (var curRegionNode in countryNode.RegionList)
                 {
-                    await this.PersistRegionNodeAsync(
-                        curRegionNode,
-                        country,
-                        cancellationToken);
+                    await this.PersistRegionNodeAsync(curRegionNode, country);
                 }
             }
         }
@@ -112,17 +109,20 @@
         {
             var leagueCup = await this.leagueCupRepository.GetByIdAsync(cupNode.CupId);
 
-            leagueCup ??= await this.leagueCupRepository.InsertAsync(new Domain.LeagueCup
+            if (leagueCup is null)
             {
-                HattrickId = cupNode.CupId,
-                Name = cupNode.CupName,
-                Type = (LeagueCupType)cupNode.CupLevel,
-                SubType = (LeagueCupSubType)cupNode.CupLevelIndex,
-                Level = cupNode.CupLeagueLevel,
-                Week = cupNode.MatchRound,
-                WeeksLeft = cupNode.MatchRoundsLeft,
-                League = league
-            });
+                await this.leagueCupRepository.InsertAsync(new Domain.LeagueCup
+                {
+                    HattrickId = cupNode.CupId,
+                    Name = cupNode.CupName,
+                    Type = (LeagueCupType)cupNode.CupLevel,
+                    SubType = (LeagueCupSubType)cupNode.CupLevelIndex,
+                    Level = cupNode.CupLeagueLevel,
+                    Week = cupNode.MatchRound,
+                    WeeksLeft = cupNode.MatchRoundsLeft,
+                    League = league
+                });
+            }
         }
 
         private async Task<Domain.Currency> PersistCurrencyAsync(
@@ -130,9 +130,9 @@
             decimal currencyRate,
             CancellationToken cancellationToken)
         {
-            var currency = await this.currencyRepository.Query(x => x.Name.ToLower() == currencyName.ToLower()
+            var currency = await this.currencyRepository.Query(x => string.Equals(x.Name, currencyName, StringComparison.OrdinalIgnoreCase)
                                                                  && x.ConvertionRate == currencyRate)
-                .SingleOrDefaultAsync();
+                .SingleOrDefaultAsync(cancellationToken);
 
             if (currency is null)
             {
@@ -225,17 +225,19 @@
 
         private async Task PersistRegionNodeAsync(
             IdName regionNode,
-            Domain.Country country,
-            CancellationToken cancellationToken)
+            Domain.Country country)
         {
             var region = await this.regionRepository.GetByIdAsync(regionNode.Id);
 
-            region ??= await this.regionRepository.InsertAsync(new Domain.Region
+            if (region is null)
             {
-                HattrickId = regionNode.Id,
-                Name = regionNode.Name,
-                Country = country
-            });
+                await this.regionRepository.InsertAsync(new Domain.Region
+                {
+                    HattrickId = regionNode.Id,
+                    Name = regionNode.Name,
+                    Country = country
+                });
+            }
         }
     }
 }
