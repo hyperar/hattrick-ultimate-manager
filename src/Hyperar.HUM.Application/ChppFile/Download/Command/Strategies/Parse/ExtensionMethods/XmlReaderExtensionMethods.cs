@@ -33,8 +33,8 @@
             var value = await reader.ReadElementContentAsStringAsync();
 
             return decimal.Parse(
-                    NormalizeDecimalValue(
-                        value));
+                NormalizeDecimalValue(
+                    value));
         }
 
         internal static async Task<Guid> ReadGuidAsync(this XmlReader reader)
@@ -80,11 +80,9 @@
 
             var value = await reader.ReadElementContentAsStringAsync();
 
-            var numberDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-
             var decimalValue = decimal.Parse(
-                    NormalizeDecimalValue(
-                        value));
+                NormalizeDecimalValue(
+                    value));
 
             return nullValue.HasValue && nullValue.Value == decimalValue
                  ? null
@@ -103,8 +101,6 @@
             }
 
             var value = await reader.ReadElementContentAsStringAsync();
-
-            var numberDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 
             if (string.IsNullOrWhiteSpace(value))
             {
