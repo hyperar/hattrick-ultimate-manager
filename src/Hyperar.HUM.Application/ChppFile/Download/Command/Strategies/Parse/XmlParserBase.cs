@@ -5,6 +5,7 @@
     using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
+    using Hyperar.HUM.Application.Exceptions;
     using Hyperar.HUM.Shared.Models.Chpp;
 
     public abstract class XmlParserBase
@@ -34,7 +35,11 @@
         {
             if (!xmlReader.CheckNode(expectedName))
             {
-                throw new Exception($"Unexpected Node. Expected: {expectedName}. Found: {xmlReader.Name}");
+                throw new BusinessException(
+                    string.Format(
+                        Globalization.ErrorMessages.InvalidXmlElement,
+                        expectedName,
+                        xmlReader.Name));
             }
 
             return await ReadIdNameListNodeInternalAsync(
@@ -51,7 +56,11 @@
         {
             if (!xmlReader.CheckNode(expectedName))
             {
-                throw new Exception($"Unexpected Node. Expected: {expectedName}. Found: {xmlReader.Name}");
+                throw new BusinessException(
+                    string.Format(
+                        Globalization.ErrorMessages.InvalidXmlElement,
+                        expectedName,
+                        xmlReader.Name));
             }
 
             await xmlReader.ReadAsync();
@@ -95,9 +104,9 @@
             }
             else if (!xmlReader.CheckNode(expectedName))
             {
-                throw new Exception(
+                throw new BusinessException(
                     string.Format(
-                        Globalization.ErrorMessages.UnexpectedNode,
+                        Globalization.ErrorMessages.InvalidXmlElement,
                         expectedName,
                         xmlReader.Name));
             }

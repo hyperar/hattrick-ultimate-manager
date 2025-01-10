@@ -61,6 +61,26 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid XML element.
+        ///Expected: {0}.
+        ///Found: {1}..
+        /// </summary>
+        public static string InvalidXmlElement {
+            get {
+                return ResourceManager.GetString("InvalidXmlElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type &apos;{0}&apos; out of range for {1}..
+        /// </summary>
+        public static string TypeOutOfRange {
+            get {
+                return ResourceManager.GetString("TypeOutOfRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unavailable.
         /// </summary>
         public static string UnavailableValue {
@@ -70,20 +90,20 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unexpected Node. Expected: {0}. Found: {1}..
+        ///   Looks up a localized string similar to Unrecognized environment..
         /// </summary>
-        public static string UnexpectedNode {
+        public static string UnrecognizedEnvironment {
             get {
-                return ResourceManager.GetString("UnexpectedNode", resourceCulture);
+                return ResourceManager.GetString("UnrecognizedEnvironment", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown environment.
+        ///   Looks up a localized string similar to Value &apos;{0}&apos; out of range for {1}..
         /// </summary>
-        public static string UnknownEnvironment {
+        public static string ValueOutOfRange {
             get {
-                return ResourceManager.GetString("UnknownEnvironment", resourceCulture);
+                return ResourceManager.GetString("ValueOutOfRange", resourceCulture);
             }
         }
     }

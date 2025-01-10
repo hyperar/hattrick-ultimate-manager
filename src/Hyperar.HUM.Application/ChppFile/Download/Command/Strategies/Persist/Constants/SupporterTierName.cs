@@ -1,6 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Persist.Constants
 {
-    internal class SupporterTierName
+    internal static class SupporterTierName
     {
         internal const string Diamond = "diamond";
 

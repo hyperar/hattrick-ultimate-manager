@@ -6,7 +6,7 @@
     using System.Threading.Tasks;
     using Hyperar.HUM.Shared.Models.Chpp;
 
-    public class ImageHelpers
+    public static class ImageHelpers
     {
         internal const string FlagUrlMask = "/Img/flags/{0}.png";
 

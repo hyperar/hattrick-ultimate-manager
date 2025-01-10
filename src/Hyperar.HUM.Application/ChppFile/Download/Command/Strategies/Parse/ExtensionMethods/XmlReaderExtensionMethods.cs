@@ -7,10 +7,6 @@
 
     internal static class XmlReaderMethods
     {
-        private const string comma = ",";
-
-        private const string period = ".";
-
         internal static bool CheckNode(this XmlReader reader, params string[] expectedNames)
         {
             return Array.Exists(expectedNames, x => x.Equals(reader.Name, StringComparison.OrdinalIgnoreCase));
@@ -36,18 +32,9 @@
         {
             var value = await reader.ReadElementContentAsStringAsync();
 
-            var numberDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-
-            if (value.Contains(period, StringComparison.CurrentCulture) && numberDecimalSeparator != period)
-            {
-                return decimal.Parse(value.Replace(period, numberDecimalSeparator));
-            }
-            else
-            {
-                return value.Contains(comma, StringComparison.CurrentCulture) && numberDecimalSeparator != comma
-                     ? decimal.Parse(value.Replace(comma, numberDecimalSeparator))
-                     : decimal.Parse(value);
-            }
+            return decimal.Parse(
+                NormalizeDecimalValue(
+                    value));
         }
 
         internal static async Task<Guid> ReadGuidAsync(this XmlReader reader)
@@ -93,13 +80,9 @@
 
             var value = await reader.ReadElementContentAsStringAsync();
 
-            var numberDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-
-            var decimalValue = value.Contains(period, StringComparison.CurrentCulture) && numberDecimalSeparator != period
-                ? decimal.Parse(value.Replace(period, numberDecimalSeparator))
-                : value.Contains(comma, StringComparison.CurrentCulture) && numberDecimalSeparator != comma
-                             ? decimal.Parse(value.Replace(comma, numberDecimalSeparator))
-                             : decimal.Parse(value);
+            var decimalValue = decimal.Parse(
+                NormalizeDecimalValue(
+                    value));
 
             return nullValue.HasValue && nullValue.Value == decimalValue
                  ? null
@@ -110,28 +93,24 @@
             this XmlReader reader,
             params string[]? expectedNames)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
+            expectedNames ??= Array.Empty<string>();
+
+            if (expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
             {
                 return null;
             }
 
             var value = await reader.ReadElementContentAsStringAsync();
 
-            var numberDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-
             if (string.IsNullOrWhiteSpace(value))
             {
                 return null;
             }
-            else if (value.Contains(period, StringComparison.CurrentCulture) && numberDecimalSeparator != period)
-            {
-                return decimal.Parse(value.Replace(period, numberDecimalSeparator));
-            }
             else
             {
-                return value.Contains(comma, StringComparison.CurrentCulture) && numberDecimalSeparator != comma
-                     ? decimal.Parse(value.Replace(comma, numberDecimalSeparator))
-                     : decimal.Parse(value);
+                return decimal.Parse(
+                    NormalizeDecimalValue(
+                        value));
             }
         }
 
@@ -210,6 +189,14 @@
         internal static async Task<string> ReadStringAsync(this XmlReader reader)
         {
             return await reader.ReadElementContentAsStringAsync();
+        }
+
+        private static string NormalizeDecimalValue(string value)
+        {
+            string actualSeparator = value.Single(x => !char.IsDigit(x))
+                .ToString();
+
+            return value.Replace(actualSeparator, CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
         }
     }
 }

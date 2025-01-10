@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -9,18 +10,20 @@
         <StartupObject>Hyperar.HUM.UserInterface.Program</StartupObject>
         <PackageIcon></PackageIcon>
     </PropertyGroup>
+
     <ItemGroup>
-      <None Remove="Assets\Images\BotTeamLogo.png" />
-      <None Remove="Assets\Images\DefaultManagerAvatar.png" />
-      <None Remove="Assets\Images\DefaultTeamLogo.png" />
-      <None Remove="Assets\Images\Logo_256.png" />
+        <None Remove="Assets\Images\BotTeamLogo.png" />
+        <None Remove="Assets\Images\DefaultManagerAvatar.png" />
+        <None Remove="Assets\Images\DefaultTeamLogo.png" />
+        <None Remove="Assets\Images\Logo_256.png" />
     </ItemGroup>
+
     <ItemGroup>
-      <AvaloniaResource Include="Assets\Images\BotTeamLogo.png" />
-      <AvaloniaResource Include="Assets\Images\DefaultCountryFlag.png" />
-      <AvaloniaResource Include="Assets\Images\DefaultManagerAvatar.png" />
-      <AvaloniaResource Include="Assets\Images\DefaultTeamLogo.png" />
-      <AvaloniaResource Include="Assets\Images\Logo_256.png" />
+        <AvaloniaResource Include="Assets\Images\BotTeamLogo.png" />
+        <AvaloniaResource Include="Assets\Images\DefaultCountryFlag.png" />
+        <AvaloniaResource Include="Assets\Images\DefaultManagerAvatar.png" />
+        <AvaloniaResource Include="Assets\Images\DefaultTeamLogo.png" />
+        <AvaloniaResource Include="Assets\Images\Logo_256.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -38,8 +41,8 @@
         <PackageReference Include="MediatR" Version="12.4.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
@@ -65,7 +68,7 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
         <None Update="appSettings.keys.json">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
         <None Update="appSettings.production.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -77,11 +80,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="SplashScreenWindow.axaml.cs">
-        <DependentUpon>SplashScreenWindow.axaml</DependentUpon>
-      </Compile>
-      <Compile Update="Views\AuthorizationView.axaml.cs">
-        <DependentUpon>AuthorizationView.axaml</DependentUpon>
-      </Compile>
+        <Compile Update="SplashScreenWindow.axaml.cs">
+            <DependentUpon>SplashScreenWindow.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\AuthorizationView.axaml.cs">
+            <DependentUpon>AuthorizationView.axaml</DependentUpon>
+        </Compile>
     </ItemGroup>
+
 </Project>

@@ -2,6 +2,7 @@
 {
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
+    using Hyperar.HUM.Application.Exceptions;
     using Hyperar.HUM.Shared.Enums;
 
     public class FileDownloadTaskStepFactory : IFileDownloadTaskStepFactory
@@ -34,7 +35,11 @@
                 DownloadTaskStatus.Downloaded => this.fileDownloadTaskParser,
                 DownloadTaskStatus.Read => this.fileDownloadTaskExtractor,
                 DownloadTaskStatus.Processed => this.fileDownloadTaskPersister,
-                _ => throw new ArgumentOutOfRangeException(nameof(fileDownloadTask.Status))
+                _ => throw new BusinessException(
+                    string.Format(
+                        Globalization.ErrorMessages.ValueOutOfRange,
+                        fileDownloadTask.Status,
+                        nameof(fileDownloadTask.Status)))
             };
         }
     }

@@ -54,9 +54,14 @@
 
                 for (var i = 0; i < downloadTasks.Count; i++)
                 {
-                    while (downloadTasks.ElementAt(i).Status != DownloadTaskStatus.Finished)
+                    while (downloadTasks[i].Status != DownloadTaskStatus.Finished)
                     {
-                        var currentTask = downloadTasks.ElementAt(i);
+                        /*
+                         * IMPORTANT:
+                         * CurrentTask gets created here because IFileDownloadTaskExtractor can insert new tasks at the current index
+                         * and those new tasks need to be finished before the original task gets to IFileDownloadTaskPersister step.
+                         */
+                        var currentTask = downloadTasks[i];
 
                         // Get Step.
                         var fileDownloadTaskStep = this.fileDownloadTaskStepFactory.GetNextStep(currentTask);

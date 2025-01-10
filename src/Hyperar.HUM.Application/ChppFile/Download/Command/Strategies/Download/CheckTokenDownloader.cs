@@ -8,7 +8,7 @@
     using Hyperar.HUM.Domain.Interfaces;
     using Hyperar.HUM.Shared.Models.Authorization;
 
-    public class CheckTokenDownloader : XmlFileDownloader, IFileDownloaderStrategy
+    public class CheckTokenDownloader : XmlFileDownloader
     {
         public CheckTokenDownloader(
             IRepository<Domain.OAuthToken> oauthTokenRepository,

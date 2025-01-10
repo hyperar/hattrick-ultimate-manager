@@ -21,7 +21,7 @@
             UserProfileToken? response = null;
 
             var oauthToken = await this.oauthTokenRepository.Query(x => x.UserProfileId == request.UserProfileId)
-                .SingleOrDefaultAsync();
+                .SingleOrDefaultAsync(cancellationToken);
 
             if (oauthToken is not null)
             {

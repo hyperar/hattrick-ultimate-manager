@@ -120,10 +120,18 @@
   <data name="UnavailableValue" xml:space="preserve">
     <value>Unavailable</value>
   </data>
-  <data name="UnexpectedNode" xml:space="preserve">
-    <value>Unexpected Node. Expected: {0}. Found: {1}.</value>
+  <data name="InvalidXmlElement" xml:space="preserve">
+    <value>Invalid XML element.
+Expected: {0}.
+Found: {1}.</value>
   </data>
-  <data name="UnknownEnvironment" xml:space="preserve">
-    <value>Unknown environment</value>
+  <data name="UnrecognizedEnvironment" xml:space="preserve">
+    <value>Unrecognized environment.</value>
+  </data>
+  <data name="ValueOutOfRange" xml:space="preserve">
+    <value>Value '{0}' out of range for {1}.</value>
+  </data>
+  <data name="TypeOutOfRange" xml:space="preserve">
+    <value>Type '{0}' out of range for {1}.</value>
   </data>
 </root>
