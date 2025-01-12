@@ -20,4 +20,8 @@
       <ProjectReference Include="..\Hyperar.HUM.Shared\Hyperar.HUM.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="Hyperar.HUM.Application.UnitTest" />
+    </ItemGroup>
+
 </Project>

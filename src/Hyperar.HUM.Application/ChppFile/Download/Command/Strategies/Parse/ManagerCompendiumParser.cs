@@ -37,8 +37,8 @@
             await xmlReader.ReadAsync();
 
             var currency = new Currency(
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadDecimalAsync());
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsDecimal());
 
             await xmlReader.ReadAsync();
 
@@ -54,7 +54,7 @@
             while (xmlReader.CheckNode(NodeName.LoginTime))
             {
                 lastLogins.Add(
-                    await xmlReader.ReadStringAsync());
+                    (await xmlReader.ReadValueAsync()).AsString());
             }
 
             await xmlReader.ReadAsync();
@@ -67,9 +67,9 @@
             await xmlReader.ReadAsync();
 
             var league = new League(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadIntAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsInt());
 
             await xmlReader.ReadAsync();
 
@@ -81,9 +81,9 @@
             await xmlReader.ReadAsync();
 
             var manager = new Manager(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadStringAsync(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadLastLoginsNodeAsync(
                     xmlReader),
                 await ReadIdNameNodeAsync(
@@ -123,8 +123,8 @@
             await xmlReader.ReadAsync();
 
             var team = new Team(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadIdNameNodeAsync(
                     xmlReader,
                     NodeName.Arena,
@@ -191,8 +191,8 @@
                 await xmlReader.ReadAsync();
 
                 youthTeam = new YouthTeam(
-                   await xmlReader.ReadLongAsync(),
-                   await xmlReader.ReadStringAsync(),
+                   (await xmlReader.ReadValueAsync()).AsLong(),
+                   (await xmlReader.ReadValueAsync()).AsString(),
                    await ReadNullableIdNameNodeAsync(
                        xmlReader,
                        NodeName.YouthLeague,

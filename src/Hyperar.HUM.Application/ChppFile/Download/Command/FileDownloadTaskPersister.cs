@@ -30,7 +30,11 @@
         {
             try
             {
-                var persister = this.filePersisterStrategyFactory.GetFor(fileDownloadTask);
+                var xmlFileDownloadTask = fileDownloadTask as XmlFileDownloadTask;
+
+                ArgumentNullException.ThrowIfNull(xmlFileDownloadTask);
+
+                var persister = this.filePersisterStrategyFactory.GetFor(xmlFileDownloadTask.XmlFile);
 
                 await persister.PersistFileAsync(fileDownloadTask, cancellationToken);
 

@@ -43,19 +43,19 @@
                         xmlReader.Name));
             }
 
-            var available = xmlReader.GetAttribute(NodeName.Available) == bool.TrueString;
+            var available = xmlReader.GetAttribute(NodeName.Available).AsBool();
 
             await xmlReader.ReadAsync();
 
             var country = new Country(
                 available,
-                available ? await xmlReader.ReadLongAsync() : null,
-                available ? await xmlReader.ReadStringAsync() : null,
-                available ? await xmlReader.ReadStringAsync() : null,
-                available ? await xmlReader.ReadDecimalAsync() : null,
-                available ? await xmlReader.ReadStringAsync() : null,
-                available ? await xmlReader.ReadStringAsync() : null,
-                available ? await xmlReader.ReadStringAsync() : null,
+                available ? (await xmlReader.ReadValueAsync()).AsLong() : null,
+                available ? (await xmlReader.ReadValueAsync()).AsString() : null,
+                available ? (await xmlReader.ReadValueAsync()).AsString() : null,
+                available ? (await xmlReader.ReadValueAsync()).AsDecimal() : null,
+                available ? (await xmlReader.ReadValueAsync()).AsString() : null,
+                available ? (await xmlReader.ReadValueAsync()).AsString() : null,
+                available ? (await xmlReader.ReadValueAsync()).AsString() : null,
                 await ReadNullableIdNameListNodeAsync(
                     xmlReader,
                     NodeName.RegionList,
@@ -75,13 +75,13 @@
             await xmlReader.ReadAsync();
 
             var cup = new Cup(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt());
 
             await xmlReader.ReadAsync();
 
@@ -148,37 +148,37 @@
             await xmlReader.ReadAsync();
 
             var league = new League(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadCountryNodeAsync(
                     xmlReader,
                     cancellationToken),
                 await ReadCupsNodeAsync(
                     xmlReader),
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadIntAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadIntAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsInt());
 
             await xmlReader.ReadAsync();
 

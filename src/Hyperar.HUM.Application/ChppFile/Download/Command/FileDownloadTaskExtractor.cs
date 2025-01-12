@@ -24,7 +24,11 @@
         {
             try
             {
-                var extractor = this.fileExtractStrategyFactory.GetFor(fileDownloadTask);
+                var xmlFileDownloadTask = fileDownloadTask as XmlFileDownloadTask;
+
+                ArgumentNullException.ThrowIfNull(xmlFileDownloadTask);
+
+                var extractor = this.fileExtractStrategyFactory.GetFor(xmlFileDownloadTask.XmlFile);
 
                 await extractor.ExecuteFileExtractionAsync(fileDownloadTask, fileDownloadTasks, cancellationToken);
 

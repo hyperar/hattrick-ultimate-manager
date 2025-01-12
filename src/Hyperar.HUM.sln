@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.Shared", "Hyper
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.ChppApiClient", "Hyperar.HUM.ChppApiClient\Hyperar.HUM.ChppApiClient.csproj", "{44D7AEA0-19C6-491B-98BD-88D76F4E5BFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.Application.UnitTest", "Hyperar.HUM.Application.UnitTest\Hyperar.HUM.Application.UnitTest.csproj", "{9AD70CF5-A050-4EDE-AA25-861EDD3C79FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{44D7AEA0-19C6-491B-98BD-88D76F4E5BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44D7AEA0-19C6-491B-98BD-88D76F4E5BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44D7AEA0-19C6-491B-98BD-88D76F4E5BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD70CF5-A050-4EDE-AA25-861EDD3C79FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD70CF5-A050-4EDE-AA25-861EDD3C79FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD70CF5-A050-4EDE-AA25-861EDD3C79FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD70CF5-A050-4EDE-AA25-861EDD3C79FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

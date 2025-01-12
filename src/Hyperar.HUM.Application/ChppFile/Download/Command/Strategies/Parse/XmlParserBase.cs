@@ -1,6 +1,5 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse
 {
-    using System;
     using System.Threading.Tasks;
     using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
@@ -16,7 +15,7 @@
             await xmlReader.ReadAsync();
 
             var result = new Avatar(
-                await xmlReader.ReadStringAsync(),
+                (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadLayerNodes(
                     xmlReader,
                     cancellationToken));
@@ -66,8 +65,8 @@
             await xmlReader.ReadAsync();
 
             var node = new IdName(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString());
 
             await xmlReader.ReadAsync();
 
@@ -114,8 +113,8 @@
             await xmlReader.ReadAsync();
 
             var node = new IdName(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString());
 
             await xmlReader.ReadAsync();
 
@@ -148,15 +147,15 @@
 
         private static async Task<Layer> ReadLayerNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
         {
-            var x = int.Parse(xmlReader.GetAttribute(NodeName.X) ?? "0");
-            var y = int.Parse(xmlReader.GetAttribute(NodeName.Y) ?? "0");
+            var x = xmlReader.GetAttribute(NodeName.X).AsInt();
+            var y = xmlReader.GetAttribute(NodeName.Y).AsInt();
 
             await xmlReader.ReadAsync();
 
             var result = new Layer(
                 x,
                 y,
-                await xmlReader.ReadStringAsync());
+                (await xmlReader.ReadValueAsync()).AsString());
 
             await xmlReader.ReadAsync();
 

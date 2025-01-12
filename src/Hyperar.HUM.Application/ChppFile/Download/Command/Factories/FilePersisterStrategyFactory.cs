@@ -1,10 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Factories
 {
-    using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Persist;
-    using Hyperar.HUM.Application.Exceptions;
     using Hyperar.HUM.Shared.Enums;
 
     public class FilePersisterStrategyFactory : IFilePersisterStrategyFactory
@@ -25,29 +22,14 @@
             this.worldDetailsPersister = worldDetailsPersister;
         }
 
-        public IFilePersisterStrategy GetFor(FileDownloadTaskBase fileDownloadTask)
+        public IFilePersisterStrategy GetFor(XmlFileType xmlFile)
         {
-            if (fileDownloadTask is XmlFileDownloadTask xmlFileDownloadTask)
+            return xmlFile switch
             {
-                return xmlFileDownloadTask.XmlFile switch
-                {
-                    XmlFileType.ManagerCompendium => this.managerCompendiumPersister,
-                    XmlFileType.WorldDetails => this.worldDetailsPersister,
-                    _ => this.emptyPersister
-                };
-            }
-            else if (fileDownloadTask is ImageFileDownloadTask)
-            {
-                return this.emptyPersister;
-            }
-            else
-            {
-                throw new BusinessException(
-                    string.Format(
-                        Globalization.ErrorMessages.TypeOutOfRange,
-                        fileDownloadTask.GetType(),
-                        nameof(fileDownloadTask)));
-            }
+                XmlFileType.ManagerCompendium => this.managerCompendiumPersister,
+                XmlFileType.WorldDetails => this.worldDetailsPersister,
+                _ => this.emptyPersister
+            };
         }
     }
 }
