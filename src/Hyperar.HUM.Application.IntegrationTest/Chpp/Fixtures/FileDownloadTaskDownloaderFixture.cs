@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Application.UnitTest.ChppFile.Fixtures
+﻿namespace Hyperar.HUM.Application.IntegrationTest.Chpp.Fixtures
 {
     using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
@@ -16,9 +16,9 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class FileDownloadTaskStepFactoryFixture
+    public class FileDownloadTaskDownloaderFixture
     {
-        public FileDownloadTaskStepFactoryFixture()
+        public FileDownloadTaskDownloaderFixture()
         {
             var services = new ServiceCollection();
 
