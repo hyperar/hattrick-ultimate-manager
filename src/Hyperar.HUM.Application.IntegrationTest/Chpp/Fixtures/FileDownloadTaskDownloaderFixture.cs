@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.IntegrationTest.Chpp.Fixtures
 {
     using System;
+    using System.Reflection;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Factories;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
@@ -30,6 +31,14 @@
             }
 
             services.AddSingleton<IConfiguration>((services) => new ConfigurationBuilder().AddJsonFile("appSettings.json").Build());
+
+            services.AddMediatR((config) =>
+            {
+                config.Lifetime = ServiceLifetime.Scoped;
+
+                config.RegisterServicesFromAssembly(
+                    Assembly.Load("Hyperar.HUM.Application"));
+            });
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IHattrickRepository<>), typeof(HattrickRepository<>));
@@ -71,6 +80,8 @@
             services.AddScoped<EmptyPersister>();
             services.AddScoped<ManagerCompendiumPersister>();
             services.AddScoped<WorldDetailsPersister>();
+
+            WireMockServerFactory.GetServer();
 
             this.Services = services.BuildServiceProvider();
         }
