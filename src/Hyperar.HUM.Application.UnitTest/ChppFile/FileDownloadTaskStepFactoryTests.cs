@@ -3,15 +3,15 @@
     using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
-    using Hyperar.HUM.Application.UnitTest.ChppFile.Fixtures;
+    using Hyperar.HUM.Application.UnitTest;
     using Hyperar.HUM.Shared.Enums;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class FileDownloadTaskStepFactoryTests : IClassFixture<FileDownloadTaskStepFactoryFixture>
+    public class FileDownloadTaskStepFactoryTests : IClassFixture<ServicesFixture>
     {
         private readonly IServiceProvider services;
 
-        public FileDownloadTaskStepFactoryTests(FileDownloadTaskStepFactoryFixture fixture)
+        public FileDownloadTaskStepFactoryTests(ServicesFixture fixture)
         {
             this.services = fixture.Services;
         }

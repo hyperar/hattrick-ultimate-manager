@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Application.UnitTest.ChppFile.Fixtures
+﻿namespace Hyperar.HUM.Application.UnitTest
 {
     using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
@@ -16,9 +16,27 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class FileDownloadTaskStepFactoryFixture
+    public class ServicesFixture
     {
-        public FileDownloadTaskStepFactoryFixture()
+        private const string AccessTokenKeyName = "OAuth:Endpoints:Base:AccessToken";
+
+        private const string AuthorizeKeyName = "OAuth:Endpoints:Base:Authorize";
+
+        private const string CallbackKeyName = "OAuth:Endpoints:Base:Callback";
+
+        private const string CheckTokenKeyName = "OAuth:Endpoints:Base:CheckToken";
+
+        private const string ConsumerKeyKeyName = "OAuth:ConsumerKey";
+
+        private const string ConsumerSecretKeyName = "OAuth:ConsumerSecret";
+
+        private const string InvalidateTokenKeyName = "OAuth:Endpoints:Base:InvalidateToken";
+
+        private const string RequestTokenKeyName = "OAuth:Endpoints:Base:RequestToken";
+
+        private const string UserAgentKeyName = "OAuth:UserAgent";
+
+        public ServicesFixture()
         {
             var services = new ServiceCollection();
 
@@ -38,7 +56,46 @@
             // Services.
             services.AddScoped<IFileDownloadTaskFactory, FileDownloadTaskFactory>();
             services.AddSingleton<IProtectedResourceUrlFactory, ProtectedResourceUrlFactory>();
-            services.AddSingleton<IHattrickService, HattrickService>();
+
+            // Hattrick API client.
+            services.AddSingleton<IHattrickService, HattrickService>((services) =>
+            {
+                var configuration = services.GetRequiredService<IConfiguration>();
+
+                var accessTokenUrl = configuration[AccessTokenKeyName];
+                var authorizationUrl = configuration[AuthorizeKeyName];
+                var callbackUrl = configuration[CallbackKeyName];
+                var checkTokenUrl = configuration[CheckTokenKeyName];
+                var invalidateTokenUrl = configuration[InvalidateTokenKeyName];
+                var requestTokenUrl = configuration[RequestTokenKeyName];
+                var consumerKey = configuration[ConsumerKeyKeyName];
+                var consumerSecret = configuration[ConsumerSecretKeyName];
+                var userAgent = configuration[UserAgentKeyName];
+
+                ArgumentException.ThrowIfNullOrWhiteSpace(accessTokenUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(authorizationUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(callbackUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(checkTokenUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(invalidateTokenUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(requestTokenUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(consumerKey);
+                ArgumentException.ThrowIfNullOrWhiteSpace(consumerSecret);
+                ArgumentException.ThrowIfNullOrWhiteSpace(userAgent);
+
+                var hattrickService = new HattrickService(
+                    accessTokenUrl,
+                    authorizationUrl,
+                    callbackUrl,
+                    checkTokenUrl,
+                    invalidateTokenUrl,
+                    requestTokenUrl,
+                    consumerKey,
+                    consumerSecret,
+                    userAgent,
+                    services.GetRequiredService<IProtectedResourceUrlFactory>());
+
+                return hattrickService;
+            });
 
             // Steps.
             services.AddScoped<IFileDownloadTaskStepFactory, FileDownloadTaskStepFactory>();

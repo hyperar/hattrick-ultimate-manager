@@ -16,8 +16,7 @@
             {
                 if (server == null)
                 {
-                    //server = WireMockServer.Start(new string[] { "https://localhost:12345" });
-                    server = WireMockServer.Start();
+                    server = WireMockServer.Start(null, true, false);
 
                     // GetRequestToken => 200 OK.
                     server.Given(

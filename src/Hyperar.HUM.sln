@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.Application.Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.Application.IntegrationTest", "Hyperar.HUM.Application.IntegrationTest\Hyperar.HUM.Application.IntegrationTest.csproj", "{35C9DADD-6218-4DE9-9344-FF2A1EBE556D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{67B4924D-2BDE-427F-A107-AD5658ED99C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9AD70CF5-A050-4EDE-AA25-861EDD3C79FF} = {67B4924D-2BDE-427F-A107-AD5658ED99C3}
+		{35C9DADD-6218-4DE9-9344-FF2A1EBE556D} = {67B4924D-2BDE-427F-A107-AD5658ED99C3}
 	EndGlobalSection
 EndGlobal

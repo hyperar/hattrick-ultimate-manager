@@ -3,17 +3,17 @@
     using System;
     using System.Net;
     using System.Threading.Tasks;
-    using Hyperar.HUM.Application.IntegrationTest.Chpp.Fixtures;
+    using Hyperar.HUM.Application.IntegrationTest;
     using Hyperar.HUM.Application.IntegrationTest.Constants;
     using Hyperar.HUM.ChppApiClient.Interfaces;
     using Hyperar.HUM.Shared.Models.Authorization;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class FileDownloadTaskDownloaderTests : IClassFixture<FileDownloadTaskDownloaderFixture>
+    public class FileDownloadTaskDownloaderTests : IClassFixture<ServicesFixture>
     {
         private readonly IServiceProvider services;
 
-        public FileDownloadTaskDownloaderTests(FileDownloadTaskDownloaderFixture fixture)
+        public FileDownloadTaskDownloaderTests(ServicesFixture fixture)
         {
             this.services = fixture.Services;
 

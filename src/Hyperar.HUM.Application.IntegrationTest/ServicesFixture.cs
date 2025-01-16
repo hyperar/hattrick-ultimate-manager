@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Application.IntegrationTest.Chpp.Fixtures
+﻿namespace Hyperar.HUM.Application.IntegrationTest
 {
     using System;
     using System.Reflection;
@@ -17,9 +17,27 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class FileDownloadTaskDownloaderFixture
+    public class ServicesFixture
     {
-        public FileDownloadTaskDownloaderFixture()
+        private const string AccessTokenKeyName = "OAuth:Endpoints:Base:AccessToken";
+
+        private const string AuthorizeKeyName = "OAuth:Endpoints:Base:Authorize";
+
+        private const string CallbackKeyName = "OAuth:Endpoints:Base:Callback";
+
+        private const string CheckTokenKeyName = "OAuth:Endpoints:Base:CheckToken";
+
+        private const string ConsumerKeyKeyName = "OAuth:ConsumerKey";
+
+        private const string ConsumerSecretKeyName = "OAuth:ConsumerSecret";
+
+        private const string InvalidateTokenKeyName = "OAuth:Endpoints:Base:InvalidateToken";
+
+        private const string RequestTokenKeyName = "OAuth:Endpoints:Base:RequestToken";
+
+        private const string UserAgentKeyName = "OAuth:UserAgent";
+
+        public ServicesFixture()
         {
             var services = new ServiceCollection();
 
@@ -47,7 +65,49 @@
             // Services.
             services.AddScoped<IFileDownloadTaskFactory, FileDownloadTaskFactory>();
             services.AddSingleton<IProtectedResourceUrlFactory, ProtectedResourceUrlFactory>();
-            services.AddSingleton<IHattrickService, HattrickService>();
+
+            // Hattrick API client.
+            services.AddSingleton<IHattrickService, HattrickService>((services) =>
+            {
+                var configuration = services.GetRequiredService<IConfiguration>();
+
+                var wireMockServer = WireMockServerFactory.GetServer();
+
+                var accessTokenUrlMask = configuration[AccessTokenKeyName];
+                var authorizationUrlMask = configuration[AuthorizeKeyName];
+                var callbackUrlMask = configuration[CallbackKeyName];
+                var checkTokenUrlMask = configuration[CheckTokenKeyName];
+                var invalidateTokenUrlMask = configuration[InvalidateTokenKeyName];
+                var requestTokenUrlMask = configuration[RequestTokenKeyName];
+
+                var consumerKey = configuration[ConsumerKeyKeyName];
+                var consumerSecret = configuration[ConsumerSecretKeyName];
+                var userAgent = configuration[UserAgentKeyName];
+
+                ArgumentException.ThrowIfNullOrWhiteSpace(accessTokenUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(authorizationUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(callbackUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(checkTokenUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(invalidateTokenUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(requestTokenUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(consumerKey);
+                ArgumentException.ThrowIfNullOrWhiteSpace(consumerSecret);
+                ArgumentException.ThrowIfNullOrWhiteSpace(userAgent);
+
+                var hattrickService = new HattrickService(
+                    string.Format(accessTokenUrlMask, wireMockServer.Port),
+                    string.Format(authorizationUrlMask, wireMockServer.Port),
+                    string.Format(callbackUrlMask, wireMockServer.Port),
+                    string.Format(checkTokenUrlMask, wireMockServer.Port),
+                    string.Format(invalidateTokenUrlMask, wireMockServer.Port),
+                    string.Format(requestTokenUrlMask, wireMockServer.Port),
+                    consumerKey,
+                    consumerSecret,
+                    userAgent,
+                    services.GetRequiredService<IProtectedResourceUrlFactory>());
+
+                return hattrickService;
+            });
 
             // Steps.
             services.AddScoped<IFileDownloadTaskStepFactory, FileDownloadTaskStepFactory>();
@@ -81,7 +141,7 @@
             services.AddScoped<ManagerCompendiumPersister>();
             services.AddScoped<WorldDetailsPersister>();
 
-            WireMockServerFactory.GetServer();
+            var wireMockServer = WireMockServerFactory.GetServer();
 
             this.Services = services.BuildServiceProvider();
         }
