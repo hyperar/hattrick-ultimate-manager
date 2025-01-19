@@ -32,14 +32,6 @@ jobs:
     - name: Build
       uses: microsoft/setup-msbuild@v2
 
-    - name: Clean SSL Certificate
-      run: dotnet dev-certs https --clean
-      shell: pwsh
-
-    - name: Trust SSL Certificate
-      run: dotnet dev-certs https --trust -q
-      shell: pwsh
-
     - name: Execute Tests
       run: dotnet test $env:Solution_Name
 

@@ -17,8 +17,13 @@
             {
                 if (server == null)
                 {
-                    server = WireMockServer.Start(null, true, false);
-
+                    server = WireMockServer.Start(new WireMock.Settings.WireMockServerSettings()
+                    {
+                        AcceptAnyClientCertificate = true,
+                        Port = null,
+                        UseHttp2 = false,
+                        UseSSL = true
+                    });
                     // GetRequestToken Valid Consumer => 200 OK.
                     server.Given(
                         Request.Create()
