@@ -1,5 +1,8 @@
 ﻿namespace Hyperar.HUM.ChppApiClient
 {
+    using System.Net;
+    using System.Net.Security;
+    using System.Security.Cryptography.X509Certificates;
     using Hyperar.HUM.ChppApiClient.Constants;
     using WireMock.RequestBuilders;
     using WireMock.ResponseBuilders;
@@ -18,14 +21,9 @@
             {
                 if (server == null)
                 {
-                    server = WireMockServer.Start(new WireMock.Settings.WireMockServerSettings()
-                    {
-                        AcceptAnyClientCertificate = true,
-                        ClientCertificateMode = ClientCertificateMode.NoCertificate,
-                        Port = null,
-                        UseHttp2 = false,
-                        UseSSL = true
-                    });
+                    ServicePointManager.ServerCertificateValidationCallback += ValidateRemoteCertificate;
+
+                    server = WireMockServer.Start(null, true, false);
 
                     // GetRequestToken Valid Consumer => 200 OK.
                     server.Given(
@@ -188,6 +186,11 @@
 
                 return server.Port;
             }
+        }
+
+        private static bool ValidateRemoteCertificate(object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return sslPolicyErrors == SslPolicyErrors.None;
         }
     }
 }
