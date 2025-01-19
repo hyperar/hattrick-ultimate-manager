@@ -4,6 +4,8 @@
     using WireMock.RequestBuilders;
     using WireMock.ResponseBuilders;
     using WireMock.Server;
+    using WireMock.Settings;
+    using WireMock.Types;
 
     public static class WireMockServerFactory
     {
@@ -17,7 +19,15 @@
             {
                 if (server == null)
                 {
-                    server = WireMockServer.Start(null, true, false);
+                    server = WireMockServer.Start(new
+                    WireMockServerSettings
+                    {
+                        AcceptAnyClientCertificate = true,
+                        ClientCertificateMode = ClientCertificateMode.NoCertificate,
+                        Port = null,
+                        UseHttp2 = false,
+                        UseSSL = true
+                    });
 
                     // GetRequestToken Valid Consumer => 200 OK.
                     server.Given(
