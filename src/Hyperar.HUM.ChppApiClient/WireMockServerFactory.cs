@@ -24,27 +24,9 @@
             {
                 if (server == null)
                 {
-                    X509Store store = new X509Store("Root", StoreLocation.CurrentUser);
+                    ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
-                    store.Open(OpenFlags.ReadOnly);
-
-                    X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByIssuerName, "localhost", true);
-
-                    var x509Certificate = col.First();
-
-                    server = WireMockServer.Start(
-                        new WireMockServerSettings
-                        {
-                            Port = null,
-                            UseHttp2 = false,
-                            UseSSL = true,
-                            CertificateSettings = new WireMockCertificateSettings
-                            {
-                                X509StoreName = "Root",
-                                X509StoreLocation = "CurrentUser",
-                                X509StoreThumbprintOrSubjectName = x509Certificate.Thumbprint,
-                            }
-                        });
+                    server = WireMockServer.Start(null, true, false);
 
                     // GetRequestToken Valid Consumer => 200 OK.
                     server.Given(
