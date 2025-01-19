@@ -3,6 +3,7 @@
     using System.Net;
     using System.Net.Http;
     using System.Net.Security;
+    using System.Security.AccessControl;
     using System.Security.Cryptography.X509Certificates;
     using Hyperar.HUM.ChppApiClient.Constants;
     using WireMock.RequestBuilders;
@@ -23,6 +24,14 @@
             {
                 if (server == null)
                 {
+                    X509Store store = new X509Store("Root", StoreLocation.CurrentUser);
+
+                    store.Open(OpenFlags.ReadOnly);
+
+                    X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByIssuerName, "localhost", true);
+
+                    var x509Certificate = col.First();
+
                     server = WireMockServer.Start(
                         new WireMockServerSettings
                         {
@@ -33,7 +42,7 @@
                             {
                                 X509StoreName = "Root",
                                 X509StoreLocation = "CurrentUser",
-                                X509StoreThumbprintOrSubjectName = "localhost",
+                                X509StoreThumbprintOrSubjectName = x509Certificate.Thumbprint,
                             }
                         });
 
