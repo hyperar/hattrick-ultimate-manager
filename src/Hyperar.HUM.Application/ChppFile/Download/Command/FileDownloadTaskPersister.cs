@@ -30,15 +30,14 @@
         {
             try
             {
-                var xmlFileDownloadTask = fileDownloadTask as XmlFileDownloadTask;
-
-                ArgumentNullException.ThrowIfNull(xmlFileDownloadTask);
-
-                var persister = this.filePersisterStrategyFactory.GetFor(xmlFileDownloadTask.XmlFile);
+                var persister = this.filePersisterStrategyFactory.GetFor(fileDownloadTask);
 
                 await persister.PersistFileAsync(fileDownloadTask, cancellationToken);
 
-                await this.databaseContext.SaveAsync();
+                if (persister is XmlFileDownloadTask)
+                {
+                    await this.databaseContext.SaveAsync();
+                }
 
                 fileDownloadTask.Status = DownloadTaskStatus.Finished;
             }

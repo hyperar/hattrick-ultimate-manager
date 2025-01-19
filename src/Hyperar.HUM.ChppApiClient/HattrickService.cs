@@ -12,8 +12,6 @@
 
     public class HattrickService : IHattrickService
     {
-        private readonly IProtectedResourceUrlFactory protectedResourceUrlFactory;
-
         private readonly string accessTokenUrl;
 
         private readonly string authorizationUrl;
@@ -27,6 +25,8 @@
         private readonly string consumerSecret;
 
         private readonly string invalidateTokenUrl;
+
+        private readonly IProtectedResourceUrlFactory protectedResourceUrlFactory;
 
         private readonly string requestTokenUrl;
 
@@ -206,10 +206,10 @@
             return new OAuthSession(
                 new OAuthConsumerContext
                 {
-                    ConsumerKey = consumerKey,
-                    ConsumerSecret = consumerSecret,
+                    ConsumerKey = this.consumerKey,
+                    ConsumerSecret = this.consumerSecret,
                     SignatureMethod = SignatureMethod.HmacSha1,
-                    UserAgent = userAgent
+                    UserAgent = this.userAgent
                 },
                 this.requestTokenUrl,
                 this.authorizationUrl,

@@ -17,13 +17,21 @@
     internal static class Services
     {
         private const string AccessTokenKeyName = "OAuth:Endpoints:Base:AccessToken";
+
         private const string AuthorizeKeyName = "OAuth:Endpoints:Base:Authorize";
+
         private const string CallbackKeyName = "OAuth:Endpoints:Base:Callback";
+
         private const string CheckTokenKeyName = "OAuth:Endpoints:Base:CheckToken";
+
         private const string ConsumerKeyKeyName = "OAuth:ConsumerKey";
+
         private const string ConsumerSecretKeyName = "OAuth:ConsumerSecret";
+
         private const string InvalidateTokenKeyName = "OAuth:Endpoints:Base:InvalidateToken";
+
         private const string RequestTokenKeyName = "OAuth:Endpoints:Base:RequestToken";
+
         private const string UserAgentKeyName = "OAuth:UserAgent";
 
         internal static IHostBuilder RegisterServices(this IHostBuilder host)
@@ -103,6 +111,7 @@
 
                 // Persisters.
                 services.AddScoped<EmptyPersister>();
+                services.AddScoped<ImagePersister>();
                 services.AddScoped<ManagerCompendiumPersister>();
                 services.AddScoped<WorldDetailsPersister>();
             });

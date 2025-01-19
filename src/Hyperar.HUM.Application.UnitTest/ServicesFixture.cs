@@ -126,6 +126,7 @@
             // Persisters.
             services.AddScoped<IFilePersisterStrategyFactory, FilePersisterStrategyFactory>();
             services.AddScoped<EmptyPersister>();
+            services.AddScoped<ImagePersister>();
             services.AddScoped<ManagerCompendiumPersister>();
             services.AddScoped<WorldDetailsPersister>();
 
