@@ -147,35 +147,6 @@
         }
 
         [Fact]
-        public void ProtectedResourceUrlFactoryMatchArchive_ShouldBeEqual()
-        {
-            var url = this.protectedResourceUrlFactory.BuildUrl(
-                XmlFileType.MatchArchive,
-                new NameValueCollection
-                {
-                    { "teamId", "value1" },
-                    { "isYouth", "value2" },
-                    { "firstMatchDate", "value3" },
-                    { "lastMatchDate", "value4" },
-                    { "season", "value5" },
-                    { "includeHTO", "value6" }
-                });
-
-            var uri = new Uri(url);
-
-            var query = HttpUtility.ParseQueryString(uri.Query);
-
-            Assert.Equal("matchesarchive", query.Get("file"), true);
-            Assert.Equal("1.5", query.Get("version"), true);
-            Assert.Equal("value1", query.Get("teamId"), true);
-            Assert.Equal("value2", query.Get("isYouth"), true);
-            Assert.Equal("value3", query.Get("firstMatchDate"), true);
-            Assert.Equal("value4", query.Get("lastMatchDate"), true);
-            Assert.Equal("value5", query.Get("season"), true);
-            Assert.Equal("value6", query.Get("includeHTO"), true);
-        }
-
-        [Fact]
         public void ProtectedResourceUrlFactoryMatchDetails_ShouldBeEqual()
         {
             var url = this.protectedResourceUrlFactory.BuildUrl(
@@ -219,6 +190,35 @@
             Assert.Equal("value1", query.Get("teamId"), true);
             Assert.Equal("value2", query.Get("isYouth"), true);
             Assert.Equal("value3", query.Get("lastMatchDate"), true);
+        }
+
+        [Fact]
+        public void ProtectedResourceUrlFactoryMatchesArchive_ShouldBeEqual()
+        {
+            var url = this.protectedResourceUrlFactory.BuildUrl(
+                XmlFileType.MatchesArchive,
+                new NameValueCollection
+                {
+                    { "teamId", "value1" },
+                    { "isYouth", "value2" },
+                    { "firstMatchDate", "value3" },
+                    { "lastMatchDate", "value4" },
+                    { "season", "value5" },
+                    { "includeHTO", "value6" }
+                });
+
+            var uri = new Uri(url);
+
+            var query = HttpUtility.ParseQueryString(uri.Query);
+
+            Assert.Equal("matchesarchive", query.Get("file"), true);
+            Assert.Equal("1.5", query.Get("version"), true);
+            Assert.Equal("value1", query.Get("teamId"), true);
+            Assert.Equal("value2", query.Get("isYouth"), true);
+            Assert.Equal("value3", query.Get("firstMatchDate"), true);
+            Assert.Equal("value4", query.Get("lastMatchDate"), true);
+            Assert.Equal("value5", query.Get("season"), true);
+            Assert.Equal("value6", query.Get("includeHTO"), true);
         }
 
         [Fact]

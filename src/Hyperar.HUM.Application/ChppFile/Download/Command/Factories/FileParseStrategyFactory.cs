@@ -31,8 +31,8 @@
         {
             return fileName.ToLower() switch
             {
-                FileName.Error => this.errorParser,
                 FileName.CheckToken => this.checkTokenParser,
+                FileName.Error => this.errorParser,
                 FileName.ManagerCompendium => this.managerCompendiumParser,
                 FileName.WorldDetails => this.worldDetailsParser,
                 _ => throw new ArgumentOutOfRangeException(nameof(fileName))
