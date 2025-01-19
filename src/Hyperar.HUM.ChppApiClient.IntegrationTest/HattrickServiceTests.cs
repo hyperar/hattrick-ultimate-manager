@@ -241,7 +241,7 @@
             Assert.NotNull(response);
         }
 
-        private IHattrickService GetHattrickService(string consumerKey, string consumerSecret)
+        private HattrickService GetHattrickService(string consumerKey, string consumerSecret)
         {
             return new HattrickService(
                 this.accessTokenUrl,

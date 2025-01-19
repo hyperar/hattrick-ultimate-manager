@@ -1,6 +1,6 @@
 ﻿namespace Hyperar.HUM.ChppApiClient.Constants
 {
-    public class Invalid
+    public static class Invalid
     {
         public const string AccessSecret = "TZSCKtcAmE2hkGHP";
 

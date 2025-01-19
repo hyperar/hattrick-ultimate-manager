@@ -14,7 +14,7 @@ jobs:
       matrix:
         configuration: [Release]
 
-    runs-on: windows-latest 
+    runs-on: windows-latest
 
     env:
       Solution_Name: src\Hyperar.HUM.sln
@@ -29,11 +29,18 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Setup MSBuild.exe
+    - name: Build
       uses: microsoft/setup-msbuild@v2
 
-    # Execute all unit tests in the solution
-    - name: Execute unit tests
+    - name: Clean SSL Certificate
+      run: dotnet dev-certs https --clean
+      shell: pwsh
+
+    - name: Trust SSL Certificate
+      run: dotnet dev-certs https --trust
+      shell: pwsh
+
+    - name: Execute Tests
       run: dotnet test $env:Solution_Name
 
     - name: Restore the application
