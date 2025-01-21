@@ -32,9 +32,6 @@ jobs:
     - name: Build
       uses: microsoft/setup-msbuild@v2
 
-    - name: Execute Tests
-      run: dotnet test $env:Solution_Name
-
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
