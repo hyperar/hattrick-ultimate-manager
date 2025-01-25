@@ -6,6 +6,7 @@
     using Hyperar.HUM.ChppApiClient.Constants;
     using Hyperar.HUM.ChppApiClient.Interfaces;
     using Hyperar.HUM.Shared.Models.Authorization;
+    using Hyperar.HUM.TestShared;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 

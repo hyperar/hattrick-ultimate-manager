@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.ChppApiClient.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.ChppApiClient.UnitTest", "Hyperar.HUM.ChppApiClient.UnitTest\Hyperar.HUM.ChppApiClient.UnitTest.csproj", "{EE3E993E-8FB5-4A20-89D0-05F5DE378AFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.TestShared", "Hyperar.HUM.TestShared\Hyperar.HUM.TestShared.csproj", "{EDA9156C-6126-4C98-8990-4F2D88F69D01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{EE3E993E-8FB5-4A20-89D0-05F5DE378AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE3E993E-8FB5-4A20-89D0-05F5DE378AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE3E993E-8FB5-4A20-89D0-05F5DE378AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA9156C-6126-4C98-8990-4F2D88F69D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA9156C-6126-4C98-8990-4F2D88F69D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA9156C-6126-4C98-8990-4F2D88F69D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA9156C-6126-4C98-8990-4F2D88F69D01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,5 +93,6 @@ Global
 		{9AD70CF5-A050-4EDE-AA25-861EDD3C79FF} = {67B4924D-2BDE-427F-A107-AD5658ED99C3}
 		{04A1D337-F565-4D37-836D-8A21DB932769} = {67B4924D-2BDE-427F-A107-AD5658ED99C3}
 		{EE3E993E-8FB5-4A20-89D0-05F5DE378AFE} = {67B4924D-2BDE-427F-A107-AD5658ED99C3}
+		{EDA9156C-6126-4C98-8990-4F2D88F69D01} = {67B4924D-2BDE-427F-A107-AD5658ED99C3}
 	EndGlobalSection
 EndGlobal

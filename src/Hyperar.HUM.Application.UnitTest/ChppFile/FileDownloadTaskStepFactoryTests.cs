@@ -3,8 +3,8 @@
     using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
-    using Hyperar.HUM.Application.UnitTest;
     using Hyperar.HUM.Shared.Enums;
+    using Hyperar.HUM.TestShared;
     using Microsoft.Extensions.DependencyInjection;
 
     public class FileDownloadTaskStepFactoryTests : IClassFixture<ServicesFixture>

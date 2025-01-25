@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.ChppApiClient
+﻿namespace Hyperar.HUM.TestShared
 {
     using Hyperar.HUM.ChppApiClient.Constants;
     using WireMock.RequestBuilders;

@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Application.UnitTest
+﻿namespace Hyperar.HUM.TestShared
 {
     using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
@@ -25,6 +25,7 @@
         private const string CallbackKeyName = "OAuth:Endpoints:Base:Callback";
 
         private const string CheckTokenKeyName = "OAuth:Endpoints:Base:CheckToken";
+        private const string ProtectedResourcesName = "OAuth:Endpoints:Base:ProtectedResources";
 
         private const string ConsumerKeyKeyName = "OAuth:ConsumerKey";
 
@@ -38,16 +39,18 @@
 
         public ServicesFixture()
         {
+            var serverPort = WireMockServerFactory.StartServerAndGetPort();
+
             var services = new ServiceCollection();
 
             // Database.
             void configureDbContext(DbContextOptionsBuilder o)
             {
-                //o.UseLazyLoadingProxies();
                 o.UseInMemoryDatabase("HUMDB");
             }
 
-            services.AddSingleton<IConfiguration>((services) => new ConfigurationBuilder().AddJsonFile("appSettings.json").Build());
+            services.AddSingleton<IConfiguration>((services) => new ConfigurationBuilder()
+                .AddJsonFile("appSettings.json").Build());
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IHattrickRepository<>), typeof(HattrickRepository<>));
@@ -55,44 +58,61 @@
 
             // Services.
             services.AddScoped<IFileDownloadTaskFactory, FileDownloadTaskFactory>();
-            services.AddSingleton<IProtectedResourceUrlFactory, ProtectedResourceUrlFactory>();
+            services.AddSingleton<IProtectedResourceUrlFactory>((services) =>
+            {
+                var configuration = services.GetRequiredService<IConfiguration>();
+
+                var protectedResourcesUrlMask = configuration[ProtectedResourcesName];
+
+                ArgumentException.ThrowIfNullOrWhiteSpace(protectedResourcesUrlMask);
+
+                var protectedResourcesUrl = string.Format(protectedResourcesUrlMask, serverPort);
+
+                return new ProtectedResourceUrlFactory(configuration, protectedResourcesUrl);
+            });
 
             // Hattrick API client.
             services.AddSingleton<IHattrickService, HattrickService>((services) =>
             {
                 var configuration = services.GetRequiredService<IConfiguration>();
 
-                var accessTokenUrl = configuration[AccessTokenKeyName];
-                var authorizationUrl = configuration[AuthorizeKeyName];
+                var accessTokenUrlMask = configuration[AccessTokenKeyName];
+                var authorizationUrlMask = configuration[AuthorizeKeyName];
                 var callbackUrl = configuration[CallbackKeyName];
-                var checkTokenUrl = configuration[CheckTokenKeyName];
-                var invalidateTokenUrl = configuration[InvalidateTokenKeyName];
-                var requestTokenUrl = configuration[RequestTokenKeyName];
+                var checkTokenUrlMask = configuration[CheckTokenKeyName];
+                var invalidateTokenUrlMask = configuration[InvalidateTokenKeyName];
+                var requestTokenUrlMask = configuration[RequestTokenKeyName];
                 var consumerKey = configuration[ConsumerKeyKeyName];
                 var consumerSecret = configuration[ConsumerSecretKeyName];
                 var userAgent = configuration[UserAgentKeyName];
 
-                ArgumentException.ThrowIfNullOrWhiteSpace(accessTokenUrl);
-                ArgumentException.ThrowIfNullOrWhiteSpace(authorizationUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(accessTokenUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(authorizationUrlMask);
                 ArgumentException.ThrowIfNullOrWhiteSpace(callbackUrl);
-                ArgumentException.ThrowIfNullOrWhiteSpace(checkTokenUrl);
-                ArgumentException.ThrowIfNullOrWhiteSpace(invalidateTokenUrl);
-                ArgumentException.ThrowIfNullOrWhiteSpace(requestTokenUrl);
+                ArgumentException.ThrowIfNullOrWhiteSpace(checkTokenUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(invalidateTokenUrlMask);
+                ArgumentException.ThrowIfNullOrWhiteSpace(requestTokenUrlMask);
                 ArgumentException.ThrowIfNullOrWhiteSpace(consumerKey);
                 ArgumentException.ThrowIfNullOrWhiteSpace(consumerSecret);
                 ArgumentException.ThrowIfNullOrWhiteSpace(userAgent);
 
+                var accessTokenUrl = string.Format(accessTokenUrlMask, serverPort);
+                var authorizationUrl = string.Format(authorizationUrlMask, serverPort);
+                var checkTokenUrl = string.Format(checkTokenUrlMask, serverPort);
+                var invalidateTokenUrl = string.Format(invalidateTokenUrlMask, serverPort);
+                var requestTokenUrl = string.Format(requestTokenUrlMask, serverPort);
+
                 var hattrickService = new HattrickService(
-                    accessTokenUrl,
-                    authorizationUrl,
-                    callbackUrl,
-                    checkTokenUrl,
-                    invalidateTokenUrl,
-                    requestTokenUrl,
-                    consumerKey,
-                    consumerSecret,
-                    userAgent,
-                    services.GetRequiredService<IProtectedResourceUrlFactory>());
+                        accessTokenUrl,
+                        authorizationUrl,
+                        callbackUrl,
+                        checkTokenUrl,
+                        invalidateTokenUrl,
+                        requestTokenUrl,
+                        consumerKey,
+                        consumerSecret,
+                        userAgent,
+                        services.GetRequiredService<IProtectedResourceUrlFactory>());
 
                 return hattrickService;
             });

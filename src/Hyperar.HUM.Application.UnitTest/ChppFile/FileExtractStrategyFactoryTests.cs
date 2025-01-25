@@ -4,6 +4,7 @@
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Extract;
     using Hyperar.HUM.Shared.Enums;
+    using Hyperar.HUM.TestShared;
     using Microsoft.Extensions.DependencyInjection;
 
     public class FileExtractStrategyFactoryTests : IClassFixture<ServicesFixture>
