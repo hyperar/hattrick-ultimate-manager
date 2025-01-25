@@ -11,18 +11,14 @@
 
     internal class LandingPageFactory : ILandingViewFactory
     {
-        private readonly INavigator navigator;
-
         private readonly IServiceScopeFactory serviceScopeFactory;
 
         private readonly ISessionStore sessionStore;
 
         public LandingPageFactory(
-            INavigator navigator,
             IServiceScopeFactory serviceScopeFactory,
             ISessionStore sessionStore)
         {
-            this.navigator = navigator;
             this.serviceScopeFactory = serviceScopeFactory;
             this.sessionStore = sessionStore;
         }

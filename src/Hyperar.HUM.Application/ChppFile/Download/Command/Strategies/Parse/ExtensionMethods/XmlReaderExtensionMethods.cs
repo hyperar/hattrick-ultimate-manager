@@ -7,196 +7,134 @@
 
     internal static class XmlReaderMethods
     {
-        internal static bool CheckNode(this XmlReader reader, params string[] expectedNames)
+        internal static bool AsBool(this string? value)
         {
-            return Array.Exists(expectedNames, x => x.Equals(reader.Name, StringComparison.OrdinalIgnoreCase));
+            ArgumentException.ThrowIfNullOrWhiteSpace(value);
+
+            return value switch
+            {
+                "0" => false,
+                "1" => true,
+                _ => bool.Parse(value)
+            };
         }
 
-        internal static async Task<bool> ReadBoolAsync(this XmlReader reader)
+        internal static DateTime AsDateTime(this string? value)
         {
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            return value.Length == 1
-                 ? value == "1"
-                 : value.Equals(bool.TrueString, StringComparison.CurrentCultureIgnoreCase);
-        }
-
-        internal static async Task<DateTime> ReadDateTimeAsync(this XmlReader reader)
-        {
-            var value = await reader.ReadElementContentAsStringAsync();
+            ArgumentException.ThrowIfNullOrWhiteSpace(value);
 
             return DateTime.Parse(value, CultureInfo.InvariantCulture);
         }
 
-        internal static async Task<decimal> ReadDecimalAsync(this XmlReader reader)
+        internal static decimal AsDecimal(this string? value)
         {
-            var value = await reader.ReadElementContentAsStringAsync();
+            ArgumentException.ThrowIfNullOrWhiteSpace(value);
 
             return decimal.Parse(
                 NormalizeDecimalValue(
                     value));
         }
 
-        internal static async Task<Guid> ReadGuidAsync(this XmlReader reader)
+        internal static Guid AsGuid(this string? value)
         {
-            return Guid.Parse(await reader.ReadElementContentAsStringAsync());
+            ArgumentException.ThrowIfNullOrWhiteSpace(value);
+
+            return Guid.Parse(value);
         }
 
-        internal static async Task<int> ReadIntAsync(this XmlReader reader)
+        internal static int AsInt(this string? value)
         {
-            return int.Parse(await reader.ReadElementContentAsStringAsync());
+            ArgumentException.ThrowIfNullOrWhiteSpace(value);
+
+            return int.Parse(value);
         }
 
-        internal static async Task<long> ReadLongAsync(this XmlReader reader)
+        internal static long AsLong(this string? value)
         {
-            return long.Parse(await reader.ReadElementContentAsStringAsync());
+            ArgumentException.ThrowIfNullOrWhiteSpace(value);
+
+            return long.Parse(value);
         }
 
-        internal static async Task<DateTime?> ReadNullableDateTimeAsync(
-            this XmlReader reader,
-            params string[]? expectedNames)
+        internal static bool? AsNullableBool(this string? value)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
-
-            var value = await reader.ReadElementContentAsStringAsync();
-
             return string.IsNullOrWhiteSpace(value)
-                 ? null
-                 : DateTime.Parse(value, CultureInfo.InvariantCulture);
+                ? null
+                : AsBool(value);
         }
 
-        internal static async Task<decimal?> ReadNullableDecimalAsync(
-            this XmlReader reader,
-            decimal? nullValue,
-            params string[]? expectedNames)
+        internal static DateTime? AsNullableDateTime(this string? value)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
-
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            var decimalValue = decimal.Parse(
-                NormalizeDecimalValue(
-                    value));
-
-            return nullValue.HasValue && nullValue.Value == decimalValue
-                 ? null
-                 : decimalValue;
+            return string.IsNullOrWhiteSpace(value)
+                ? null
+                : AsDateTime(value);
         }
 
-        internal static async Task<decimal?> ReadNullableDecimalAsync(
-            this XmlReader reader,
-            params string[]? expectedNames)
+        internal static decimal? AsNullableDecimal(this string? value)
         {
-            expectedNames ??= Array.Empty<string>();
-
-            if (expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
-
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return null;
-            }
-            else
-            {
-                return decimal.Parse(
-                    NormalizeDecimalValue(
-                        value));
-            }
+            return string.IsNullOrWhiteSpace(value)
+                ? null
+                : AsDecimal(value);
         }
 
-        internal static async Task<int?> ReadNullableIntAsync(
-            this XmlReader reader,
-            int? nullValue,
-            params string[]? expectedNames)
+        internal static Guid? AsNullableGuid(this string? value)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
-
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            return value == nullValue?.ToString() || string.IsNullOrWhiteSpace(value) ? null : int.Parse(value);
+            return string.IsNullOrWhiteSpace(value)
+                ? null
+                : AsGuid(value);
         }
 
-        internal static async Task<int?> ReadNullableIntAsync(
-            this XmlReader reader,
-            params string[]? expectedNames)
+        internal static int? AsNullableInt(this string? value)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
-
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            return string.IsNullOrWhiteSpace(value) ? null : int.Parse(value);
+            return string.IsNullOrWhiteSpace(value)
+                ? null
+                : AsInt(value);
         }
 
-        internal static async Task<long?> ReadNullableLongAsync(
-            this XmlReader reader,
-            long? nullValue,
-            params string[]? expectedNames)
+        internal static long? AsNullableLong(this string? value)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
-
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            return value == nullValue?.ToString() ? null : long.Parse(value);
+            return string.IsNullOrWhiteSpace(value)
+                ? null
+                : AsLong(value);
         }
 
-        internal static async Task<long?> ReadNullableLongAsync(
-            this XmlReader reader,
-            params string[]? expectedNames)
+        internal static string? AsNullableString(this string? value)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
-
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            return string.IsNullOrWhiteSpace(value) ? null : long.Parse(value);
+            return value;
         }
 
-        internal static async Task<string?> ReadNullableStringAsync(
-            this XmlReader reader,
-            params string[]? expectedNames)
+        internal static string AsString(this string? value)
         {
-            if (expectedNames != null && expectedNames.Length > 0 && !reader.CheckNode(expectedNames))
-            {
-                return null;
-            }
+            ArgumentNullException.ThrowIfNull(value);
 
-            var value = await reader.ReadElementContentAsStringAsync();
-
-            return string.IsNullOrWhiteSpace(value) ? null : value;
+            return value!;
         }
 
-        internal static async Task<string> ReadStringAsync(this XmlReader reader)
+        internal static bool CheckNode(this XmlReader reader, params string[] expectedNames)
         {
-            return await reader.ReadElementContentAsStringAsync();
+            return Array.Exists(expectedNames, x => x.Equals(reader.Name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        internal static async Task<string?> ReadValueAsync(this XmlReader xmlReader)
+        {
+            return xmlReader.IsEmptyElement
+                ? null
+                : await xmlReader.ReadElementContentAsStringAsync();
         }
 
         private static string NormalizeDecimalValue(string value)
         {
-            string actualSeparator = value.Single(x => !char.IsDigit(x))
-                .ToString();
+            var currentCultureDecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.First();
 
-            return value.Replace(actualSeparator, CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            if (!value.Any(x => (x == ',' || x == '.') && x != currentCultureDecimalSeparator))
+            {
+                return value;
+            }
+
+            var actualSeparator = value.Where(x => x is ',' or '.')
+                .Single(x => !char.IsDigit(x));
+
+            return value.Replace(actualSeparator, currentCultureDecimalSeparator);
         }
     }
 }

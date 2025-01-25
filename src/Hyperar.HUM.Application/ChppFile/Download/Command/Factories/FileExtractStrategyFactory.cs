@@ -1,7 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Factories
 {
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Extract;
     using Hyperar.HUM.Shared.Enums;
 
@@ -27,26 +26,15 @@
             this.worldDetailsExtractor = worldDetailsExtractor;
         }
 
-        public IFileExtractorStrategy GetFor(FileDownloadTaskBase fileDownloadTask)
+        public IFileExtractorStrategy GetFor(XmlFileType xmlFile)
         {
-            if (fileDownloadTask is ImageFileDownloadTask)
+            return xmlFile switch
             {
-                return this.emptyExtractor;
-            }
-            else if (fileDownloadTask is XmlFileDownloadTask xmlFileDownloadTask)
-            {
-                return xmlFileDownloadTask.XmlFile switch
-                {
-                    XmlFileType.CheckToken => this.checkTokenExtractor,
-                    XmlFileType.ManagerCompendium => this.managerCompendiumExtractor,
-                    XmlFileType.WorldDetails => this.worldDetailsExtractor,
-                    _ => this.emptyExtractor
-                };
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException(nameof(fileDownloadTask));
-            }
+                XmlFileType.CheckToken => this.checkTokenExtractor,
+                XmlFileType.ManagerCompendium => this.managerCompendiumExtractor,
+                XmlFileType.WorldDetails => this.worldDetailsExtractor,
+                _ => throw new ArgumentOutOfRangeException(nameof(xmlFile)),
+            };
         }
     }
 }

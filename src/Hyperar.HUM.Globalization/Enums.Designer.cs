@@ -216,9 +216,9 @@ namespace Hyperar.HUM.Globalization {
         /// <summary>
         ///   Looks up a localized string similar to Match Archive.
         /// </summary>
-        public static string XmlFileType_MatchArchive {
+        public static string XmlFileType_MatchesArchive {
             get {
-                return ResourceManager.GetString("XmlFileType_MatchArchive", resourceCulture);
+                return ResourceManager.GetString("XmlFileType_MatchesArchive", resourceCulture);
             }
         }
         

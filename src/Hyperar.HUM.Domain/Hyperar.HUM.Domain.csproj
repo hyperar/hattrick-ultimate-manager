@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Hyperar.HUM.Shared\Hyperar.HUM.Shared.csproj" />
+        <ProjectReference Include="..\Hyperar.HUM.Shared\Hyperar.HUM.Shared.csproj" />
     </ItemGroup>
 
 </Project>

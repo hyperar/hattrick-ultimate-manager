@@ -8,14 +8,14 @@
 
     <ItemGroup>
         <Compile Update="Controls.Designer.cs">
-          <DesignTime>True</DesignTime>
-          <AutoGen>True</AutoGen>
-          <DependentUpon>Controls.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Controls.resx</DependentUpon>
         </Compile>
         <Compile Update="Enums.Designer.cs">
-          <DesignTime>True</DesignTime>
-          <AutoGen>True</AutoGen>
-          <DependentUpon>Enums.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Enums.resx</DependentUpon>
         </Compile>
         <Compile Update="ErrorMessages.Designer.cs">
             <DesignTime>True</DesignTime>
@@ -23,28 +23,28 @@
             <DependentUpon>ErrorMessages.resx</DependentUpon>
         </Compile>
         <Compile Update="Messages.Designer.cs">
-          <DesignTime>True</DesignTime>
-          <AutoGen>True</AutoGen>
-          <DependentUpon>Messages.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Messages.resx</DependentUpon>
         </Compile>
     </ItemGroup>
 
     <ItemGroup>
         <EmbeddedResource Update="Controls.resx">
-          <Generator>PublicResXFileCodeGenerator</Generator>
-          <LastGenOutput>Controls.Designer.cs</LastGenOutput>
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Controls.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Update="Enums.resx">
-          <Generator>PublicResXFileCodeGenerator</Generator>
-          <LastGenOutput>Enums.Designer.cs</LastGenOutput>
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Enums.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Update="ErrorMessages.resx">
             <Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Update="Messages.resx">
-          <Generator>PublicResXFileCodeGenerator</Generator>
-          <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Messages.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
 

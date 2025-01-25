@@ -1,9 +1,9 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces
 {
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
+    using Hyperar.HUM.Shared.Enums;
 
     public interface IFileExtractStrategyFactory
     {
-        IFileExtractorStrategy GetFor(FileDownloadTaskBase fileDownloadTask);
+        IFileExtractorStrategy GetFor(XmlFileType xmlFile);
     }
 }

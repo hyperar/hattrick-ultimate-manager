@@ -174,7 +174,7 @@
   <data name="XmlFileType_Matches" xml:space="preserve">
     <value>Partidos</value>
   </data>
-  <data name="XmlFileType_MatchArchive" xml:space="preserve">
+  <data name="XmlFileType_MatchesArchive" xml:space="preserve">
     <value>Archivo de Partidos</value>
   </data>
   <data name="XmlFileType_MatchLineUp" xml:space="preserve">

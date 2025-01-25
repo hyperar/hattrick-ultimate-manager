@@ -11,27 +11,23 @@
     {
         public async Task ExecuteFileDownloadAsync(FileDownloadTaskBase fileDownloadTask, CancellationToken cancellationToken)
         {
-            var task = fileDownloadTask as ImageFileDownloadTask;
+            var imageFileDownloadTask = fileDownloadTask as ImageFileDownloadTask;
 
-            ArgumentNullException.ThrowIfNull(task);
+            ArgumentNullException.ThrowIfNull(imageFileDownloadTask);
 
-            if (!ImageHelpers.ImageFileExists(task.Url))
+            if (!ImageHelpers.ImageFileExists(imageFileDownloadTask.Url))
             {
-                var finalUrl = ImageHelpers.NormalizeUrl(task.Url);
-
-                byte[]? fileContent = null;
+                var finalUrl = ImageHelpers.NormalizeUrl(imageFileDownloadTask.Url);
 
                 using (var httpClient = new HttpClient())
                 {
-                    fileContent = await httpClient.GetByteArrayAsync(finalUrl, cancellationToken);
+                    imageFileDownloadTask.ImageFileBytes = await httpClient.GetByteArrayAsync(finalUrl, cancellationToken);
                 }
 
-                ArgumentNullException.ThrowIfNull(fileContent);
-
-                await ImageHelpers.WriteFileToCacheAsync(task.Url, fileContent, cancellationToken);
+                ArgumentNullException.ThrowIfNull(imageFileDownloadTask.ImageFileBytes);
             }
 
-            fileDownloadTask.Status = DownloadTaskStatus.Finished;
+            fileDownloadTask.Status = DownloadTaskStatus.Processed;
         }
     }
 }

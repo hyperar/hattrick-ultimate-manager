@@ -64,7 +64,7 @@
                         var currentTask = downloadTasks[i];
 
                         // Get Step.
-                        var fileDownloadTaskStep = this.fileDownloadTaskStepFactory.GetNextStep(currentTask);
+                        var fileDownloadTaskStep = this.fileDownloadTaskStepFactory.GetNextStep(currentTask.Status);
 
                         // Execute Step.
                         await fileDownloadTaskStep.ExecuteAsync(

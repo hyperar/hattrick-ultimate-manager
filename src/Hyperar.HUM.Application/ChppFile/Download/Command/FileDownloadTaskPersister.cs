@@ -34,7 +34,10 @@
 
                 await persister.PersistFileAsync(fileDownloadTask, cancellationToken);
 
-                await this.databaseContext.SaveAsync();
+                if (persister is XmlFileDownloadTask)
+                {
+                    await this.databaseContext.SaveAsync();
+                }
 
                 fileDownloadTask.Status = DownloadTaskStatus.Finished;
             }

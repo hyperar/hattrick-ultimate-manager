@@ -9,35 +9,51 @@
     using Hyperar.HUM.Shared.Models.Authorization;
     using Hyperar.OAuthCore.Consumer;
     using Hyperar.OAuthCore.Framework;
-    using Microsoft.Extensions.Configuration;
 
     public class HattrickService : IHattrickService
     {
-        private const string AccessTokenKeyName = "OAuth:Endpoints:Base:AccessToken";
+        private readonly string accessTokenUrl;
 
-        private const string AuthorizeKeyName = "OAuth:Endpoints:Base:Authorize";
+        private readonly string authorizationUrl;
 
-        private const string CallbackKeyName = "OAuth:Endpoints:Base:Callback";
+        private readonly string callbackUrl;
 
-        private const string CheckTokenKeyName = "OAuth:Endpoints:Base:CheckToken";
+        private readonly string checkTokenUrl;
 
-        private const string ConsumerKeyKeyName = "OAuth:ConsumerKey";
+        private readonly string consumerKey;
 
-        private const string ConsumerSecretKeyName = "OAuth:ConsumerSecret";
+        private readonly string consumerSecret;
 
-        private const string InvalidateTokenKeyName = "OAuth:Endpoints:Base:InvalidateToken";
-
-        private const string RequestTokenKeyName = "OAuth:Endpoints:Base:RequestToken";
-
-        private const string UserAgentKeyName = "OAuth:UserAgent";
-
-        private readonly IConfiguration configuration;
+        private readonly string invalidateTokenUrl;
 
         private readonly IProtectedResourceUrlFactory protectedResourceUrlFactory;
 
-        public HattrickService(IConfiguration configuration, IProtectedResourceUrlFactory protectedResourceUrlFactory)
+        private readonly string requestTokenUrl;
+
+        private readonly string userAgent;
+
+        public HattrickService(
+            string accessTokenUrl,
+            string authorizationUrl,
+            string callbackUrl,
+            string checkTokenUrl,
+            string invalidateTokenUrl,
+            string requestTokenUrl,
+            string consumerKey,
+            string consumerSecret,
+            string userAgent,
+            IProtectedResourceUrlFactory protectedResourceUrlFactory)
         {
-            this.configuration = configuration;
+            this.accessTokenUrl = accessTokenUrl;
+            this.authorizationUrl = authorizationUrl;
+            this.callbackUrl = callbackUrl;
+            this.checkTokenUrl = checkTokenUrl;
+            this.consumerKey = consumerKey;
+            this.consumerSecret = consumerSecret;
+            this.invalidateTokenUrl = invalidateTokenUrl;
+            this.requestTokenUrl = requestTokenUrl;
+            this.userAgent = userAgent;
+
             this.protectedResourceUrlFactory = protectedResourceUrlFactory;
         }
 
@@ -48,11 +64,9 @@
 
             var session = this.CreateSignedOAuthSession(accessToken.Token, accessToken.Secret);
 
-            var checkTokenUrl = this.configuration[CheckTokenKeyName];
+            ArgumentException.ThrowIfNullOrEmpty(this.checkTokenUrl);
 
-            ArgumentException.ThrowIfNullOrEmpty(checkTokenUrl);
-
-            return await GetResponseByteArrayForUrlAsync(checkTokenUrl, session);
+            return await GetResponseByteArrayForUrlAsync(this.checkTokenUrl, session);
         }
 
         public async Task<AccessToken> GetAccessTokenAsync(string verificationCode, RequestToken requestToken, CancellationToken cancellationToken)
@@ -142,13 +156,11 @@
             ArgumentNullException.ThrowIfNull(accessToken.Token);
             ArgumentNullException.ThrowIfNull(accessToken.Secret);
 
-            var invalidateTokenUrl = this.configuration[InvalidateTokenKeyName];
-
-            ArgumentException.ThrowIfNullOrEmpty(invalidateTokenUrl);
+            ArgumentException.ThrowIfNullOrEmpty(this.invalidateTokenUrl);
 
             var session = this.CreateSignedOAuthSession(accessToken.Token, accessToken.Secret);
 
-            return await GetResponseStringForUrlAsync(invalidateTokenUrl, session);
+            return await GetResponseStringForUrlAsync(this.invalidateTokenUrl, session);
         }
 
         private static async Task<byte[]> GetResponseByteArrayForUrlAsync(string url, OAuthSession session)
@@ -183,34 +195,26 @@
 
         private OAuthSession CreateOAuthSession()
         {
-            var accessTokenUrl = this.configuration[AccessTokenKeyName];
-            var authorizeUrl = this.configuration[AuthorizeKeyName];
-            var callbackUrl = this.configuration[CallbackKeyName];
-            var consumerKey = this.configuration[ConsumerKeyKeyName];
-            var consumerSecret = this.configuration[ConsumerSecretKeyName];
-            var requestTokenUrl = this.configuration[RequestTokenKeyName];
-            var userAgent = this.configuration[UserAgentKeyName];
-
-            ArgumentException.ThrowIfNullOrEmpty(accessTokenUrl);
-            ArgumentException.ThrowIfNullOrEmpty(authorizeUrl);
-            ArgumentException.ThrowIfNullOrEmpty(callbackUrl);
-            ArgumentException.ThrowIfNullOrEmpty(consumerKey);
-            ArgumentException.ThrowIfNullOrEmpty(consumerSecret);
-            ArgumentException.ThrowIfNullOrEmpty(requestTokenUrl);
-            ArgumentException.ThrowIfNullOrEmpty(userAgent);
+            ArgumentException.ThrowIfNullOrEmpty(this.accessTokenUrl);
+            ArgumentException.ThrowIfNullOrEmpty(this.authorizationUrl);
+            ArgumentException.ThrowIfNullOrEmpty(this.callbackUrl);
+            ArgumentException.ThrowIfNullOrEmpty(this.requestTokenUrl);
+            ArgumentException.ThrowIfNullOrEmpty(this.consumerKey);
+            ArgumentException.ThrowIfNullOrEmpty(this.consumerSecret);
+            ArgumentException.ThrowIfNullOrEmpty(this.userAgent);
 
             return new OAuthSession(
                 new OAuthConsumerContext
                 {
-                    ConsumerKey = consumerKey,
-                    ConsumerSecret = consumerSecret,
+                    ConsumerKey = this.consumerKey,
+                    ConsumerSecret = this.consumerSecret,
                     SignatureMethod = SignatureMethod.HmacSha1,
-                    UserAgent = userAgent
+                    UserAgent = this.userAgent
                 },
-                requestTokenUrl,
-                authorizeUrl,
-                accessTokenUrl,
-                callbackUrl);
+                this.requestTokenUrl,
+                this.authorizationUrl,
+                this.accessTokenUrl,
+                this.callbackUrl);
         }
 
         private OAuthSession CreateSignedOAuthSession(string token, string secret)

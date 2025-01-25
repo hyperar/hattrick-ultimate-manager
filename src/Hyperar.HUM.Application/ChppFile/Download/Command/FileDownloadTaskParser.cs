@@ -44,19 +44,19 @@
                         IgnoreWhitespace = true
                     };
 
-                    using (var reader = XmlReader.Create(memoryStream, xmlReaderSettings))
+                    using (var xmlReader = XmlReader.Create(memoryStream, xmlReaderSettings))
                     {
-                        reader.ReadToFollowing(NodeName.FileName);
+                        xmlReader.ReadToFollowing(NodeName.FileName);
 
-                        var fileName = await reader.ReadElementContentAsStringAsync();
-                        var version = await reader.ReadDecimalAsync();
-                        var userId = await reader.ReadLongAsync();
-                        var fetchedDate = await reader.ReadDateTimeAsync();
+                        var fileName = await xmlReader.ReadElementContentAsStringAsync();
+                        var version = (await xmlReader.ReadValueAsync()).AsDecimal();
+                        var userId = (await xmlReader.ReadValueAsync()).AsLong();
+                        var fetchedDate = (await xmlReader.ReadValueAsync()).AsDateTime();
 
                         var parser = this.fileParseStrategyFactory.GetFor(fileName);
 
                         await parser.ExecuteFileParseAsync(
-                            reader,
+                            xmlReader,
                             fileName,
                             version,
                             userId,

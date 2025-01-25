@@ -1,8 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Factories
 {
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
-    using Hyperar.HUM.Application.Exceptions;
     using Hyperar.HUM.Shared.Enums;
 
     public class FileDownloadTaskStepFactory : IFileDownloadTaskStepFactory
@@ -27,19 +25,15 @@
             this.fileDownloadTaskPersister = fileDownloadTaskPersister;
         }
 
-        public IFileDownloadTaskStep GetNextStep(FileDownloadTaskBase fileDownloadTask)
+        public IFileDownloadTaskStep GetNextStep(DownloadTaskStatus status)
         {
-            return fileDownloadTask.Status switch
+            return status switch
             {
                 DownloadTaskStatus.Pending => this.fileDownloadTaskDownloader,
                 DownloadTaskStatus.Downloaded => this.fileDownloadTaskParser,
                 DownloadTaskStatus.Read => this.fileDownloadTaskExtractor,
                 DownloadTaskStatus.Processed => this.fileDownloadTaskPersister,
-                _ => throw new BusinessException(
-                    string.Format(
-                        Globalization.ErrorMessages.ValueOutOfRange,
-                        fileDownloadTask.Status,
-                        nameof(fileDownloadTask.Status)))
+                _ => throw new ArgumentOutOfRangeException(nameof(status))
             };
         }
     }
