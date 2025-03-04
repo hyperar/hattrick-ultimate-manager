@@ -6,7 +6,7 @@
     using Hyperar.HUM.ChppApiClient.Constants;
     using Hyperar.HUM.ChppApiClient.Interfaces;
     using Hyperar.HUM.Shared.Models.Authorization;
-    using Hyperar.HUM.TestShared;
+    using Hyperar.HUM.Test.Shared;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -207,6 +207,24 @@
         }
 
         [Fact]
+        public async Task HattrickServiceRevokeToken_ShouldReturnOkResponse()
+        {
+            var hattrickService = this.GetHattrickService(Valid.ConsumerKey, Valid.ConsumerSecret);
+
+            var cancellationTokenSource = new CancellationTokenSource();
+
+            var response = await hattrickService.RevokeTokenAsync(
+                new AccessToken(
+                    Valid.AccessToken,
+                    Valid.AccessSecret,
+                    DateTime.Now.AddDays(-5),
+                    DateTime.MaxValue),
+                cancellationTokenSource.Token);
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
         public async Task HattrickServiceRevokeToken_ShouldThrowUnauthorizedHttpRequestException()
         {
             var hattrickService = this.GetHattrickService(Valid.ConsumerKey, Valid.ConsumerSecret);
@@ -222,24 +240,6 @@
                 cancellationTokenSource.Token));
 
             Assert.Equal(HttpStatusCode.Unauthorized, exception.StatusCode);
-        }
-
-        [Fact]
-        public async Task HattrickServicRevokeToken_ShouldReturnOkResponse()
-        {
-            var hattrickService = this.GetHattrickService(Valid.ConsumerKey, Valid.ConsumerSecret);
-
-            var cancellationTokenSource = new CancellationTokenSource();
-
-            var response = await hattrickService.RevokeTokenAsync(
-                new AccessToken(
-                    Valid.AccessToken,
-                    Valid.AccessSecret,
-                    DateTime.Now.AddDays(-5),
-                    DateTime.MaxValue),
-                cancellationTokenSource.Token);
-
-            Assert.NotNull(response);
         }
 
         private HattrickService GetHattrickService(string consumerKey, string consumerSecret)

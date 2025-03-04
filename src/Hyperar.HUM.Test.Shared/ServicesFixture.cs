@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.TestShared
+﻿namespace Hyperar.HUM.Test.Shared
 {
     using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
@@ -25,13 +25,14 @@
         private const string CallbackKeyName = "OAuth:Endpoints:Base:Callback";
 
         private const string CheckTokenKeyName = "OAuth:Endpoints:Base:CheckToken";
-        private const string ProtectedResourcesName = "OAuth:Endpoints:Base:ProtectedResources";
 
         private const string ConsumerKeyKeyName = "OAuth:ConsumerKey";
 
         private const string ConsumerSecretKeyName = "OAuth:ConsumerSecret";
 
         private const string InvalidateTokenKeyName = "OAuth:Endpoints:Base:InvalidateToken";
+
+        private const string ProtectedResourcesName = "OAuth:Endpoints:Base:ProtectedResources";
 
         private const string RequestTokenKeyName = "OAuth:Endpoints:Base:RequestToken";
 

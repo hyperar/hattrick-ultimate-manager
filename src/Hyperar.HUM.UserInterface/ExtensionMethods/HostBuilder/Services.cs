@@ -30,6 +30,8 @@
 
         private const string InvalidateTokenKeyName = "OAuth:Endpoints:Base:InvalidateToken";
 
+        private const string ProtectedResourcesKeyName = "OAuth:Endpoints:Base:ProtectedResources";
+
         private const string RequestTokenKeyName = "OAuth:Endpoints:Base:RequestToken";
 
         private const string UserAgentKeyName = "OAuth:UserAgent";
@@ -38,7 +40,16 @@
         {
             host.ConfigureServices(services =>
             {
-                services.AddSingleton<IProtectedResourceUrlFactory, ProtectedResourceUrlFactory>();
+                services.AddSingleton<IProtectedResourceUrlFactory>((services) =>
+                {
+                    var configuration = services.GetRequiredService<IConfiguration>();
+
+                    var protectedResourcesUrl = configuration[ProtectedResourcesKeyName];
+
+                    ArgumentException.ThrowIfNullOrWhiteSpace(protectedResourcesUrl);
+
+                    return new ProtectedResourceUrlFactory(configuration, protectedResourcesUrl);
+                });
 
                 services.AddSingleton<IHattrickService, HattrickService>((services) =>
                 {

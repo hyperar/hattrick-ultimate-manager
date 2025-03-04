@@ -28,11 +28,10 @@
                 userId,
                 fetchetDate,
                 await ReadLeagueListNodeAsync(
-                    xmlReader,
-                    cancellationToken));
+                    xmlReader));
         }
 
-        private static async Task<Country> ReadCountryNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<Country> ReadCountryNodeAsync(XmlReader xmlReader)
         {
             if (!xmlReader.CheckNode(NodeName.Country))
             {
@@ -56,11 +55,7 @@
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
-                await ReadNullableIdNameListNodeAsync(
-                    xmlReader,
-                    NodeName.RegionList,
-                    NodeName.Region,
-                    cancellationToken));
+                available ? await ReadNullableIdNameListNodeAsync(xmlReader, NodeName.RegionList, NodeName.Region) : null);
 
             if (available)
             {
@@ -88,7 +83,7 @@
             return cup;
         }
 
-        private static async Task<IEnumerable<Cup>> ReadCupsNodeAsync(XmlReader xmlReader)
+        private static async Task<Cup[]> ReadCupsNodeAsync(XmlReader xmlReader)
         {
             if (!xmlReader.CheckNode(NodeName.Cups))
             {
@@ -112,10 +107,10 @@
 
             await xmlReader.ReadAsync();
 
-            return cups;
+            return cups.ToArray();
         }
 
-        private static async Task<IEnumerable<League>> ReadLeagueListNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<League[]> ReadLeagueListNodeAsync(XmlReader xmlReader)
         {
             if (!xmlReader.CheckNode(NodeName.LeagueList))
             {
@@ -134,16 +129,15 @@
             {
                 leagues.Add(
                     await ReadLeagueNodeAsync(
-                        xmlReader,
-                        cancellationToken));
+                        xmlReader));
             }
 
             await xmlReader.ReadAsync();
 
-            return leagues;
+            return leagues.ToArray();
         }
 
-        private static async Task<League> ReadLeagueNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<League> ReadLeagueNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
@@ -160,8 +154,7 @@
                 (await xmlReader.ReadValueAsync()).AsLong(),
                 (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadCountryNodeAsync(
-                    xmlReader,
-                    cancellationToken),
+                    xmlReader),
                 await ReadCupsNodeAsync(
                     xmlReader),
                 (await xmlReader.ReadValueAsync()).AsLong(),

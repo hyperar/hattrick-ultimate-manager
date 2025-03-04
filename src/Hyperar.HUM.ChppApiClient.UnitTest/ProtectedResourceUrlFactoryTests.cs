@@ -4,7 +4,7 @@
     using System.Web;
     using Hyperar.HUM.ChppApiClient.Interfaces;
     using Hyperar.HUM.Shared.Enums;
-    using Hyperar.HUM.TestShared;
+    using Hyperar.HUM.Test.Shared;
     using Microsoft.Extensions.DependencyInjection;
 
     public class ProtectedResourceUrlFactoryTests : IClassFixture<ServicesFixture>

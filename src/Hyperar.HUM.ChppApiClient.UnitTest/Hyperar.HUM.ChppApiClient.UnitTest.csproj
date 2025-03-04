@@ -25,7 +25,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Hyperar.HUM.ChppApiClient\Hyperar.HUM.ChppApiClient.csproj" />
         <ProjectReference Include="..\Hyperar.HUM.Shared\Hyperar.HUM.Shared.csproj" />
-        <ProjectReference Include="..\Hyperar.HUM.TestShared\Hyperar.HUM.TestShared.csproj" />
+        <ProjectReference Include="..\Hyperar.HUM.Test.Shared\Hyperar.HUM.Test.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -39,6 +39,10 @@
         <None Update="appSettings.keys.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
     </ItemGroup>
 
 </Project>

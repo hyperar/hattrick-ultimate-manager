@@ -4,7 +4,7 @@
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
-    using Hyperar.HUM.TestShared;
+    using Hyperar.HUM.Test.Shared;
     using Microsoft.Extensions.DependencyInjection;
 
     public class FileParseStrategyFactoryTests : IClassFixture<ServicesFixture>

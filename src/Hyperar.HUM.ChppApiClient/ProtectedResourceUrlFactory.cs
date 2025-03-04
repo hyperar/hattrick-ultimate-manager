@@ -16,8 +16,6 @@
 
         private const string ParametersKey = "OAuth:Endpoints:ProtectedResources:{0}:Parameters";
 
-        private const string ProtectedResourcesKey = "OAuth:Endpoints:Base:ProtectedResources";
-
         private const string VersionKey = "OAuth:Endpoints:ProtectedResources:{0}:Version";
 
         private const string VersionParameterKey = "version";

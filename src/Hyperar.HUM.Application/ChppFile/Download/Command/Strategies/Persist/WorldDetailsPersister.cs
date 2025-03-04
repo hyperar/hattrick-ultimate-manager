@@ -104,8 +104,7 @@
 
         private async Task PersistCupNodeAsync(
             Cup cupNode,
-            Domain.League league,
-            CancellationToken cancellationToken)
+            Domain.League league)
         {
             var leagueCup = await this.leagueCupRepository.GetByIdAsync(cupNode.CupId);
 
@@ -216,8 +215,7 @@
             {
                 await this.PersistCupNodeAsync(
                     curCupNode,
-                    league,
-                    cancellationToken);
+                    league);
             }
 
             await this.PersistCountryNodeAsync(leagueNode.Country, league, cancellationToken);

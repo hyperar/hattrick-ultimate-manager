@@ -29,7 +29,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Hyperar.HUM.Application\Hyperar.HUM.Application.csproj" />
         <ProjectReference Include="..\Hyperar.HUM.Infrastructure\Hyperar.HUM.Infrastructure.csproj" />
-        <ProjectReference Include="..\Hyperar.HUM.TestShared\Hyperar.HUM.TestShared.csproj" />
+        <ProjectReference Include="..\Hyperar.HUM.Test.Shared\Hyperar.HUM.Test.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -40,6 +40,14 @@
         <None Update="appSettings.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ChppFile\Download\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
     </ItemGroup>
 
 </Project>

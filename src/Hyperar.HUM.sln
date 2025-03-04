@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.ChppApiClient.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.ChppApiClient.UnitTest", "Hyperar.HUM.ChppApiClient.UnitTest\Hyperar.HUM.ChppApiClient.UnitTest.csproj", "{EE3E993E-8FB5-4A20-89D0-05F5DE378AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.TestShared", "Hyperar.HUM.TestShared\Hyperar.HUM.TestShared.csproj", "{EDA9156C-6126-4C98-8990-4F2D88F69D01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperar.HUM.Test.Shared", "Hyperar.HUM.Test.Shared\Hyperar.HUM.Test.Shared.csproj", "{EDA9156C-6126-4C98-8990-4F2D88F69D01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

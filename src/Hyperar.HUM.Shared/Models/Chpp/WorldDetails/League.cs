@@ -1,7 +1,6 @@
 ﻿namespace Hyperar.HUM.Shared.Models.Chpp.WorldDetails
 {
     using System;
-    using System.Collections.Generic;
 
     public record League(
         long LeagueId,
@@ -16,7 +15,7 @@
         long LanguageId,
         string LanguageName,
         Country Country,
-        IEnumerable<Cup> Cups,
+        Cup[] Cups,
         long NationalTeamId,
         long U20TeamId,
         int ActiveTeams,
