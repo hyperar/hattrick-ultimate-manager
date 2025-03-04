@@ -16,17 +16,21 @@
 
         private const string ParametersKey = "OAuth:Endpoints:ProtectedResources:{0}:Parameters";
 
-        private const string ProtectedResourcesKey = "OAuth:Endpoints:Base:ProtectedResources";
-
         private const string VersionKey = "OAuth:Endpoints:ProtectedResources:{0}:Version";
 
         private const string VersionParameterKey = "version";
 
+        private readonly string baseUrl;
+
         private readonly IConfiguration configuration;
 
-        public ProtectedResourceUrlFactory(IConfiguration configuration)
+        public ProtectedResourceUrlFactory(IConfiguration configuration, string baseUrl)
         {
             this.configuration = configuration;
+
+            ArgumentException.ThrowIfNullOrWhiteSpace(baseUrl);
+
+            this.baseUrl = baseUrl;
         }
 
         public string BuildUrl(XmlFileType fileType, NameValueCollection? parameters)
@@ -47,11 +51,7 @@
 
             this.ValidateParameters(fileType, parameters);
 
-            var protectedResourcesUrl = this.configuration[ProtectedResourcesKey];
-
-            ArgumentNullException.ThrowIfNull(protectedResourcesUrl);
-
-            var uriBuilder = new UriBuilder(protectedResourcesUrl)
+            var uriBuilder = new UriBuilder(this.baseUrl)
             {
                 Query = this.BuildQueryString(fileType, parameters)
             };

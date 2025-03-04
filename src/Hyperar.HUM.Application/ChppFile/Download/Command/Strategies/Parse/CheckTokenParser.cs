@@ -25,11 +25,11 @@
                 version,
                 userId,
                 fetchetDate,
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadDateTimeAsync(),
-                (await xmlReader.ReadStringAsync()).Split(",", StringSplitOptions.RemoveEmptyEntries));
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsDateTime(),
+                (await xmlReader.ReadValueAsync()).AsString().Split(",", StringSplitOptions.RemoveEmptyEntries));
         }
     }
 }

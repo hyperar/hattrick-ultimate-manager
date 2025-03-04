@@ -1,6 +1,5 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse
 {
-    using System;
     using System.Threading.Tasks;
     using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
@@ -10,16 +9,15 @@
 
     public abstract class XmlParserBase
     {
-        protected static async Task<Avatar?> ReadAvatarNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        protected static async Task<Avatar?> ReadAvatarNodeAsync(XmlReader xmlReader)
         {
             // Reads opening node.
             await xmlReader.ReadAsync();
 
             var result = new Avatar(
-                await xmlReader.ReadStringAsync(),
+                (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadLayerNodes(
-                    xmlReader,
-                    cancellationToken));
+                    xmlReader));
 
             // Reads closing node.
             await xmlReader.ReadAsync();
@@ -27,32 +25,9 @@
             return result;
         }
 
-        protected static async Task<IEnumerable<IdName>> ReadIdNameListNodeAsync(
-            XmlReader xmlReader,
-            string expectedName,
-            string expectedChildName,
-            CancellationToken cancellationToken)
-        {
-            if (!xmlReader.CheckNode(expectedName))
-            {
-                throw new BusinessException(
-                    string.Format(
-                        Globalization.ErrorMessages.InvalidXmlElement,
-                        expectedName,
-                        xmlReader.Name));
-            }
-
-            return await ReadIdNameListNodeInternalAsync(
-                xmlReader,
-                expectedName,
-                expectedChildName,
-                cancellationToken);
-        }
-
         protected static async Task<IdName> ReadIdNameNodeAsync(
             XmlReader xmlReader,
-            string expectedName,
-            CancellationToken cancellationToken)
+            string expectedName)
         {
             if (!xmlReader.CheckNode(expectedName))
             {
@@ -66,19 +41,18 @@
             await xmlReader.ReadAsync();
 
             var node = new IdName(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString());
 
             await xmlReader.ReadAsync();
 
             return node;
         }
 
-        protected static async Task<IEnumerable<IdName>?> ReadNullableIdNameListNodeAsync(
+        protected static async Task<IdName[]?> ReadNullableIdNameListNodeAsync(
             XmlReader xmlReader,
             string expectedName,
-            string expectedChildName,
-            CancellationToken cancellationToken)
+            string expectedChildName)
         {
             if (!xmlReader.CheckNode(expectedName))
             {
@@ -87,15 +61,12 @@
 
             return await ReadIdNameListNodeInternalAsync(
                 xmlReader,
-                expectedName,
-                expectedChildName,
-                cancellationToken);
+                expectedChildName);
         }
 
         protected static async Task<IdName?> ReadNullableIdNameNodeAsync(
             XmlReader xmlReader,
-            string expectedName,
-            CancellationToken cancellationToken)
+            string expectedName)
 
         {
             if (xmlReader.IsEmptyElement)
@@ -114,19 +85,17 @@
             await xmlReader.ReadAsync();
 
             var node = new IdName(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString());
 
             await xmlReader.ReadAsync();
 
             return node;
         }
 
-        private static async Task<IEnumerable<IdName>> ReadIdNameListNodeInternalAsync(
+        private static async Task<IdName[]> ReadIdNameListNodeInternalAsync(
             XmlReader xmlReader,
-            string expectedName,
-            string expectedChildName,
-            CancellationToken cancellationToken)
+            string expectedChildName)
         {
             var nodes = new List<IdName>();
 
@@ -137,33 +106,32 @@
                 nodes.Add(
                     await ReadIdNameNodeAsync(
                         xmlReader,
-                        expectedChildName,
-                        cancellationToken));
+                        expectedChildName));
             }
 
             await xmlReader.ReadAsync();
 
-            return nodes;
+            return nodes.ToArray();
         }
 
-        private static async Task<Layer> ReadLayerNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<Layer> ReadLayerNodeAsync(XmlReader xmlReader)
         {
-            var x = int.Parse(xmlReader.GetAttribute(NodeName.X) ?? "0");
-            var y = int.Parse(xmlReader.GetAttribute(NodeName.Y) ?? "0");
+            var x = xmlReader.GetAttribute(NodeName.X).AsInt();
+            var y = xmlReader.GetAttribute(NodeName.Y).AsInt();
 
             await xmlReader.ReadAsync();
 
             var result = new Layer(
                 x,
                 y,
-                await xmlReader.ReadStringAsync());
+                (await xmlReader.ReadValueAsync()).AsString());
 
             await xmlReader.ReadAsync();
 
             return result;
         }
 
-        private static async Task<IEnumerable<Layer>> ReadLayerNodes(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<Layer[]> ReadLayerNodes(XmlReader xmlReader)
         {
             var nodes = new List<Layer>();
 
@@ -171,11 +139,10 @@
             {
                 nodes.Add(
                     await ReadLayerNodeAsync(
-                        xmlReader,
-                        cancellationToken));
+                        xmlReader));
             }
 
-            return nodes;
+            return nodes.ToArray();
         }
     }
 }

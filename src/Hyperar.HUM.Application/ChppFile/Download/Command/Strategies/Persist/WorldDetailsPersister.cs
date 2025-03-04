@@ -104,8 +104,7 @@
 
         private async Task PersistCupNodeAsync(
             Cup cupNode,
-            Domain.League league,
-            CancellationToken cancellationToken)
+            Domain.League league)
         {
             var leagueCup = await this.leagueCupRepository.GetByIdAsync(cupNode.CupId);
 
@@ -130,7 +129,7 @@
             decimal currencyRate,
             CancellationToken cancellationToken)
         {
-            var currency = await this.currencyRepository.Query(x => string.Equals(x.Name, currencyName, StringComparison.OrdinalIgnoreCase)
+            var currency = await this.currencyRepository.Query(x => x.Name == currencyName
                                                                  && x.ConvertionRate == currencyRate)
                 .SingleOrDefaultAsync(cancellationToken);
 
@@ -216,8 +215,7 @@
             {
                 await this.PersistCupNodeAsync(
                     curCupNode,
-                    league,
-                    cancellationToken);
+                    league);
             }
 
             await this.PersistCountryNodeAsync(leagueNode.Country, league, cancellationToken);

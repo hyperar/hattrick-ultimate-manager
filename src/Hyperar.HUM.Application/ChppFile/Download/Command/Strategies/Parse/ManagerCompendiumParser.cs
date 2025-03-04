@@ -28,8 +28,7 @@
                 userId,
                 fetchetDate,
                 await ReadManagerNodeAsync(
-                    xmlReader,
-                    cancellationToken));
+                    xmlReader));
         }
 
         private static async Task<Currency> ReadCurrencyNodeAsync(XmlReader xmlReader)
@@ -37,15 +36,15 @@
             await xmlReader.ReadAsync();
 
             var currency = new Currency(
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadDecimalAsync());
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsDecimal());
 
             await xmlReader.ReadAsync();
 
             return currency;
         }
 
-        private static async Task<IEnumerable<string>> ReadLastLoginsNodeAsync(XmlReader xmlReader)
+        private static async Task<string[]> ReadLastLoginsNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
@@ -54,12 +53,12 @@
             while (xmlReader.CheckNode(NodeName.LoginTime))
             {
                 lastLogins.Add(
-                    await xmlReader.ReadStringAsync());
+                    (await xmlReader.ReadValueAsync()).AsString());
             }
 
             await xmlReader.ReadAsync();
 
-            return lastLogins;
+            return lastLogins.ToArray();
         }
 
         private static async Task<League> ReadLeagueNodeAsync(XmlReader xmlReader)
@@ -67,94 +66,82 @@
             await xmlReader.ReadAsync();
 
             var league = new League(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadIntAsync());
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsInt());
 
             await xmlReader.ReadAsync();
 
             return league;
         }
 
-        private static async Task<Manager> ReadManagerNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<Manager> ReadManagerNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
             var manager = new Manager(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
-                await xmlReader.ReadStringAsync(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadLastLoginsNodeAsync(
                     xmlReader),
                 await ReadIdNameNodeAsync(
                     xmlReader,
-                    NodeName.Language,
-                    cancellationToken),
+                    NodeName.Language),
                 await ReadIdNameNodeAsync(
                     xmlReader,
-                    NodeName.Country,
-                    cancellationToken),
+                    NodeName.Country),
                 await ReadCurrencyNodeAsync(
                     xmlReader),
                 await ReadTeamsNodeAsync(
-                    xmlReader,
-                    cancellationToken),
+                    xmlReader),
                 await ReadNullableIdNameListNodeAsync(
                     xmlReader,
                     NodeName.NationalTeamCoach,
-                    NodeName.NationalTeam,
-                    cancellationToken),
+                    NodeName.NationalTeam),
                 await ReadNullableIdNameListNodeAsync(
                     xmlReader,
                     NodeName.NationalTeamAssistant,
-                    NodeName.NationalTeam,
-                    cancellationToken),
+                    NodeName.NationalTeam),
                 await ReadAvatarNodeAsync(
-                    xmlReader,
-                    cancellationToken));
+                    xmlReader));
 
             await xmlReader.ReadAsync();
 
             return manager;
         }
 
-        private static async Task<Team> ReadTeamNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<Team> ReadTeamNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
             var team = new Team(
-                await xmlReader.ReadLongAsync(),
-                await xmlReader.ReadStringAsync(),
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
                 await ReadIdNameNodeAsync(
                     xmlReader,
-                    NodeName.Arena,
-                    cancellationToken),
+                    NodeName.Arena),
                 await ReadLeagueNodeAsync(
                     xmlReader),
                 await ReadIdNameNodeAsync(
                     xmlReader,
-                    NodeName.Country,
-                    cancellationToken),
+                    NodeName.Country),
                 await ReadIdNameNodeAsync(
                     xmlReader,
-                    NodeName.LeagueLevelUnit,
-                    cancellationToken),
+                    NodeName.LeagueLevelUnit),
                 await ReadIdNameNodeAsync(
                     xmlReader,
-                    NodeName.Region,
-                    cancellationToken),
+                    NodeName.Region),
                 await ReadYouthTeamNodeAsync(
-                    xmlReader,
-                    cancellationToken));
+                    xmlReader));
 
             await xmlReader.ReadAsync();
 
             return team;
         }
 
-        private static async Task<IEnumerable<Team>> ReadTeamsNodeAsync(
-            XmlReader xmlReader,
-            CancellationToken cancellationToken)
+        private static async Task<Team[]> ReadTeamsNodeAsync(
+            XmlReader xmlReader)
         {
             if (!xmlReader.CheckNode(NodeName.Teams))
             {
@@ -173,16 +160,15 @@
             {
                 teamList.Add(
                     await ReadTeamNodeAsync(
-                        xmlReader,
-                        cancellationToken));
+                        xmlReader));
             }
 
             await xmlReader.ReadAsync();
 
-            return teamList;
+            return teamList.ToArray();
         }
 
-        private static async Task<YouthTeam?> ReadYouthTeamNodeAsync(XmlReader xmlReader, CancellationToken cancellationToken)
+        private static async Task<YouthTeam?> ReadYouthTeamNodeAsync(XmlReader xmlReader)
         {
             YouthTeam? youthTeam = null;
 
@@ -191,12 +177,11 @@
                 await xmlReader.ReadAsync();
 
                 youthTeam = new YouthTeam(
-                   await xmlReader.ReadLongAsync(),
-                   await xmlReader.ReadStringAsync(),
+                   (await xmlReader.ReadValueAsync()).AsLong(),
+                   (await xmlReader.ReadValueAsync()).AsString(),
                    await ReadNullableIdNameNodeAsync(
                        xmlReader,
-                       NodeName.YouthLeague,
-                       cancellationToken));
+                       NodeName.YouthLeague));
             }
 
             await xmlReader.ReadAsync();

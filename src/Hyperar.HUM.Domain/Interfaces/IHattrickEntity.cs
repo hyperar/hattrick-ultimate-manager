@@ -2,6 +2,6 @@
 {
     public interface IHattrickEntity
     {
-        public long HattrickId { get; set; }
+        long HattrickId { get; set; }
     }
 }
