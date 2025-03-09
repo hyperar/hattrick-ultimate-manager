@@ -36,7 +36,7 @@
         {
             if (!xmlReader.CheckNode(NodeName.Country))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.Country,
@@ -56,7 +56,9 @@
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
-                available ? await ReadNullableIdNameListNodeAsync(xmlReader, NodeName.RegionList, NodeName.Region) : null);
+                available && xmlReader.CheckNode(NodeName.RegionList) ?
+                    await ReadIdNameListNodeAsync(xmlReader, NodeName.RegionList, NodeName.Region) :
+                    null);
 
             if (available)
             {
@@ -88,7 +90,7 @@
         {
             if (!xmlReader.CheckNode(NodeName.Cups))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.Cups,
@@ -115,7 +117,7 @@
         {
             if (!xmlReader.CheckNode(NodeName.LeagueList))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.LeagueList,

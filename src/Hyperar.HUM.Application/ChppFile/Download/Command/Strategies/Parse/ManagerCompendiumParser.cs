@@ -47,14 +47,17 @@
 
         private static async Task<string[]> ReadLastLoginsNodeAsync(XmlReader xmlReader)
         {
-            await xmlReader.ReadAsync();
-
             var lastLogins = new List<string>();
 
-            while (xmlReader.CheckNode(NodeName.LoginTime))
+            if (!xmlReader.IsEmptyElement)
             {
-                lastLogins.Add(
-                    (await xmlReader.ReadValueAsync()).AsString());
+                await xmlReader.ReadAsync();
+
+                while (xmlReader.CheckNode(NodeName.LoginTime))
+                {
+                    lastLogins.Add(
+                        (await xmlReader.ReadValueAsync()).AsString());
+                }
             }
 
             await xmlReader.ReadAsync();
@@ -146,7 +149,7 @@
         {
             if (!xmlReader.CheckNode(NodeName.Teams))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.Teams,

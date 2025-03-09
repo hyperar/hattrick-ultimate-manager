@@ -134,4 +134,7 @@ Encontrado: {1}.</value>
   <data name="TypeOutOfRange" xml:space="preserve">
     <value>Tipo '{0}' fuera de rango para {1}.</value>
   </data>
+  <data name="UnexpectedEmptyElement" xml:space="preserve">
+    <value>Elemento vacío inesperado: {0}.</value>
+  </data>
 </root>

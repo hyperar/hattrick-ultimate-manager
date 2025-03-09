@@ -60,7 +60,7 @@
                     {
                         /*
                          * IMPORTANT:
-                         * CurrentTask gets created here because IFileDownloadTaskExtractor can insert new tasks at the current index
+                         * CurrentTask are created here because IFileDownloadTaskExtractor can insert new tasks at the current index
                          * and those new tasks need to be finished before the original task gets to IFileDownloadTaskPersister step.
                          */
                         var currentTask = downloadTasks[i];
