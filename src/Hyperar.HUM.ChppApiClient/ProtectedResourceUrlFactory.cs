@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.ChppApiClient
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Linq;
     using System.Text;
@@ -53,13 +54,13 @@
 
             var uriBuilder = new UriBuilder(this.baseUrl)
             {
-                Query = this.BuildQueryString(fileType, parameters)
+                Query = BuildQueryString(parameters)
             };
 
             return uriBuilder.ToString();
         }
 
-        private string BuildQueryString(XmlFileType fileType, NameValueCollection parameters)
+        private static string BuildQueryString(NameValueCollection parameters)
         {
             var stringBuilder = new StringBuilder();
 

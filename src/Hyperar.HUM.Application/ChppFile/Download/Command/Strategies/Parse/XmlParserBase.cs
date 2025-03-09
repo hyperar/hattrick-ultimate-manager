@@ -1,5 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;

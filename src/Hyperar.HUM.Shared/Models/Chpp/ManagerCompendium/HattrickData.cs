@@ -1,5 +1,6 @@
 ﻿namespace Hyperar.HUM.Shared.Models.Chpp.ManagerCompendium
 {
+    using System;
     using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
 
     public record HattrickData(

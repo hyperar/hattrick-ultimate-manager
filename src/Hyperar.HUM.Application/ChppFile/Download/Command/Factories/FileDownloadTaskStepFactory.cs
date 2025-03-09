@@ -1,5 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Factories
 {
+    using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Shared.Enums;
 

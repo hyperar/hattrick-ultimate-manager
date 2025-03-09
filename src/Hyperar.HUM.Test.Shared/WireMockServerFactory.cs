@@ -1,5 +1,7 @@
 ﻿namespace Hyperar.HUM.Test.Shared
 {
+    using System;
+    using System.IO;
     using System.Reflection;
     using Hyperar.HUM.ChppApiClient.Constants;
     using WireMock.RequestBuilders;
