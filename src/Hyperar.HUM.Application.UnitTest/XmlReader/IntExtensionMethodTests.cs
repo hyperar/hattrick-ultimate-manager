@@ -1,5 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.UnitTest.XmlReader
 {
+    using System;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
 
     public class IntExtensionMethodTests
