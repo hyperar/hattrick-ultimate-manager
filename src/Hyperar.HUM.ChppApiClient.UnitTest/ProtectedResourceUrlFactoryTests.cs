@@ -1,5 +1,6 @@
 ﻿namespace Hyperar.HUM.ChppApiClient.UnitTest
 {
+    using System;
     using System.Collections.Specialized;
     using System.Web;
     using Hyperar.HUM.ChppApiClient.Interfaces;

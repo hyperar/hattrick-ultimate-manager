@@ -12,5 +12,5 @@
         DateTime Created,
         long User,
         DateTime Expires,
-        IEnumerable<string> ExtendedPermissions) : XmlFileBase(FileName, Version, UserId, FetchedDate), IXmlFileBase;
+        string[] ExtendedPermissions) : XmlFileBase(FileName, Version, UserId, FetchedDate), IXmlFileBase;
 }

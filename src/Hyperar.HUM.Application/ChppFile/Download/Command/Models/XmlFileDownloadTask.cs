@@ -1,5 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Models
 {
+    using System;
     using System.Collections.Specialized;
     using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
