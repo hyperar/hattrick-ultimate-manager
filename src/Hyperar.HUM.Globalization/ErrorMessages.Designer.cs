@@ -90,6 +90,15 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unexpected empty element: {0}..
+        /// </summary>
+        public static string UnexpectedEmptyElement {
+            get {
+                return ResourceManager.GetString("UnexpectedEmptyElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unrecognized environment..
         /// </summary>
         public static string UnrecognizedEnvironment {

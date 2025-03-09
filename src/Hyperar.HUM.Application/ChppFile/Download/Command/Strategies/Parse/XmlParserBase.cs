@@ -11,30 +11,60 @@
     {
         protected static async Task<Avatar?> ReadAvatarNodeAsync(XmlReader xmlReader)
         {
-            // Reads opening node.
-            await xmlReader.ReadAsync();
+            Avatar? result = null;
 
-            var result = new Avatar(
-                (await xmlReader.ReadValueAsync()).AsString(),
-                await ReadLayerNodes(
-                    xmlReader));
+            if (!xmlReader.IsEmptyElement)
+            {
+                await xmlReader.ReadAsync();
 
-            // Reads closing node.
+                result = new Avatar(
+                    (await xmlReader.ReadValueAsync()).AsString(),
+                    await ReadLayerNodes(
+                        xmlReader));
+            }
+
             await xmlReader.ReadAsync();
 
             return result;
         }
 
-        protected static async Task<IdName> ReadIdNameNodeAsync(
+        protected static async Task<IdName[]> ReadIdNameListNodeAsync(
             XmlReader xmlReader,
+            string expectedName,
+            string expectedChildName)
+        {
+            if (!xmlReader.CheckNode(expectedName))
+            {
+                throw new ParserException(
+                    string.Format(
+                        Globalization.ErrorMessages.InvalidXmlElement,
+                        expectedName,
+                        xmlReader.Name));
+            }
+
+            return await ReadIdNameListNodeInternalAsync(
+                xmlReader,
+                expectedChildName);
+        }
+
+        protected static async Task<IdName> ReadIdNameNodeAsync(
+                    XmlReader xmlReader,
             string expectedName)
         {
             if (!xmlReader.CheckNode(expectedName))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         expectedName,
+                        xmlReader.Name));
+            }
+
+            if (xmlReader.IsEmptyElement)
+            {
+                throw new ParserException(
+                    string.Format(
+                        Globalization.ErrorMessages.UnexpectedEmptyElement,
                         xmlReader.Name));
             }
 
@@ -56,7 +86,11 @@
         {
             if (!xmlReader.CheckNode(expectedName))
             {
-                return null;
+                throw new ParserException(
+                    string.Format(
+                        Globalization.ErrorMessages.InvalidXmlElement,
+                        expectedName,
+                        xmlReader.Name));
             }
 
             return await ReadIdNameListNodeInternalAsync(
@@ -69,24 +103,25 @@
             string expectedName)
 
         {
-            if (xmlReader.IsEmptyElement)
+            if (!xmlReader.CheckNode(expectedName))
             {
-                return null;
-            }
-            else if (!xmlReader.CheckNode(expectedName))
-            {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         expectedName,
                         xmlReader.Name));
             }
 
-            await xmlReader.ReadAsync();
+            IdName? node = null;
 
-            var node = new IdName(
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsString());
+            if (!xmlReader.IsEmptyElement)
+            {
+                await xmlReader.ReadAsync();
+
+                node = new IdName(
+                    (await xmlReader.ReadValueAsync()).AsLong(),
+                    (await xmlReader.ReadValueAsync()).AsString());
+            }
 
             await xmlReader.ReadAsync();
 
@@ -99,14 +134,17 @@
         {
             var nodes = new List<IdName>();
 
-            await xmlReader.ReadAsync();
-
-            while (xmlReader.CheckNode(expectedChildName))
+            if (!xmlReader.IsEmptyElement)
             {
-                nodes.Add(
-                    await ReadIdNameNodeAsync(
-                        xmlReader,
-                        expectedChildName));
+                await xmlReader.ReadAsync();
+
+                while (xmlReader.CheckNode(expectedChildName))
+                {
+                    nodes.Add(
+                        await ReadIdNameNodeAsync(
+                            xmlReader,
+                            expectedChildName));
+                }
             }
 
             await xmlReader.ReadAsync();
