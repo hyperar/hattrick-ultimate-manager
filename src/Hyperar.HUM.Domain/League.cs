@@ -47,6 +47,8 @@
 
         public long? SeniorNationalTeamHattrickId { get; set; }
 
+        public virtual ICollection<SeniorTeam> SeniorTeams { get; set; } = new HashSet<SeniorTeam>();
+
         public string ShortName { get; set; } = string.Empty;
 
         public DateTime ThirdDailyUpdate { get; set; }

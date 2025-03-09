@@ -13,7 +13,7 @@
             string fileName,
             decimal version,
             long userId,
-            DateTime fetchetDate,
+            DateTime fetchedDate,
             XmlFileDownloadTask xmlFileDownloadTask,
             CancellationToken cancellationToken);
     }

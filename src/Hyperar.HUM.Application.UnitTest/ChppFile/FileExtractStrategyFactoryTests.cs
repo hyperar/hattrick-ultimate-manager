@@ -62,7 +62,6 @@
         [InlineData(XmlFileType.StaffAvatars)]
         [InlineData(XmlFileType.StaffList)]
         [InlineData(XmlFileType.Supporters)]
-        [InlineData(XmlFileType.TeamDetails)]
         [InlineData(XmlFileType.TournamentDetails)]
         [InlineData(XmlFileType.TournamentFixtures)]
         [InlineData(XmlFileType.TournamentLeagueTables)]

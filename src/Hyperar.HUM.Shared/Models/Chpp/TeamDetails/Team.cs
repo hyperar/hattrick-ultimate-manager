@@ -1,0 +1,42 @@
+﻿namespace Hyperar.HUM.Shared.Models.Chpp.TeamDetails
+{
+    using System;
+
+    public record Team(
+        long TeamId,
+        string TeamName,
+        string ShortTeamName,
+        bool IsPrimaryClub,
+        DateTime FoundedDate,
+        bool IsDeactivated,
+        IdName Arena,
+        IdName League,
+        IdName Country,
+        IdName Region,
+        Trainer Trainer,
+        string HomePage,
+        string DressUri,
+        string AlternateDressUri,
+        LeagueLevelUnit LeagueLevelUnit,
+        BotStatus BotStatus,
+        Cup? Cup,
+        PowerRating PowerRating,
+        long? FriendlyTeamId,
+        int? NumberOfVictories,
+        int? NumberOfUndefeated,
+        int? TeamRank,
+        Fanclub Fanclub,
+        string LogoUrl,
+        Guestbook? Guestbook,
+        PressAnnouncement? PressAnnouncement,
+        TeamColors? TeamColors,
+        long YouthTeamId,
+        string YouthTeamName,
+        int NumberOfVisits,
+        Flags? Flags,
+        Trophy[] TrophyList,
+        SupportedTeams? SupportedTeams,
+        MySupporters? MySupporters,
+        bool PossibleToChallengeMidweek,
+        bool PossibleToChallengeWeekend);
+}

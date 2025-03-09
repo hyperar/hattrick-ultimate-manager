@@ -16,6 +16,8 @@
 
         internal const string Region = "Region";
 
+        internal const string SeniorTeam = "SeniorTeam";
+
         internal const string UserProfile = "UserProfile";
     }
 }

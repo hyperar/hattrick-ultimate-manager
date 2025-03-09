@@ -49,7 +49,7 @@
                     {
                         xmlReader.ReadToFollowing(NodeName.FileName);
 
-                        var fileName = await xmlReader.ReadElementContentAsStringAsync();
+                        var fileName = (await xmlReader.ReadValueAsync()).AsString();
                         var version = (await xmlReader.ReadValueAsync()).AsDecimal();
                         var userId = (await xmlReader.ReadValueAsync()).AsLong();
                         var fetchedDate = (await xmlReader.ReadValueAsync()).AsDateTime();

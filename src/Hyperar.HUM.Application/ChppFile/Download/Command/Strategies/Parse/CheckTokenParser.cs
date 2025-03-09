@@ -16,7 +16,7 @@
             string fileName,
             decimal version,
             long userId,
-            DateTime fetchetDate,
+            DateTime fetchedDate,
             XmlFileDownloadTask xmlFileDownloadTask,
             CancellationToken cancellationToken)
         {
@@ -24,7 +24,7 @@
                 fileName,
                 version,
                 userId,
-                fetchetDate,
+                fetchedDate,
                 (await xmlReader.ReadValueAsync()).AsString(),
                 (await xmlReader.ReadValueAsync()).AsDateTime(),
                 (await xmlReader.ReadValueAsync()).AsLong(),

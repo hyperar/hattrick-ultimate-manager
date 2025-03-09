@@ -49,7 +49,7 @@
         }
 
         protected static async Task<IdName> ReadIdNameNodeAsync(
-                    XmlReader xmlReader,
+            XmlReader xmlReader,
             string expectedName)
         {
             if (!xmlReader.CheckNode(expectedName))

@@ -18,11 +18,11 @@
 
             if (!ImageHelpers.ImageFileExists(imageFileDownloadTask.Url))
             {
-                var finalUrl = ImageHelpers.NormalizeUrl(imageFileDownloadTask.Url);
-
                 using (var httpClient = new HttpClient())
                 {
-                    imageFileDownloadTask.ImageFileBytes = await httpClient.GetByteArrayAsync(finalUrl, cancellationToken);
+                    imageFileDownloadTask.ImageFileBytes = await httpClient.GetByteArrayAsync(
+                        imageFileDownloadTask.Url,
+                        cancellationToken);
                 }
 
                 ArgumentNullException.ThrowIfNull(imageFileDownloadTask.ImageFileBytes);

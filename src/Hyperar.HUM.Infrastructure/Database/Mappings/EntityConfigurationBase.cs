@@ -7,7 +7,7 @@
 
     internal abstract class EntityConfigurationBase<TEntity> : EntityMappingBase<TEntity>, IEntityMapping<TEntity> where TEntity : class, Domain.Interfaces.IEntity
     {
-        public override void MapBaseProperties(EntityTypeBuilder<TEntity> builder)
+        public override sealed void MapBaseProperties(EntityTypeBuilder<TEntity> builder)
         {
             builder.Property(x => x.Id)
                 .HasColumnType(Constants.ColumnType.UniqueIdentifier)

@@ -118,9 +118,7 @@
 
         internal static async Task<string?> ReadValueAsync(this XmlReader xmlReader)
         {
-            return xmlReader.IsEmptyElement
-                ? null
-                : await xmlReader.ReadElementContentAsStringAsync();
+            return await xmlReader.ReadElementContentAsStringAsync();
         }
 
         private static string NormalizeDecimalValue(string value)
