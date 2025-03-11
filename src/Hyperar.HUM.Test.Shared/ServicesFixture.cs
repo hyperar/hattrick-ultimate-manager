@@ -131,6 +131,7 @@
             services.AddScoped<ProtectedResourceDownloader>();
 
             // Parsers.
+            services.AddScoped<IXmlFileParser, XmlFileParser>();
             services.AddScoped<IFileParseStrategyFactory, FileParseStrategyFactory>();
             services.AddScoped<CheckTokenParser>();
             services.AddScoped<ErrorParser>();

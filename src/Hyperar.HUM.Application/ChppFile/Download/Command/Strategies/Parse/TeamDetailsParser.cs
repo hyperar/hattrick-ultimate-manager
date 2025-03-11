@@ -6,38 +6,30 @@
     using System.Threading.Tasks;
     using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
+    using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
     using Hyperar.HUM.Shared.Models.Chpp.TeamDetails;
 
     public class TeamDetailsParser : XmlParserBase, IFileParseStrategy
     {
-        public async Task ExecuteFileParseAsync(
+        public async Task<IXmlFileBase> ExecuteFileParseAsync(
             XmlReader xmlReader,
             string fileName,
             decimal version,
             long userId,
             DateTime fetchedDate,
-            XmlFileDownloadTask xmlFileDownloadTask,
             CancellationToken cancellationToken)
         {
-            try
-            {
-                xmlFileDownloadTask.Entity = new HattrickData(
-                    fileName,
-                    version,
-                    userId,
-                    fetchedDate,
-                    await ReadUserNodeAsync(
-                        xmlReader),
-                    await ReadTeamsNodeAsync(
-                        xmlReader));
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return new HattrickData(
+                fileName,
+                version,
+                userId,
+                fetchedDate,
+                await ReadUserNodeAsync(
+                    xmlReader),
+                await ReadTeamsNodeAsync(
+                    xmlReader));
         }
 
         private static async Task<BotStatus> ReadBotStatusNodeAsync(XmlReader xmlReader)

@@ -4,17 +4,16 @@
     using System.Threading;
     using System.Threading.Tasks;
     using System.Xml;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
+    using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
 
     public interface IFileParseStrategy
     {
-        Task ExecuteFileParseAsync(
+        Task<IXmlFileBase> ExecuteFileParseAsync(
             XmlReader xmlReader,
             string fileName,
             decimal version,
             long userId,
             DateTime fetchedDate,
-            XmlFileDownloadTask xmlFileDownloadTask,
             CancellationToken cancellationToken);
     }
 }
