@@ -47,10 +47,42 @@
         <None Update="appSettings.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Xml\CheckToken\CheckToken_AllScopes.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\CheckToken\CheckToken_NoScopes.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\CheckToken\CheckToken_ManageChallengesScope.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_Avatar.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_NationalTeamAssistant.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_NationalTeamCoach.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_NoAvatar.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_YouthLeague.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_YouthTeam.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
         <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Assets\Xml\WorldDetails\" />
+      <Folder Include="Assets\Xml\TeamDetails\" />
     </ItemGroup>
 
 </Project>

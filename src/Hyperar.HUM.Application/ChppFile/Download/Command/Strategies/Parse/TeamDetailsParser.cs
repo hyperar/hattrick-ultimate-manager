@@ -101,6 +101,8 @@
                         xmlReader));
             }
 
+            await xmlReader.ReadAsync();
+
             return flags.ToArray();
         }
 
@@ -145,17 +147,24 @@
             return guestbook;
         }
 
-        private static async Task<LastMatch> ReadLastMatchNodeAsync(XmlReader xmlReader)
+        private static async Task<LastMatch?> ReadLastMatchNodeAsync(XmlReader xmlReader)
         {
-            var lastMatch = new LastMatch(
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsDateTime(),
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsString(),
-                (await xmlReader.ReadValueAsync()).AsInt(),
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsString(),
-                (await xmlReader.ReadValueAsync()).AsInt());
+            LastMatch? lastMatch = null;
+
+            if (!xmlReader.IsEmptyElement)
+            {
+                await xmlReader.ReadAsync();
+
+                lastMatch = new LastMatch(
+                    (await xmlReader.ReadValueAsync()).AsLong(),
+                    (await xmlReader.ReadValueAsync()).AsDateTime(),
+                    (await xmlReader.ReadValueAsync()).AsLong(),
+                    (await xmlReader.ReadValueAsync()).AsString(),
+                    (await xmlReader.ReadValueAsync()).AsInt(),
+                    (await xmlReader.ReadValueAsync()).AsLong(),
+                    (await xmlReader.ReadValueAsync()).AsString(),
+                    (await xmlReader.ReadValueAsync()).AsInt());
+            }
 
             await xmlReader.ReadAsync();
 
@@ -238,15 +247,22 @@
             return nationalteams.ToArray();
         }
 
-        private static async Task<NextMatch> ReadNextMatchNodeAsync(XmlReader xmlReader)
+        private static async Task<NextMatch?> ReadNextMatchNodeAsync(XmlReader xmlReader)
         {
-            var nextMatch = new NextMatch(
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsDateTime(),
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsString(),
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsString());
+            NextMatch? nextMatch = null;
+
+            if (!xmlReader.IsEmptyElement)
+            {
+                await xmlReader.ReadAsync();
+
+                nextMatch = new NextMatch(
+                    (await xmlReader.ReadValueAsync()).AsLong(),
+                    (await xmlReader.ReadValueAsync()).AsDateTime(),
+                    (await xmlReader.ReadValueAsync()).AsLong(),
+                    (await xmlReader.ReadValueAsync()).AsString(),
+                    (await xmlReader.ReadValueAsync()).AsLong(),
+                    (await xmlReader.ReadValueAsync()).AsString());
+            }
 
             await xmlReader.ReadAsync();
 
@@ -301,8 +317,6 @@
                     }
                 }
 
-                ArgumentException.ThrowIfNullOrWhiteSpace(subject);
-                ArgumentException.ThrowIfNullOrWhiteSpace(body);
                 ArgumentNullException.ThrowIfNull(sendDate);
 
                 pressAnnouncement = new PressAnnouncement(sendDate.Value, subject, body);
@@ -540,9 +554,9 @@
                 (await xmlReader.ReadValueAsync()).AsString(),
                 (await xmlReader.ReadValueAsync()).AsDateTime(),
                 (await xmlReader.ReadValueAsync()).AsString(),
-                !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsInt() : null,
-                !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsInt() : null,
-                !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsInt() : null);
+                !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsNullableInt() : null,
+                !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsNullableInt() : null,
+                !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsNullableInt() : null);
 
             await xmlReader.ReadAsync();
 

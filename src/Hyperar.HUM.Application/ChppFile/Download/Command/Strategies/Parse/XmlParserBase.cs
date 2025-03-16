@@ -85,6 +85,8 @@
             string expectedName,
             string expectedChildName)
         {
+            IdName[]? result = null;
+
             if (!xmlReader.CheckNode(expectedName))
             {
                 throw new ParserException(
@@ -94,9 +96,18 @@
                         xmlReader.Name));
             }
 
-            return await ReadIdNameListNodeInternalAsync(
-                xmlReader,
-                expectedChildName);
+            if (xmlReader.IsEmptyElement)
+            {
+                await xmlReader.ReadAsync();
+            }
+            else
+            {
+                result = await ReadIdNameListNodeInternalAsync(
+                    xmlReader,
+                    expectedChildName);
+            }
+
+            return result;
         }
 
         protected static async Task<IdName?> ReadNullableIdNameNodeAsync(

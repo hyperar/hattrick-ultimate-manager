@@ -2,5 +2,5 @@
 {
     using System;
 
-    public record PressAnnouncement(DateTime SendDate, string Subject, string Body);
+    public record PressAnnouncement(DateTime SendDate, string? Subject, string? Body);
 }

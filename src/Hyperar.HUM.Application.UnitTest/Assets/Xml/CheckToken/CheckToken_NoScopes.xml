@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>check_token</FileName>
+    <Version>1.0</Version>
+    <UserID>12345678</UserID>
+    <FetchedDate>2025-01-01 06:15:30</FetchedDate>
+    <Token>%TOKEN_VALUE%</Token>
+    <Created>2025-01-01 06:00:00</Created>
+    <User>12345678</User>
+    <Expires>9999-12-31 23:59:59</Expires>
+    <ExtendedPermissions></ExtendedPermissions>
+</HattrickData>
