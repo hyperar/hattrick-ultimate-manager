@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>worlddetails.xml</FileName>
+    <Version>1.9</Version>
+    <UserID>12345678</UserID>
+    <FetchedDate>2025-01-01 08:15:30</FetchedDate>
+    <LeagueList>
+        <League>
+            <LeagueID>1003</LeagueID>
+            <LeagueName>Homegrown League</LeagueName>
+            <Season>3</Season>
+            <SeasonOffset>-87</SeasonOffset>
+            <MatchRound>13</MatchRound>
+            <ShortName>Homegrown</ShortName>
+            <Continent>World</Continent>
+            <ZoneName>World</ZoneName>
+            <EnglishName>Homegrown League</EnglishName>
+            <LanguageId>2</LanguageId>
+            <LanguageName>English (UK)</LanguageName>
+            <Country Available="False" />
+            <Cups>
+                <Cup>
+                    <CupID>1553</CupID>
+                    <CupName>Homegrown Cup</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>1</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>12</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1554</CupID>
+                    <CupName>Homegrown Emerald Cup</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>11</MatchRound>
+                    <MatchRoundsLeft>1</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1555</CupID>
+                    <CupName>Homegrown Ruby Cup</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>2</CupLevelIndex>
+                    <MatchRound>10</MatchRound>
+                    <MatchRoundsLeft>1</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1556</CupID>
+                    <CupName>Homegrown Sapphire Cup</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>3</CupLevelIndex>
+                    <MatchRound>9</MatchRound>
+                    <MatchRoundsLeft>1</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1557</CupID>
+                    <CupName>Homegrown Consolation Cup</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>3</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>10</MatchRound>
+                    <MatchRoundsLeft>1</MatchRoundsLeft>
+                </Cup>
+            </Cups>
+            <NationalTeamId>0</NationalTeamId>
+            <U20TeamId>0</U20TeamId>
+            <ActiveTeams>2233</ActiveTeams>
+            <ActiveUsers>0</ActiveUsers>
+            <WaitingUsers>0</WaitingUsers>
+            <TrainingDate>2025-04-04 01:30:00</TrainingDate>
+            <EconomyDate>2025-04-06 02:05:00</EconomyDate>
+            <CupMatchDate>2025-03-26 19:45:00</CupMatchDate>
+            <SeriesMatchDate>2025-04-06 19:45:00</SeriesMatchDate>
+            <Sequence1>2025-04-07 08:20:00</Sequence1>
+            <Sequence2>2025-04-08 08:20:00</Sequence2>
+            <Sequence3>2025-04-08 17:20:00</Sequence3>
+            <Sequence5>2025-04-03 08:20:00</Sequence5>
+            <Sequence7>2025-04-05 05:00:00</Sequence7>
+            <NumberOfLevels>6</NumberOfLevels>
+        </League>
+    </LeagueList>
+</HattrickData>

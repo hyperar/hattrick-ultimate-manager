@@ -77,6 +77,18 @@
         <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_YouthTeam.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Xml\WorldDetails\WorldDetails_Country.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\WorldDetails\WorldDetails_MultipleLeague.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\WorldDetails\WorldDetails_NoCountry.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\WorldDetails\WorldDetails_Regions.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -84,7 +96,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\Xml\WorldDetails\" />
       <Folder Include="Assets\Xml\TeamDetails\" />
     </ItemGroup>
 
