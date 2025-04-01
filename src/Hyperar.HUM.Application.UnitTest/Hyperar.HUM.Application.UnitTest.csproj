@@ -59,6 +59,9 @@
         <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_Avatar.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_MultipleTeam.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_NationalTeamAssistant.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
