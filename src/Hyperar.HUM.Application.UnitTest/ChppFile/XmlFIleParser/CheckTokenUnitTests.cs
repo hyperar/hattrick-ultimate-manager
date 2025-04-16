@@ -1,8 +1,6 @@
 ﻿namespace Hyperar.HUM.Application.UnitTest.ChppFile.XmlFIleParser
 {
     using System;
-    using System.IO;
-    using System.Reflection;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
@@ -42,24 +40,24 @@
 
             Assert.IsType<HattrickData>(result);
 
-            Assert.Equal("check_token", result.FileName);
-            Assert.Equal(1.0m, result.Version);
-            Assert.Equal(12345678, result.UserId);
-            Assert.Equal(new DateTime(2025, 1, 1, 8, 15, 30), result.FetchedDate);
-            Assert.Equal("%TOKEN_VALUE%", result.Token);
-            Assert.Equal(new DateTime(2025, 1, 1, 6, 0, 0), result.Created);
-            Assert.Equal(12345678, result.User);
-            Assert.Equal(new DateTime(9999, 12, 31, 23, 59, 59), result.Expires);
             Assert.Equal(
-                new string[]
-                {
-                    "manage_challenges",
-                    "set_matchorder",
-                    "manage_youthplayers",
-                    "set_training",
-                    "place_bid"
-                },
-                result.ExtendedPermissions);
+                new HattrickData(
+                    "check_token",
+                    1.0m,
+                    12345678,
+                    new DateTime(2025, 1, 1, 8, 15, 30),
+                    "%TOKEN_VALUE%",
+                    new DateTime(2025, 1, 1, 6, 0, 0),
+                    12345678,
+                    new DateTime(9999, 12, 31, 23, 59, 59),
+                    [
+                        "manage_challenges",
+                        "set_matchorder",
+                        "manage_youthplayers",
+                        "set_training",
+                        "place_bid"
+                    ]),
+                result);
         }
 
         [Fact]
@@ -79,20 +77,20 @@
 
             Assert.IsType<HattrickData>(result);
 
-            Assert.Equal("check_token", result.FileName);
-            Assert.Equal(1.0m, result.Version);
-            Assert.Equal(12345678, result.UserId);
-            Assert.Equal(new DateTime(2025, 1, 1, 7, 15, 30), result.FetchedDate);
-            Assert.Equal("%TOKEN_VALUE%", result.Token);
-            Assert.Equal(new DateTime(2025, 1, 1, 6, 0, 0), result.Created);
-            Assert.Equal(12345678, result.User);
-            Assert.Equal(new DateTime(9999, 12, 31, 23, 59, 59), result.Expires);
             Assert.Equal(
-                new string[]
-                {
-                    "manage_challenges"
-                },
-                result.ExtendedPermissions);
+                new HattrickData(
+                    "check_token",
+                    1.0m,
+                    12345678,
+                    new DateTime(2025, 1, 1, 7, 15, 30),
+                    "%TOKEN_VALUE%",
+                    new DateTime(2025, 1, 1, 6, 0, 0),
+                    12345678,
+                    new DateTime(9999, 12, 31, 23, 59, 59),
+                    [
+                        "manage_challenges"
+                    ]),
+                result);
         }
 
         [Fact]
@@ -112,15 +110,18 @@
 
             Assert.IsType<HattrickData>(result);
 
-            Assert.Equal("check_token", result.FileName);
-            Assert.Equal(1.0m, result.Version);
-            Assert.Equal(12345678, result.UserId);
-            Assert.Equal(new DateTime(2025, 1, 1, 6, 15, 30), result.FetchedDate);
-            Assert.Equal("%TOKEN_VALUE%", result.Token);
-            Assert.Equal(new DateTime(2025, 1, 1, 6, 0, 0), result.Created);
-            Assert.Equal(12345678, result.User);
-            Assert.Equal(new DateTime(9999, 12, 31, 23, 59, 59), result.Expires);
-            Assert.Equal(Array.Empty<string>(), result.ExtendedPermissions);
+            Assert.Equal(
+                new HattrickData(
+                    "check_token",
+                    1.0m,
+                    12345678,
+                    new DateTime(2025, 1, 1, 6, 15, 30),
+                    "%TOKEN_VALUE%",
+                    new DateTime(2025, 1, 1, 6, 0, 0),
+                    12345678,
+                    new DateTime(9999, 12, 31, 23, 59, 59),
+                    Array.Empty<string>()),
+                result);
         }
     }
 }
