@@ -209,7 +209,7 @@
             return new MySupporters(
                 totalItems,
                 maxItems,
-                supporterTeamList);
+                supporterTeamList.ToArray());
         }
 
         private static async Task<NationalTeam> ReadNationalTeamNodeAsync(XmlReader xmlReader)

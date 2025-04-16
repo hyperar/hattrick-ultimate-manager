@@ -5,5 +5,5 @@
     public record MySupporters(
         int TotalItems,
         int MaxItems,
-        IEnumerable<SupporterTeam> Teams);
+        SupporterTeam[] Teams);
 }

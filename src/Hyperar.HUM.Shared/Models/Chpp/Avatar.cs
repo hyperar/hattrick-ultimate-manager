@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public sealed record Avatar(string BackgroundImage, IEnumerable<Layer>? Layers)
+    public sealed record Avatar(string BackgroundImage, Layer[]? Layers)
     {
         public bool Equals(Avatar? other)
         {
