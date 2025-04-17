@@ -2,15 +2,15 @@
 <HattrickData>
     <FileName>worlddetails.xml</FileName>
     <Version>1.9</Version>
-    <UserID>12345678</UserID>
-    <FetchedDate>2025-01-01 08:15:30</FetchedDate>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-04-17 17:26:33</FetchedDate>
     <LeagueList>
         <League>
             <LeagueID>7</LeagueID>
             <LeagueName>Argentina</LeagueName>
             <Season>90</Season>
             <SeasonOffset>0</SeasonOffset>
-            <MatchRound>13</MatchRound>
+            <MatchRound>15</MatchRound>
             <ShortName>Argentina</ShortName>
             <Continent>South America</Continent>
             <ZoneName>South America</ZoneName>
@@ -131,8 +131,8 @@
                     <CupLeagueLevel>0</CupLeagueLevel>
                     <CupLevel>1</CupLevel>
                     <CupLevelIndex>1</CupLevelIndex>
-                    <MatchRound>12</MatchRound>
-                    <MatchRoundsLeft>1</MatchRoundsLeft>
+                    <MatchRound>13</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
                 </Cup>
                 <Cup>
                     <CupID>518</CupID>
@@ -140,8 +140,8 @@
                     <CupLeagueLevel>0</CupLeagueLevel>
                     <CupLevel>2</CupLevel>
                     <CupLevelIndex>1</CupLevelIndex>
-                    <MatchRound>11</MatchRound>
-                    <MatchRoundsLeft>2</MatchRoundsLeft>
+                    <MatchRound>13</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
                 </Cup>
                 <Cup>
                     <CupID>647</CupID>
@@ -149,8 +149,8 @@
                     <CupLeagueLevel>0</CupLeagueLevel>
                     <CupLevel>2</CupLevel>
                     <CupLevelIndex>2</CupLevelIndex>
-                    <MatchRound>10</MatchRound>
-                    <MatchRoundsLeft>2</MatchRoundsLeft>
+                    <MatchRound>12</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
                 </Cup>
                 <Cup>
                     <CupID>776</CupID>
@@ -158,8 +158,8 @@
                     <CupLeagueLevel>0</CupLeagueLevel>
                     <CupLevel>2</CupLevel>
                     <CupLevelIndex>3</CupLevelIndex>
-                    <MatchRound>9</MatchRound>
-                    <MatchRoundsLeft>2</MatchRoundsLeft>
+                    <MatchRound>11</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
                 </Cup>
                 <Cup>
                     <CupID>905</CupID>
@@ -167,8 +167,8 @@
                     <CupLeagueLevel>0</CupLeagueLevel>
                     <CupLevel>3</CupLevel>
                     <CupLevelIndex>1</CupLevelIndex>
-                    <MatchRound>10</MatchRound>
-                    <MatchRoundsLeft>2</MatchRoundsLeft>
+                    <MatchRound>12</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
                 </Cup>
                 <Cup>
                     <CupID>1329</CupID>
@@ -218,18 +218,18 @@
             </Cups>
             <NationalTeamId>3006</NationalTeamId>
             <U20TeamId>3047</U20TeamId>
-            <ActiveTeams>6751</ActiveTeams>
-            <ActiveUsers>6646</ActiveUsers>
+            <ActiveTeams>6748</ActiveTeams>
+            <ActiveUsers>6644</ActiveUsers>
             <WaitingUsers>0</WaitingUsers>
-            <TrainingDate>2025-04-04 02:00:00</TrainingDate>
-            <EconomyDate>2025-04-05 03:30:00</EconomyDate>
+            <TrainingDate>2025-04-18 02:00:00</TrainingDate>
+            <EconomyDate>2025-04-19 03:30:00</EconomyDate>
             <CupMatchDate>2025-04-02 23:10:00</CupMatchDate>
-            <SeriesMatchDate>2025-04-06 21:40:00</SeriesMatchDate>
-            <Sequence1>2025-04-07 11:00:00</Sequence1>
-            <Sequence2>2025-04-08 11:00:00</Sequence2>
-            <Sequence3>2025-04-01 21:40:00</Sequence3>
-            <Sequence5>2025-04-03 11:00:00</Sequence5>
-            <Sequence7>2025-04-04 19:20:00</Sequence7>
+            <SeriesMatchDate>2025-04-20 21:40:00</SeriesMatchDate>
+            <Sequence1>2025-04-21 11:00:00</Sequence1>
+            <Sequence2>2025-04-22 11:00:00</Sequence2>
+            <Sequence3>2025-04-22 21:40:00</Sequence3>
+            <Sequence5>2025-04-24 11:00:00</Sequence5>
+            <Sequence7>2025-04-18 19:20:00</Sequence7>
             <NumberOfLevels>6</NumberOfLevels>
         </League>
     </LeagueList>
