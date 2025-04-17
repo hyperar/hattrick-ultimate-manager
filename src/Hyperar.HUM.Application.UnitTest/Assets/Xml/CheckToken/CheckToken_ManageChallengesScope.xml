@@ -2,11 +2,11 @@
 <HattrickData>
     <FileName>check_token</FileName>
     <Version>1.0</Version>
-    <UserID>12345678</UserID>
-    <FetchedDate>2025-01-01 07:15:30</FetchedDate>
-    <Token>%TOKEN_VALUE%</Token>
-    <Created>2025-01-01 06:00:00</Created>
-    <User>12345678</User>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-04-17 18:07:23</FetchedDate>
+    <Token>Ki3IcH7Mq3GeIGS7</Token>
+    <Created>2025-04-17 17:15:47</Created>
+    <User>13900623</User>
     <Expires>9999-12-31 23:59:59</Expires>
     <ExtendedPermissions>manage_challenges</ExtendedPermissions>
 </HattrickData>

@@ -43,11 +43,11 @@
             var expected = new HattrickData(
                 "check_token",
                 1.0m,
-                12345678,
-                new DateTime(2025, 1, 1, 8, 15, 30),
-                "%TOKEN_VALUE%",
-                new DateTime(2025, 1, 1, 6, 0, 0),
-                12345678,
+                13900623,
+                new DateTime(2025, 4, 17, 18, 12, 58),
+                "Ki3IcH7Mq3GeIGS7",
+                new DateTime(2025, 4, 17, 17, 15, 47),
+                13900623,
                 new DateTime(9999, 12, 31, 23, 59, 59),
                 [
                     "manage_challenges",
@@ -80,15 +80,13 @@
             var expected = new HattrickData(
                 "check_token",
                 1.0m,
-                12345678,
-                new DateTime(2025, 1, 1, 7, 15, 30),
-                "%TOKEN_VALUE%",
-                new DateTime(2025, 1, 1, 6, 0, 0),
-                12345678,
+                13900623,
+                new DateTime(2025, 4, 17, 18, 7, 23),
+                "Ki3IcH7Mq3GeIGS7",
+                new DateTime(2025, 4, 17, 17, 15, 47),
+                13900623,
                 new DateTime(9999, 12, 31, 23, 59, 59),
-                [
-                    "manage_challenges"
-                ]);
+                ["manage_challenges"]);
 
             Assert.Equal(expected, result);
         }
@@ -113,11 +111,11 @@
             var expected = new HattrickData(
                 "check_token",
                 1.0m,
-                12345678,
-                new DateTime(2025, 1, 1, 6, 15, 30),
-                "%TOKEN_VALUE%",
-                new DateTime(2025, 1, 1, 6, 0, 0),
-                12345678,
+                13900623,
+                new DateTime(2025, 4, 17, 18, 5, 9),
+                "Ki3IcH7Mq3GeIGS7",
+                new DateTime(2025, 4, 17, 17, 15, 47),
+                13900623,
                 new DateTime(9999, 12, 31, 23, 59, 59),
                 Array.Empty<string>());
 
