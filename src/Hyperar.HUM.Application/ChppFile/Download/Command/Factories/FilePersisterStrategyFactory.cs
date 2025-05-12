@@ -45,7 +45,7 @@
             }
             else
             {
-                throw new BusinessException(
+                throw new PersisterException(
                     string.Format(
                         Globalization.ErrorMessages.TypeOutOfRange,
                         fileDownloadTask.GetType().Name,

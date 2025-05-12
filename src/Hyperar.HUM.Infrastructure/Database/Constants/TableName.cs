@@ -1,6 +1,6 @@
 ﻿namespace Hyperar.HUM.Infrastructure.Database.Constants
 {
-    internal class TableName
+    internal static class TableName
     {
         internal const string Country = "Country";
 
@@ -15,6 +15,8 @@
         internal const string OAuthToken = "OAuthToken";
 
         internal const string Region = "Region";
+
+        internal const string SeniorTeam = "SeniorTeam";
 
         internal const string UserProfile = "UserProfile";
     }

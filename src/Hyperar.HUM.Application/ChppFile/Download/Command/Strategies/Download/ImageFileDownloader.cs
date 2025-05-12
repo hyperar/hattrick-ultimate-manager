@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Download
 {
     using System;
+    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
@@ -17,11 +18,11 @@
 
             if (!ImageHelpers.ImageFileExists(imageFileDownloadTask.Url))
             {
-                var finalUrl = ImageHelpers.NormalizeUrl(imageFileDownloadTask.Url);
-
                 using (var httpClient = new HttpClient())
                 {
-                    imageFileDownloadTask.ImageFileBytes = await httpClient.GetByteArrayAsync(finalUrl, cancellationToken);
+                    imageFileDownloadTask.ImageFileBytes = await httpClient.GetByteArrayAsync(
+                        imageFileDownloadTask.Url,
+                        cancellationToken);
                 }
 
                 ArgumentNullException.ThrowIfNull(imageFileDownloadTask.ImageFileBytes);

@@ -17,7 +17,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Proxies:ChangeTracking", false)
                 .HasAnnotation("Proxies:CheckEquality", false)
                 .HasAnnotation("Proxies:LazyLoading", true)
@@ -365,6 +365,106 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.ToTable("Region", (string)null);
                 });
 
+            modelBuilder.Entity("Hyperar.HUM.Domain.SeniorTeam", b =>
+                {
+                    b.Property<long>("HattrickId")
+                        .HasColumnType("bigint")
+                        .HasColumnOrder(-1);
+
+                    b.Property<byte[]>("AwayMatchKitBytes")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnOrder(16);
+
+                    b.Property<bool>("CanBookMidweekFriendly")
+                        .HasColumnType("bit")
+                        .HasColumnOrder(12);
+
+                    b.Property<bool>("CanBookWeekendFriendly")
+                        .HasColumnType("bit")
+                        .HasColumnOrder(13);
+
+                    b.Property<DateTime>("FoundedOn")
+                        .HasColumnType("datetime")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("GlobalPowerRating")
+                        .HasColumnType("int")
+                        .HasColumnOrder(5);
+
+                    b.Property<byte[]>("HomeMatchKitBytes")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnOrder(15);
+
+                    b.Property<bool>("IsPlayingCup")
+                        .HasColumnType("bit")
+                        .HasColumnOrder(4);
+
+                    b.Property<long>("LeagueId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("LeaguePowerRating")
+                        .HasColumnType("int")
+                        .HasColumnOrder(6);
+
+                    b.Property<int>("LeagueRank")
+                        .HasColumnType("int")
+                        .HasColumnOrder(9);
+
+                    b.Property<byte[]>("LogoBytes")
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnOrder(14);
+
+                    b.Property<long>("ManagerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar")
+                        .HasColumnOrder(0);
+
+                    b.Property<int>("PowerRating")
+                        .HasColumnType("int")
+                        .HasColumnOrder(8);
+
+                    b.Property<long>("RegionId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("RegionPowerRating")
+                        .HasColumnType("int")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("ShortName")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("TeamIndex")
+                        .HasColumnType("int")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("UndefeatedStreak")
+                        .HasColumnType("int")
+                        .HasColumnOrder(10);
+
+                    b.Property<int>("WinningStreak")
+                        .HasColumnType("int")
+                        .HasColumnOrder(11);
+
+                    b.HasKey("HattrickId");
+
+                    b.HasIndex("LeagueId");
+
+                    b.HasIndex("ManagerId");
+
+                    b.HasIndex("RegionId");
+
+                    b.ToTable("SeniorTeam", (string)null);
+                });
+
             modelBuilder.Entity("Hyperar.HUM.Domain.UserProfile", b =>
                 {
                     b.Property<Guid>("Id")
@@ -463,6 +563,36 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Navigation("Country");
                 });
 
+            modelBuilder.Entity("Hyperar.HUM.Domain.SeniorTeam", b =>
+                {
+                    b.HasOne("Hyperar.HUM.Domain.League", "League")
+                        .WithMany("SeniorTeams")
+                        .HasForeignKey("LeagueId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_SeniorTeam_League");
+
+                    b.HasOne("Hyperar.HUM.Domain.Manager", "Manager")
+                        .WithMany("SeniorTeams")
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_SeniorTeam_Manager");
+
+                    b.HasOne("Hyperar.HUM.Domain.Region", "Region")
+                        .WithMany("SeniorTeams")
+                        .HasForeignKey("RegionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_SeniorTeam_Region");
+
+                    b.Navigation("League");
+
+                    b.Navigation("Manager");
+
+                    b.Navigation("Region");
+                });
+
             modelBuilder.Entity("Hyperar.HUM.Domain.Country", b =>
                 {
                     b.Navigation("Managers");
@@ -480,6 +610,18 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("Cups");
+
+                    b.Navigation("SeniorTeams");
+                });
+
+            modelBuilder.Entity("Hyperar.HUM.Domain.Manager", b =>
+                {
+                    b.Navigation("SeniorTeams");
+                });
+
+            modelBuilder.Entity("Hyperar.HUM.Domain.Region", b =>
+                {
+                    b.Navigation("SeniorTeams");
                 });
 
             modelBuilder.Entity("Hyperar.HUM.Domain.UserProfile", b =>

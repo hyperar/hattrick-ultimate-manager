@@ -1,6 +1,8 @@
 ﻿namespace Hyperar.HUM.ChppApiClient.Interfaces
 {
     using System.Collections.Specialized;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.Shared.Models.Authorization;
 

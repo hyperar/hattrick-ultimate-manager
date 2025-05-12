@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>worlddetails.xml</FileName>
+    <Version>1.9</Version>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-04-17 17:26:33</FetchedDate>
+    <LeagueList>
+        <League>
+            <LeagueID>7</LeagueID>
+            <LeagueName>Argentina</LeagueName>
+            <Season>90</Season>
+            <SeasonOffset>0</SeasonOffset>
+            <MatchRound>15</MatchRound>
+            <ShortName>Argentina</ShortName>
+            <Continent>South America</Continent>
+            <ZoneName>South America</ZoneName>
+            <EnglishName>Argentina</EnglishName>
+            <LanguageId>51</LanguageId>
+            <LanguageName>Español, Rioplatense</LanguageName>
+            <Country Available="True">
+                <CountryID>7</CountryID>
+                <CountryName>Argentina</CountryName>
+                <CurrencyName>Pesos</CurrencyName>
+                <CurrencyRate>10</CurrencyRate>
+                <CountryCode>AR</CountryCode>
+                <DateFormat>DD/MM/YYYY</DateFormat>
+                <TimeFormat>hh:mm</TimeFormat>
+                <RegionList>
+                    <Region>
+                        <RegionID>67</RegionID>
+                        <RegionName>Catamarca</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>68</RegionID>
+                        <RegionName>Chaco</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>69</RegionID>
+                        <RegionName>Chubut</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>70</RegionID>
+                        <RegionName>Ciudad Autónoma de Buenos Aires</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>71</RegionID>
+                        <RegionName>Córdoba</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>72</RegionID>
+                        <RegionName>Corrientes</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>73</RegionID>
+                        <RegionName>Entre Ríos</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>74</RegionID>
+                        <RegionName>Formosa</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>75</RegionID>
+                        <RegionName>Jujuy</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>76</RegionID>
+                        <RegionName>La Pampa</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>77</RegionID>
+                        <RegionName>La Rioja</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>78</RegionID>
+                        <RegionName>Mendoza</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>79</RegionID>
+                        <RegionName>Misiones</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>80</RegionID>
+                        <RegionName>Neuquén</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>66</RegionID>
+                        <RegionName>Provincia de Buenos Aires</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>81</RegionID>
+                        <RegionName>Río Negro</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>82</RegionID>
+                        <RegionName>Salta</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>83</RegionID>
+                        <RegionName>San Juan</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>84</RegionID>
+                        <RegionName>San Luis</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>85</RegionID>
+                        <RegionName>Santa Cruz</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>86</RegionID>
+                        <RegionName>Santa Fe</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>87</RegionID>
+                        <RegionName>Santiago del Estero</RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>88</RegionID>
+                        <RegionName>Tierra del Fuego, Antártida e Islas del Atlántico </RegionName>
+                    </Region>
+                    <Region>
+                        <RegionID>89</RegionID>
+                        <RegionName>Tucumán</RegionName>
+                    </Region>
+                </RegionList>
+            </Country>
+            <Cups>
+                <Cup>
+                    <CupID>2</CupID>
+                    <CupName>Copa Argentina Diego Armando Maradona</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>1</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>13</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>518</CupID>
+                    <CupName>Copa Esmeralda Pedro 'Apache' Zurita</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>13</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>647</CupID>
+                    <CupName>Copa Rubí Alberto Conte</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>2</CupLevelIndex>
+                    <MatchRound>12</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>776</CupID>
+                    <CupName>Copa Zafiro caPiTAn_piLuSO</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>3</CupLevelIndex>
+                    <MatchRound>11</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>905</CupID>
+                    <CupName>Copa Consuelo Gerardo Raúl Peludo</CupName>
+                    <CupLeagueLevel>0</CupLeagueLevel>
+                    <CupLevel>3</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>12</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1329</CupID>
+                    <CupName>Copa de VII División</CupName>
+                    <CupLeagueLevel>7</CupLeagueLevel>
+                    <CupLevel>1</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>7</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1342</CupID>
+                    <CupName>Copa Desafío Esmeralda VII División</CupName>
+                    <CupLeagueLevel>7</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>7</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1355</CupID>
+                    <CupName>Copa Desafío Rubí VII División </CupName>
+                    <CupLeagueLevel>7</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>2</CupLevelIndex>
+                    <MatchRound>6</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1368</CupID>
+                    <CupName>Copa Desafío Zafiro VII División </CupName>
+                    <CupLeagueLevel>7</CupLeagueLevel>
+                    <CupLevel>2</CupLevel>
+                    <CupLevelIndex>3</CupLevelIndex>
+                    <MatchRound>5</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+                <Cup>
+                    <CupID>1381</CupID>
+                    <CupName>Copa Consuelo VII División</CupName>
+                    <CupLeagueLevel>7</CupLeagueLevel>
+                    <CupLevel>3</CupLevel>
+                    <CupLevelIndex>1</CupLevelIndex>
+                    <MatchRound>6</MatchRound>
+                    <MatchRoundsLeft>0</MatchRoundsLeft>
+                </Cup>
+            </Cups>
+            <NationalTeamId>3006</NationalTeamId>
+            <U20TeamId>3047</U20TeamId>
+            <ActiveTeams>6748</ActiveTeams>
+            <ActiveUsers>6644</ActiveUsers>
+            <WaitingUsers>0</WaitingUsers>
+            <TrainingDate>2025-04-18 02:00:00</TrainingDate>
+            <EconomyDate>2025-04-19 03:30:00</EconomyDate>
+            <CupMatchDate>2025-04-02 23:10:00</CupMatchDate>
+            <SeriesMatchDate>2025-04-20 21:40:00</SeriesMatchDate>
+            <Sequence1>2025-04-21 11:00:00</Sequence1>
+            <Sequence2>2025-04-22 11:00:00</Sequence2>
+            <Sequence3>2025-04-22 21:40:00</Sequence3>
+            <Sequence5>2025-04-24 11:00:00</Sequence5>
+            <Sequence7>2025-04-18 19:20:00</Sequence7>
+            <NumberOfLevels>6</NumberOfLevels>
+        </League>
+    </LeagueList>
+</HattrickData>

@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.OAuthToken.AccessToken.Commands.CheckToken
 {
     using System.Net;
+    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.ChppApiClient.Interfaces;

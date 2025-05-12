@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.OAuthToken.AccessToken.Commands.RevokeToken
 {
     using System.Net;
+    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.ChppApiClient.Interfaces;

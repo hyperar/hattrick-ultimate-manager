@@ -1,6 +1,8 @@
 ﻿namespace Hyperar.HUM.Application.UnitTest.XmlReader
 {
+    using System.IO;
     using System.Text;
+    using System.Threading.Tasks;
     using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
 
@@ -37,7 +39,7 @@
                 {
                     xmlReader.ReadToFollowing("Node");
 
-                    Assert.Equal(await xmlReader.ReadValueAsync(), value);
+                    Assert.Equal((await xmlReader.ReadValueAsync()).AsNullableString(), value);
                 }
             }
         }

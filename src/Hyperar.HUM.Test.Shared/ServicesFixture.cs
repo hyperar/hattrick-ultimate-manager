@@ -131,10 +131,12 @@
             services.AddScoped<ProtectedResourceDownloader>();
 
             // Parsers.
+            services.AddScoped<IXmlFileParser, XmlFileParser>();
             services.AddScoped<IFileParseStrategyFactory, FileParseStrategyFactory>();
             services.AddScoped<CheckTokenParser>();
             services.AddScoped<ErrorParser>();
             services.AddScoped<ManagerCompendiumParser>();
+            services.AddScoped<TeamDetailsParser>();
             services.AddScoped<WorldDetailsParser>();
 
             // Extractors.
@@ -142,6 +144,7 @@
             services.AddScoped<CheckTokenExtractor>();
             services.AddScoped<EmptyExtractor>();
             services.AddScoped<ManagerCompendiumExtractor>();
+            services.AddScoped<TeamDetailsExtractor>();
             services.AddScoped<WorldDetailsExtractor>();
 
             // Persisters.

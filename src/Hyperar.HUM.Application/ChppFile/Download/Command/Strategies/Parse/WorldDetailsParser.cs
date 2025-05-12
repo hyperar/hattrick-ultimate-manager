@@ -1,32 +1,32 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse
 {
     using System;
+    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
     using Hyperar.HUM.Application.Exceptions;
+    using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
     using Hyperar.HUM.Shared.Models.Chpp.WorldDetails;
 
     public class WorldDetailsParser : XmlParserBase, IFileParseStrategy
     {
-        public async Task ExecuteFileParseAsync(
+        public async Task<IXmlFileBase> ExecuteFileParseAsync(
             XmlReader xmlReader,
             string fileName,
             decimal version,
             long userId,
-            DateTime fetchetDate,
-            XmlFileDownloadTask xmlFileDownloadTask,
+            DateTime fetchedDate,
             CancellationToken cancellationToken)
         {
-            xmlFileDownloadTask.Entity = new HattrickData(
+            return new HattrickData(
                 fileName,
                 version,
                 userId,
-                fetchetDate,
+                fetchedDate,
                 await ReadLeagueListNodeAsync(
                     xmlReader));
         }
@@ -35,7 +35,7 @@
         {
             if (!xmlReader.CheckNode(NodeName.Country))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.Country,
@@ -55,7 +55,9 @@
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
                 available ? (await xmlReader.ReadValueAsync()).AsString() : null,
-                available ? await ReadNullableIdNameListNodeAsync(xmlReader, NodeName.RegionList, NodeName.Region) : null);
+                available && xmlReader.CheckNode(NodeName.RegionList) ?
+                    await ReadIdNameListNodeAsync(xmlReader, NodeName.RegionList, NodeName.Region) :
+                    null);
 
             if (available)
             {
@@ -87,7 +89,7 @@
         {
             if (!xmlReader.CheckNode(NodeName.Cups))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.Cups,
@@ -114,7 +116,7 @@
         {
             if (!xmlReader.CheckNode(NodeName.LeagueList))
             {
-                throw new BusinessException(
+                throw new ParserException(
                     string.Format(
                         Globalization.ErrorMessages.InvalidXmlElement,
                         NodeName.LeagueList,

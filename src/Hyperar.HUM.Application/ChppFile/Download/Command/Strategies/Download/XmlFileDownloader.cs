@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Download
 {
     using System;
+    using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Globalization;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Xml;
 
@@ -107,7 +108,7 @@
         {
             ArgumentNullException.ThrowIfNull(value);
 
-            return value!;
+            return value;
         }
 
         internal static bool CheckNode(this XmlReader reader, params string[] expectedNames)
@@ -117,9 +118,18 @@
 
         internal static async Task<string?> ReadValueAsync(this XmlReader xmlReader)
         {
-            return xmlReader.IsEmptyElement
-                ? null
-                : await xmlReader.ReadElementContentAsStringAsync();
+            string? result = null;
+
+            if (xmlReader.IsEmptyElement)
+            {
+                await xmlReader.ReadAsync();
+            }
+            else
+            {
+                result = await xmlReader.ReadElementContentAsStringAsync();
+            }
+
+            return result;
         }
 
         private static string NormalizeDecimalValue(string value)

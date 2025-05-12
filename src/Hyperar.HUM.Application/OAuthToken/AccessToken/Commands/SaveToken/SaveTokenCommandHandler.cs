@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.OAuthToken.AccessToken.Commands.SaveToken
 {
     using System;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Domain.Interfaces;
