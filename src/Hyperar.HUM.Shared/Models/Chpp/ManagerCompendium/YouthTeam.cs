@@ -9,7 +9,7 @@
             return other != null
                 && this.YouthTeamId == other.YouthTeamId
                 && this.YouthTeamName == other.YouthTeamName
-                && this.YouthLeague == YouthLeague;
+                && this.YouthLeague == other.YouthLeague;
         }
 
         public override int GetHashCode()

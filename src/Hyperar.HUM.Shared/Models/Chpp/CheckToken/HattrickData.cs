@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
 
     public sealed record HattrickData(
         string FileName,
@@ -13,7 +12,7 @@
         DateTime Created,
         long User,
         DateTime Expires,
-        string[] ExtendedPermissions) : XmlFileBase(FileName, Version, UserId, FetchedDate), IXmlFileBase
+        string[] ExtendedPermissions) : XmlFileBase(FileName, Version, UserId, FetchedDate)
     {
         public bool Equals(HattrickData? other)
         {

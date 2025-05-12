@@ -1,14 +1,13 @@
 ﻿namespace Hyperar.HUM.Shared.Models.Chpp.ManagerCompendium
 {
     using System;
-    using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
 
     public sealed record HattrickData(
         string FileName,
         decimal Version,
         long UserId,
         DateTime FetchedDate,
-        Manager Manager) : XmlFileBase(FileName, Version, UserId, FetchedDate), IXmlFileBase
+        Manager Manager) : XmlFileBase(FileName, Version, UserId, FetchedDate)
     {
         public bool Equals(HattrickData? other)
         {

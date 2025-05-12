@@ -7,7 +7,7 @@
 
     public abstract class XmlFileParserBase
     {
-        protected async Task<byte[]> OpenFile(string fileName)
+        protected static async Task<byte[]> OpenFile(string fileName)
         {
             var basePath = Path.GetDirectoryName(
                         Assembly.GetExecutingAssembly().Location);

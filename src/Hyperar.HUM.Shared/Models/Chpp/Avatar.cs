@@ -1,7 +1,6 @@
 ﻿namespace Hyperar.HUM.Shared.Models.Chpp
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
 
     public sealed record Avatar(string BackgroundImage, Layer[]? Layers)

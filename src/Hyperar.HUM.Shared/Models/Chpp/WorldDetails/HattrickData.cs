@@ -2,14 +2,13 @@
 {
     using System;
     using System.Linq;
-    using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
 
     public sealed record HattrickData(
         string FileName,
         decimal Version,
         long UserId,
         DateTime FetchedDate,
-        League[] LeagueList) : XmlFileBase(FileName, Version, UserId, FetchedDate), IXmlFileBase
+        League[] LeagueList) : XmlFileBase(FileName, Version, UserId, FetchedDate)
     {
         public bool Equals(HattrickData? other)
         {

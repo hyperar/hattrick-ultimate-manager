@@ -1,7 +1,6 @@
 ﻿namespace Hyperar.HUM.Shared.Models.Chpp.Error
 {
     using System;
-    using Hyperar.HUM.Shared.Models.Chpp.Interfaces;
 
     public sealed record HattrickData(
         string FileName,
@@ -12,7 +11,7 @@
         int ErrorCode,
         Guid ErrorGuid,
         string Request,
-        int LineNumber) : XmlFileBase(FileName, Version, UserId, FetchedDate), IXmlFileBase
+        int LineNumber) : XmlFileBase(FileName, Version, UserId, FetchedDate)
     {
         public bool Equals(HattrickData? other)
         {

@@ -9,7 +9,7 @@
             return other != null
                 && this.LeagueId == other.LeagueId
                 && this.LeagueName == other.LeagueName
-                && this.Season == Season;
+                && this.Season == other.Season;
         }
 
         public override int GetHashCode()

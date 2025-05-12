@@ -1,6 +1,6 @@
 ﻿namespace Hyperar.HUM.Infrastructure.Database.Constants
 {
-    internal class TableName
+    internal static class TableName
     {
         internal const string Country = "Country";
 
