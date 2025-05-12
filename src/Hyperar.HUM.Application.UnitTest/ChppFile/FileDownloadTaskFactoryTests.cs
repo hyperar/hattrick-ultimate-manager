@@ -19,15 +19,15 @@
         [Fact]
         public void FileDownloadTaskFactoryImageFileDownloadTask_ShouldBeEqual()
         {
-            var task = this.fileDownloadTaskFactory.BuildImageFileDownloadTask("/images/file.png");
+            var task = this.fileDownloadTaskFactory.BuildImageFileDownloadTask("/img/file.png");
 
             Assert.NotNull(task);
             Assert.NotEqual(Guid.Empty, task.Id);
             Assert.Null(task.ErrorMessage);
             Assert.Equal(FileType.ImageFile, task.FileType);
             Assert.Null(task.ImageFileBytes);
-            Assert.Equal("/images/file.png", task.Title);
-            Assert.Equal("/images/file.png", task.Url);
+            Assert.Equal("https://www.hattrick.org/img/file.png", task.Title);
+            Assert.Equal("https://www.hattrick.org/img/file.png", task.Url);
         }
 
         [Fact]

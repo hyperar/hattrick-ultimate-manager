@@ -2,10 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
+    using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.Shared.Models.Chpp.ManagerCompendium;
 
     public class ManagerCompendiumExtractor : XmlFileExtractorBase, IFileExtractorStrategy
@@ -27,7 +29,6 @@
 
             ArgumentNullException.ThrowIfNull(managerCompendium);
 
-            // TODO: Add teams extraction once the tables and entities are created.
             if (managerCompendium.Manager.Avatar is not null)
             {
                 if (!ImageHelpers.ImageFileExists(
@@ -44,6 +45,15 @@
                     await this.ExtractAvatarTasksAsync(
                         managerCompendium.Manager.Avatar));
             }
+
+            fileDownloadTasks.Add(
+                this.fileDownloadTaskFactory.BuildXmlFileDownloadTask(
+                    xmlFileDownloadTask.UserProfileId,
+                    XmlFileType.TeamDetails,
+                    new NameValueCollection
+                    {
+                        { "UserId", managerCompendium.Manager.UserId.ToString() }
+                    }));
         }
     }
 }

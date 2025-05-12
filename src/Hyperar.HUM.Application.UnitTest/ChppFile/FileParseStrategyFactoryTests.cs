@@ -20,6 +20,7 @@
         [InlineData(FileName.CheckToken, typeof(CheckTokenParser))]
         [InlineData(FileName.Error, typeof(ErrorParser))]
         [InlineData(FileName.ManagerCompendium, typeof(ManagerCompendiumParser))]
+        [InlineData(FileName.TeamDetails, typeof(TeamDetailsParser))]
         [InlineData(FileName.WorldDetails, typeof(WorldDetailsParser))]
         public void FileParseStrategyFactoryImplementedXmlFileType_ShouldBeOfType(string fileName, Type returnType)
         {
@@ -63,7 +64,6 @@
         [InlineData(FileName.StaffAvatars)]
         [InlineData(FileName.StaffList)]
         [InlineData(FileName.Supporters)]
-        [InlineData(FileName.TeamDetails)]
         [InlineData(FileName.TournamentDetails)]
         [InlineData(FileName.TournamentFixtures)]
         [InlineData(FileName.TournamentLeagueTables)]

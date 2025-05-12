@@ -22,7 +22,7 @@
 
     <StackPanel Spacing="10">
 
-        <StackPanel Width="750">
+        <StackPanel Width="850">
 
             <Border Background="{DynamicResource ControlFillColorDefault}"
                     CornerRadius="{DynamicResource OverlayCornerRadius}"

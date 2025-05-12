@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Domain
 {
     using System;
+    using System.Collections.Generic;
     using Hyperar.HUM.Shared.Enums;
 
     public class Manager : HattrickEntityBase
@@ -14,6 +15,8 @@
         public string CurrencyName { get; set; } = string.Empty;
 
         public decimal CurrencyRate { get; set; }
+
+        public virtual ICollection<SeniorTeam> SeniorTeams { get; set; } = new HashSet<SeniorTeam>();
 
         public SupporterTier SupporterTier { get; set; }
 

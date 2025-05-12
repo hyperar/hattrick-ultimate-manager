@@ -2,23 +2,19 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
-    using System.Xml;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.Constants;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Parse.ExtensionMethods;
     using Hyperar.HUM.Shared.Enums;
 
     public class FileDownloadTaskParser : IFileDownloadTaskParser
     {
-        private readonly IFileParseStrategyFactory fileParseStrategyFactory;
+        private readonly IXmlFileParser xmlParser;
 
-        public FileDownloadTaskParser(IFileParseStrategyFactory fileParseStrategyFactory)
+        public FileDownloadTaskParser(IXmlFileParser xmlParser)
         {
-            this.fileParseStrategyFactory = fileParseStrategyFactory;
+            this.xmlParser = xmlParser;
         }
 
         public async Task ExecuteAsync(
@@ -34,40 +30,9 @@
 
                 ArgumentNullException.ThrowIfNull(xmlFileDownloadTask.FileContent);
 
-                using (var memoryStream = new MemoryStream(xmlFileDownloadTask.FileContent))
-                {
-                    var xmlReaderSettings = new XmlReaderSettings
-                    {
-                        Async = true,
-                        CloseInput = true,
-                        IgnoreComments = true,
-                        IgnoreProcessingInstructions = true,
-                        IgnoreWhitespace = true
-                    };
-
-                    using (var xmlReader = XmlReader.Create(memoryStream, xmlReaderSettings))
-                    {
-                        xmlReader.ReadToFollowing(NodeName.FileName);
-
-                        var fileName = await xmlReader.ReadElementContentAsStringAsync();
-                        var version = (await xmlReader.ReadValueAsync()).AsDecimal();
-                        var userId = (await xmlReader.ReadValueAsync()).AsLong();
-                        var fetchedDate = (await xmlReader.ReadValueAsync()).AsDateTime();
-
-                        var parser = this.fileParseStrategyFactory.GetFor(fileName);
-
-                        await parser.ExecuteFileParseAsync(
-                            xmlReader,
-                            fileName,
-                            version,
-                            userId,
-                            fetchedDate,
-                            xmlFileDownloadTask,
-                            cancellationToken);
-
-                        fileDownloadTask.Status = DownloadTaskStatus.Read;
-                    }
-                }
+                xmlFileDownloadTask.Entity = await this.xmlParser.ParseXmlFileAsync(
+                    xmlFileDownloadTask.FileContent,
+                    cancellationToken);
             }
             catch (Exception ex)
             {

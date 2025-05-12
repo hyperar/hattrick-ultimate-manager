@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>managercompendium.xml</FileName>
+    <Version>1.5</Version>
+    <UserID>12345678</UserID>
+    <FetchedDate>2025-03-15 12:11:05</FetchedDate>
+    <Manager>
+        <UserId>12345678</UserId>
+        <Loginname>%USER_NAME%</Loginname>
+        <SupporterTier>%SUPPOTER_PACKAGE%</SupporterTier>
+        <LastLogins>
+            <LoginTime>%LOGIN_TIME_MASKED_IP_1%</LoginTime>
+            <LoginTime>%LOGIN_TIME_MASKED_IP_2%</LoginTime>
+            <LoginTime>%LOGIN_TIME_MASKED_IP_3%</LoginTime>
+            <LoginTime>%LOGIN_TIME_MASKED_IP_4%</LoginTime>
+            <LoginTime>%LOGIN_TIME_MASKED_IP_5%</LoginTime>
+            <LoginTime>%LOGIN_TIME_MASKED_IP_6%</LoginTime>
+        </LastLogins>
+        <Language>
+            <LanguageId>1</LanguageId>
+            <LanguageName>%LANGUAGE_NAME_1%</LanguageName>
+        </Language>
+        <Country>
+            <CountryId>12</CountryId>
+            <CountryName>%COUNTRY_NAME_12%</CountryName>
+        </Country>
+        <Currency>
+            <CurrencyName>€</CurrencyName>
+            <CurrencyRate>10</CurrencyRate>
+        </Currency>
+        <Teams>
+            <Team>
+                <TeamId>1234567</TeamId>
+                <TeamName>%TEAM_NAME_1234567%</TeamName>
+                <Arena>
+                    <ArenaId>1234567</ArenaId>
+                    <ArenaName>%ARENA_NAME_1234567%</ArenaName>
+                </Arena>
+                <League>
+                    <LeagueId>12</LeagueId>
+                    <LeagueName>%LEAGUE_NAME_12%</LeagueName>
+                    <Season>78</Season>
+                </League>
+                <Country>
+                    <CountryId>12</CountryId>
+                    <CountryName>%COUNTRY_NAME_12%</CountryName>
+                </Country>
+                <LeagueLevelUnit>
+                    <LeagueLevelUnitId>12345</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>%SERIES_NAME_12345%</LeagueLevelUnitName>
+                </LeagueLevelUnit>
+                <Region>
+                    <RegionId>123</RegionId>
+                    <RegionName>%REGION_NAME_123%</RegionName>
+                </Region>
+                <YouthTeam>
+                    <YouthTeamId>2345678</YouthTeamId>
+                    <YouthTeamName>%YOUTH_TEAM_2345678%</YouthTeamName>
+                    <YouthLeague />
+                </YouthTeam>
+            </Team>
+        </Teams>
+        <NationalTeamCoach />
+        <NationalTeamAssistant />
+        <Avatar>
+            <BackgroundImage>%FRAME_FILE_NAME%</BackgroundImage>
+            <Layer x="9" y="10">
+                <Image>%BACKGROUND_FILE_NAME%</Image>
+            </Layer>
+            <Layer x="9" y="10">
+                <Image>%BODY_FILE_NAME%</Image>
+            </Layer>
+            <Layer x="9" y="10">
+                <Image>%FACE_FILE_NAME%</Image>
+            </Layer>
+            <Layer x="9" y="10">
+                <Image>%BEARD_FILE_NAME%</Image>
+            </Layer>
+            <Layer x="27" y="26">
+                <Image>%EYES_FILE_NAME%</Image>
+            </Layer>
+            <Layer x="9" y="10">
+                <Image>%MOUTH_FILE_NAME%</Image>
+            </Layer>
+            <Layer x="9" y="10">
+                <Image>%NOSE_FILE_NAME%</Image>
+            </Layer>
+            <Layer x="9" y="10">
+                <Image>%HAIR_FILE_NAME%</Image>
+            </Layer>
+        </Avatar>
+    </Manager>
+</HattrickData>

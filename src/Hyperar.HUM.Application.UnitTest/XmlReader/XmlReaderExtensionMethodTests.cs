@@ -39,7 +39,7 @@
                 {
                     xmlReader.ReadToFollowing("Node");
 
-                    Assert.Equal(await xmlReader.ReadValueAsync(), value);
+                    Assert.Equal((await xmlReader.ReadValueAsync()).AsNullableString(), value);
                 }
             }
         }
