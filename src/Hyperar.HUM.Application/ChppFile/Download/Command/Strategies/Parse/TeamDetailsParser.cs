@@ -553,7 +553,7 @@
                 (await xmlReader.ReadValueAsync()).AsLong(),
                 (await xmlReader.ReadValueAsync()).AsString(),
                 (await xmlReader.ReadValueAsync()).AsDateTime(),
-                (await xmlReader.ReadValueAsync()).AsString(),
+                xmlReader.CheckNode(NodeName.ImageUrl) ? (await xmlReader.ReadValueAsync()).AsNullableString() : null,
                 !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsNullableInt() : null,
                 !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsNullableInt() : null,
                 !xmlReader.IsEmptyElement ? (await xmlReader.ReadValueAsync()).AsNullableInt() : null);
@@ -569,9 +569,10 @@
 
             var user = new User(
                 (await xmlReader.ReadValueAsync()).AsLong(),
-                await ReadIdNameNodeAsync(
+                xmlReader.CheckNode(NodeName.Language) ? await ReadIdNameNodeAsync(
                     xmlReader,
-                    NodeName.Language),
+                    NodeName.Language) :
+                    null,
                 (await xmlReader.ReadValueAsync()).AsString(),
                 (await xmlReader.ReadValueAsync()).AsString(),
                 (await xmlReader.ReadValueAsync()).AsString(),

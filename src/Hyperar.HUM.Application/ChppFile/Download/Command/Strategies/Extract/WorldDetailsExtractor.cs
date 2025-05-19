@@ -31,7 +31,10 @@
 
             ArgumentNullException.ThrowIfNull(worldDetails);
 
-            var imageList = worldDetails.LeagueList.Select(x => string.Format(ImageHelpers.FlagUrlMask, x.LeagueId));
+            var imageList = worldDetails.LeagueList.Select(x => string.Format(ImageHelpers.FlagUrlMask, x.LeagueId))
+                .ToList();
+
+            imageList.AddRange(worldDetails.LeagueList.Select(x => string.Format(ImageHelpers.InactiveFlagUrlMask, x.LeagueId)));
 
             fileDownloadTasks.InsertRange(
                 fileDownloadTasks.IndexOf(xmlFileDownloadTask),

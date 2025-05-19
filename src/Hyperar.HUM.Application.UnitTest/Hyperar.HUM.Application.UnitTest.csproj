@@ -77,6 +77,66 @@
         <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_YouthTeam.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_BotTeam_Supporters.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_BotTeam_Flags.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_BotTeam_Full.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_BotTeam.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_FourTeams.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_FourTeams_Flags.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_FourTeams_Full.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_FourTeams_Supporters.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_OneTeam.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_OneTeam_Flags.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_OneTeam_Full.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_OneTeam_Supporters.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_ThreeTeams.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_ThreeTeams_Flags.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_ThreeTeams_Full.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_ThreeTeams_Supporters.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_TwoTeams.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_TwoTeams_Flags.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_TwoTeams_Full.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\TeamDetails\TeamDetails_TwoTeams_Supporters.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <None Update="Assets\Xml\WorldDetails\WorldDetails_Country.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>

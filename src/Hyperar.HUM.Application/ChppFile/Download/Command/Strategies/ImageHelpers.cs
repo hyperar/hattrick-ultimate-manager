@@ -13,6 +13,8 @@
     {
         internal const string FlagUrlMask = "/Img/flags/{0}.png";
 
+        internal const string InactiveFlagUrlMask = "/Img/flags/{0}_inactive.png";
+
         private const string App = "HUM";
 
         private const string Company = "Hyperar";

@@ -1,0 +1,2087 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>teamdetails.xml</FileName>
+    <Version>3.7</Version>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-05-17 12:58:29</FetchedDate>
+    <User>
+        <UserID>13234618</UserID>
+        <Language>
+            <LanguageID>6</LanguageID>
+            <LanguageName>Español, España</LanguageName>
+        </Language>
+        <SupporterTier>platinum</SupporterTier>
+        <Loginname>Rgazole</Loginname>
+        <Name>HIDDEN</Name>
+        <ICQ></ICQ>
+        <SignupDate>2016-05-12 20:59:12</SignupDate>
+        <ActivationDate>2016-05-12 21:00:00</ActivationDate>
+        <LastLoginDate>2025-05-15 02:47:16</LastLoginDate>
+        <HasManagerLicense>True</HasManagerLicense>
+        <NationalTeams />
+    </User>
+    <Teams>
+        <Team>
+            <TeamID>117817</TeamID>
+            <TeamName>Real Tozoloneros FC</TeamName>
+            <ShortTeamName>Tozoloneros</ShortTeamName>
+            <IsPrimaryClub>True</IsPrimaryClub>
+            <FoundedDate>2016-05-12 21:00:00</FoundedDate>
+            <IsDeactivated>False</IsDeactivated>
+            <Arena>
+                <ArenaID>117817</ArenaID>
+                <ArenaName>Real Tozoloneros FC Arena</ArenaName>
+            </Arena>
+            <League>
+                <LeagueID>36</LeagueID>
+                <LeagueName>España</LeagueName>
+            </League>
+            <Country>
+                <CountryID>35</CountryID>
+                <CountryName>España</CountryName>
+            </Country>
+            <Region>
+                <RegionID>805</RegionID>
+                <RegionName>Aragón</RegionName>
+            </Region>
+            <Trainer>
+                <PlayerID>426752381</PlayerID>
+            </Trainer>
+            <HomePage></HomePage>
+            <DressURI>//res.hattrick.org/kits/26/252/2514/2513862/matchKitSmall.png</DressURI>
+            <DressAlternateURI>//res.hattrick.org/kits/28/272/2714/2713289/matchKitSmall.png</DressAlternateURI>
+            <LeagueLevelUnit>
+                <LeagueLevelUnitID>3487</LeagueLevelUnitID>
+                <LeagueLevelUnitName>IV.64</LeagueLevelUnitName>
+                <LeagueLevel>4</LeagueLevel>
+            </LeagueLevelUnit>
+            <BotStatus>
+                <IsBot>False</IsBot>
+            </BotStatus>
+            <Cup>
+                <StillInCup>True</StillInCup>
+                <CupID>43</CupID>
+                <CupName>Copa de España</CupName>
+                <CupLeagueLevel>0</CupLeagueLevel>
+                <CupLevel>1</CupLevel>
+                <CupLevelIndex>1</CupLevelIndex>
+                <MatchRound>4</MatchRound>
+                <MatchRoundsLeft>11</MatchRoundsLeft>
+            </Cup>
+            <PowerRating>
+                <GlobalRanking>6660</GlobalRanking>
+                <LeagueRanking>322</LeagueRanking>
+                <RegionRanking>7</RegionRanking>
+                <PowerRating>1059</PowerRating>
+            </PowerRating>
+            <FriendlyTeamID>0</FriendlyTeamID>
+            <NumberOfVictories>1</NumberOfVictories>
+            <NumberOfUndefeated>1</NumberOfUndefeated>
+            <TeamRank>381</TeamRank>
+            <Fanclub>
+                <FanclubID>611542</FanclubID>
+                <FanclubName>Real Tozoloneros FC</FanclubName>
+                <FanclubSize>2777</FanclubSize>
+            </Fanclub>
+            <LogoURL>//res.hattrick.org/teamlogo/2/12/118/117817/117817.jpg</LogoURL>
+            <Guestbook>
+                <NumberOfGuestbookItems>4</NumberOfGuestbookItems>
+            </Guestbook>
+            <TeamColors />
+            <YouthTeamID>2723475</YouthTeamID>
+            <YouthTeamName>Zagalicos FC</YouthTeamName>
+            <NumberOfVisits>1</NumberOfVisits>
+            <Flags>
+                <AwayFlags>
+                    <Flag>
+                        <LeagueId>128</LeagueId>
+                        <LeagueName>Al Iraq</LeagueName>
+                        <CountryCode>IQ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>77</LeagueId>
+                        <LeagueName>Al Maghrib</LeagueName>
+                        <CountryCode>MA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>106</LeagueId>
+                        <LeagueName>Al Urdun</LeagueName>
+                        <CountryCode>JO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>118</LeagueId>
+                        <LeagueName>Algérie</LeagueName>
+                        <CountryCode>DZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>105</LeagueId>
+                        <LeagueName>Andorra</LeagueName>
+                        <CountryCode>AD</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>7</LeagueId>
+                        <LeagueName>Argentina</LeagueName>
+                        <CountryCode>AR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>91</LeagueId>
+                        <LeagueName>Belarus</LeagueName>
+                        <CountryCode>BY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>44</LeagueId>
+                        <LeagueName>Belgium</LeagueName>
+                        <CountryCode>BE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>69</LeagueId>
+                        <LeagueName>Bosna i Hercegovina</LeagueName>
+                        <CountryCode>BA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>16</LeagueId>
+                        <LeagueName>Brasil</LeagueName>
+                        <CountryCode>BR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>62</LeagueId>
+                        <LeagueName>Bulgaria</LeagueName>
+                        <CountryCode>BG</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>146</LeagueId>
+                        <LeagueName>Cameroon</LeagueName>
+                        <CountryCode>CM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>17</LeagueId>
+                        <LeagueName>Canada</LeagueName>
+                        <CountryCode>CA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>52</LeagueId>
+                        <LeagueName>Česko</LeagueName>
+                        <CountryCode>CZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>18</LeagueId>
+                        <LeagueName>Chile</LeagueName>
+                        <CountryCode>CL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>34</LeagueId>
+                        <LeagueName>China</LeagueName>
+                        <CountryCode>CN</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>60</LeagueId>
+                        <LeagueName>Chinese Taipei</LeagueName>
+                        <CountryCode>TW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>19</LeagueId>
+                        <LeagueName>Colombia</LeagueName>
+                        <CountryCode>CO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>81</LeagueId>
+                        <LeagueName>Costa Rica</LeagueName>
+                        <CountryCode>CR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>126</LeagueId>
+                        <LeagueName>Côte d’Ivoire</LeagueName>
+                        <CountryCode>CI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>153</LeagueId>
+                        <LeagueName>Curaçao</LeagueName>
+                        <CountryCode>CW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>61</LeagueId>
+                        <LeagueName>Cymru</LeagueName>
+                        <CountryCode>GB</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>11</LeagueId>
+                        <LeagueName>Danmark</LeagueName>
+                        <CountryCode>DK</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>3</LeagueId>
+                        <LeagueName>Deutschland</LeagueName>
+                        <CountryCode>DE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>73</LeagueId>
+                        <LeagueName>Ecuador</LeagueName>
+                        <CountryCode>EC</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>56</LeagueId>
+                        <LeagueName>Eesti</LeagueName>
+                        <CountryCode>EE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>2</LeagueId>
+                        <LeagueName>England</LeagueName>
+                        <CountryCode>GB</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>36</LeagueId>
+                        <LeagueName>España</LeagueName>
+                        <CountryCode>ES</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>76</LeagueId>
+                        <LeagueName>Føroyar</LeagueName>
+                        <CountryCode>FO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>5</LeagueId>
+                        <LeagueName>France</LeagueName>
+                        <CountryCode>FR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>137</LeagueId>
+                        <LeagueName>Ghana</LeagueName>
+                        <CountryCode>GH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>107</LeagueId>
+                        <LeagueName>Guatemala</LeagueName>
+                        <CountryCode>GT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>50</LeagueId>
+                        <LeagueName>Hellas</LeagueName>
+                        <CountryCode>GR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>99</LeagueId>
+                        <LeagueName>Honduras</LeagueName>
+                        <CountryCode>HN</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>20</LeagueId>
+                        <LeagueName>India</LeagueName>
+                        <CountryCode>IN</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>54</LeagueId>
+                        <LeagueName>Indonesia</LeagueName>
+                        <CountryCode>ID</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>85</LeagueId>
+                        <LeagueName>Iran</LeagueName>
+                        <CountryCode>IR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>21</LeagueId>
+                        <LeagueName>Ireland</LeagueName>
+                        <CountryCode>IE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>38</LeagueId>
+                        <LeagueName>Ísland</LeagueName>
+                        <CountryCode>IS</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>63</LeagueId>
+                        <LeagueName>Israel</LeagueName>
+                        <CountryCode>IL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>4</LeagueId>
+                        <LeagueName>Italia</LeagueName>
+                        <CountryCode>IT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>94</LeagueId>
+                        <LeagueName>Jamaica</LeagueName>
+                        <CountryCode>JM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>138</LeagueId>
+                        <LeagueName>Kampuchea</LeagueName>
+                        <CountryCode>KH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>95</LeagueId>
+                        <LeagueName>Kenya</LeagueName>
+                        <CountryCode>KE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>53</LeagueId>
+                        <LeagueName>Latvija</LeagueName>
+                        <CountryCode>LV</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>84</LeagueId>
+                        <LeagueName>Lëtzebuerg</LeagueName>
+                        <CountryCode>LU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>66</LeagueId>
+                        <LeagueName>Lietuva</LeagueName>
+                        <CountryCode>LT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>51</LeagueId>
+                        <LeagueName>Magyarország</LeagueName>
+                        <CountryCode>HU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>6</LeagueId>
+                        <LeagueName>México</LeagueName>
+                        <CountryCode>MX</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>161</LeagueId>
+                        <LeagueName>Myanmar</LeagueName>
+                        <CountryCode>MM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>14</LeagueId>
+                        <LeagueName>Nederland</LeagueName>
+                        <CountryCode>NL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>111</LeagueId>
+                        <LeagueName>Nicaragua</LeagueName>
+                        <CountryCode>NI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>22</LeagueId>
+                        <LeagueName>Nippon</LeagueName>
+                        <CountryCode>JP</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>9</LeagueId>
+                        <LeagueName>Norge</LeagueName>
+                        <CountryCode>NO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>39</LeagueId>
+                        <LeagueName>Österreich</LeagueName>
+                        <CountryCode>AT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>96</LeagueId>
+                        <LeagueName>Panamá</LeagueName>
+                        <CountryCode>PA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>72</LeagueId>
+                        <LeagueName>Paraguay</LeagueName>
+                        <CountryCode>PY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>24</LeagueId>
+                        <LeagueName>Polska</LeagueName>
+                        <CountryCode>PL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>25</LeagueId>
+                        <LeagueName>Portugal</LeagueName>
+                        <CountryCode>PT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>31</LeagueId>
+                        <LeagueName>Prathet Thai</LeagueName>
+                        <CountryCode>TH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>37</LeagueId>
+                        <LeagueName>România</LeagueName>
+                        <CountryCode>RO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>35</LeagueId>
+                        <LeagueName>Rossiya</LeagueName>
+                        <CountryCode>RU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>163</LeagueId>
+                        <LeagueName>San Marino</LeagueName>
+                        <CountryCode>SM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>149</LeagueId>
+                        <LeagueName>São Tomé e Príncipe</LeagueName>
+                        <CountryCode>ST</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>46</LeagueId>
+                        <LeagueName>Schweiz</LeagueName>
+                        <CountryCode>CH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>26</LeagueId>
+                        <LeagueName>Scotland</LeagueName>
+                        <CountryCode>GB</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>97</LeagueId>
+                        <LeagueName>Severna Makedonija</LeagueName>
+                        <CountryCode>MK</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>64</LeagueId>
+                        <LeagueName>Slovenija</LeagueName>
+                        <CountryCode>SI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>67</LeagueId>
+                        <LeagueName>Slovensko</LeagueName>
+                        <CountryCode>SK</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>27</LeagueId>
+                        <LeagueName>South Africa</LeagueName>
+                        <CountryCode>ZA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>12</LeagueId>
+                        <LeagueName>Suomi</LeagueName>
+                        <CountryCode>FI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>140</LeagueId>
+                        <LeagueName>Suriyah</LeagueName>
+                        <CountryCode>SY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>1</LeagueId>
+                        <LeagueName>Sverige</LeagueName>
+                        <CountryCode>SE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>142</LeagueId>
+                        <LeagueName>Tanzania</LeagueName>
+                        <CountryCode>TZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>32</LeagueId>
+                        <LeagueName>Türkiye</LeagueName>
+                        <CountryCode>TR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>68</LeagueId>
+                        <LeagueName>Ukraina</LeagueName>
+                        <CountryCode>UA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>28</LeagueId>
+                        <LeagueName>Uruguay</LeagueName>
+                        <CountryCode>UY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>8</LeagueId>
+                        <LeagueName>USA</LeagueName>
+                        <CountryCode>US</CountryCode>
+                    </Flag>
+                </AwayFlags>
+                <HomeFlags>
+                    <Flag>
+                        <LeagueId>127</LeagueId>
+                        <LeagueName>Al Kuwayt</LeagueName>
+                        <CountryCode>KW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>7</LeagueId>
+                        <LeagueName>Argentina</LeagueName>
+                        <CountryCode>AR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>129</LeagueId>
+                        <LeagueName>Azərbaycan</LeagueName>
+                        <CountryCode>AZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>44</LeagueId>
+                        <LeagueName>Belgium</LeagueName>
+                        <CountryCode>BE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>16</LeagueId>
+                        <LeagueName>Brasil</LeagueName>
+                        <CountryCode>BR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>136</LeagueId>
+                        <LeagueName>Brunei</LeagueName>
+                        <CountryCode>BN</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>17</LeagueId>
+                        <LeagueName>Canada</LeagueName>
+                        <CountryCode>CA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>52</LeagueId>
+                        <LeagueName>Česko</LeagueName>
+                        <CountryCode>CZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>18</LeagueId>
+                        <LeagueName>Chile</LeagueName>
+                        <CountryCode>CL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>11</LeagueId>
+                        <LeagueName>Danmark</LeagueName>
+                        <CountryCode>DK</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>3</LeagueId>
+                        <LeagueName>Deutschland</LeagueName>
+                        <CountryCode>DE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>36</LeagueId>
+                        <LeagueName>España</LeagueName>
+                        <CountryCode>ES</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>5</LeagueId>
+                        <LeagueName>France</LeagueName>
+                        <CountryCode>FR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>58</LeagueId>
+                        <LeagueName>Hrvatska</LeagueName>
+                        <CountryCode>HR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>4</LeagueId>
+                        <LeagueName>Italia</LeagueName>
+                        <CountryCode>IT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>53</LeagueId>
+                        <LeagueName>Latvija</LeagueName>
+                        <CountryCode>LV</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>84</LeagueId>
+                        <LeagueName>Lëtzebuerg</LeagueName>
+                        <CountryCode>LU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>51</LeagueId>
+                        <LeagueName>Magyarország</LeagueName>
+                        <CountryCode>HU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>14</LeagueId>
+                        <LeagueName>Nederland</LeagueName>
+                        <CountryCode>NL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>9</LeagueId>
+                        <LeagueName>Norge</LeagueName>
+                        <CountryCode>NO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>15</LeagueId>
+                        <LeagueName>Oceania</LeagueName>
+                        <CountryCode>AU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>24</LeagueId>
+                        <LeagueName>Polska</LeagueName>
+                        <CountryCode>PL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>25</LeagueId>
+                        <LeagueName>Portugal</LeagueName>
+                        <CountryCode>PT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>37</LeagueId>
+                        <LeagueName>România</LeagueName>
+                        <CountryCode>RO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>149</LeagueId>
+                        <LeagueName>São Tomé e Príncipe</LeagueName>
+                        <CountryCode>ST</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>46</LeagueId>
+                        <LeagueName>Schweiz</LeagueName>
+                        <CountryCode>CH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>67</LeagueId>
+                        <LeagueName>Slovensko</LeagueName>
+                        <CountryCode>SK</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>27</LeagueId>
+                        <LeagueName>South Africa</LeagueName>
+                        <CountryCode>ZA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>57</LeagueId>
+                        <LeagueName>Srbija</LeagueName>
+                        <CountryCode>RS</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>12</LeagueId>
+                        <LeagueName>Suomi</LeagueName>
+                        <CountryCode>FI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>1</LeagueId>
+                        <LeagueName>Sverige</LeagueName>
+                        <CountryCode>SE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>68</LeagueId>
+                        <LeagueName>Ukraina</LeagueName>
+                        <CountryCode>UA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>28</LeagueId>
+                        <LeagueName>Uruguay</LeagueName>
+                        <CountryCode>UY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>8</LeagueId>
+                        <LeagueName>USA</LeagueName>
+                        <CountryCode>US</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>29</LeagueId>
+                        <LeagueName>Venezuela</LeagueName>
+                        <CountryCode>VE</CountryCode>
+                    </Flag>
+                </HomeFlags>
+            </Flags>
+            <TrophyList>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>78</TrophySeason>
+                    <LeagueLevel>5</LeagueLevel>
+                    <LeagueLevelUnitId>5518</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>V.5</LeagueLevelUnitName>
+                    <GainedDate>2025-04-19 01:22:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/v.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>72</TrophySeason>
+                    <LeagueLevel>6</LeagueLevel>
+                    <LeagueLevelUnitId>14591</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>VI.273</LeagueLevelUnitName>
+                    <GainedDate>2023-06-17 02:19:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/vi.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>68</TrophySeason>
+                    <LeagueLevel>6</LeagueLevel>
+                    <LeagueLevelUnitId>14379</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>VI.61</LeagueLevelUnitName>
+                    <GainedDate>2022-03-26 01:15:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/vi.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>62</TrophySeason>
+                    <LeagueLevel>5</LeagueLevel>
+                    <LeagueLevelUnitId>5653</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>V.140</LeagueLevelUnitName>
+                    <GainedDate>2020-05-23 02:05:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/v.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>61</TrophySeason>
+                    <LeagueLevel>6</LeagueLevel>
+                    <LeagueLevelUnitId>15176</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>VI.858</LeagueLevelUnitName>
+                    <GainedDate>2020-02-01 02:30:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/vi.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>103</TrophyTypeId>
+                    <TrophySeason>1</TrophySeason>
+                    <LeagueLevel>1</LeagueLevel>
+                    <LeagueLevelUnitId>3484811</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>HPTM PLATA II</LeagueLevelUnitName>
+                    <GainedDate>2019-02-25 22:18:00</GainedDate>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+            </TrophyList>
+            <SupportedTeams TotalItems="4" MaxItems="50">
+                <SupportedTeam>
+                    <UserId>10147079</UserId>
+                    <LoginName>Capri09</LoginName>
+                    <TeamId>438610</TeamId>
+                    <TeamName>DPM FC</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38637</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.601</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750561403</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:15:00</LastMatchDate>
+                        <LastMatchHomeTeamId>2283297</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>Unión Cantabria</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>2</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>438610</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>DPM FC</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>6</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748252011</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 15:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>438610</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>Estrellas de Galicia</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>438610</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>DPM FC</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>2025-01-06 11:39:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject>Juntos y Unidos a por nuevos Exitos</PressAnnouncementSubject>
+                        <PressAnnouncementBody>
+                            !Elecciones ABS!
+
+                            En esta ocasión me gustaria pediros vuestro apoyo para la candidatura de Cat-Birrero donde estoy colaborando en el Staff. Un Staff hecho a golpe de medallas. [b]Oro ABS, Oro U21, Plata U21[/b] entre otras.
+
+                            Se viene trabajando muy bien las generaciones y es la hora de disfrutar de la Generación de Oro de la U21 que ya nos ha traído el primer Oro ABS de la historia de España y que ahora queremos continuar con los éxitos que esta generación tan bien cuidada nos esta dando. Se vienen a sumar además la generación 34 de la plata de la U21, y apostamos por unificar esfuerzos y tener unos foros tranquilos y divertidos donde cada uno pueda sumar al proyecto como quiera y desee.
+
+                            Os pido vuestro apoyo para poder seguir trabajando y logrando éxitos para España, como los ya conseguidos.
+
+                            Candidatura: [post=17622032.1]
+
+                            Para votarnos:
+
+                            [link=/goto.ashx?path=/World/Elections/?LeagueID=36&amp;leagueOfficeCandidateId=92767&amp;LeagueOfficeTypeID=2]
+                        </PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+                <SupportedTeam>
+                    <UserId>13420404</UserId>
+                    <LoginName>arteta2325</LoginName>
+                    <TeamId>1438458</TeamId>
+                    <TeamName>RZA</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38589</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.553</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750560199</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:00:00</LastMatchDate>
+                        <LastMatchHomeTeamId>123250</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>F.c. Barcelona a</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>2</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>1438458</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>RZA</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>4</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748249322</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 15:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>777523</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>RZA</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>777523</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>villar team</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>2018-04-03 03:23:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject>PRIMER TORNEO</PressAnnouncementSubject>
+                        <PressAnnouncementBody>
+                            Hola,
+
+                            Muy buenas a todos aqui nos encontramos para este torneo en el que hay tres grandiosos entrenadores excepto yo que soy nuevo y no se jugar a arte de que mis jugadores no se conocen los suficiente.
+
+                            Espero que pueda pasar de fase de grupos, pero si no gane quien gane estare encantado.
+
+
+                            A ganar a por ellosssssssssssss!!!! Jajajaja ese es mi grito.
+
+                            Cuidaros
+                        </PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+                <SupportedTeam>
+                    <UserId>6888195</UserId>
+                    <LoginName>king_ventregol</LoginName>
+                    <TeamId>988128</TeamId>
+                    <TeamName>Ferbellomoverzas C.F</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3445</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.22</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750554396</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:30:00</LastMatchDate>
+                        <LastMatchHomeTeamId>121437</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>Sparta Fuentesnuevas</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>1</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>988128</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>Ferbellomoverzas C.F</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>0</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748144320</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 14:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>995432</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>Ferbellomoverzas C.F</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>995432</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>Biocryst</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>2024-12-14 22:29:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject>Brotes verdes y decisión final sobre la GdO</PressAnnouncementSubject>
+                        <PressAnnouncementBody>
+                            Os adelanto a mis fans que se han tomado decisiones recientes y[u] empezamos de 0 desde los 17 años.[/u] La idea inicial era formar una GdO desde los 22-23 años pero vimos "brotes verdes" en la cantera con un par de crackteranos que pometen y no podemos decir que no. Para más inri uno de ellos es [b]el hijo del gran Hodei Altzelai [/b](mejor crackterano histórico de este noble pero ambicioso como ningún otro club) así que PACIENCIA y BUENOS ALIMENTOS!
+
+                            De momento [b]dejemos en paz a los chavales ya que aún tienen 16 años y necesitan tiempo[/b]. En cuánto asciendan al club con 17 años serán presentados en sociedad.
+
+                            La idea es hacer un[b] casting con prometedores jugadores jóvenes para elegir a los futuros cracks de la GdO que nace a principios del 2025[/b]!!! El objetivo es intentar superar lo hecho en el pasado y llegar a poder volver algún día la I división, jugar la masters y ganar la copa del rey. [b]Máxima ambición. No nos escondemos![/b]
+
+                            [u]AUPA FERBELIÑOS!VOLVEREMOS![/u]
+                        </PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+                <SupportedTeam>
+                    <UserId>4038358</UserId>
+                    <LoginName>Mc_Ario</LoginName>
+                    <TeamId>801978</TeamId>
+                    <TeamName>olivasnegras</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3464</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.41</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750564170</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:00:00</LastMatchDate>
+                        <LastMatchHomeTeamId>441729</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>pulpos</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>0</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>801978</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>olivasnegras</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>1</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748145384</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 14:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>801978</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>Football Machine</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>801978</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>olivasnegras</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>0001-01-01 00:00:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject></PressAnnouncementSubject>
+                        <PressAnnouncementBody></PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+            </SupportedTeams>
+            <MySupporters TotalItems="14" MaxItems="50">
+                <SupporterTeam>
+                    <UserId>8667521</UserId>
+                    <LoginName>CAT-Trebor</LoginName>
+                    <TeamId>435362</TeamId>
+                    <TeamName>Custom Team</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>14519</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VI.201</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>10740042</UserId>
+                    <LoginName>Chawi2</LoginName>
+                    <TeamId>1416899</TeamId>
+                    <TeamName>Mataró UD</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>5729</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.216</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>12416185</UserId>
+                    <LoginName>jugon_</LoginName>
+                    <TeamId>1430346</TeamId>
+                    <TeamName>Villabotijo74 CF</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38776</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.740</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>3359253</UserId>
+                    <LoginName>Pedraforca</LoginName>
+                    <TeamId>434064</TeamId>
+                    <TeamName>Gràcia H.C.</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>14693</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VI.375</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>13806948</UserId>
+                    <LoginName>AQP-Xose</LoginName>
+                    <TeamId>1105311</TeamId>
+                    <TeamName>Proleter Radna Mala</TeamName>
+                    <LeagueID>57</LeagueID>
+                    <LeagueName>Srbija</LeagueName>
+                    <LeagueLevelUnitID>76821</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.86</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>8536378</UserId>
+                    <LoginName>Creynoso</LoginName>
+                    <TeamId>398429</TeamId>
+                    <TeamName>CREMA FOREVER</TeamName>
+                    <LeagueID>23</LeagueID>
+                    <LeagueName>Perú</LeagueName>
+                    <LeagueLevelUnitID>3616</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>II.1</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>1083906</UserId>
+                    <LoginName>Skamiya</LoginName>
+                    <TeamId>1581574</TeamId>
+                    <TeamName>MojaZopones</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>5716</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.203</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>4383806</UserId>
+                    <LoginName>Carlos_Jugon</LoginName>
+                    <TeamId>775687</TeamId>
+                    <TeamName>Carlos Jugon</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3456</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.33</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>4538855</UserId>
+                    <LoginName>Tonin0860</LoginName>
+                    <TeamId>716543</TeamId>
+                    <TeamName>DIC 6</TeamName>
+                    <LeagueID>16</LeagueID>
+                    <LeagueName>Brasil</LeagueName>
+                    <LeagueLevelUnitID>11098</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.52</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>8659587</UserId>
+                    <LoginName>DHT-Oscar</LoginName>
+                    <TeamId>1583433</TeamId>
+                    <TeamName>Keltoi Vigo</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3403</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>Primera</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>10147079</UserId>
+                    <LoginName>Capri09</LoginName>
+                    <TeamId>438610</TeamId>
+                    <TeamName>DPM FC</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38637</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.601</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>7220706</UserId>
+                    <LoginName>kingolos</LoginName>
+                    <TeamId>1160119</TeamId>
+                    <TeamName>alivert</TeamName>
+                    <LeagueID>5</LeagueID>
+                    <LeagueName>France</LeagueName>
+                    <LeagueLevelUnitID>36464</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VI.476</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>13177188</UserId>
+                    <LoginName>HM-luistm</LoginName>
+                    <TeamId>49355</TeamId>
+                    <TeamName>Sant Andreu</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38860</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.824</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>11723338</UserId>
+                    <LoginName>Iceman61</LoginName>
+                    <TeamId>1472615</TeamId>
+                    <TeamName>1.Fc Altstätten Devills</TeamName>
+                    <LeagueID>46</LeagueID>
+                    <LeagueName>Schweiz</LeagueName>
+                    <LeagueLevelUnitID>20816</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VI.264</LeagueLevelUnitName>
+                </SupporterTeam>
+            </MySupporters>
+            <PossibleToChallengeMidweek>False</PossibleToChallengeMidweek>
+            <PossibleToChallengeWeekend>False</PossibleToChallengeWeekend>
+        </Team>
+        <Team>
+            <TeamID>2063066</TeamID>
+            <TeamName>Mañoman FC</TeamName>
+            <ShortTeamName>Mañoman</ShortTeamName>
+            <IsPrimaryClub>False</IsPrimaryClub>
+            <FoundedDate>2018-11-23 19:00:00</FoundedDate>
+            <IsDeactivated>False</IsDeactivated>
+            <Arena>
+                <ArenaID>2059598</ArenaID>
+                <ArenaName>Mañoman FC Arena</ArenaName>
+            </Arena>
+            <League>
+                <LeagueID>149</LeagueID>
+                <LeagueName>São Tomé e Príncipe</LeagueName>
+            </League>
+            <Country>
+                <CountryID>177</CountryID>
+                <CountryName>São Tomé e Príncipe</CountryName>
+            </Country>
+            <Region>
+                <RegionID>2773</RegionID>
+                <RegionName>Príncipe</RegionName>
+            </Region>
+            <Trainer>
+                <PlayerID>392126066</PlayerID>
+            </Trainer>
+            <HomePage></HomePage>
+            <DressURI>//res.hattrick.org/kits/28/272/2713/2712960/matchKitSmall.png</DressURI>
+            <DressAlternateURI>//res.hattrick.org/kits/28/272/2714/2713301/matchKitSmall.png</DressAlternateURI>
+            <LeagueLevelUnit>
+                <LeagueLevelUnitID>258111</LeagueLevelUnitID>
+                <LeagueLevelUnitName>III.13</LeagueLevelUnitName>
+                <LeagueLevel>3</LeagueLevel>
+            </LeagueLevelUnit>
+            <BotStatus>
+                <IsBot>False</IsBot>
+            </BotStatus>
+            <Cup>
+                <StillInCup>False</StillInCup>
+            </Cup>
+            <PowerRating>
+                <GlobalRanking>61978</GlobalRanking>
+                <LeagueRanking>95</LeagueRanking>
+                <RegionRanking>37</RegionRanking>
+                <PowerRating>915</PowerRating>
+            </PowerRating>
+            <FriendlyTeamID>2229980</FriendlyTeamID>
+            <NumberOfVictories>0</NumberOfVictories>
+            <NumberOfUndefeated>0</NumberOfUndefeated>
+            <TeamRank>61</TeamRank>
+            <Fanclub>
+                <FanclubID>0</FanclubID>
+                <FanclubName></FanclubName>
+                <FanclubSize>2965</FanclubSize>
+            </Fanclub>
+            <LogoURL>//res.hattrick.org/teamlogo/21/207/2064/2063066/2063066.jpg</LogoURL>
+            <Guestbook>
+                <NumberOfGuestbookItems>1</NumberOfGuestbookItems>
+            </Guestbook>
+            <TeamColors />
+            <YouthTeamID>2735666</YouthTeamID>
+            <YouthTeamName>Maño críos FC</YouthTeamName>
+            <NumberOfVisits>0</NumberOfVisits>
+            <Flags>
+                <AwayFlags>
+                    <Flag>
+                        <LeagueId>128</LeagueId>
+                        <LeagueName>Al Iraq</LeagueName>
+                        <CountryCode>IQ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>127</LeagueId>
+                        <LeagueName>Al Kuwayt</LeagueName>
+                        <CountryCode>KW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>77</LeagueId>
+                        <LeagueName>Al Maghrib</LeagueName>
+                        <CountryCode>MA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>106</LeagueId>
+                        <LeagueName>Al Urdun</LeagueName>
+                        <CountryCode>JO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>133</LeagueId>
+                        <LeagueName>Al Yaman</LeagueName>
+                        <CountryCode>YE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>118</LeagueId>
+                        <LeagueName>Algérie</LeagueName>
+                        <CountryCode>DZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>105</LeagueId>
+                        <LeagueName>Andorra</LeagueName>
+                        <CountryCode>AD</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>7</LeagueId>
+                        <LeagueName>Argentina</LeagueName>
+                        <CountryCode>AR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>129</LeagueId>
+                        <LeagueName>Azərbaycan</LeagueName>
+                        <CountryCode>AZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>132</LeagueId>
+                        <LeagueName>Bangladesh</LeagueName>
+                        <CountryCode>BD</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>124</LeagueId>
+                        <LeagueName>Barbados</LeagueName>
+                        <CountryCode>BB</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>91</LeagueId>
+                        <LeagueName>Belarus</LeagueName>
+                        <CountryCode>BY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>44</LeagueId>
+                        <LeagueName>Belgium</LeagueName>
+                        <CountryCode>BE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>139</LeagueId>
+                        <LeagueName>Bénin</LeagueName>
+                        <CountryCode>BJ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>74</LeagueId>
+                        <LeagueName>Bolivia</LeagueName>
+                        <CountryCode>BO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>69</LeagueId>
+                        <LeagueName>Bosna i Hercegovina</LeagueName>
+                        <CountryCode>BA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>16</LeagueId>
+                        <LeagueName>Brasil</LeagueName>
+                        <CountryCode>BR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>62</LeagueId>
+                        <LeagueName>Bulgaria</LeagueName>
+                        <CountryCode>BG</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>146</LeagueId>
+                        <LeagueName>Cameroon</LeagueName>
+                        <CountryCode>CM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>52</LeagueId>
+                        <LeagueName>Česko</LeagueName>
+                        <CountryCode>CZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>18</LeagueId>
+                        <LeagueName>Chile</LeagueName>
+                        <CountryCode>CL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>34</LeagueId>
+                        <LeagueName>China</LeagueName>
+                        <CountryCode>CN</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>60</LeagueId>
+                        <LeagueName>Chinese Taipei</LeagueName>
+                        <CountryCode>TW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>19</LeagueId>
+                        <LeagueName>Colombia</LeagueName>
+                        <CountryCode>CO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>151</LeagueId>
+                        <LeagueName>Comoros</LeagueName>
+                        <CountryCode>KM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>153</LeagueId>
+                        <LeagueName>Curaçao</LeagueName>
+                        <CountryCode>CW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>89</LeagueId>
+                        <LeagueName>Cyprus</LeagueName>
+                        <CountryCode>CY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>11</LeagueId>
+                        <LeagueName>Danmark</LeagueName>
+                        <CountryCode>DK</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>141</LeagueId>
+                        <LeagueName>Dawlat Qatar</LeagueName>
+                        <CountryCode>QA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>3</LeagueId>
+                        <LeagueName>Deutschland</LeagueName>
+                        <CountryCode>DE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>2</LeagueId>
+                        <LeagueName>England</LeagueName>
+                        <CountryCode>GB</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>36</LeagueId>
+                        <LeagueName>España</LeagueName>
+                        <CountryCode>ES</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>5</LeagueId>
+                        <LeagueName>France</LeagueName>
+                        <CountryCode>FR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>107</LeagueId>
+                        <LeagueName>Guatemala</LeagueName>
+                        <CountryCode>GT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>169</LeagueId>
+                        <LeagueName>Guyana</LeagueName>
+                        <CountryCode>GY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>164</LeagueId>
+                        <LeagueName>Haiti</LeagueName>
+                        <CountryCode>HT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>20</LeagueId>
+                        <LeagueName>India</LeagueName>
+                        <CountryCode>IN</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>85</LeagueId>
+                        <LeagueName>Iran</LeagueName>
+                        <CountryCode>IR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>21</LeagueId>
+                        <LeagueName>Ireland</LeagueName>
+                        <CountryCode>IE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>63</LeagueId>
+                        <LeagueName>Israel</LeagueName>
+                        <CountryCode>IL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>4</LeagueId>
+                        <LeagueName>Italia</LeagueName>
+                        <CountryCode>IT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>94</LeagueId>
+                        <LeagueName>Jamaica</LeagueName>
+                        <CountryCode>JM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>102</LeagueId>
+                        <LeagueName>Kyrgyz Republic</LeagueName>
+                        <CountryCode>KG</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>53</LeagueId>
+                        <LeagueName>Latvija</LeagueName>
+                        <CountryCode>LV</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>117</LeagueId>
+                        <LeagueName>Liechtenstein</LeagueName>
+                        <CountryCode>LI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>66</LeagueId>
+                        <LeagueName>Lietuva</LeagueName>
+                        <CountryCode>LT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>51</LeagueId>
+                        <LeagueName>Magyarország</LeagueName>
+                        <CountryCode>HU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>6</LeagueId>
+                        <LeagueName>México</LeagueName>
+                        <CountryCode>MX</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>119</LeagueId>
+                        <LeagueName>Mongol Uls</LeagueName>
+                        <CountryCode>MN</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>9</LeagueId>
+                        <LeagueName>Norge</LeagueName>
+                        <CountryCode>NO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>145</LeagueId>
+                        <LeagueName>O’zbekiston</LeagueName>
+                        <CountryCode>UZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>134</LeagueId>
+                        <LeagueName>Oman</LeagueName>
+                        <CountryCode>OM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>39</LeagueId>
+                        <LeagueName>Österreich</LeagueName>
+                        <CountryCode>AT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>148</LeagueId>
+                        <LeagueName>Palestine</LeagueName>
+                        <CountryCode>PS</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>23</LeagueId>
+                        <LeagueName>Perú</LeagueName>
+                        <CountryCode>PE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>24</LeagueId>
+                        <LeagueName>Polska</LeagueName>
+                        <CountryCode>PL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>25</LeagueId>
+                        <LeagueName>Portugal</LeagueName>
+                        <CountryCode>PT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>165</LeagueId>
+                        <LeagueName>Puerto Rico</LeagueName>
+                        <CountryCode>PR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>37</LeagueId>
+                        <LeagueName>România</LeagueName>
+                        <CountryCode>RO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>35</LeagueId>
+                        <LeagueName>Rossiya</LeagueName>
+                        <CountryCode>RU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>104</LeagueId>
+                        <LeagueName>Sakartvelo</LeagueName>
+                        <CountryCode>GE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>163</LeagueId>
+                        <LeagueName>San Marino</LeagueName>
+                        <CountryCode>SM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>149</LeagueId>
+                        <LeagueName>São Tomé e Príncipe</LeagueName>
+                        <CountryCode>ST</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>46</LeagueId>
+                        <LeagueName>Schweiz</LeagueName>
+                        <CountryCode>CH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>27</LeagueId>
+                        <LeagueName>South Africa</LeagueName>
+                        <CountryCode>ZA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>57</LeagueId>
+                        <LeagueName>Srbija</LeagueName>
+                        <CountryCode>RS</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>12</LeagueId>
+                        <LeagueName>Suomi</LeagueName>
+                        <CountryCode>FI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>140</LeagueId>
+                        <LeagueName>Suriyah</LeagueName>
+                        <CountryCode>SY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>1</LeagueId>
+                        <LeagueName>Sverige</LeagueName>
+                        <CountryCode>SE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>170</LeagueId>
+                        <LeagueName>Tahiti</LeagueName>
+                        <CountryCode>PF</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>110</LeagueId>
+                        <LeagueName>Trinidad &amp; Tobago</LeagueName>
+                        <CountryCode>TT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>32</LeagueId>
+                        <LeagueName>Türkiye</LeagueName>
+                        <CountryCode>TR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>68</LeagueId>
+                        <LeagueName>Ukraina</LeagueName>
+                        <CountryCode>UA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>8</LeagueId>
+                        <LeagueName>USA</LeagueName>
+                        <CountryCode>US</CountryCode>
+                    </Flag>
+                </AwayFlags>
+                <HomeFlags>
+                    <Flag>
+                        <LeagueId>128</LeagueId>
+                        <LeagueName>Al Iraq</LeagueName>
+                        <CountryCode>IQ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>127</LeagueId>
+                        <LeagueName>Al Kuwayt</LeagueName>
+                        <CountryCode>KW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>77</LeagueId>
+                        <LeagueName>Al Maghrib</LeagueName>
+                        <CountryCode>MA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>106</LeagueId>
+                        <LeagueName>Al Urdun</LeagueName>
+                        <CountryCode>JO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>105</LeagueId>
+                        <LeagueName>Andorra</LeagueName>
+                        <CountryCode>AD</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>130</LeagueId>
+                        <LeagueName>Angola</LeagueName>
+                        <CountryCode>AO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>7</LeagueId>
+                        <LeagueName>Argentina</LeagueName>
+                        <CountryCode>AR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>44</LeagueId>
+                        <LeagueName>Belgium</LeagueName>
+                        <CountryCode>BE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>69</LeagueId>
+                        <LeagueName>Bosna i Hercegovina</LeagueName>
+                        <CountryCode>BA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>62</LeagueId>
+                        <LeagueName>Bulgaria</LeagueName>
+                        <CountryCode>BG</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>17</LeagueId>
+                        <LeagueName>Canada</LeagueName>
+                        <CountryCode>CA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>131</LeagueId>
+                        <LeagueName>Crna Gora</LeagueName>
+                        <CountryCode>ME</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>153</LeagueId>
+                        <LeagueName>Curaçao</LeagueName>
+                        <CountryCode>CW</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>141</LeagueId>
+                        <LeagueName>Dawlat Qatar</LeagueName>
+                        <CountryCode>QA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>73</LeagueId>
+                        <LeagueName>Ecuador</LeagueName>
+                        <CountryCode>EC</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>56</LeagueId>
+                        <LeagueName>Eesti</LeagueName>
+                        <CountryCode>EE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>2</LeagueId>
+                        <LeagueName>England</LeagueName>
+                        <CountryCode>GB</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>36</LeagueId>
+                        <LeagueName>España</LeagueName>
+                        <CountryCode>ES</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>5</LeagueId>
+                        <LeagueName>France</LeagueName>
+                        <CountryCode>FR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>169</LeagueId>
+                        <LeagueName>Guyana</LeagueName>
+                        <CountryCode>GY</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>85</LeagueId>
+                        <LeagueName>Iran</LeagueName>
+                        <CountryCode>IR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>38</LeagueId>
+                        <LeagueName>Ísland</LeagueName>
+                        <CountryCode>IS</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>117</LeagueId>
+                        <LeagueName>Liechtenstein</LeagueName>
+                        <CountryCode>LI</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>51</LeagueId>
+                        <LeagueName>Magyarország</LeagueName>
+                        <CountryCode>HU</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>14</LeagueId>
+                        <LeagueName>Nederland</LeagueName>
+                        <CountryCode>NL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>9</LeagueId>
+                        <LeagueName>Norge</LeagueName>
+                        <CountryCode>NO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>93</LeagueId>
+                        <LeagueName>Northern Ireland</LeagueName>
+                        <CountryCode>GB</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>134</LeagueId>
+                        <LeagueName>Oman</LeagueName>
+                        <CountryCode>OM</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>23</LeagueId>
+                        <LeagueName>Perú</LeagueName>
+                        <CountryCode>PE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>55</LeagueId>
+                        <LeagueName>Pilipinas</LeagueName>
+                        <CountryCode>PH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>24</LeagueId>
+                        <LeagueName>Polska</LeagueName>
+                        <CountryCode>PL</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>25</LeagueId>
+                        <LeagueName>Portugal</LeagueName>
+                        <CountryCode>PT</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>165</LeagueId>
+                        <LeagueName>Puerto Rico</LeagueName>
+                        <CountryCode>PR</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>88</LeagueId>
+                        <LeagueName>República Dominicana</LeagueName>
+                        <CountryCode>DO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>37</LeagueId>
+                        <LeagueName>România</LeagueName>
+                        <CountryCode>RO</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>149</LeagueId>
+                        <LeagueName>São Tomé e Príncipe</LeagueName>
+                        <CountryCode>ST</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>46</LeagueId>
+                        <LeagueName>Schweiz</LeagueName>
+                        <CountryCode>CH</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>27</LeagueId>
+                        <LeagueName>South Africa</LeagueName>
+                        <CountryCode>ZA</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>152</LeagueId>
+                        <LeagueName>Sri Lanka</LeagueName>
+                        <CountryCode>LK</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>1</LeagueId>
+                        <LeagueName>Sverige</LeagueName>
+                        <CountryCode>SE</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>142</LeagueId>
+                        <LeagueName>Tanzania</LeagueName>
+                        <CountryCode>TZ</CountryCode>
+                    </Flag>
+                    <Flag>
+                        <LeagueId>68</LeagueId>
+                        <LeagueName>Ukraina</LeagueName>
+                        <CountryCode>UA</CountryCode>
+                    </Flag>
+                </HomeFlags>
+            </Flags>
+            <TrophyList>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>19</TrophySeason>
+                    <LeagueLevel>3</LeagueLevel>
+                    <LeagueLevelUnitId>258111</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>III.13</LeagueLevelUnitName>
+                    <GainedDate>2024-09-07 04:40:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iii.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>17</TrophySeason>
+                    <LeagueLevel>3</LeagueLevel>
+                    <LeagueLevelUnitId>258111</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>III.13</LeagueLevelUnitName>
+                    <GainedDate>2024-01-27 04:40:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iii.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>14</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258285</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.1</LeagueLevelUnitName>
+                    <GainedDate>2023-02-25 04:39:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>103</TrophyTypeId>
+                    <TrophySeason>11</TrophySeason>
+                    <LeagueLevel>97</LeagueLevel>
+                    <LeagueLevelUnitId>3686927</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>3</LeagueLevelUnitName>
+                    <GainedDate>2022-02-18 20:37:00</GainedDate>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>6</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258298</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.14</LeagueLevelUnitName>
+                    <GainedDate>2020-09-12 04:50:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>4</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258296</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.12</LeagueLevelUnitName>
+                    <GainedDate>2020-02-01 04:49:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>2</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258295</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.11</LeagueLevelUnitName>
+                    <GainedDate>2019-06-22 04:48:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+            </TrophyList>
+            <SupportedTeams TotalItems="4" MaxItems="50">
+                <SupportedTeam>
+                    <UserId>10147079</UserId>
+                    <LoginName>Capri09</LoginName>
+                    <TeamId>438610</TeamId>
+                    <TeamName>DPM FC</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38637</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.601</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750561403</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:15:00</LastMatchDate>
+                        <LastMatchHomeTeamId>2283297</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>Unión Cantabria</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>2</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>438610</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>DPM FC</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>6</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748252011</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 15:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>438610</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>Estrellas de Galicia</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>438610</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>DPM FC</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>2025-01-06 11:39:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject>Juntos y Unidos a por nuevos Exitos</PressAnnouncementSubject>
+                        <PressAnnouncementBody>
+                            !Elecciones ABS!
+
+                            En esta ocasión me gustaria pediros vuestro apoyo para la candidatura de Cat-Birrero donde estoy colaborando en el Staff. Un Staff hecho a golpe de medallas. [b]Oro ABS, Oro U21, Plata U21[/b] entre otras.
+
+                            Se viene trabajando muy bien las generaciones y es la hora de disfrutar de la Generación de Oro de la U21 que ya nos ha traído el primer Oro ABS de la historia de España y que ahora queremos continuar con los éxitos que esta generación tan bien cuidada nos esta dando. Se vienen a sumar además la generación 34 de la plata de la U21, y apostamos por unificar esfuerzos y tener unos foros tranquilos y divertidos donde cada uno pueda sumar al proyecto como quiera y desee.
+
+                            Os pido vuestro apoyo para poder seguir trabajando y logrando éxitos para España, como los ya conseguidos.
+
+                            Candidatura: [post=17622032.1]
+
+                            Para votarnos:
+
+                            [link=/goto.ashx?path=/World/Elections/?LeagueID=36&amp;leagueOfficeCandidateId=92767&amp;LeagueOfficeTypeID=2]
+                        </PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+                <SupportedTeam>
+                    <UserId>13420404</UserId>
+                    <LoginName>arteta2325</LoginName>
+                    <TeamId>1438458</TeamId>
+                    <TeamName>RZA</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38589</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.553</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750560199</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:00:00</LastMatchDate>
+                        <LastMatchHomeTeamId>123250</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>F.c. Barcelona a</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>2</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>1438458</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>RZA</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>4</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748249322</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 15:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>777523</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>RZA</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>777523</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>villar team</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>2018-04-03 03:23:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject>PRIMER TORNEO</PressAnnouncementSubject>
+                        <PressAnnouncementBody>
+                            Hola,
+
+                            Muy buenas a todos aqui nos encontramos para este torneo en el que hay tres grandiosos entrenadores excepto yo que soy nuevo y no se jugar a arte de que mis jugadores no se conocen los suficiente.
+
+                            Espero que pueda pasar de fase de grupos, pero si no gane quien gane estare encantado.
+
+
+                            A ganar a por ellosssssssssssss!!!! Jajajaja ese es mi grito.
+
+                            Cuidaros
+                        </PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+                <SupportedTeam>
+                    <UserId>6888195</UserId>
+                    <LoginName>king_ventregol</LoginName>
+                    <TeamId>988128</TeamId>
+                    <TeamName>Ferbellomoverzas C.F</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3445</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.22</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750554396</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:30:00</LastMatchDate>
+                        <LastMatchHomeTeamId>121437</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>Sparta Fuentesnuevas</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>1</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>988128</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>Ferbellomoverzas C.F</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>0</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748144320</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 14:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>995432</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>Ferbellomoverzas C.F</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>995432</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>Biocryst</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>2024-12-14 22:29:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject>Brotes verdes y decisión final sobre la GdO</PressAnnouncementSubject>
+                        <PressAnnouncementBody>
+                            Os adelanto a mis fans que se han tomado decisiones recientes y[u] empezamos de 0 desde los 17 años.[/u] La idea inicial era formar una GdO desde los 22-23 años pero vimos "brotes verdes" en la cantera con un par de crackteranos que pometen y no podemos decir que no. Para más inri uno de ellos es [b]el hijo del gran Hodei Altzelai [/b](mejor crackterano histórico de este noble pero ambicioso como ningún otro club) así que PACIENCIA y BUENOS ALIMENTOS!
+
+                            De momento [b]dejemos en paz a los chavales ya que aún tienen 16 años y necesitan tiempo[/b]. En cuánto asciendan al club con 17 años serán presentados en sociedad.
+
+                            La idea es hacer un[b] casting con prometedores jugadores jóvenes para elegir a los futuros cracks de la GdO que nace a principios del 2025[/b]!!! El objetivo es intentar superar lo hecho en el pasado y llegar a poder volver algún día la I división, jugar la masters y ganar la copa del rey. [b]Máxima ambición. No nos escondemos![/b]
+
+                            [u]AUPA FERBELIÑOS!VOLVEREMOS![/u]
+                        </PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+                <SupportedTeam>
+                    <UserId>4038358</UserId>
+                    <LoginName>Mc_Ario</LoginName>
+                    <TeamId>801978</TeamId>
+                    <TeamName>olivasnegras</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3464</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.41</LeagueLevelUnitName>
+                    <LastMatch>
+                        <LastMatchId>750564170</LastMatchId>
+                        <LastMatchDate>2025-05-14 12:00:00</LastMatchDate>
+                        <LastMatchHomeTeamId>441729</LastMatchHomeTeamId>
+                        <LastMatchHomeTeamName>pulpos</LastMatchHomeTeamName>
+                        <LastMatchHomeGoals>0</LastMatchHomeGoals>
+                        <LastMatchAwayTeamId>801978</LastMatchAwayTeamId>
+                        <LastMatchAwayTeamName>olivasnegras</LastMatchAwayTeamName>
+                        <LastMatchAwayGoals>1</LastMatchAwayGoals>
+                    </LastMatch>
+                    <NextMatch>
+                        <NextMatchId>748145384</NextMatchId>
+                        <NextMatchMatchDate>2025-05-17 14:00:00</NextMatchMatchDate>
+                        <NextMatchHomeTeamId>801978</NextMatchHomeTeamId>
+                        <NextMatchHomeTeamName>Football Machine</NextMatchHomeTeamName>
+                        <NextMatchAwayTeamId>801978</NextMatchAwayTeamId>
+                        <NextMatchAwayTeamName>olivasnegras</NextMatchAwayTeamName>
+                    </NextMatch>
+                    <PressAnnouncement>
+                        <PressAnnouncementSendDate>0001-01-01 00:00:00</PressAnnouncementSendDate>
+                        <PressAnnouncementSubject></PressAnnouncementSubject>
+                        <PressAnnouncementBody></PressAnnouncementBody>
+                    </PressAnnouncement>
+                </SupportedTeam>
+            </SupportedTeams>
+            <MySupporters TotalItems="13" MaxItems="50">
+                <SupporterTeam>
+                    <UserId>4383806</UserId>
+                    <LoginName>Carlos_Jugon</LoginName>
+                    <TeamId>775687</TeamId>
+                    <TeamName>Carlos Jugon</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3456</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.33</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>13806948</UserId>
+                    <LoginName>AQP-Xose</LoginName>
+                    <TeamId>1105311</TeamId>
+                    <TeamName>Proleter Radna Mala</TeamName>
+                    <LeagueID>57</LeagueID>
+                    <LeagueName>Srbija</LeagueName>
+                    <LeagueLevelUnitID>76821</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.86</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>3751060</UserId>
+                    <LoginName>Player17</LoginName>
+                    <TeamId>825648</TeamId>
+                    <TeamName>RahlstedterFC</TeamName>
+                    <LeagueID>3</LeagueID>
+                    <LeagueName>Deutschland</LeagueName>
+                    <LeagueLevelUnitID>6179</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.88</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>13177188</UserId>
+                    <LoginName>HM-luistm</LoginName>
+                    <TeamId>49355</TeamId>
+                    <TeamName>Sant Andreu</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>38860</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.824</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>11218884</UserId>
+                    <LoginName>DiegoJaleo</LoginName>
+                    <TeamId>435389</TeamId>
+                    <TeamName>Jaleo FC</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>15240</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VI.922</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>6888195</UserId>
+                    <LoginName>king_ventregol</LoginName>
+                    <TeamId>988128</TeamId>
+                    <TeamName>Ferbellomoverzas C.F</TeamName>
+                    <LeagueID>36</LeagueID>
+                    <LeagueName>España</LeagueName>
+                    <LeagueLevelUnitID>3445</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.22</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>2309782</UserId>
+                    <LoginName>Esnasjotter</LoginName>
+                    <TeamId>743562</TeamId>
+                    <TeamName>Esnasjotters</TeamName>
+                    <LeagueID>44</LeagueID>
+                    <LeagueName>Belgium</LeagueName>
+                    <LeagueLevelUnitID>12733</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.26</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>4538855</UserId>
+                    <LoginName>Tonin0860</LoginName>
+                    <TeamId>716543</TeamId>
+                    <TeamName>DIC 6</TeamName>
+                    <LeagueID>16</LeagueID>
+                    <LeagueName>Brasil</LeagueName>
+                    <LeagueLevelUnitID>11098</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>V.52</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>12681124</UserId>
+                    <LoginName>Mister_Sunfield</LoginName>
+                    <TeamId>769573</TeamId>
+                    <TeamName>FC Real Sunny United</TeamName>
+                    <LeagueID>14</LeagueID>
+                    <LeagueName>Nederland</LeagueName>
+                    <LeagueLevelUnitID>2267</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>IV.52</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>8124813</UserId>
+                    <LoginName>didodado78</LoginName>
+                    <TeamId>1733292</TeamId>
+                    <TeamName>RealNarcao</TeamName>
+                    <LeagueID>4</LeagueID>
+                    <LeagueName>Italia</LeagueName>
+                    <LeagueLevelUnitID>68429</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.798</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>13147081</UserId>
+                    <LoginName>Montellafly</LoginName>
+                    <TeamId>1175210</TeamId>
+                    <TeamName>AS Montellafly</TeamName>
+                    <LeagueID>4</LeagueID>
+                    <LeagueName>Italia</LeagueName>
+                    <LeagueLevelUnitID>68237</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VII.606</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>7220706</UserId>
+                    <LoginName>kingolos</LoginName>
+                    <TeamId>1160119</TeamId>
+                    <TeamName>alivert</TeamName>
+                    <LeagueID>5</LeagueID>
+                    <LeagueName>France</LeagueName>
+                    <LeagueLevelUnitID>36464</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VI.476</LeagueLevelUnitName>
+                </SupporterTeam>
+                <SupporterTeam>
+                    <UserId>11723338</UserId>
+                    <LoginName>Iceman61</LoginName>
+                    <TeamId>1472615</TeamId>
+                    <TeamName>1.Fc Altstätten Devills</TeamName>
+                    <LeagueID>46</LeagueID>
+                    <LeagueName>Schweiz</LeagueName>
+                    <LeagueLevelUnitID>20816</LeagueLevelUnitID>
+                    <LeagueLevelUnitName>VI.264</LeagueLevelUnitName>
+                </SupporterTeam>
+            </MySupporters>
+            <PossibleToChallengeMidweek>False</PossibleToChallengeMidweek>
+            <PossibleToChallengeWeekend>False</PossibleToChallengeWeekend>
+        </Team>
+    </Teams>
+</HattrickData>
