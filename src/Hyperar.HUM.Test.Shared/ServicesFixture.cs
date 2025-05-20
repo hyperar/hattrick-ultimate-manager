@@ -152,6 +152,7 @@
             services.AddScoped<EmptyPersister>();
             services.AddScoped<ImagePersister>();
             services.AddScoped<ManagerCompendiumPersister>();
+            services.AddScoped<TeamDetailsPersister>();
             services.AddScoped<WorldDetailsPersister>();
 
             this.Services = services.BuildServiceProvider();

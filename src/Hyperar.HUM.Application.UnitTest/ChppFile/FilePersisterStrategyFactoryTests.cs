@@ -21,6 +21,7 @@
 
         [Theory]
         [InlineData(XmlFileType.ManagerCompendium, typeof(ManagerCompendiumPersister))]
+        [InlineData(XmlFileType.TeamDetails, typeof(TeamDetailsPersister))]
         [InlineData(XmlFileType.WorldDetails, typeof(WorldDetailsPersister))]
         public void FilePersistStrategyFactoryImplementedXmlFileType_ShouldBeOfType(XmlFileType xmlFile, Type returnType)
         {
@@ -66,7 +67,6 @@
         [InlineData(XmlFileType.StaffAvatars)]
         [InlineData(XmlFileType.StaffList)]
         [InlineData(XmlFileType.Supporters)]
-        [InlineData(XmlFileType.TeamDetails)]
         [InlineData(XmlFileType.TournamentDetails)]
         [InlineData(XmlFileType.TournamentFixtures)]
         [InlineData(XmlFileType.TournamentLeagueTables)]
