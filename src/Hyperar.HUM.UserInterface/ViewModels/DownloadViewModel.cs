@@ -45,6 +45,8 @@
 
         public override async Task InitializeAsync()
         {
+            this.Navigator.ResumeNavigation();
+
             await base.InitializeAsync();
         }
 

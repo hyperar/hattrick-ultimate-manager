@@ -100,6 +100,8 @@
             this.CanCheckAccessToken =
             this.CanRevokeAccessToken = this.UserProfileToken is not null;
 
+            this.Navigator.ResumeNavigation();
+
             await base.InitializeAsync();
         }
 

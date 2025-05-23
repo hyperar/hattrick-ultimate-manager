@@ -14,15 +14,13 @@
 
         private long? selectedTeamHattrickId;
 
-        private ViewType? targetViewType;
-
         public event Action? CanNavigateChanged;
 
         public event Action? CurrentViewModelChanged;
 
         public event Func<Task>? SelectedTeamChanged;
 
-        public event Action? TargetViewTypeChanged;
+        public event Action<ViewType>? TargetViewTypeChanged;
 
         public bool CanNavigate
         {
@@ -69,24 +67,6 @@
             }
         }
 
-        public ViewType? TargetViewType
-        {
-            get
-            {
-                return this.targetViewType;
-            }
-
-            private set
-            {
-                this.targetViewType = value;
-
-                if (value is not null)
-                {
-                    this.TargetViewTypeChanged?.Invoke();
-                }
-            }
-        }
-
         public void ResumeNavigation()
         {
             this.CanNavigate = true;
@@ -99,8 +79,7 @@
 
         public void SetTargetViewType(ViewType viewType)
         {
-            this.TargetViewType = viewType;
-            this.targetViewType = null;
+            this.TargetViewTypeChanged?.Invoke(viewType);
         }
 
         public void SuspendNavigation()

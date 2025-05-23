@@ -4,6 +4,7 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Threading.Tasks;
+    using Avalonia.Controls.Selection;
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using Hyperar.HUM.Shared.Enums;
@@ -19,29 +20,49 @@
 
         private readonly ViewType landingViewType;
 
-        private readonly IMainMenuBuilderFactory mainMenuBuilderFactory;
-
         [ObservableProperty]
         private bool isMenuOpen;
 
-        [ObservableProperty]
-        private MenuItemTemplate? selectedItem;
+        public ISelectionModel SelectionModel { get; }
 
         public MainWindowViewModel(
             INavigator navigator,
             ISessionStore sessionStore,
-            IMainMenuBuilderFactory mainMenuBuilderFactory,
             IViewModelFactory viewModelFactory,
             ViewType landingViewType) : base(navigator, sessionStore)
         {
-            this.mainMenuBuilderFactory = mainMenuBuilderFactory;
             this.landingViewType = landingViewType;
 
             this.Navigator.CanNavigateChanged += this.Navigator_CanNavigateChanged;
             this.Navigator.CurrentViewModelChanged += this.Navigator_CurrentViewModelChanged;
             this.Navigator.TargetViewTypeChanged += this.Navigator_TargetViewTypeChanged;
+
+            this.SelectionModel = new SelectionModel<MenuItemTemplate?>();
+            this.SelectionModel.SelectionChanged += new EventHandler<SelectionModelSelectionChangedEventArgs>(this.ListBox_OnSelectionChanged);
+
             this.ToggleMenuCommand = new RelayCommand(this.ToggleMenu);
             this.UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this.Navigator, viewModelFactory);
+
+            this.MenuItems = new ObservableCollection<MenuItemTemplate>
+            {
+                new MenuItemViewTemplate("Home", true, ViewType.Home, "HomeIcon"),
+                new MenuItemViewTemplate("Team Selection", true, ViewType.TeamSelection, "TeamSelectionIcon"),
+                new MenuItemViewTemplate("User Profiles", true, ViewType.UserProfileSelection, "UserProfilesIcon"),
+                new MenuItemViewTemplate("Download", true, ViewType.Download, "DownloadIcon")
+            };
+        }
+
+        private void ListBox_OnSelectionChanged(object? sender, SelectionModelSelectionChangedEventArgs eventArgs)
+        {
+            if (eventArgs.SelectedItems.SingleOrDefault() is MenuItemViewTemplate menuItemViewTemplate)
+            {
+                this.UpdateCurrentViewModelCommand.Execute(
+                    this.MenuItems.OfType<MenuItemViewTemplate>()
+                        .Where(x => x.ViewType == menuItemViewTemplate.ViewType)
+                        .Select(x => x.ViewType)
+                        .Single());
+
+            }
         }
 
         public bool CanNavigate
@@ -77,6 +98,8 @@
 
             await this.UpdateCurrentViewModelCommand.ExecuteAsync(this.landingViewType);
 
+            this.Navigator.ResumeNavigation();
+
             await base.InitializeAsync();
         }
 
@@ -90,20 +113,11 @@
             this.OnPropertyChanged(nameof(this.CurrentViewModel));
         }
 
-        private void Navigator_TargetViewTypeChanged()
+        private void Navigator_TargetViewTypeChanged(ViewType viewType)
         {
-            var selectedItem = this.MenuItems.Where(x => x is MenuItemViewTemplate m
-                                                  && m.ViewType == this.Navigator.TargetViewType)
-                                             .SingleOrDefault();
-
-            if (selectedItem != null)
-            {
-                this.SelectedItem = selectedItem;
-            }
-            else
-            {
-                this.UpdateCurrentViewModelCommand.Execute(this.Navigator.TargetViewType);
-            }
+            this.SelectionModel.SelectedItem = this.MenuItems.OfType<MenuItemViewTemplate>()
+                .Where(x => x.ViewType == viewType)
+                .SingleOrDefault();
         }
 
         private void ToggleMenu()

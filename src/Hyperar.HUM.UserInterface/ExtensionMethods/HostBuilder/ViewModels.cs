@@ -18,11 +18,11 @@
             {
                 services.AddSingleton<IViewModelFactory, ViewModelFactory>();
 
-                services.AddTransient<CreateViewModelAsync<UserProfileSelectionViewModel>>(services => () => CreateUserProfileSelectionViewModelAsync(services));
-                services.AddTransient<CreateViewModelAsync<DownloadViewModel>>(services => () => CreateDownloadViewModelAsync(services));
-                services.AddTransient<CreateViewModelAsync<TeamSelectionViewModel>>(services => () => CreateTeamSelectionViewModelAsync(services));
-                services.AddTransient<CreateViewModelAsync<HomeViewModel>>(services => () => CreateHomeViewModelAsync(services));
                 services.AddTransient<CreateViewModelAsync<AuthorizationViewModel>>(services => () => CreateAuthorizationViewModelAsync(services));
+                services.AddTransient<CreateViewModelAsync<DownloadViewModel>>(services => () => CreateDownloadViewModelAsync(services));
+                services.AddTransient<CreateViewModelAsync<HomeViewModel>>(services => () => CreateHomeViewModelAsync(services));
+                services.AddTransient<CreateViewModelAsync<TeamSelectionViewModel>>(services => () => CreateTeamSelectionViewModelAsync(services));
+                services.AddTransient<CreateViewModelAsync<UserProfileSelectionViewModel>>(services => () => CreateUserProfileSelectionViewModelAsync(services));
             });
 
             return host;
@@ -69,9 +69,12 @@
 
         private static async Task<TeamSelectionViewModel> CreateTeamSelectionViewModelAsync(IServiceProvider services)
         {
+            var scope = services.CreateScope();
+
             var viewModel = new TeamSelectionViewModel(
                 services.GetRequiredService<INavigator>(),
-                services.GetRequiredService<ISessionStore>());
+                services.GetRequiredService<ISessionStore>(),
+                scope.ServiceProvider.GetRequiredService<ISender>());
 
             await viewModel.InitializeAsync();
 

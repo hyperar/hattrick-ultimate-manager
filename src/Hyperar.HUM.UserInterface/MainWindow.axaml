@@ -62,7 +62,7 @@
                     <ListBox Margin="0 0 -100 0"
                              Padding="0"
                              ItemsSource="{Binding MenuItems}"
-                             SelectedItem="{Binding SelectedItem}">
+                             Selection="{Binding SelectionModel}">
 
                         <ListBox.Styles>
 

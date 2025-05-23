@@ -2,9 +2,101 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:globalization="clr-namespace:Hyperar.HUM.Globalization;assembly=Hyperar.HUM.Globalization"
+             xmlns:vm="clr-namespace:Hyperar.HUM.UserInterface.ViewModels"
+             xmlns:converters="clr-namespace:Hyperar.HUM.UserInterface.Converters"
+             xmlns:shared="clr-namespace:Hyperar.HUM.Shared;assembly=Hyperar.HUM.Shared"
+             HorizontalAlignment="Center"
+             Name="Page"
+             VerticalAlignment="Center"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:Class="Hyperar.HUM.UserInterface.Views.TeamSelectionView">
-  TeamSelectionView
+             x:Class="Hyperar.HUM.UserInterface.Views.TeamSelectionView"
+             x:DataType="vm:TeamSelectionViewModel">
+
+    <UserControl.Resources>
+
+        <Image Source="/Assets/Images/DefaultTeamLogo.png" x:Key="defaultTeamLogo" />
+        <converters:ByteArrayToBitmapConverter x:Key="byteArrayToBitmapConverter" />
+
+    </UserControl.Resources>
+
+        <ItemsControl ItemsSource="{Binding SeniorTeams}">
+
+            <ItemsControl.ItemsPanel>
+
+                <ItemsPanelTemplate>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="10">
+
+                    </StackPanel>
+
+                </ItemsPanelTemplate>
+
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+
+                <DataTemplate x:DataType="{x:Type shared:Models.TeamSelection.SeniorTeam}">
+
+                    <Button Command="{Binding ElementName=Page, Path=((vm:TeamSelectionViewModel)DataContext).SelectTeamCommand}"
+                            CommandParameter="{Binding HattrickId}"
+                            Width="350">
+
+                        <StackPanel Orientation="Vertical"
+                                    Spacing="5">
+
+                            <!-- Manager Avatar -->
+                            <Image Source="{Binding LogoBytes,
+                                            Converter={StaticResource byteArrayToBitmapConverter},
+                                            ConverterParameter={StaticResource defaultTeamLogo}}"
+                                   Stretch="Uniform"
+                                   Height="130" />
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="4">
+
+                                <!-- Country Flag -->
+                                <Image Source="{Binding LeagueFlagBytes,
+                                                Converter={StaticResource byteArrayToBitmapConverter}}"
+                                       Stretch="None"
+                                       Height="12"
+                                       Width="20" />
+
+                                <!-- Name And Id -->
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center">
+
+                                    <TextBlock.Text>
+
+                                        <MultiBinding StringFormat="{}{0} ({1})">
+
+                                            <Binding Path="Name" />
+
+                                            <Binding Path="HattrickId" />
+
+                                        </MultiBinding>
+
+                                    </TextBlock.Text>
+
+                                </TextBlock>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Button>
+
+                </DataTemplate>
+
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
 </UserControl>
