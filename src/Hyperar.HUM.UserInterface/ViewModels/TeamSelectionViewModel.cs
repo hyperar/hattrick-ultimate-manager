@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.ObjectModel;
-    using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
@@ -15,7 +14,6 @@
 
     internal partial class TeamSelectionViewModel : ViewModelBase
     {
-        public RelayCommand<long> SelectTeamCommand { get; }
         private readonly ISender sender;
 
         [ObservableProperty]
@@ -31,6 +29,8 @@
             this.SelectTeamCommand = new RelayCommand<long>(this.SelectTeam);
             this.SeniorTeams = new ObservableCollection<SeniorTeam>();
         }
+
+        public RelayCommand<long> SelectTeamCommand { get; }
 
         public override async Task InitializeAsync()
         {

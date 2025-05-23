@@ -18,7 +18,7 @@
     <UserControl.Resources>
 
         <Image Source="/Assets/Images/DefaultManagerAvatar.png" x:Key="defaultManagerAvatar" />
-        <Image Source="/Assets/Images/DefaultCountryFlag.png" x:Key="defaultCountryFlag" />
+        <Image Source="/Assets/Images/DefaultCountryFlag.png" x:Key="defaultFlag" />
         <converters:ByteArrayToBitmapConverter x:Key="byteArrayToBitmapConverter" />
 
     </UserControl.Resources>
@@ -76,15 +76,19 @@
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Spacing="4">
+                                        Spacing="5">
 
                                 <!-- Country Flag -->
-                                <Image Source="{Binding CountryFlagBytes,
+                                <Border Background="{DynamicResource ImageBorderBrush}"
+                                        Height="14"
+                                        Width="22">
+
+                                    <Image Source="{Binding CountryFlagBytes,
                                                 Converter={StaticResource byteArrayToBitmapConverter},
-                                                ConverterParameter={StaticResource defaultCountryFlag}}"
-                                       Stretch="None"
-                                       Height="12"
-                                       Width="20" />
+                                                ConverterParameter={StaticResource defaultFlag}}"
+                                           Stretch="None" />
+
+                                </Border>
 
                                 <!-- User Name and Id -->
                                 <TextBlock HorizontalAlignment="Center"

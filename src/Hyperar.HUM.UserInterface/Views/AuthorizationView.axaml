@@ -88,7 +88,8 @@
                             HorizontalAlignment="Center">
 
                     <Button Command="{Binding GetAccessTokenCommand}"
-                            IsEnabled="{Binding CanGetAccessToken}">
+                            IsEnabled="{Binding CanGetAccessToken}"
+                            Width="150">
 
                         <StackPanel Orientation="Horizontal" Spacing="5">
 
@@ -99,22 +100,10 @@
 
                     </Button>
 
-                    <Button Command="{Binding CheckAccessTokenCommand}"
-                            HorizontalAlignment="Center"
-                            IsEnabled="{Binding CanCheckAccessToken}">
-
-                        <StackPanel Orientation="Horizontal" Spacing="5">
-
-                            <PathIcon Data="{DynamicResource CheckLockIcon}" />
-                            <TextBlock Text="{x:Static globalization:Controls.CheckAuthorization}" />
-
-                        </StackPanel>
-
-                    </Button>
-
                     <Button Command="{Binding RevokeAccessTokenCommand}"
                             HorizontalAlignment="Center"
-                            IsEnabled="{Binding CanRevokeAccessToken}">
+                            IsEnabled="{Binding CanRevokeAccessToken}"
+                            Width="150">
 
                         <StackPanel Orientation="Horizontal" Spacing="5">
 
@@ -219,6 +208,21 @@
                               IsVisible="{Binding !AccessTokenVerified,
                                           FallbackValue=false}" />
                 </Grid>
+
+                <Button Command="{Binding CheckAccessTokenCommand}"
+                        HorizontalAlignment="Center"
+                        IsEnabled="{Binding CanCheckAccessToken}"
+                        IsVisible="{Binding CanCheckAccessToken}"
+                        Width="200">
+
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+
+                        <PathIcon Data="{DynamicResource CheckLockIcon}" />
+                        <TextBlock Text="{x:Static globalization:Controls.CheckAuthorization}" />
+
+                    </StackPanel>
+
+                </Button>
 
                 <TextBlock FontSize="{DynamicResource TabItemHeaderFontSize}"
                            FontWeight="{DynamicResource TabItemHeaderThemeFontWeight}"

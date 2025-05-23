@@ -23,8 +23,6 @@
         [ObservableProperty]
         private bool isMenuOpen;
 
-        public ISelectionModel SelectionModel { get; }
-
         public MainWindowViewModel(
             INavigator navigator,
             ISessionStore sessionStore,
@@ -45,24 +43,13 @@
 
             this.MenuItems = new ObservableCollection<MenuItemTemplate>
             {
-                new MenuItemViewTemplate("Home", true, ViewType.Home, "HomeIcon"),
-                new MenuItemViewTemplate("Team Selection", true, ViewType.TeamSelection, "TeamSelectionIcon"),
-                new MenuItemViewTemplate("User Profiles", true, ViewType.UserProfileSelection, "UserProfilesIcon"),
-                new MenuItemViewTemplate("Download", true, ViewType.Download, "DownloadIcon")
+                new MenuItemView(Globalization.Controls.Home, true, ViewType.Home, "HomeIcon"),
+                new MenuItemSeparator(),
+                new MenuItemView(Globalization.Controls.Download, true, ViewType.Download, "DownloadIcon"),
+                new MenuItemView(Globalization.Controls.TeamSelection, true, ViewType.TeamSelection, "TeamSelectionIcon"),
+                new MenuItemView(Globalization.Controls.Authorization, true, ViewType.Authorization, "AuthorizationIcon"),
+                new MenuItemView(Globalization.Controls.UserProfiles, true, ViewType.UserProfileSelection, "UserProfilesIcon"),
             };
-        }
-
-        private void ListBox_OnSelectionChanged(object? sender, SelectionModelSelectionChangedEventArgs eventArgs)
-        {
-            if (eventArgs.SelectedItems.SingleOrDefault() is MenuItemViewTemplate menuItemViewTemplate)
-            {
-                this.UpdateCurrentViewModelCommand.Execute(
-                    this.MenuItems.OfType<MenuItemViewTemplate>()
-                        .Where(x => x.ViewType == menuItemViewTemplate.ViewType)
-                        .Select(x => x.ViewType)
-                        .Single());
-
-            }
         }
 
         public bool CanNavigate
@@ -82,6 +69,8 @@
         }
 
         public ObservableCollection<MenuItemTemplate> MenuItems { get; private set; } = new ObservableCollection<MenuItemTemplate>();
+
+        public ISelectionModel SelectionModel { get; }
 
         public RelayCommand ToggleMenuCommand { get; }
 
@@ -103,6 +92,18 @@
             await base.InitializeAsync();
         }
 
+        private void ListBox_OnSelectionChanged(object? sender, SelectionModelSelectionChangedEventArgs eventArgs)
+        {
+            if (eventArgs.SelectedItems.SingleOrDefault() is MenuItemView menuItemView)
+            {
+                this.UpdateCurrentViewModelCommand.Execute(
+                    this.MenuItems.OfType<MenuItemView>()
+                        .Where(x => x.ViewType == menuItemView.ViewType)
+                        .Select(x => x.ViewType)
+                        .Single());
+            }
+        }
+
         private void Navigator_CanNavigateChanged()
         {
             this.OnPropertyChanged(nameof(this.CanNavigate));
@@ -115,7 +116,7 @@
 
         private void Navigator_TargetViewTypeChanged(ViewType viewType)
         {
-            this.SelectionModel.SelectedItem = this.MenuItems.OfType<MenuItemViewTemplate>()
+            this.SelectionModel.SelectedItem = this.MenuItems.OfType<MenuItemView>()
                 .Where(x => x.ViewType == viewType)
                 .SingleOrDefault();
         }

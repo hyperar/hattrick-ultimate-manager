@@ -18,85 +18,114 @@
     <UserControl.Resources>
 
         <Image Source="/Assets/Images/DefaultTeamLogo.png" x:Key="defaultTeamLogo" />
+        <Image Source="/Assets/Images/DefaultCountryFlag.png" x:Key="defaultFlag" />
         <converters:ByteArrayToBitmapConverter x:Key="byteArrayToBitmapConverter" />
 
     </UserControl.Resources>
 
-        <ItemsControl ItemsSource="{Binding SeniorTeams}">
+    <ItemsControl ItemsSource="{Binding SeniorTeams}">
 
-            <ItemsControl.ItemsPanel>
+        <ItemsControl.ItemsPanel>
 
-                <ItemsPanelTemplate>
+            <ItemsPanelTemplate>
 
-                    <StackPanel Orientation="Horizontal"
+                <WrapPanel Orientation="Horizontal"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                <!--<StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Spacing="10"/>-->
+
+            </ItemsPanelTemplate>
+
+        </ItemsControl.ItemsPanel>
+
+        <ItemsControl.ItemTemplate>
+
+            <DataTemplate x:DataType="{x:Type shared:Models.TeamSelection.SeniorTeam}">
+
+                <Button Command="{Binding ElementName=Page, Path=((vm:TeamSelectionViewModel)DataContext).SelectTeamCommand}"
+                        CommandParameter="{Binding Team.HattrickId}"
+                        Margin="5"
+                        Width="350">
+
+                    <StackPanel Orientation="Vertical"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Spacing="10">
+                                Margin="5"
+                                Spacing="5"
+                                VerticalAlignment="Center">
 
-                    </StackPanel>
-
-                </ItemsPanelTemplate>
-
-            </ItemsControl.ItemsPanel>
-
-            <ItemsControl.ItemTemplate>
-
-                <DataTemplate x:DataType="{x:Type shared:Models.TeamSelection.SeniorTeam}">
-
-                    <Button Command="{Binding ElementName=Page, Path=((vm:TeamSelectionViewModel)DataContext).SelectTeamCommand}"
-                            CommandParameter="{Binding HattrickId}"
-                            Width="350">
-
-                        <StackPanel Orientation="Vertical"
-                                    Spacing="5">
-
-                            <!-- Manager Avatar -->
-                            <Image Source="{Binding LogoBytes,
+                        <Image Height="260"
+                               Source="{Binding LogoBytes,
                                             Converter={StaticResource byteArrayToBitmapConverter},
                                             ConverterParameter={StaticResource defaultTeamLogo}}"
-                                   Stretch="Uniform"
-                                   Height="130" />
+                               Stretch="Uniform"
+                               Width="210" />
 
-                            <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Spacing="4">
+                        <TextBlock HorizontalAlignment="Center"
+                                   Text="{Binding Team}" />
 
-                                <!-- Country Flag -->
-                                <Image Source="{Binding LeagueFlagBytes,
-                                                Converter={StaticResource byteArrayToBitmapConverter}}"
-                                       Stretch="None"
-                                       Height="12"
-                                       Width="20" />
+                        <StackPanel HorizontalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="5"
+                                    VerticalAlignment="Center">
 
-                                <!-- Name And Id -->
-                                <TextBlock HorizontalAlignment="Center"
-                                           VerticalAlignment="Center">
+                            <Border Background="{DynamicResource ImageBorderBrush}"
+                                    Height="14"
+                                    Width="22">
 
-                                    <TextBlock.Text>
+                                <Image Source="{Binding CountryFlagBytes,
+                                                Converter={StaticResource byteArrayToBitmapConverter},
+                                                ConverterParameter={StaticResource defaultFlag}}"
+                                       Stretch="None" />
 
-                                        <MultiBinding StringFormat="{}{0} ({1})">
+                            </Border>
 
-                                            <Binding Path="Name" />
-
-                                            <Binding Path="HattrickId" />
-
-                                        </MultiBinding>
-
-                                    </TextBlock.Text>
-
-                                </TextBlock>
-
-                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center"
+                                       Text="{Binding Country}"
+                                       VerticalAlignment="Center" />
 
                         </StackPanel>
 
-                    </Button>
 
-                </DataTemplate>
+                        <TextBlock HorizontalAlignment="Center"
+                                   Text="{Binding Region}" />
 
-            </ItemsControl.ItemTemplate>
+                        <TextBlock HorizontalAlignment="Center"
+                                   Text="{Binding Series}" />
 
-        </ItemsControl>
+                        <StackPanel HorizontalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="5"
+                                    VerticalAlignment="Center">
+
+                            <Border Background="{DynamicResource ImageBorderBrush}"
+                                    Height="14"
+                                    Width="22">
+
+                                <Image Source="{Binding LeagueFlagBytes,
+                                                Converter={StaticResource byteArrayToBitmapConverter},
+                                                ConverterParameter={StaticResource defaultFlag}}"
+                                       Stretch="None" />
+
+                            </Border>
+
+                            <TextBlock HorizontalAlignment="Center"
+                                       Text="{Binding League}"
+                                       VerticalAlignment="Center" />
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Button>
+
+            </DataTemplate>
+
+        </ItemsControl.ItemTemplate>
+
+    </ItemsControl>
 
 </UserControl>

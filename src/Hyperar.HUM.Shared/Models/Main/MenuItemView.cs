@@ -6,15 +6,15 @@
     using Avalonia.Media;
     using Hyperar.HUM.Shared.Enums;
 
-    public class MenuItemViewTemplate : MenuItemTemplate
+    public class MenuItemView : MenuItemTemplate
     {
         private const string MissingIconKey = "MissingIcon";
 
-        public MenuItemViewTemplate(string text, bool isEnabled, ViewType viewType) : this(text, isEnabled, viewType, MissingIconKey)
+        public MenuItemView(string text, bool isEnabled, ViewType viewType) : this(text, isEnabled, viewType, MissingIconKey)
         {
         }
 
-        public MenuItemViewTemplate(string text, bool isEnabled, ViewType viewType, string iconResourceKey)
+        public MenuItemView(string text, bool isEnabled, ViewType viewType, string iconResourceKey)
         {
             this.IsSelectable = true;
             this.Text = text;

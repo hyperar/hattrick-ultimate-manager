@@ -91,6 +91,8 @@
                     WinningStreak = teamNode.NumberOfVictories ?? 0,
                     CanBookMidweekFriendly = teamNode.PossibleToChallengeMidweek,
                     CanBookWeekendFriendly = teamNode.PossibleToChallengeWeekend,
+                    SeriesHattrickId = teamNode.LeagueLevelUnit.LeagueLevelUnitId,
+                    SeriesName = teamNode.LeagueLevelUnit.LeagueLevelUnitName,
                     LogoBytes = string.IsNullOrEmpty(teamNode.LogoUrl)
                         ? null
                         : await ImageHelpers.ReadFileFromCacheAsync(

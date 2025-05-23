@@ -93,6 +93,19 @@
                 .HasColumnType(Constants.ColumnType.Bit)
                 .IsRequired();
 
+            builder.Property(p => p.SeriesHattrickId)
+                            .HasColumnOrder(
+                                this.GetColumnOrder())
+                            .HasColumnType(Constants.ColumnType.BigInt)
+                            .IsRequired();
+
+            builder.Property(p => p.SeriesName)
+                .HasColumnOrder(
+                    this.GetColumnOrder())
+                .HasColumnType(Constants.ColumnType.NVarChar)
+                .HasMaxLength(256)
+                .IsRequired();
+
             builder.Property(p => p.LogoBytes)
                 .HasColumnOrder(
                     this.GetColumnOrder())
@@ -116,21 +129,21 @@
             builder.HasOne(m => m.League)
                 .WithMany(m => m.SeniorTeams)
                 .HasConstraintName("FK_SeniorTeam_League")
-                .HasForeignKey(m => m.LeagueId)
+                .HasForeignKey(m => m.LeagueHattrickId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(m => m.Region)
                 .WithMany(m => m.SeniorTeams)
                 .HasConstraintName("FK_SeniorTeam_Region")
-                .HasForeignKey(m => m.RegionId)
+                .HasForeignKey(m => m.RegionHattrickId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(m => m.Manager)
                 .WithMany(m => m.SeniorTeams)
                 .HasConstraintName("FK_SeniorTeam_Manager")
-                .HasForeignKey(m => m.ManagerId)
+                .HasForeignKey(m => m.ManagerHattrickId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.NoAction);
         }

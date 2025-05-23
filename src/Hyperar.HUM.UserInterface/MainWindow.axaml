@@ -111,7 +111,7 @@
 
                         <ListBox.DataTemplates>
 
-                            <DataTemplate DataType="{x:Type sharedModels:Main.MenuItemViewTemplate}">
+                            <DataTemplate DataType="{x:Type sharedModels:Main.MenuItemView}">
 
                                 <StackPanel ToolTip.Tip="{Binding Text}"
                                             IsEnabled="{Binding IsEnabled}">
@@ -123,12 +123,13 @@
 
                             </DataTemplate>
 
-                            <!--<DataTemplate DataType="{x:Type sharedModels:Main.SeparatorItemTemplate}">
+                            <DataTemplate DataType="{x:Type sharedModels:Main.MenuItemSeparator}">
 
                                 <Separator />
+
                             </DataTemplate>
 
-                            <DataTemplate DataType="{x:Type sharedModels:Main.GroupTitleItemTemplate}">
+                            <!--<DataTemplate DataType="{x:Type sharedModels:Main.GroupTitleItemTemplate}">
 
                                 <StackPanel>
 

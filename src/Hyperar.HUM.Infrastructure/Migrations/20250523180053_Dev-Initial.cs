@@ -15,10 +15,13 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                 name: "LeagueCup");
 
             migrationBuilder.DropTable(
-                name: "Manager");
+                name: "OAuthToken");
 
             migrationBuilder.DropTable(
-                name: "OAuthToken");
+                name: "SeniorTeam");
+
+            migrationBuilder.DropTable(
+                name: "Manager");
 
             migrationBuilder.DropTable(
                 name: "Region");
@@ -221,6 +224,54 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                         principalColumn: "HattrickId");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "SeniorTeam",
+                columns: table => new
+                {
+                    HattrickId = table.Column<long>(type: "bigint", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    ShortName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    FoundedOn = table.Column<DateTime>(type: "datetime", nullable: false),
+                    TeamIndex = table.Column<int>(type: "int", nullable: false),
+                    IsPlayingCup = table.Column<bool>(type: "bit", nullable: false),
+                    GlobalPowerRating = table.Column<int>(type: "int", nullable: false),
+                    LeaguePowerRating = table.Column<int>(type: "int", nullable: false),
+                    RegionPowerRating = table.Column<int>(type: "int", nullable: false),
+                    PowerRating = table.Column<int>(type: "int", nullable: false),
+                    LeagueRank = table.Column<int>(type: "int", nullable: false),
+                    UndefeatedStreak = table.Column<int>(type: "int", nullable: false),
+                    WinningStreak = table.Column<int>(type: "int", nullable: false),
+                    CanBookMidweekFriendly = table.Column<bool>(type: "bit", nullable: false),
+                    CanBookWeekendFriendly = table.Column<bool>(type: "bit", nullable: false),
+                    SeriesHattrickId = table.Column<long>(type: "bigint", nullable: false),
+                    SeriesName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    LogoBytes = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    HomeMatchKitBytes = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    AwayMatchKitBytes = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    LeagueHattrickId = table.Column<long>(type: "bigint", nullable: false),
+                    ManagerHattrickId = table.Column<long>(type: "bigint", nullable: false),
+                    RegionHattrickId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SeniorTeam", x => x.HattrickId);
+                    table.ForeignKey(
+                        name: "FK_SeniorTeam_League",
+                        column: x => x.LeagueHattrickId,
+                        principalTable: "League",
+                        principalColumn: "HattrickId");
+                    table.ForeignKey(
+                        name: "FK_SeniorTeam_Manager",
+                        column: x => x.ManagerHattrickId,
+                        principalTable: "Manager",
+                        principalColumn: "HattrickId");
+                    table.ForeignKey(
+                        name: "FK_SeniorTeam_Region",
+                        column: x => x.RegionHattrickId,
+                        principalTable: "Region",
+                        principalColumn: "HattrickId");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Country_CurrencyId",
                 table: "Country",
@@ -258,6 +309,21 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                 name: "IX_Region_CountryHattrickId",
                 table: "Region",
                 column: "CountryHattrickId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeniorTeam_LeagueHattrickId",
+                table: "SeniorTeam",
+                column: "LeagueHattrickId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeniorTeam_ManagerHattrickId",
+                table: "SeniorTeam",
+                column: "ManagerHattrickId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeniorTeam_RegionHattrickId",
+                table: "SeniorTeam",
+                column: "RegionHattrickId");
         }
     }
 }
