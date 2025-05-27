@@ -117,8 +117,7 @@
         private void Navigator_TargetViewTypeChanged(ViewType viewType)
         {
             this.SelectionModel.SelectedItem = this.MenuItems.OfType<MenuItemView>()
-                .Where(x => x.ViewType == viewType)
-                .SingleOrDefault();
+                .SingleOrDefault(x => x.ViewType == viewType);
         }
 
         private void ToggleMenu()
