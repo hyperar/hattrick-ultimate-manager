@@ -100,9 +100,6 @@
                         6)
                 ]);
 
-            var expectedJson = Newtonsoft.Json.JsonConvert.SerializeObject(expected);
-            var resultJson = Newtonsoft.Json.JsonConvert.SerializeObject(result);
-
             Assert.Equal(expected, result);
         }
 

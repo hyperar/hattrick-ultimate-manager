@@ -58,7 +58,6 @@ namespace Hyperar.HUM.UserInterface
                 var mainViewModel = new MainWindowViewModel(
                     host.Services.GetRequiredService<INavigator>(),
                     host.Services.GetRequiredService<ISessionStore>(),
-                    host.Services.GetRequiredService<IMainMenuBuilderFactory>(),
                     host.Services.GetRequiredService<IViewModelFactory>(),
                     await landingViewFactory.GetLandingViewAsync());
 

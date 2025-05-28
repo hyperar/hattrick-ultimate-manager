@@ -88,6 +88,15 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authorization.
+        /// </summary>
+        public static string Authorization {
+            get {
+                return ResourceManager.GetString("Authorization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authorize.
         /// </summary>
         public static string Authorize {
@@ -115,11 +124,20 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check Authorization.
+        ///   Looks up a localized string similar to Check.
         /// </summary>
         public static string CheckAuthorization {
             get {
                 return ResourceManager.GetString("CheckAuthorization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
             }
         }
         
@@ -178,6 +196,15 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to League.
+        /// </summary>
+        public static string League {
+            get {
+                return ResourceManager.GetString("League", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not authorized.
         /// </summary>
         public static string NotAuthorized {
@@ -192,6 +219,24 @@ namespace Hyperar.HUM.Globalization {
         public static string OpenAuthorizationWebPage {
             get {
                 return ResourceManager.GetString("OpenAuthorizationWebPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region.
+        /// </summary>
+        public static string Region {
+            get {
+                return ResourceManager.GetString("Region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Series.
+        /// </summary>
+        public static string Series {
+            get {
+                return ResourceManager.GetString("Series", resourceCulture);
             }
         }
         
@@ -232,11 +277,38 @@ namespace Hyperar.HUM.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Team.
+        /// </summary>
+        public static string Team {
+            get {
+                return ResourceManager.GetString("Team", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Team Selection.
+        /// </summary>
+        public static string TeamSelection {
+            get {
+                return ResourceManager.GetString("TeamSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
         public static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Profiles.
+        /// </summary>
+        public static string UserProfiles {
+            get {
+                return ResourceManager.GetString("UserProfiles", resourceCulture);
             }
         }
         

@@ -14,16 +14,20 @@
 
         private readonly ManagerCompendiumPersister managerCompendiumPersister;
 
+        private readonly TeamDetailsPersister teamDetailsPersister;
+
         private readonly WorldDetailsPersister worldDetailsPersister;
 
         public FilePersisterStrategyFactory(
             EmptyPersister emptyPersister,
             ImagePersister imagePersister,
             ManagerCompendiumPersister managerCompendiumPersister,
+            TeamDetailsPersister teamDetailsPersister,
             WorldDetailsPersister worldDetailsPersister)
         {
             this.emptyPersister = emptyPersister;
             this.managerCompendiumPersister = managerCompendiumPersister;
+            this.teamDetailsPersister = teamDetailsPersister;
             this.worldDetailsPersister = worldDetailsPersister;
             this.imagePersister = imagePersister;
         }
@@ -39,6 +43,7 @@
                 return xmlFileDownloadTask.XmlFile switch
                 {
                     XmlFileType.ManagerCompendium => this.managerCompendiumPersister,
+                    XmlFileType.TeamDetails => this.teamDetailsPersister,
                     XmlFileType.WorldDetails => this.worldDetailsPersister,
                     _ => this.emptyPersister
                 };

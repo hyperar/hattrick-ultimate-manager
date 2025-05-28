@@ -374,7 +374,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Property<byte[]>("AwayMatchKitBytes")
                         .IsRequired()
                         .HasColumnType("varbinary(max)")
-                        .HasColumnOrder(16);
+                        .HasColumnOrder(18);
 
                     b.Property<bool>("CanBookMidweekFriendly")
                         .HasColumnType("bit")
@@ -395,13 +395,13 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Property<byte[]>("HomeMatchKitBytes")
                         .IsRequired()
                         .HasColumnType("varbinary(max)")
-                        .HasColumnOrder(15);
+                        .HasColumnOrder(17);
 
                     b.Property<bool>("IsPlayingCup")
                         .HasColumnType("bit")
                         .HasColumnOrder(4);
 
-                    b.Property<long>("LeagueId")
+                    b.Property<long>("LeagueHattrickId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("LeaguePowerRating")
@@ -414,9 +414,9 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<byte[]>("LogoBytes")
                         .HasColumnType("varbinary(max)")
-                        .HasColumnOrder(14);
+                        .HasColumnOrder(16);
 
-                    b.Property<long>("ManagerId")
+                    b.Property<long>("ManagerHattrickId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Name")
@@ -429,12 +429,22 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(8);
 
-                    b.Property<long>("RegionId")
+                    b.Property<long>("RegionHattrickId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("RegionPowerRating")
                         .HasColumnType("int")
                         .HasColumnOrder(7);
+
+                    b.Property<long>("SeriesHattrickId")
+                        .HasColumnType("bigint")
+                        .HasColumnOrder(14);
+
+                    b.Property<string>("SeriesName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar")
+                        .HasColumnOrder(15);
 
                     b.Property<string>("ShortName")
                         .IsRequired()
@@ -456,11 +466,11 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.HasKey("HattrickId");
 
-                    b.HasIndex("LeagueId");
+                    b.HasIndex("LeagueHattrickId");
 
-                    b.HasIndex("ManagerId");
+                    b.HasIndex("ManagerHattrickId");
 
-                    b.HasIndex("RegionId");
+                    b.HasIndex("RegionHattrickId");
 
                     b.ToTable("SeniorTeam", (string)null);
                 });
@@ -567,21 +577,21 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                 {
                     b.HasOne("Hyperar.HUM.Domain.League", "League")
                         .WithMany("SeniorTeams")
-                        .HasForeignKey("LeagueId")
+                        .HasForeignKey("LeagueHattrickId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired()
                         .HasConstraintName("FK_SeniorTeam_League");
 
                     b.HasOne("Hyperar.HUM.Domain.Manager", "Manager")
                         .WithMany("SeniorTeams")
-                        .HasForeignKey("ManagerId")
+                        .HasForeignKey("ManagerHattrickId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired()
                         .HasConstraintName("FK_SeniorTeam_Manager");
 
                     b.HasOne("Hyperar.HUM.Domain.Region", "Region")
                         .WithMany("SeniorTeams")
-                        .HasForeignKey("RegionId")
+                        .HasForeignKey("RegionHattrickId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired()
                         .HasConstraintName("FK_SeniorTeam_Region");

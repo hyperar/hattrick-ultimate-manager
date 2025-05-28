@@ -7,6 +7,7 @@
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using Hyperar.HUM.Application.UserProfile.Commands.Create;
+    using Hyperar.HUM.Application.UserProfile.Queries.Get.ById;
     using Hyperar.HUM.Application.UserProfile.Queries.List;
     using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.Shared.Models.UserProfileSelection;
@@ -29,7 +30,7 @@
             this.sender = sender;
 
             this.CreateUserProfileCommand = new AsyncRelayCommand(this.CreateUserProfileAsync);
-            this.SelectUserProfileCommand = new RelayCommand<Guid>(this.SelectUserProfile);
+            this.SelectUserProfileCommand = new AsyncRelayCommand<Guid>(this.SelectUserProfileAsync);
         }
 
         public bool CanCreateUserProfile
@@ -42,7 +43,7 @@
 
         public AsyncRelayCommand CreateUserProfileCommand { get; }
 
-        public RelayCommand<Guid> SelectUserProfileCommand { get; }
+        public AsyncRelayCommand<Guid> SelectUserProfileCommand { get; }
 
         public bool ShowUserProfileSelector
         {
@@ -56,6 +57,8 @@
         {
             await this.RefreshUserProfiles();
 
+            this.Navigator.ResumeNavigation();
+
             await base.InitializeAsync();
         }
 
@@ -64,7 +67,7 @@
             var userProfile = await this.sender.Send(
                 new CreateUserProfileCommand());
 
-            this.SelectUserProfile(userProfile.Id);
+            await this.SelectUserProfileAsync(userProfile.Id);
         }
 
         private async Task RefreshUserProfiles()
@@ -78,11 +81,22 @@
             this.OnPropertyChanged(nameof(this.ShowUserProfileSelector));
         }
 
-        private void SelectUserProfile(Guid userProfileId)
+        private async Task SelectUserProfileAsync(Guid userProfileId)
         {
             this.SessionStore.SetSelectedUserProfile(userProfileId);
 
-            this.Navigator.SetTargetViewType(ViewType.Authorization);
+            var userProfile = await this.sender.Send(
+                new GetUserProfileByIdQuery(
+                    userProfileId));
+
+            if (userProfile.HasAuthorized)
+            {
+                this.Navigator.SetTargetViewType(ViewType.TeamSelection);
+            }
+            else
+            {
+                this.Navigator.SetTargetViewType(ViewType.Authorization);
+            }
         }
     }
 }

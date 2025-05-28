@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>teamdetails.xml</FileName>
+    <Version>3.7</Version>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-05-17 12:58:09</FetchedDate>
+    <User>
+        <UserID>13234618</UserID>
+        <Language>
+            <LanguageID>6</LanguageID>
+            <LanguageName>Español, España</LanguageName>
+        </Language>
+        <SupporterTier>platinum</SupporterTier>
+        <Loginname>Rgazole</Loginname>
+        <Name>HIDDEN</Name>
+        <ICQ></ICQ>
+        <SignupDate>2016-05-12 20:59:12</SignupDate>
+        <ActivationDate>2016-05-12 21:00:00</ActivationDate>
+        <LastLoginDate>2025-05-15 02:47:16</LastLoginDate>
+        <HasManagerLicense>True</HasManagerLicense>
+        <NationalTeams />
+    </User>
+    <Teams>
+        <Team>
+            <TeamID>117817</TeamID>
+            <TeamName>Real Tozoloneros FC</TeamName>
+            <ShortTeamName>Tozoloneros</ShortTeamName>
+            <IsPrimaryClub>True</IsPrimaryClub>
+            <FoundedDate>2016-05-12 21:00:00</FoundedDate>
+            <IsDeactivated>False</IsDeactivated>
+            <Arena>
+                <ArenaID>117817</ArenaID>
+                <ArenaName>Real Tozoloneros FC Arena</ArenaName>
+            </Arena>
+            <League>
+                <LeagueID>36</LeagueID>
+                <LeagueName>España</LeagueName>
+            </League>
+            <Country>
+                <CountryID>35</CountryID>
+                <CountryName>España</CountryName>
+            </Country>
+            <Region>
+                <RegionID>805</RegionID>
+                <RegionName>Aragón</RegionName>
+            </Region>
+            <Trainer>
+                <PlayerID>426752381</PlayerID>
+            </Trainer>
+            <HomePage></HomePage>
+            <DressURI>//res.hattrick.org/kits/26/252/2514/2513862/matchKitSmall.png</DressURI>
+            <DressAlternateURI>//res.hattrick.org/kits/28/272/2714/2713289/matchKitSmall.png</DressAlternateURI>
+            <LeagueLevelUnit>
+                <LeagueLevelUnitID>3487</LeagueLevelUnitID>
+                <LeagueLevelUnitName>IV.64</LeagueLevelUnitName>
+                <LeagueLevel>4</LeagueLevel>
+            </LeagueLevelUnit>
+            <BotStatus>
+                <IsBot>False</IsBot>
+            </BotStatus>
+            <Cup>
+                <StillInCup>True</StillInCup>
+                <CupID>43</CupID>
+                <CupName>Copa de España</CupName>
+                <CupLeagueLevel>0</CupLeagueLevel>
+                <CupLevel>1</CupLevel>
+                <CupLevelIndex>1</CupLevelIndex>
+                <MatchRound>4</MatchRound>
+                <MatchRoundsLeft>11</MatchRoundsLeft>
+            </Cup>
+            <PowerRating>
+                <GlobalRanking>6660</GlobalRanking>
+                <LeagueRanking>322</LeagueRanking>
+                <RegionRanking>7</RegionRanking>
+                <PowerRating>1059</PowerRating>
+            </PowerRating>
+            <FriendlyTeamID>0</FriendlyTeamID>
+            <NumberOfVictories>1</NumberOfVictories>
+            <NumberOfUndefeated>1</NumberOfUndefeated>
+            <TeamRank>381</TeamRank>
+            <Fanclub>
+                <FanclubID>611542</FanclubID>
+                <FanclubName>Real Tozoloneros FC</FanclubName>
+                <FanclubSize>2777</FanclubSize>
+            </Fanclub>
+            <LogoURL>//res.hattrick.org/teamlogo/2/12/118/117817/117817.jpg</LogoURL>
+            <Guestbook>
+                <NumberOfGuestbookItems>4</NumberOfGuestbookItems>
+            </Guestbook>
+            <TeamColors />
+            <YouthTeamID>2723475</YouthTeamID>
+            <YouthTeamName>Zagalicos FC</YouthTeamName>
+            <NumberOfVisits>1</NumberOfVisits>
+            <TrophyList>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>78</TrophySeason>
+                    <LeagueLevel>5</LeagueLevel>
+                    <LeagueLevelUnitId>5518</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>V.5</LeagueLevelUnitName>
+                    <GainedDate>2025-04-19 01:22:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/v.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>72</TrophySeason>
+                    <LeagueLevel>6</LeagueLevel>
+                    <LeagueLevelUnitId>14591</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>VI.273</LeagueLevelUnitName>
+                    <GainedDate>2023-06-17 02:19:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/vi.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>68</TrophySeason>
+                    <LeagueLevel>6</LeagueLevel>
+                    <LeagueLevelUnitId>14379</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>VI.61</LeagueLevelUnitName>
+                    <GainedDate>2022-03-26 01:15:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/vi.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>62</TrophySeason>
+                    <LeagueLevel>5</LeagueLevel>
+                    <LeagueLevelUnitId>5653</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>V.140</LeagueLevelUnitName>
+                    <GainedDate>2020-05-23 02:05:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/v.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>61</TrophySeason>
+                    <LeagueLevel>6</LeagueLevel>
+                    <LeagueLevelUnitId>15176</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>VI.858</LeagueLevelUnitName>
+                    <GainedDate>2020-02-01 02:30:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/vi.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>103</TrophyTypeId>
+                    <TrophySeason>1</TrophySeason>
+                    <LeagueLevel>1</LeagueLevel>
+                    <LeagueLevelUnitId>3484811</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>HPTM PLATA II</LeagueLevelUnitName>
+                    <GainedDate>2019-02-25 22:18:00</GainedDate>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+            </TrophyList>
+            <PossibleToChallengeMidweek>False</PossibleToChallengeMidweek>
+            <PossibleToChallengeWeekend>False</PossibleToChallengeWeekend>
+        </Team>
+        <Team>
+            <TeamID>2063066</TeamID>
+            <TeamName>Mañoman FC</TeamName>
+            <ShortTeamName>Mañoman</ShortTeamName>
+            <IsPrimaryClub>False</IsPrimaryClub>
+            <FoundedDate>2018-11-23 19:00:00</FoundedDate>
+            <IsDeactivated>False</IsDeactivated>
+            <Arena>
+                <ArenaID>2059598</ArenaID>
+                <ArenaName>Mañoman FC Arena</ArenaName>
+            </Arena>
+            <League>
+                <LeagueID>149</LeagueID>
+                <LeagueName>São Tomé e Príncipe</LeagueName>
+            </League>
+            <Country>
+                <CountryID>177</CountryID>
+                <CountryName>São Tomé e Príncipe</CountryName>
+            </Country>
+            <Region>
+                <RegionID>2773</RegionID>
+                <RegionName>Príncipe</RegionName>
+            </Region>
+            <Trainer>
+                <PlayerID>392126066</PlayerID>
+            </Trainer>
+            <HomePage></HomePage>
+            <DressURI>//res.hattrick.org/kits/28/272/2713/2712960/matchKitSmall.png</DressURI>
+            <DressAlternateURI>//res.hattrick.org/kits/28/272/2714/2713301/matchKitSmall.png</DressAlternateURI>
+            <LeagueLevelUnit>
+                <LeagueLevelUnitID>258111</LeagueLevelUnitID>
+                <LeagueLevelUnitName>III.13</LeagueLevelUnitName>
+                <LeagueLevel>3</LeagueLevel>
+            </LeagueLevelUnit>
+            <BotStatus>
+                <IsBot>False</IsBot>
+            </BotStatus>
+            <Cup>
+                <StillInCup>False</StillInCup>
+            </Cup>
+            <PowerRating>
+                <GlobalRanking>61978</GlobalRanking>
+                <LeagueRanking>95</LeagueRanking>
+                <RegionRanking>37</RegionRanking>
+                <PowerRating>915</PowerRating>
+            </PowerRating>
+            <FriendlyTeamID>2229980</FriendlyTeamID>
+            <NumberOfVictories>0</NumberOfVictories>
+            <NumberOfUndefeated>0</NumberOfUndefeated>
+            <TeamRank>61</TeamRank>
+            <Fanclub>
+                <FanclubID>0</FanclubID>
+                <FanclubName></FanclubName>
+                <FanclubSize>2965</FanclubSize>
+            </Fanclub>
+            <LogoURL>//res.hattrick.org/teamlogo/21/207/2064/2063066/2063066.jpg</LogoURL>
+            <Guestbook>
+                <NumberOfGuestbookItems>1</NumberOfGuestbookItems>
+            </Guestbook>
+            <TeamColors />
+            <YouthTeamID>2735666</YouthTeamID>
+            <YouthTeamName>Maño críos FC</YouthTeamName>
+            <NumberOfVisits>0</NumberOfVisits>
+            <TrophyList>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>19</TrophySeason>
+                    <LeagueLevel>3</LeagueLevel>
+                    <LeagueLevelUnitId>258111</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>III.13</LeagueLevelUnitName>
+                    <GainedDate>2024-09-07 04:40:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iii.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>17</TrophySeason>
+                    <LeagueLevel>3</LeagueLevel>
+                    <LeagueLevelUnitId>258111</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>III.13</LeagueLevelUnitName>
+                    <GainedDate>2024-01-27 04:40:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iii.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>14</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258285</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.1</LeagueLevelUnitName>
+                    <GainedDate>2023-02-25 04:39:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>103</TrophyTypeId>
+                    <TrophySeason>11</TrophySeason>
+                    <LeagueLevel>97</LeagueLevel>
+                    <LeagueLevelUnitId>3686927</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>3</LeagueLevelUnitName>
+                    <GainedDate>2022-02-18 20:37:00</GainedDate>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>6</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258298</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.14</LeagueLevelUnitName>
+                    <GainedDate>2020-09-12 04:50:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>4</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258296</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.12</LeagueLevelUnitName>
+                    <GainedDate>2020-02-01 04:49:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+                <Trophy>
+                    <TrophyTypeId>17</TrophyTypeId>
+                    <TrophySeason>2</TrophySeason>
+                    <LeagueLevel>4</LeagueLevel>
+                    <LeagueLevelUnitId>258295</LeagueLevelUnitId>
+                    <LeagueLevelUnitName>IV.11</LeagueLevelUnitName>
+                    <GainedDate>2019-06-22 04:48:00</GainedDate>
+                    <ImageUrl>/App_Themes/Standard/Images/Trophies/iv.png</ImageUrl>
+                    <CupLeagueLevel></CupLeagueLevel>
+                    <CupLevel></CupLevel>
+                    <CupLevelIndex></CupLevelIndex>
+                </Trophy>
+            </TrophyList>
+            <PossibleToChallengeMidweek>False</PossibleToChallengeMidweek>
+            <PossibleToChallengeWeekend>False</PossibleToChallengeWeekend>
+        </Team>
+    </Teams>
+</HattrickData>

@@ -7,6 +7,12 @@
 
     </Style>
 
+    <Style Selector="TextBlock.ValueTitle">
+
+        <Setter Property="FontWeight" Value="Bold" />
+
+    </Style>
+
     <Style Selector="PathIcon.MotherClubIcon">
 
         <Setter Property="Foreground" Value="#DD4140" />

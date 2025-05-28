@@ -126,6 +126,9 @@
   <data name="AddUserProfile" xml:space="preserve">
     <value>Add User Profile</value>
   </data>
+  <data name="Authorization" xml:space="preserve">
+    <value>Authorization</value>
+  </data>
   <data name="Authorize" xml:space="preserve">
     <value>Authorize</value>
   </data>
@@ -136,7 +139,10 @@
     <value>Cancel</value>
   </data>
   <data name="CheckAuthorization" xml:space="preserve">
-    <value>Check Authorization</value>
+    <value>Check</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
   </data>
   <data name="CreatedOn" xml:space="preserve">
     <value>Created on</value>
@@ -156,11 +162,17 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="League" xml:space="preserve">
+    <value>League</value>
+  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Not authorized</value>
   </data>
   <data name="OpenAuthorizationWebPage" xml:space="preserve">
     <value>Open Authorization Web Page</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
@@ -174,8 +186,20 @@
   <data name="StepTwo" xml:space="preserve">
     <value>Step 2</value>
   </data>
+  <data name="Series" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="TeamSelection" xml:space="preserve">
+    <value>Team Selection</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>
+  </data>
+  <data name="UserProfiles" xml:space="preserve">
+    <value>User Profiles</value>
   </data>
   <data name="VerificationCode" xml:space="preserve">
     <value>Verificacion Code</value>

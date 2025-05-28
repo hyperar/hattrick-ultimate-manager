@@ -20,7 +20,7 @@
 
         public virtual League League { get; set; } = new League();
 
-        public long LeagueId { get; set; }
+        public long LeagueHattrickId { get; set; }
 
         public int LeaguePowerRating { get; set; }
 
@@ -30,7 +30,7 @@
 
         public virtual Manager Manager { get; set; } = new Manager();
 
-        public long ManagerId { get; set; }
+        public long ManagerHattrickId { get; set; }
 
         public string Name { get; set; } = string.Empty;
 
@@ -38,9 +38,13 @@
 
         public virtual Region Region { get; set; } = new Region();
 
-        public long RegionId { get; set; }
+        public long RegionHattrickId { get; set; }
 
         public int RegionPowerRating { get; set; }
+
+        public long SeriesHattrickId { get; set; }
+
+        public string SeriesName { get; set; } = string.Empty;
 
         public string ShortName { get; set; } = string.Empty;
 

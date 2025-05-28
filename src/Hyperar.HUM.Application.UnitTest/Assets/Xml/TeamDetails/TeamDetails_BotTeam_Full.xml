@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>teamdetails.xml</FileName>
+    <Version>3.7</Version>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-05-18 15:55:12</FetchedDate>
+    <User>
+        <UserID>0</UserID>
+        <SupporterTier>none</SupporterTier>
+        <Loginname></Loginname>
+        <Name>HIDDEN</Name>
+        <ICQ></ICQ>
+        <SignupDate>0001-01-01 00:00:00</SignupDate>
+        <ActivationDate>2024-09-09 11:36:00</ActivationDate>
+        <LastLoginDate>0001-01-01 00:00:00</LastLoginDate>
+        <HasManagerLicense>False</HasManagerLicense>
+        <NationalTeams />
+    </User>
+    <Teams>
+        <Team>
+            <TeamID>2210422</TeamID>
+            <TeamName>Santa Cruz RC</TeamName>
+            <ShortTeamName>Santa</ShortTeamName>
+            <IsPrimaryClub>False</IsPrimaryClub>
+            <FoundedDate>2024-09-09 11:36:00</FoundedDate>
+            <IsDeactivated>False</IsDeactivated>
+            <Arena>
+                <ArenaID>2207164</ArenaID>
+                <ArenaName>Santa Stadium</ArenaName>
+            </Arena>
+            <League>
+                <LeagueID>7</LeagueID>
+                <LeagueName>Argentina</LeagueName>
+            </League>
+            <Country>
+                <CountryID>7</CountryID>
+                <CountryName>Argentina</CountryName>
+            </Country>
+            <Region>
+                <RegionID>85</RegionID>
+                <RegionName>Santa Cruz</RegionName>
+            </Region>
+            <Trainer>
+                <PlayerID>486916583</PlayerID>
+            </Trainer>
+            <HomePage></HomePage>
+            <DressURI>//res.hattrick.org/kits/1/1/1/1/matchKitSmall.png</DressURI>
+            <DressAlternateURI>//res.hattrick.org/kits/1/1/1/2/matchKitSmall.png</DressAlternateURI>
+            <LeagueLevelUnit>
+                <LeagueLevelUnitID>26476</LeagueLevelUnitID>
+                <LeagueLevelUnitName>VI.164</LeagueLevelUnitName>
+                <LeagueLevel>6</LeagueLevel>
+            </LeagueLevelUnit>
+            <BotStatus>
+                <IsBot>True</IsBot>
+                <BotSince>2024-09-09 11:36:00</BotSince>
+            </BotStatus>
+            <Cup>
+                <StillInCup>True</StillInCup>
+                <CupID>905</CupID>
+                <CupName>Copa Consuelo Gerardo Raúl Peludo</CupName>
+                <CupLeagueLevel>0</CupLeagueLevel>
+                <CupLevel>3</CupLevel>
+                <CupLevelIndex>1</CupLevelIndex>
+                <MatchRound>2</MatchRound>
+                <MatchRoundsLeft>11</MatchRoundsLeft>
+            </Cup>
+            <PowerRating>
+                <GlobalRanking>0</GlobalRanking>
+                <LeagueRanking>0</LeagueRanking>
+                <RegionRanking>0</RegionRanking>
+                <PowerRating>0</PowerRating>
+            </PowerRating>
+            <FriendlyTeamID>0</FriendlyTeamID>
+            <NumberOfVictories>2</NumberOfVictories>
+            <NumberOfUndefeated>2</NumberOfUndefeated>
+            <TeamRank>0</TeamRank>
+            <Fanclub>
+                <FanclubID>0</FanclubID>
+                <FanclubName></FanclubName>
+                <FanclubSize>919</FanclubSize>
+            </Fanclub>
+            <LogoURL></LogoURL>
+            <YouthTeamID>0</YouthTeamID>
+            <YouthTeamName></YouthTeamName>
+            <NumberOfVisits>0</NumberOfVisits>
+            <Flags>
+                <AwayFlags></AwayFlags>
+                <HomeFlags></HomeFlags>
+            </Flags>
+            <TrophyList />
+            <PossibleToChallengeMidweek>False</PossibleToChallengeMidweek>
+            <PossibleToChallengeWeekend>False</PossibleToChallengeWeekend>
+        </Team>
+    </Teams>
+</HattrickData>

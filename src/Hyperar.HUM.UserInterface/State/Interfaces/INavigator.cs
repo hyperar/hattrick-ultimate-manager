@@ -10,13 +10,11 @@
 
         event Action? CurrentViewModelChanged;
 
-        event Action? TargetViewTypeChanged;
+        event Action<ViewType>? TargetViewTypeChanged;
 
         bool CanNavigate { get; }
 
         ViewModelBase? CurrentViewModel { get; }
-
-        ViewType? TargetViewType { get; }
 
         void ResumeNavigation();
 

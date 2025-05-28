@@ -126,6 +126,9 @@
   <data name="AddUserProfile" xml:space="preserve">
     <value>Agregar Perfil de Usuario</value>
   </data>
+  <data name="Authorization" xml:space="preserve">
+    <value>Autorización</value>
+  </data>
   <data name="Authorize" xml:space="preserve">
     <value>Autorizar</value>
   </data>
@@ -136,7 +139,10 @@
     <value>Cancelar</value>
   </data>
   <data name="CheckAuthorization" xml:space="preserve">
-    <value>Verificar Autorización</value>
+    <value>Verificar</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>País</value>
   </data>
   <data name="CreatedOn" xml:space="preserve">
     <value>Creado en</value>
@@ -156,11 +162,17 @@
   <data name="Home" xml:space="preserve">
     <value>Inicio</value>
   </data>
+  <data name="League" xml:space="preserve">
+    <value>Liga</value>
+  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>No autorizado</value>
   </data>
   <data name="OpenAuthorizationWebPage" xml:space="preserve">
     <value>Abrir página web de Autorización</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Región</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Estado</value>
@@ -174,8 +186,20 @@
   <data name="StepTwo" xml:space="preserve">
     <value>Paso 2</value>
   </data>
+  <data name="Series" xml:space="preserve">
+    <value>Grupo</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Equipo</value>
+  </data>
+  <data name="TeamSelection" xml:space="preserve">
+    <value>Selección de Equipo</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>Tipo</value>
+  </data>
+  <data name="UserProfiles" xml:space="preserve">
+    <value>Perfiles de Usuario</value>
   </data>
   <data name="VerificationCode" xml:space="preserve">
     <value>Código de Verificación</value>

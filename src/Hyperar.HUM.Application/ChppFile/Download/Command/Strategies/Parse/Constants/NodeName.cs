@@ -34,6 +34,8 @@
 
         internal const string Guestbook = "Guestbook";
 
+        internal const string ImageUrl = "ImageUrl";
+
         internal const string Language = "Language";
 
         internal const string LastMatch = "LastMatch";

@@ -4,6 +4,7 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Threading.Tasks;
+    using Avalonia.Controls.Selection;
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using Hyperar.HUM.Shared.Enums;
@@ -19,29 +20,36 @@
 
         private readonly ViewType landingViewType;
 
-        private readonly IMainMenuBuilderFactory mainMenuBuilderFactory;
-
         [ObservableProperty]
         private bool isMenuOpen;
-
-        [ObservableProperty]
-        private MenuItemTemplate? selectedItem;
 
         public MainWindowViewModel(
             INavigator navigator,
             ISessionStore sessionStore,
-            IMainMenuBuilderFactory mainMenuBuilderFactory,
             IViewModelFactory viewModelFactory,
             ViewType landingViewType) : base(navigator, sessionStore)
         {
-            this.mainMenuBuilderFactory = mainMenuBuilderFactory;
             this.landingViewType = landingViewType;
 
             this.Navigator.CanNavigateChanged += this.Navigator_CanNavigateChanged;
             this.Navigator.CurrentViewModelChanged += this.Navigator_CurrentViewModelChanged;
             this.Navigator.TargetViewTypeChanged += this.Navigator_TargetViewTypeChanged;
+
+            this.SelectionModel = new SelectionModel<MenuItemTemplate?>();
+            this.SelectionModel.SelectionChanged += new EventHandler<SelectionModelSelectionChangedEventArgs>(this.ListBox_OnSelectionChanged);
+
             this.ToggleMenuCommand = new RelayCommand(this.ToggleMenu);
             this.UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this.Navigator, viewModelFactory);
+
+            this.MenuItems = new ObservableCollection<MenuItemTemplate>
+            {
+                new MenuItemView(Globalization.Controls.Home, true, ViewType.Home, "HomeIcon"),
+                new MenuItemSeparator(),
+                new MenuItemView(Globalization.Controls.Download, true, ViewType.Download, "DownloadIcon"),
+                new MenuItemView(Globalization.Controls.TeamSelection, true, ViewType.TeamSelection, "TeamSelectionIcon"),
+                new MenuItemView(Globalization.Controls.Authorization, true, ViewType.Authorization, "AuthorizationIcon"),
+                new MenuItemView(Globalization.Controls.UserProfiles, true, ViewType.UserProfileSelection, "UserProfilesIcon"),
+            };
         }
 
         public bool CanNavigate
@@ -62,6 +70,8 @@
 
         public ObservableCollection<MenuItemTemplate> MenuItems { get; private set; } = new ObservableCollection<MenuItemTemplate>();
 
+        public ISelectionModel SelectionModel { get; }
+
         public RelayCommand ToggleMenuCommand { get; }
 
         public void Dispose()
@@ -77,7 +87,21 @@
 
             await this.UpdateCurrentViewModelCommand.ExecuteAsync(this.landingViewType);
 
+            this.Navigator.ResumeNavigation();
+
             await base.InitializeAsync();
+        }
+
+        private void ListBox_OnSelectionChanged(object? sender, SelectionModelSelectionChangedEventArgs eventArgs)
+        {
+            if (eventArgs.SelectedItems.SingleOrDefault() is MenuItemView menuItemView)
+            {
+                this.UpdateCurrentViewModelCommand.Execute(
+                    this.MenuItems.OfType<MenuItemView>()
+                        .Where(x => x.ViewType == menuItemView.ViewType)
+                        .Select(x => x.ViewType)
+                        .Single());
+            }
         }
 
         private void Navigator_CanNavigateChanged()
@@ -90,20 +114,10 @@
             this.OnPropertyChanged(nameof(this.CurrentViewModel));
         }
 
-        private void Navigator_TargetViewTypeChanged()
+        private void Navigator_TargetViewTypeChanged(ViewType viewType)
         {
-            var selectedItem = this.MenuItems.Where(x => x is MenuItemViewTemplate m
-                                                  && m.ViewType == this.Navigator.TargetViewType)
-                                             .SingleOrDefault();
-
-            if (selectedItem != null)
-            {
-                this.SelectedItem = selectedItem;
-            }
-            else
-            {
-                this.UpdateCurrentViewModelCommand.Execute(this.Navigator.TargetViewType);
-            }
+            this.SelectionModel.SelectedItem = this.MenuItems.OfType<MenuItemView>()
+                .SingleOrDefault(x => x.ViewType == viewType);
         }
 
         private void ToggleMenu()

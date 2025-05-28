@@ -2,11 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
+    using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.Shared.Models.Chpp.TeamDetails;
 
     public class TeamDetailsExtractor : IFileExtractorStrategy
@@ -27,6 +29,23 @@
             var teamDetails = xmlFileDownloadTask.Entity as HattrickData;
 
             ArgumentNullException.ThrowIfNull(teamDetails);
+
+            var leagueIds = teamDetails.Teams.Select(x => x.League.Id)
+                .Distinct();
+
+            foreach (var curLeagueId in leagueIds)
+            {
+                fileDownloadTasks.Insert(
+                    fileDownloadTasks.IndexOf(xmlFileDownloadTask),
+                    this.fileDownloadTaskFactory.BuildXmlFileDownloadTask(
+                        xmlFileDownloadTask.UserProfileId,
+                        XmlFileType.WorldDetails,
+                        new NameValueCollection
+                        {
+                            { "LeagueId", curLeagueId.ToString() },
+                            { "IncludeRegions", bool.TrueString }
+                        }));
+            }
 
             fileDownloadTasks.InsertRange(
                 fileDownloadTasks.IndexOf(xmlFileDownloadTask),

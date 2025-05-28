@@ -12,7 +12,6 @@
             host.ConfigureServices(services =>
             {
                 services.AddSingleton<ILandingViewFactory, LandingPageFactory>();
-                services.AddSingleton<IMainMenuBuilderFactory, MainMenuBuilderFactory>();
                 services.AddSingleton<INavigator, Navigator>();
             });
 

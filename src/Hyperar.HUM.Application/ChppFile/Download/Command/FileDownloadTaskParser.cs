@@ -33,6 +33,8 @@
                 xmlFileDownloadTask.Entity = await this.xmlParser.ParseXmlFileAsync(
                     xmlFileDownloadTask.FileContent,
                     cancellationToken);
+
+                xmlFileDownloadTask.Status = DownloadTaskStatus.Read;
             }
             catch (Exception ex)
             {
