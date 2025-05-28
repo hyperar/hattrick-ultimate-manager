@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>players.xml</FileName>
+    <Version>2.7</Version>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-05-28 12:23:27</FetchedDate>
+    <UserSupporterTier>platinum</UserSupporterTier>
+    <IsYouth>False</IsYouth>
+    <ActionType>viewoldcoaches</ActionType>
+    <IsPlayingMatch>False</IsPlayingMatch>
+    <Team>
+        <TeamID>1033530</TeamID>
+        <TeamName>CSD Defensa y Justicia</TeamName>
+        <PlayerList />
+    </Team>
+</HattrickData>

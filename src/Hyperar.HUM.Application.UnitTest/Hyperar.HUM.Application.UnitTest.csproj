@@ -77,6 +77,42 @@
         <None Update="Assets\Xml\ManagerCompendium\ManagerCompendium_YouthTeam.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Xml\Players\Players_OtherTeam_View.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OtherTeam_ViewOldCoaches.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OtherTeam_ViewOldCoaches_IncludeMatchInfo.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OtherTeam_ViewOldies.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OtherTeam_ViewOldies_IncludeMatchInfo.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OtherTeam_View_IncludeMatchInfo.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OwnTeam_View.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OwnTeam_ViewOldCoaches.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OwnTeam_ViewOldCoaches_IncludeMatchInfo.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OwnTeam_ViewOldies.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OwnTeam_ViewOldies_IncludeMatchInfo.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Xml\Players\Players_OwnTeam_View_IncludeMatchInfo.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <None Update="Assets\Xml\TeamDetails\TeamDetails_BotTeam_Supporters.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HattrickData>
+    <FileName>players.xml</FileName>
+    <Version>2.7</Version>
+    <UserID>13900623</UserID>
+    <FetchedDate>2025-05-28 12:21:43</FetchedDate>
+    <UserSupporterTier>platinum</UserSupporterTier>
+    <IsYouth>False</IsYouth>
+    <ActionType>viewoldies</ActionType>
+    <IsPlayingMatch>False</IsPlayingMatch>
+    <Team>
+        <TeamID>834283</TeamID>
+        <TeamName>Social Uruguayo</TeamName>
+        <PlayerList>
+            <Player>
+                <PlayerID>431797479</PlayerID>
+                <FirstName>Demián</FirstName>
+                <NickName></NickName>
+                <LastName>Petrizo</LastName>
+                <PlayerNumber>100</PlayerNumber>
+                <Age>42</Age>
+                <AgeDays>7</AgeDays>
+                <ArrivalDate>2021-07-11 13:58:00</ArrivalDate>
+                <OwnerNotes></OwnerNotes>
+                <TSI>0</TSI>
+                <PlayerForm>2</PlayerForm>
+                <Statement></Statement>
+                <Experience>13</Experience>
+                <Loyalty>20</Loyalty>
+                <MotherClubBonus>False</MotherClubBonus>
+                <Leadership>5</Leadership>
+                <Salary>3000</Salary>
+                <IsAbroad>1</IsAbroad>
+                <Agreeability>2</Agreeability>
+                <Aggressiveness>1</Aggressiveness>
+                <Honesty>2</Honesty>
+                <LeagueGoals>0</LeagueGoals>
+                <CupGoals>0</CupGoals>
+                <FriendliesGoals>0</FriendliesGoals>
+                <CareerGoals>61</CareerGoals>
+                <CareerHattricks>0</CareerHattricks>
+                <MatchesCurrentTeam>0</MatchesCurrentTeam>
+                <GoalsCurrentTeam>0</GoalsCurrentTeam>
+                <AssistsCurrentTeam>0</AssistsCurrentTeam>
+                <CareerAssists>0</CareerAssists>
+                <Specialty>0</Specialty>
+                <TransferListed>False</TransferListed>
+                <NationalTeamID>0</NationalTeamID>
+                <CountryID>7</CountryID>
+                <Caps>0</Caps>
+                <CapsU20>0</CapsU20>
+                <Cards>0</Cards>
+                <InjuryLevel>0</InjuryLevel>
+                <OwningTeam>
+                    <TeamID>573245</TeamID>
+                    <TeamName>FC Platense</TeamName>
+                    <LeagueName>Danmark</LeagueName>
+                </OwningTeam>
+                <LastMatch>
+                    <Date>2024-10-09 17:00:00</Date>
+                    <MatchId>741707154</MatchId>
+                    <PositionCode>109</PositionCode>
+                    <PlayedMinutes>0</PlayedMinutes>
+                    <Rating>3</Rating>
+                    <RatingEndOfGame>0</RatingEndOfGame>
+                </LastMatch>
+            </Player>
+            <Player>
+                <PlayerID>462958264</PlayerID>
+                <FirstName>Gervasio</FirstName>
+                <NickName></NickName>
+                <LastName>Pellegrino</LastName>
+                <PlayerNumber>100</PlayerNumber>
+                <Age>29</Age>
+                <AgeDays>19</AgeDays>
+                <ArrivalDate>2022-11-27 20:43:00</ArrivalDate>
+                <OwnerNotes></OwnerNotes>
+                <TSI>54730</TSI>
+                <PlayerForm>8</PlayerForm>
+                <Statement></Statement>
+                <Experience>8</Experience>
+                <Loyalty>20</Loyalty>
+                <MotherClubBonus>False</MotherClubBonus>
+                <Leadership>1</Leadership>
+                <Salary>193080</Salary>
+                <IsAbroad>1</IsAbroad>
+                <Agreeability>2</Agreeability>
+                <Aggressiveness>0</Aggressiveness>
+                <Honesty>3</Honesty>
+                <LeagueGoals>0</LeagueGoals>
+                <CupGoals>0</CupGoals>
+                <FriendliesGoals>0</FriendliesGoals>
+                <CareerGoals>0</CareerGoals>
+                <CareerHattricks>0</CareerHattricks>
+                <MatchesCurrentTeam>0</MatchesCurrentTeam>
+                <GoalsCurrentTeam>0</GoalsCurrentTeam>
+                <AssistsCurrentTeam>0</AssistsCurrentTeam>
+                <CareerAssists>0</CareerAssists>
+                <Specialty>0</Specialty>
+                <TransferListed>False</TransferListed>
+                <NationalTeamID>0</NationalTeamID>
+                <CountryID>7</CountryID>
+                <Caps>0</Caps>
+                <CapsU20>0</CapsU20>
+                <Cards>0</Cards>
+                <InjuryLevel>-1</InjuryLevel>
+                <OwningTeam>
+                    <TeamID>106603</TeamID>
+                    <TeamName>Carolo Power Team</TeamName>
+                    <LeagueName>Belgium</LeagueName>
+                </OwningTeam>
+                <LastMatch>
+                    <Date>2025-05-25 13:00:00</Date>
+                    <MatchId>749407370</MatchId>
+                    <PositionCode>100</PositionCode>
+                    <PlayedMinutes>0</PlayedMinutes>
+                    <Rating>8.5</Rating>
+                    <RatingEndOfGame>0</RatingEndOfGame>
+                </LastMatch>
+            </Player>
+        </PlayerList>
+    </Team>
+</HattrickData>

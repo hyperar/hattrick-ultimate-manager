@@ -26,6 +26,8 @@
 
         internal const string Cups = "Cups";
 
+        internal const string DefenderSkill = "DefenderSkill";
+
         internal const string FileName = "FileName";
 
         internal const string Flag = "Flag";
@@ -35,6 +37,8 @@
         internal const string Guestbook = "Guestbook";
 
         internal const string ImageUrl = "ImageUrl";
+
+        internal const string KeeperSkill = "KeeperSkill";
 
         internal const string Language = "Language";
 
@@ -68,6 +72,18 @@
 
         internal const string NextMatch = "NextMatch";
 
+        internal const string OwningTeam = "OwningTeam";
+
+        internal const string PassingSkill = "PassingSkill";
+
+        internal const string Player = "Player";
+
+        internal const string PlayerCategoryId = "PlayerCategoryId";
+
+        internal const string PlayerList = "PlayerList";
+
+        internal const string PlaymakerSkill = "PlaymakerSkill";
+
         internal const string PressAnnouncement = "PressAnnouncement";
 
         internal const string PressAnnouncementBody = "PressAnnouncementBody";
@@ -80,7 +96,13 @@
 
         internal const string RegionList = "RegionList";
 
+        internal const string ScorerSkill = "ScorerSkill";
+
+        internal const string SetPiecesSkill = "SetPiecesSkill";
+
         internal const string SendDate = "SendDate";
+
+        internal const string StaminaSkill = "StaminaSkill";
 
         internal const string Subject = "Subject";
 
@@ -98,7 +120,11 @@
 
         internal const string TotalItems = "TotalItems";
 
+        internal const string TrainerData = "TrainerData";
+
         internal const string Trophy = "Trophy";
+
+        internal const string WingerSkill = "WingerSkill";
 
         internal const string X = "x";
 

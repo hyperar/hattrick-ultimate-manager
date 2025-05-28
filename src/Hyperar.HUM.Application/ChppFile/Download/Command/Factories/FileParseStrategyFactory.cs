@@ -13,6 +13,8 @@
 
         private readonly ManagerCompendiumParser managerCompendiumParser;
 
+        private readonly PlayersParser playersParser;
+
         private readonly TeamDetailsParser teamDetailsParser;
 
         private readonly WorldDetailsParser worldDetailsParser;
@@ -21,12 +23,14 @@
             CheckTokenParser checkTokenParser,
             ErrorParser errorParser,
             ManagerCompendiumParser managerCompendiumParser,
+            PlayersParser playersParser,
             TeamDetailsParser teamDetailsParser,
             WorldDetailsParser worldDetailsParser)
         {
             this.checkTokenParser = checkTokenParser;
             this.errorParser = errorParser;
             this.managerCompendiumParser = managerCompendiumParser;
+            this.playersParser = playersParser;
             this.teamDetailsParser = teamDetailsParser;
             this.worldDetailsParser = worldDetailsParser;
         }
@@ -38,6 +42,7 @@
                 FileName.CheckToken => this.checkTokenParser,
                 FileName.Error => this.errorParser,
                 FileName.ManagerCompendium => this.managerCompendiumParser,
+                FileName.Players => this.playersParser,
                 FileName.TeamDetails => this.teamDetailsParser,
                 FileName.WorldDetails => this.worldDetailsParser,
                 _ => throw new ArgumentOutOfRangeException(nameof(fileName))

@@ -113,6 +113,7 @@
                 services.AddScoped<CheckTokenParser>();
                 services.AddScoped<ErrorParser>();
                 services.AddScoped<ManagerCompendiumParser>();
+                services.AddScoped<PlayersParser>();
                 services.AddScoped<TeamDetailsParser>();
                 services.AddScoped<WorldDetailsParser>();
 
