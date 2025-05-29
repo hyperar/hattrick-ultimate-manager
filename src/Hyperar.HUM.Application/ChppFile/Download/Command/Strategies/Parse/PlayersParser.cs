@@ -43,20 +43,6 @@
                 await ReadTeamNodeAsync(xmlReader));
         }
 
-        private static async Task<OwningTeam> ReadOwningTeamNodeAsync(XmlReader xmlReader)
-        {
-            await xmlReader.ReadAsync();
-
-            var owningteam = new OwningTeam(
-                (await xmlReader.ReadValueAsync()).AsLong(),
-                (await xmlReader.ReadValueAsync()).AsString(),
-                (await xmlReader.ReadValueAsync()).AsString());
-
-            await xmlReader.ReadAsync();
-
-            return owningteam;
-        }
-
         private static async Task<LastMatch> ReadLastMatchNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
@@ -74,31 +60,18 @@
             return lastmatch;
         }
 
-        private static async Task<TrainerData> ReadTrainerDataNodeAsync(XmlReader xmlReader)
+        private static async Task<OwningTeam> ReadOwningTeamNodeAsync(XmlReader xmlReader)
         {
             await xmlReader.ReadAsync();
 
-            var trainerdata = new TrainerData(
-                (await xmlReader.ReadValueAsync()).AsInt(),
-                (await xmlReader.ReadValueAsync()).AsInt());
-
-            await xmlReader.ReadAsync();
-
-            return trainerdata;
-        }
-
-        private static async Task<Team> ReadTeamNodeAsync(XmlReader xmlReader)
-        {
-            await xmlReader.ReadAsync();
-
-            var team = new Team(
+            var owningteam = new OwningTeam(
                 (await xmlReader.ReadValueAsync()).AsLong(),
                 (await xmlReader.ReadValueAsync()).AsString(),
-                xmlReader.CheckNode(NodeName.PlayerList) ? (await ReadPlayerListNodeAsync(xmlReader)) : null);
+                (await xmlReader.ReadValueAsync()).AsString());
 
             await xmlReader.ReadAsync();
 
-            return team;
+            return owningteam;
         }
 
         private static async Task<Player[]> ReadPlayerListNodeAsync(XmlReader xmlReader)
@@ -183,6 +156,33 @@
             await xmlReader.ReadAsync();
 
             return player;
+        }
+
+        private static async Task<Team> ReadTeamNodeAsync(XmlReader xmlReader)
+        {
+            await xmlReader.ReadAsync();
+
+            var team = new Team(
+                (await xmlReader.ReadValueAsync()).AsLong(),
+                (await xmlReader.ReadValueAsync()).AsString(),
+                xmlReader.CheckNode(NodeName.PlayerList) ? (await ReadPlayerListNodeAsync(xmlReader)) : null);
+
+            await xmlReader.ReadAsync();
+
+            return team;
+        }
+
+        private static async Task<TrainerData> ReadTrainerDataNodeAsync(XmlReader xmlReader)
+        {
+            await xmlReader.ReadAsync();
+
+            var trainerdata = new TrainerData(
+                (await xmlReader.ReadValueAsync()).AsInt(),
+                (await xmlReader.ReadValueAsync()).AsInt());
+
+            await xmlReader.ReadAsync();
+
+            return trainerdata;
         }
     }
 }

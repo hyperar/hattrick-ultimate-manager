@@ -98,9 +98,9 @@
 
         internal const string ScorerSkill = "ScorerSkill";
 
-        internal const string SetPiecesSkill = "SetPiecesSkill";
-
         internal const string SendDate = "SendDate";
+
+        internal const string SetPiecesSkill = "SetPiecesSkill";
 
         internal const string StaminaSkill = "StaminaSkill";
 
