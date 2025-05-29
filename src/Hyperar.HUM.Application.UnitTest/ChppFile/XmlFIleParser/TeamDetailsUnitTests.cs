@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Application.UnitTest.ChppFile.XmlFIleParser
+﻿namespace Hyperar.HUM.Application.UnitTest.ChppFile.XmlFileParser
 {
     using System;
     using System.Threading;
@@ -51,11 +51,11 @@
 
         private const string TeamDetails_TwoTeams_Supporters = "Assets\\Xml\\TeamDetails\\TeamDetails_TwoTeams_Supporters.xml";
 
-        private readonly IXmlFileParser xmlFileParser;
+        private readonly IXmlFileParser XmlFileParser;
 
         public TeamDetailsUnitTests(ServicesFixture fixture)
         {
-            this.xmlFileParser = fixture.Services.GetRequiredService<IXmlFileParser>();
+            this.XmlFileParser = fixture.Services.GetRequiredService<IXmlFileParser>();
         }
 
         [Fact]
@@ -69,7 +69,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -147,7 +147,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -225,7 +225,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -303,7 +303,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -381,7 +381,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -711,7 +711,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -2031,7 +2031,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -2234,7 +2234,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -3427,7 +3427,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -3692,7 +3692,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -3957,7 +3957,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -4148,7 +4148,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -4339,7 +4339,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -5194,7 +5194,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -8135,7 +8135,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -8756,7 +8756,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -11463,7 +11463,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -11962,7 +11962,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -12762,7 +12762,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 
@@ -13024,7 +13024,7 @@
 
             var cancellationTokenSource = new CancellationTokenSource();
 
-            var result = (HattrickData)await this.xmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
 
             Assert.NotNull(result);
 

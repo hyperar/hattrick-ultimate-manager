@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Application.UnitTest.ChppFile.XmlFIleParser
+﻿namespace Hyperar.HUM.Application.UnitTest.ChppFile.XmlFileParser
 {
     using System;
     using System.IO;
