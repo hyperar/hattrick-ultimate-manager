@@ -21,10 +21,10 @@
             DateTime fetchedDate,
             CancellationToken cancellationToken)
         {
-            string userSupporter = (await xmlReader.ReadValueAsync()).AsString();
-            bool isYouth = (await xmlReader.ReadValueAsync()).AsBool();
-            string actionType = (await xmlReader.ReadValueAsync()).AsString();
-            bool isPlayingMatch = (await xmlReader.ReadValueAsync()).AsBool();
+            var userSupporter = (await xmlReader.ReadValueAsync()).AsString();
+            var isYouth = (await xmlReader.ReadValueAsync()).AsBool();
+            var actionType = (await xmlReader.ReadValueAsync()).AsString();
+            var isPlayingMatch = (await xmlReader.ReadValueAsync()).AsBool();
 
             if (isPlayingMatch)
             {
