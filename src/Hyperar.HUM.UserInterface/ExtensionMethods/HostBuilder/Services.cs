@@ -128,6 +128,7 @@
                 services.AddScoped<EmptyPersister>();
                 services.AddScoped<ImagePersister>();
                 services.AddScoped<ManagerCompendiumPersister>();
+                services.AddScoped<PlayersPersister>();
                 services.AddScoped<TeamDetailsPersister>();
                 services.AddScoped<WorldDetailsPersister>();
             });

@@ -4,6 +4,7 @@ using Hyperar.HUM.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hyperar.HUM.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20250601154644_Dev-SeniorPlayers")]
+    partial class DevSeniorPlayers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -381,31 +384,31 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("Aggressiveness")
                         .HasColumnType("int")
-                        .HasColumnOrder(12);
+                        .HasColumnOrder(13);
 
                     b.Property<int>("Agreeability")
                         .HasColumnType("int")
-                        .HasColumnOrder(11);
+                        .HasColumnOrder(12);
 
                     b.Property<int>("BookingStatus")
                         .HasColumnType("int")
-                        .HasColumnOrder(17);
+                        .HasColumnOrder(18);
 
                     b.Property<int>("CareerAssists")
                         .HasColumnType("int")
-                        .HasColumnOrder(32);
+                        .HasColumnOrder(33);
 
                     b.Property<int>("CareerGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(30);
+                        .HasColumnOrder(31);
 
                     b.Property<int>("CareerHattricks")
                         .HasColumnType("int")
-                        .HasColumnOrder(31);
+                        .HasColumnOrder(32);
 
-                    b.Property<int?>("Category")
+                    b.Property<int>("Category")
                         .HasColumnType("int")
-                        .HasColumnOrder(19);
+                        .HasColumnOrder(20);
 
                     b.Property<long>("CountryHattrickId")
                         .HasColumnType("bigint");
@@ -418,7 +421,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("Form")
                         .HasColumnType("int")
-                        .HasColumnOrder(20);
+                        .HasColumnOrder(21);
 
                     b.Property<bool>("HasMotherClubBonus")
                         .HasColumnType("bit")
@@ -426,11 +429,11 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("HealthStatus")
                         .HasColumnType("int")
-                        .HasColumnOrder(18);
+                        .HasColumnOrder(19);
 
                     b.Property<int>("Honesty")
                         .HasColumnType("int")
-                        .HasColumnOrder(13);
+                        .HasColumnOrder(14);
 
                     b.Property<DateTime>("JoinedOn")
                         .HasColumnType("datetime")
@@ -438,7 +441,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("JuniorNationalTeamMatches")
                         .HasColumnType("int")
-                        .HasColumnOrder(22);
+                        .HasColumnOrder(23);
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -448,11 +451,11 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("Leadership")
                         .HasColumnType("int")
-                        .HasColumnOrder(14);
+                        .HasColumnOrder(15);
 
                     b.Property<int>("Loyalty")
                         .HasColumnType("int")
-                        .HasColumnOrder(16);
+                        .HasColumnOrder(17);
 
                     b.Property<string>("NickName")
                         .HasMaxLength(256)
@@ -466,23 +469,23 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("Salary")
                         .HasColumnType("int")
-                        .HasColumnOrder(10);
+                        .HasColumnOrder(11);
 
                     b.Property<int>("SeasonCupGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(28);
+                        .HasColumnOrder(29);
 
                     b.Property<int>("SeasonFriendlyGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(29);
+                        .HasColumnOrder(30);
 
                     b.Property<int>("SeasonSeriesGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(27);
+                        .HasColumnOrder(28);
 
                     b.Property<int>("SeniorNationalTeamMatches")
                         .HasColumnType("int")
-                        .HasColumnOrder(23);
+                        .HasColumnOrder(24);
 
                     b.Property<long>("SeniorTeamHattrickId")
                         .HasColumnType("bigint");
@@ -493,11 +496,11 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("Specialty")
                         .HasColumnType("int")
-                        .HasColumnOrder(15);
+                        .HasColumnOrder(16);
 
                     b.Property<int>("Stamina")
                         .HasColumnType("int")
-                        .HasColumnOrder(21);
+                        .HasColumnOrder(22);
 
                     b.Property<string>("Statement")
                         .HasMaxLength(500)
@@ -506,15 +509,19 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("TeamAssists")
                         .HasColumnType("int")
-                        .HasColumnOrder(26);
+                        .HasColumnOrder(27);
 
                     b.Property<int>("TeamGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(25);
+                        .HasColumnOrder(26);
 
                     b.Property<int>("TeamMatches")
                         .HasColumnType("int")
-                        .HasColumnOrder(24);
+                        .HasColumnOrder(25);
+
+                    b.Property<int>("TotalSkillIndex")
+                        .HasColumnType("int")
+                        .HasColumnOrder(10);
 
                     b.HasKey("HattrickId");
 
@@ -566,10 +573,6 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Property<int>("SetPieces")
                         .HasColumnType("int")
                         .HasColumnOrder(9);
-
-                    b.Property<int>("TotalSkillIndex")
-                        .HasColumnType("int")
-                        .HasColumnOrder(10);
 
                     b.Property<int>("Week")
                         .HasColumnType("int")

@@ -16,6 +16,10 @@
 
         internal const string Region = "Region";
 
+        internal const string SeniorPlayer = "SeniorPlayer";
+
+        internal const string SeniorPlayerSkillSet = "SeniorPlayerSkillSet";
+
         internal const string SeniorTeam = "SeniorTeam";
 
         internal const string UserProfile = "UserProfile";

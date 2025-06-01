@@ -14,6 +14,8 @@
 
         private readonly ManagerCompendiumPersister managerCompendiumPersister;
 
+        private readonly PlayersPersister playersPersister;
+
         private readonly TeamDetailsPersister teamDetailsPersister;
 
         private readonly WorldDetailsPersister worldDetailsPersister;
@@ -22,14 +24,16 @@
             EmptyPersister emptyPersister,
             ImagePersister imagePersister,
             ManagerCompendiumPersister managerCompendiumPersister,
+            PlayersPersister playersPersister,
             TeamDetailsPersister teamDetailsPersister,
             WorldDetailsPersister worldDetailsPersister)
         {
             this.emptyPersister = emptyPersister;
+            this.imagePersister = imagePersister;
             this.managerCompendiumPersister = managerCompendiumPersister;
+            this.playersPersister = playersPersister;
             this.teamDetailsPersister = teamDetailsPersister;
             this.worldDetailsPersister = worldDetailsPersister;
-            this.imagePersister = imagePersister;
         }
 
         public IFilePersisterStrategy GetFor(FileDownloadTaskBase fileDownloadTask)
@@ -42,6 +46,7 @@
             {
                 return xmlFileDownloadTask.XmlFile switch
                 {
+                    XmlFileType.Players => this.playersPersister,
                     XmlFileType.ManagerCompendium => this.managerCompendiumPersister,
                     XmlFileType.TeamDetails => this.teamDetailsPersister,
                     XmlFileType.WorldDetails => this.worldDetailsPersister,

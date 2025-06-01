@@ -23,6 +23,8 @@
 
         public virtual ICollection<Region> Regions { get; set; } = new HashSet<Region>();
 
+        public virtual ICollection<SeniorPlayer> SeniorPlayers { get; set; } = new HashSet<SeniorPlayer>();
+
         public string TimeFormat { get; set; } = string.Empty;
     }
 }

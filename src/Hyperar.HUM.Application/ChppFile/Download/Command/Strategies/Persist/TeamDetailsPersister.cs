@@ -1,12 +1,14 @@
 ﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies.Persist
 {
     using System;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Domain.Interfaces;
     using Hyperar.HUM.Shared.Models.Chpp.TeamDetails;
+    using Microsoft.EntityFrameworkCore;
 
     public class TeamDetailsPersister : IFilePersisterStrategy
     {
@@ -47,6 +49,17 @@
             var manager = await this.managerRepository.GetByIdAsync(teamDetails.User.UserId);
 
             ArgumentNullException.ThrowIfNull(manager);
+
+            var formerTeamIds = await this.seniorTeamRepository.Query(x => x.ManagerHattrickId == manager.HattrickId)
+                .Select(x => x.HattrickId)
+                .Except(
+                    teamDetails.Teams.Select(x => x.TeamId))
+                .ToArrayAsync();
+
+            if (formerTeamIds.Any())
+            {
+                await this.seniorTeamRepository.DeleteRangeAsync(formerTeamIds);
+            }
 
             for (var i = 0; i < teamDetails.Teams.Length; i++)
             {

@@ -18,6 +18,7 @@
 
         [Theory]
         [InlineData(XmlFileType.CheckToken, typeof(CheckTokenExtractor))]
+        [InlineData(XmlFileType.Players, typeof(EmptyExtractor))]
         [InlineData(XmlFileType.ManagerCompendium, typeof(ManagerCompendiumExtractor))]
         [InlineData(XmlFileType.WorldDetails, typeof(WorldDetailsExtractor))]
         public void FileExtractStrategyFactoryImplementedXmlFileType_ShouldBeOfType(XmlFileType xmlFile, Type returnType)
@@ -56,7 +57,6 @@
         [InlineData(XmlFileType.NationalTeams)]
         [InlineData(XmlFileType.PlayerDetails)]
         [InlineData(XmlFileType.PlayerEvents)]
-        [InlineData(XmlFileType.Players)]
         [InlineData(XmlFileType.RegionDetails)]
         [InlineData(XmlFileType.Search)]
         [InlineData(XmlFileType.StaffAvatars)]
