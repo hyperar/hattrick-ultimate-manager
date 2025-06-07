@@ -31,6 +31,8 @@
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceInclude  Source="/Assets/Resources/Common.axaml" />
+                <ResourceInclude  Source="/Controls/ManagerCard.axaml" />
+                <ResourceInclude  Source="/Controls/SeniorTeamCard.axaml" />
 
             </ResourceDictionary.MergedDictionaries>
 

@@ -5,6 +5,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Domain.Interfaces;
+    using Hyperar.HUM.Shared.Models;
     using Hyperar.HUM.Shared.Models.UserProfileSelection;
     using MediatR;
     using Microsoft.EntityFrameworkCore;
@@ -26,8 +27,8 @@
                     x.OAuthToken != null,
                     x.LastDownloadDate,
                     x.SelectedTeamHattrickId,
-                    x.Manager != null ? x.Manager.HattrickId : null,
-                    x.Manager != null ? x.Manager.UserName : null,
+                    x.Manager != null ? new IdName(x.Manager.HattrickId, x.Manager.UserName) : null,
+                    x.Manager != null ? new IdName(x.Manager.Country.HattrickId, x.Manager.Country.Name) : null,
                     x.Manager != null ? x.Manager.AvatarBytes : null,
                     x.Manager != null ? x.Manager.Country.League.FlagBytes : null))
                 .ToListAsync(cancellationToken);

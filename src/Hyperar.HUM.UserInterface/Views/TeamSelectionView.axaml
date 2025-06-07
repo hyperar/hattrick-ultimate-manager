@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Hyperar.HUM.UserInterface.Controls"
              xmlns:globalization="clr-namespace:Hyperar.HUM.Globalization;assembly=Hyperar.HUM.Globalization"
              xmlns:vm="clr-namespace:Hyperar.HUM.UserInterface.ViewModels"
              xmlns:converters="clr-namespace:Hyperar.HUM.UserInterface.Converters"
@@ -29,9 +30,10 @@
 
             <ItemsPanelTemplate>
 
-                <WrapPanel Orientation="Horizontal"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center" />
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="10"
+                            VerticalAlignment="Center" />
 
             </ItemsPanelTemplate>
 
@@ -42,78 +44,22 @@
             <DataTemplate x:DataType="{x:Type shared:Models.TeamSelection.SeniorTeam}">
 
                 <Button Command="{Binding ElementName=Page, Path=((vm:TeamSelectionViewModel)DataContext).SelectTeamCommand}"
-                        CommandParameter="{Binding Team.HattrickId}"
-                        Margin="5"
-                        Width="350">
+                        CommandParameter="{Binding Team.HattrickId}">
 
-                    <StackPanel Orientation="Vertical"
-                                HorizontalAlignment="Center"
-                                Margin="5"
-                                Spacing="5"
-                                VerticalAlignment="Center">
-
-                        <Image Height="260"
-                               Source="{Binding LogoBytes,
-                                            Converter={StaticResource byteArrayToBitmapConverter},
-                                            ConverterParameter={StaticResource defaultTeamLogo}}"
-                               Stretch="Uniform"
-                               Width="210" />
-
-                        <TextBlock HorizontalAlignment="Center"
-                                   Text="{Binding Team}" />
-
-                        <StackPanel HorizontalAlignment="Center"
-                                    Orientation="Horizontal"
-                                    Spacing="5"
-                                    VerticalAlignment="Center">
-
-                            <Border Background="{DynamicResource ImageBorderBrush}"
-                                    Height="14"
-                                    Width="22">
-
-                                <Image Source="{Binding CountryFlagBytes,
-                                                Converter={StaticResource byteArrayToBitmapConverter},
-                                                ConverterParameter={StaticResource defaultFlag}}"
-                                       Stretch="None" />
-
-                            </Border>
-
-                            <TextBlock HorizontalAlignment="Center"
-                                       Text="{Binding Country}"
-                                       VerticalAlignment="Center" />
-
-                        </StackPanel>
-
-
-                        <TextBlock HorizontalAlignment="Center"
-                                   Text="{Binding Region}" />
-
-                        <TextBlock HorizontalAlignment="Center"
-                                   Text="{Binding Series}" />
-
-                        <StackPanel HorizontalAlignment="Center"
-                                    Orientation="Horizontal"
-                                    Spacing="5"
-                                    VerticalAlignment="Center">
-
-                            <Border Background="{DynamicResource ImageBorderBrush}"
-                                    Height="14"
-                                    Width="22">
-
-                                <Image Source="{Binding LeagueFlagBytes,
-                                                Converter={StaticResource byteArrayToBitmapConverter},
-                                                ConverterParameter={StaticResource defaultFlag}}"
-                                       Stretch="None" />
-
-                            </Border>
-
-                            <TextBlock HorizontalAlignment="Center"
-                                       Text="{Binding League}"
-                                       VerticalAlignment="Center" />
-
-                        </StackPanel>
-
-                    </StackPanel>
+                    <controls:SeniorTeamCard CountryFlagBytes="{Binding CountryFlagBytes}"
+                                             CountryHattrickId="{Binding Country.HattrickId}"
+                                             CountryName="{Binding Country.Name}"
+                                             LeagueFlagBytes="{Binding LeagueFlagBytes}"
+                                             LeagueHattrickId="{Binding League.HattrickId}"
+                                             LeagueName="{Binding League.Name}"
+                                             RegionName="{Binding Region.Name}"
+                                             RegionHattrickId="{Binding Region.HattrickId}"
+                                             SeriesName="{Binding Series.Name}"
+                                             SeriesHattrickId="{Binding Series.HattrickId}"
+                                             TeamHattrickId="{Binding Team.HattrickId}"
+                                             TeamLogoBytes="{Binding LogoBytes}"
+                                             TeamName="{Binding Team.Name}"
+                                             HorizontalAlignment="Stretch" />
 
                 </Button>
 

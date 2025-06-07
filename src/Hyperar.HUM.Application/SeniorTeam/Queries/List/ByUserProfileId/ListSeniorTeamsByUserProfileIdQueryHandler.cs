@@ -5,6 +5,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Domain.Interfaces;
+    using Hyperar.HUM.Shared.Models;
     using Hyperar.HUM.Shared.Models.TeamSelection;
     using MediatR;
     using Microsoft.EntityFrameworkCore;
