@@ -54,9 +54,9 @@
                 .Select(x => x.HattrickId)
                 .Except(
                     teamDetails.Teams.Select(x => x.TeamId))
-                .ToArrayAsync();
+                .ToArrayAsync(cancellationToken);
 
-            if (formerTeamIds.Any())
+            if (formerTeamIds.Length > 0)
             {
                 await this.seniorTeamRepository.DeleteRangeAsync(formerTeamIds);
             }

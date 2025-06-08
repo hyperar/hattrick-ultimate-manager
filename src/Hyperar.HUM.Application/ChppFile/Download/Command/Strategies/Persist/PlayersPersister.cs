@@ -55,9 +55,9 @@
                 .Select(x => x.HattrickId)
                 .Except(
                     players.Team.PlayerList.Select(x => x.PlayerId))
-                .ToArrayAsync();
+                .ToArrayAsync(cancellationToken);
 
-            if (formerPlayerIds.Any())
+            if (formerPlayerIds.Length > 0)
             {
                 await this.seniorPlayerRepository.DeleteRangeAsync(formerPlayerIds);
             }
@@ -71,16 +71,9 @@
             }
         }
 
-        private async Task PersistPlayerNodeAsync(Player playerNode, Domain.SeniorTeam seniorTeam, CancellationToken cancellationToken)
+        private async Task<Domain.SeniorPlayer> PersistPlayerNodeAsync(Player playerNode, Domain.SeniorTeam seniorTeam, CancellationToken cancellationToken)
         {
             ArgumentNullException.ThrowIfNull(playerNode.StaminaSkill);
-            ArgumentNullException.ThrowIfNull(playerNode.KeeperSkill);
-            ArgumentNullException.ThrowIfNull(playerNode.DefenderSkill);
-            ArgumentNullException.ThrowIfNull(playerNode.PlaymakerSkill);
-            ArgumentNullException.ThrowIfNull(playerNode.PassingSkill);
-            ArgumentNullException.ThrowIfNull(playerNode.WingerSkill);
-            ArgumentNullException.ThrowIfNull(playerNode.ScorerSkill);
-            ArgumentNullException.ThrowIfNull(playerNode.SetPiecesSkill);
 
             var seniorPlayer = await this.seniorPlayerRepository.GetByIdAsync(playerNode.PlayerId);
 
@@ -170,11 +163,34 @@
 
             await this.databaseContext.SaveAsync();
 
+            await this.PersistPlayerSkillsAsync(
+                playerNode,
+                seniorPlayer,
+                seniorTeam,
+                cancellationToken);
+
+            return seniorPlayer;
+        }
+
+        private async Task PersistPlayerSkillsAsync(
+            Player playerNode,
+            Domain.SeniorPlayer seniorPlayer,
+            Domain.SeniorTeam seniorTeam,
+            CancellationToken cancellationToken)
+        {
+            ArgumentNullException.ThrowIfNull(playerNode.KeeperSkill);
+            ArgumentNullException.ThrowIfNull(playerNode.DefenderSkill);
+            ArgumentNullException.ThrowIfNull(playerNode.PlaymakerSkill);
+            ArgumentNullException.ThrowIfNull(playerNode.PassingSkill);
+            ArgumentNullException.ThrowIfNull(playerNode.WingerSkill);
+            ArgumentNullException.ThrowIfNull(playerNode.ScorerSkill);
+            ArgumentNullException.ThrowIfNull(playerNode.SetPiecesSkill);
+
             var seniorPlayerSkillSet = await this.seniorPlayerSkillSetRepository.Query(
-                x => x.SeniorPlayerHattrickId == playerNode.PlayerId
-                  && x.Season == seniorTeam.League.Season
-                  && x.Week == seniorTeam.League.Week)
-                .SingleOrDefaultAsync(cancellationToken);
+                    x => x.SeniorPlayerHattrickId == playerNode.PlayerId
+                      && x.Season == seniorTeam.League.Season
+                      && x.Week == seniorTeam.League.Week)
+                    .SingleOrDefaultAsync(cancellationToken);
 
             if (seniorPlayerSkillSet == null)
             {

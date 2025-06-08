@@ -24,10 +24,5 @@
 
             return hash.ToHashCode();
         }
-
-        public IEnumerable<long> Select(Func<object, object> value)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
