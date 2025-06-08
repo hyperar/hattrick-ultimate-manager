@@ -47,6 +47,18 @@
                         }));
             }
 
+            foreach (var curTeam in teamDetails.Teams)
+            {
+                fileDownloadTasks.Add(
+                    this.fileDownloadTaskFactory.BuildXmlFileDownloadTask(
+                        xmlFileDownloadTask.UserProfileId,
+                        XmlFileType.Players,
+                        new NameValueCollection
+                        {
+                            { "TeamId", curTeam.TeamId.ToString() }
+                        }));
+            }
+
             fileDownloadTasks.InsertRange(
                 fileDownloadTasks.IndexOf(xmlFileDownloadTask),
                 teamDetails.Teams.Select(x => x.DressUri)

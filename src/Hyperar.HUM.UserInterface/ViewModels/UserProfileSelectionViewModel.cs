@@ -37,7 +37,7 @@
         {
             get
             {
-                return !this.UserProfiles.Any(x => !x.HattrickId.HasValue);
+                return this.UserProfiles.All(x => x.Manager != null);
             }
         }
 

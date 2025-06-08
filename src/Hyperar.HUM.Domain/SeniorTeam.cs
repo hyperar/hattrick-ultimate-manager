@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Domain
 {
     using System;
+    using System.Collections.Generic;
 
     public class SeniorTeam : HattrickEntityBase
     {
@@ -41,6 +42,8 @@
         public long RegionHattrickId { get; set; }
 
         public int RegionPowerRating { get; set; }
+
+        public virtual ICollection<SeniorPlayer> SeniorPlayers { get; set; } = new HashSet<SeniorPlayer>();
 
         public long SeriesHattrickId { get; set; }
 

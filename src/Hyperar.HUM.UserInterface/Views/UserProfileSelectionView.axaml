@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Hyperar.HUM.UserInterface.Controls"
              xmlns:globalization="clr-namespace:Hyperar.HUM.Globalization;assembly=Hyperar.HUM.Globalization"
              xmlns:vm="clr-namespace:Hyperar.HUM.UserInterface.ViewModels"
              xmlns:converters="clr-namespace:Hyperar.HUM.UserInterface.Converters"
@@ -9,19 +10,12 @@
              HorizontalAlignment="Center"
              VerticalAlignment="Center"
              Padding="20"
+             Name="Page"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
              x:Class="Hyperar.HUM.UserInterface.Views.UserProfileSelectionView"
              x:DataType="vm:UserProfileSelectionViewModel">
-
-    <UserControl.Resources>
-
-        <Image Source="/Assets/Images/DefaultManagerAvatar.png" x:Key="defaultManagerAvatar" />
-        <Image Source="/Assets/Images/DefaultCountryFlag.png" x:Key="defaultFlag" />
-        <converters:ByteArrayToBitmapConverter x:Key="byteArrayToBitmapConverter" />
-
-    </UserControl.Resources>
 
     <StackPanel Orientation="Vertical"
                 Spacing="10">
@@ -38,18 +32,17 @@
         </Border>
 
         <ItemsControl ItemsSource="{Binding UserProfiles}"
-                      IsVisible="{Binding ShowUserProfileSelector}">
+                      IsVisible="{Binding ShowUserProfileSelector}"
+                      Grid.IsSharedSizeScope="True">
 
             <ItemsControl.ItemsPanel>
 
                 <ItemsPanelTemplate>
 
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Spacing="10">
-
-                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="10"
+                                VerticalAlignment="Center" />
 
                 </ItemsPanelTemplate>
 
@@ -59,62 +52,18 @@
 
                 <DataTemplate x:DataType="{x:Type shared:Models.UserProfileSelection.UserProfile}">
 
-                    <Button Command="{Binding $parent.((vm:UserProfileSelectionViewModel)DataContext).SelectUserProfileCommand}"
-                            CommandParameter="{Binding Id}">
+                    <Button Command="{Binding ElementName=Page, Path=((vm:UserProfileSelectionViewModel)DataContext).SelectUserProfileCommand}"
+                            CommandParameter="{Binding Id}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="175">
 
-                        <StackPanel Orientation="Vertical"
-                                    Spacing="5">
-
-                            <!-- Manager Avatar -->
-                            <Image Source="{Binding AvatarBytes,
-                                            Converter={StaticResource byteArrayToBitmapConverter},
-                                            ConverterParameter={StaticResource defaultManagerAvatar}}"
-                                   Stretch="None"
-                                   Height="155"
-                                   Width="110" />
-
-                            <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Spacing="5">
-
-                                <!-- Country Flag -->
-                                <Border Background="{DynamicResource ImageBorderBrush}"
-                                        Height="14"
-                                        Width="22">
-
-                                    <Image Source="{Binding CountryFlagBytes,
-                                                Converter={StaticResource byteArrayToBitmapConverter},
-                                                ConverterParameter={StaticResource defaultFlag}}"
-                                           Stretch="None" />
-
-                                </Border>
-
-                                <!-- User Name and Id -->
-                                <TextBlock HorizontalAlignment="Center"
-                                           VerticalAlignment="Center">
-
-                                    <TextBlock.Text>
-
-                                        <MultiBinding StringFormat="{}{0} ({1})">
-
-                                            <Binding Path="UserName"
-                                                     TargetNullValue="{x:Static globalization:ErrorMessages.UnavailableValue}"
-                                                     FallbackValue="{x:Static globalization:ErrorMessages.UnavailableValue}" />
-
-                                            <Binding Path="HattrickId"
-                                                     TargetNullValue="0"
-                                                     FallbackValue="0" />
-
-                                        </MultiBinding>
-
-                                    </TextBlock.Text>
-
-                                </TextBlock>
-
-                            </StackPanel>
-
-                        </StackPanel>
+                        <controls:ManagerCard AvatarBytes="{Binding AvatarBytes}"
+                                              CountryFlagBytes="{Binding CountryFlagBytes}"
+                                              CountryHattrickId="{Binding Country.HattrickId}"
+                                              CountryName="{Binding Country.Name}"
+                                              ManagerHattrickId="{Binding Manager.HattrickId}"
+                                              ManagerName="{Binding Manager.Name}" />
 
                     </Button>
 

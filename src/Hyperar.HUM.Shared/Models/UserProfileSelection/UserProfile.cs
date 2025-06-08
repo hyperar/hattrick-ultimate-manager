@@ -7,8 +7,8 @@
         bool HasAuthorized,
         DateTime? LastDownloadDate,
         long? SelectedTeamHattrickId,
-        long? HattrickId,
-        string? UserName,
+        IdName? Manager,
+        IdName? Country,
         byte[]? AvatarBytes,
         byte[]? CountryFlagBytes);
 }

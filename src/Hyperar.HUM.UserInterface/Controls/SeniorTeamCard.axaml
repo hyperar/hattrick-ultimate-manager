@@ -1,0 +1,203 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Hyperar.HUM.UserInterface.Controls"
+        xmlns:converters="clr-namespace:Hyperar.HUM.UserInterface.Converters"
+        x:CompileBindings="False">
+
+    <Image Source="/Assets/Images/DefaultTeamLogo.png" x:Key="defaultTeamLogo" />
+    <Image Source="/Assets/Images/DefaultCountryFlag.png" x:Key="defaultFlag" />
+    <converters:ByteArrayToBitmapConverter x:Key="byteArrayToBitmapConverter" />
+
+    <Design.PreviewWith>
+
+        <StackPanel Spacing="10">
+
+            <StackPanel Background="{DynamicResource SystemRegionBrush}">
+
+                <controls:SeniorTeamCard />
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type controls:SeniorTeamCard}" TargetType="controls:SeniorTeamCard">
+
+        <Setter Property="Template">
+
+            <ControlTemplate>
+
+                <Grid HorizontalAlignment="Center"
+                      Margin="5"
+                      RowDefinitions="auto,*,*,*,*,*"
+                      VerticalAlignment="Center">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="auto" SharedSizeGroup="A" />
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.Styles>
+
+                        <Style Selector="Image">
+
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+
+                        </Style>
+
+                        <Style Selector="StackPanel">
+
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Spacing" Value="5" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+
+                        </Style>
+
+                        <Style Selector="TextBlock">
+
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+
+                        </Style>
+
+                    </Grid.Styles>
+
+                    <!-- Team Logo -->
+                    <Image Grid.Column="0"
+                           Grid.Row="0"
+                           Height="130"
+                           Width="105"
+                           Source="{TemplateBinding TeamLogoBytes,
+                                                    Converter={StaticResource byteArrayToBitmapConverter},
+                                                    ConverterParameter={StaticResource defaultTeamLogo}}"
+                           Stretch="Uniform" />
+
+                    <!-- Team -->
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="1">
+
+                        <TextBlock.Text>
+
+                            <MultiBinding StringFormat="{}{0} ({1})">
+
+                                <Binding Path="TeamName" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="TeamHattrickId" RelativeSource="{RelativeSource TemplatedParent}" />
+
+                            </MultiBinding>
+
+                        </TextBlock.Text>
+
+                    </TextBlock>
+
+                    <!-- Country -->
+                    <StackPanel Grid.Column="0"
+                                Grid.Row="2"
+                                Orientation="Horizontal">
+
+                        <Border BorderBrush="{DynamicResource ImageBorderBrush}"
+                                BorderThickness="1"
+                                Height="14"
+                                Width="22">
+
+                            <Image Source="{Binding CountryFlagBytes,
+                                                    Converter={StaticResource byteArrayToBitmapConverter}}"
+                                   Stretch="None" />
+
+                        </Border>
+
+                        <TextBlock>
+
+                            <TextBlock.Text>
+
+                                <MultiBinding StringFormat="{}{0} ({1})">
+
+                                    <Binding Path="CountryName" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="CountryHattrickId" RelativeSource="{RelativeSource TemplatedParent}" />
+
+                                </MultiBinding>
+
+                            </TextBlock.Text>
+
+                        </TextBlock>
+
+                    </StackPanel>
+
+                    <!-- Region -->
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="3">
+
+                        <TextBlock.Text>
+
+                            <MultiBinding StringFormat="{}{0} ({1})">
+
+                                <Binding Path="RegionName" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="RegionHattrickId" RelativeSource="{RelativeSource TemplatedParent}" />
+
+                            </MultiBinding>
+
+                        </TextBlock.Text>
+
+                    </TextBlock>
+
+                    <!-- League -->
+                    <StackPanel Grid.Column="0"
+                                Grid.Row="4"
+                                Orientation="Horizontal">
+
+                        <Border BorderBrush="{DynamicResource ImageBorderBrush}"
+                                BorderThickness="1"
+                                Height="14"
+                                Width="22">
+
+                            <Image Source="{Binding LeagueFlagBytes,
+                                                    Converter={StaticResource byteArrayToBitmapConverter}}"
+                                   Stretch="None" />
+
+                        </Border>
+
+                        <TextBlock>
+
+                            <TextBlock.Text>
+
+                                <MultiBinding StringFormat="{}{0} ({1})">
+
+                                    <Binding Path="LeagueName" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="LeagueHattrickId" RelativeSource="{RelativeSource TemplatedParent}" />
+
+                                </MultiBinding>
+
+                            </TextBlock.Text>
+
+                        </TextBlock>
+
+                    </StackPanel>
+
+                    <!-- Series -->
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="5">
+
+                        <TextBlock.Text>
+
+                            <MultiBinding StringFormat="{}{0} ({1})">
+
+                                <Binding Path="SeriesName" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="SeriesHattrickId" RelativeSource="{RelativeSource TemplatedParent}" />
+
+                            </MultiBinding>
+
+                        </TextBlock.Text>
+
+                    </TextBlock>
+
+                </Grid>
+
+            </ControlTemplate>
+
+        </Setter>
+
+    </ControlTheme>
+
+</ResourceDictionary>

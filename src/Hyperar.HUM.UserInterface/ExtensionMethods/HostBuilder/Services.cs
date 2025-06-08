@@ -113,6 +113,7 @@
                 services.AddScoped<CheckTokenParser>();
                 services.AddScoped<ErrorParser>();
                 services.AddScoped<ManagerCompendiumParser>();
+                services.AddScoped<PlayersParser>();
                 services.AddScoped<TeamDetailsParser>();
                 services.AddScoped<WorldDetailsParser>();
 
@@ -127,6 +128,7 @@
                 services.AddScoped<EmptyPersister>();
                 services.AddScoped<ImagePersister>();
                 services.AddScoped<ManagerCompendiumPersister>();
+                services.AddScoped<PlayersPersister>();
                 services.AddScoped<TeamDetailsPersister>();
                 services.AddScoped<WorldDetailsPersister>();
             });

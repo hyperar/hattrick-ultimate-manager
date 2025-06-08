@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Shared.Models.TeamSelection
+﻿namespace Hyperar.HUM.Shared.Models
 {
     public record IdName(long HattrickId, string Name)
     {

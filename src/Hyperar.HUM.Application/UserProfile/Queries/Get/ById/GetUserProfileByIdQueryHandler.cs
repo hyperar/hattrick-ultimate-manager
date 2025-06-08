@@ -4,6 +4,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Domain.Interfaces;
+    using Hyperar.HUM.Shared.Models;
     using Hyperar.HUM.Shared.Models.UserProfileSelection;
     using MediatR;
 
@@ -27,8 +28,8 @@
                 userProfile.OAuthToken is not null,
                 userProfile.LastDownloadDate,
                 userProfile.SelectedTeamHattrickId,
-                userProfile.Manager?.HattrickId,
-                userProfile.Manager?.UserName,
+                userProfile.Manager != null ? new IdName(userProfile.Manager.HattrickId, userProfile.Manager.UserName) : null,
+                userProfile.Manager != null ? new IdName(userProfile.Manager.Country.HattrickId, userProfile.Manager.Country.Name) : null,
                 userProfile.Manager?.AvatarBytes,
                 userProfile.Manager?.Country.League.FlagBytes);
         }
