@@ -68,8 +68,6 @@
                     <!-- Manager Avatar -->
                     <Image Grid.Column="0"
                            Grid.Row="0"
-                           Height="155"
-                           Width="110"
                            Source="{TemplateBinding AvatarBytes,
                                                     Converter={StaticResource byteArrayToBitmapConverter},
                                                     ConverterParameter={StaticResource defaultManagerAvatar}}"
