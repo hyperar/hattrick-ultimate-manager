@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Test.Shared
 {
     using System;
+    using System.Net;
     using Hyperar.HUM.Application.ChppFile.Download.Command;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Factories;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
@@ -40,6 +41,11 @@
 
         public ServicesFixture()
         {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, error) =>
+            {
+                return true;
+            };
+
             var serverPort = WireMockServerFactory.StartServerAndGetPort();
 
             var services = new ServiceCollection();
