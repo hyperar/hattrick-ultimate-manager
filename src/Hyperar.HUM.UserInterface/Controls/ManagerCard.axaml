@@ -10,7 +10,7 @@
 
     <Design.PreviewWith>
 
-        <StackPanel Width="400" Spacing="10">
+        <StackPanel Spacing="10">
 
             <StackPanel Background="{DynamicResource SystemRegionBrush}">
 
@@ -28,11 +28,16 @@
 
             <ControlTemplate>
 
-                <Grid ColumnDefinitions="auto"
-                          HorizontalAlignment="Center"
-                          Margin="5"
-                          RowDefinitions="auto,*,*"
-                          VerticalAlignment="Center">
+                <Grid HorizontalAlignment="Center"
+                      Margin="5"
+                      RowDefinitions="auto,*,*"
+                      VerticalAlignment="Center">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="auto" SharedSizeGroup="A" />
+
+                    </Grid.ColumnDefinitions>
 
                     <Grid.Styles>
 
@@ -60,6 +65,7 @@
 
                     </Grid.Styles>
 
+                    <!-- Manager Avatar -->
                     <Image Grid.Column="0"
                            Grid.Row="0"
                            Height="155"

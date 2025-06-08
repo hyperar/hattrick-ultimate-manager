@@ -24,7 +24,8 @@
 
     </UserControl.Resources>
 
-    <ItemsControl ItemsSource="{Binding SeniorTeams}">
+    <ItemsControl ItemsSource="{Binding SeniorTeams}"
+                  Grid.IsSharedSizeScope="True">
 
         <ItemsControl.ItemsPanel>
 

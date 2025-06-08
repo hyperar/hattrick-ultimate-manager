@@ -32,7 +32,8 @@
         </Border>
 
         <ItemsControl ItemsSource="{Binding UserProfiles}"
-                      IsVisible="{Binding ShowUserProfileSelector}">
+                      IsVisible="{Binding ShowUserProfileSelector}"
+                      Grid.IsSharedSizeScope="True">
 
             <ItemsControl.ItemsPanel>
 
