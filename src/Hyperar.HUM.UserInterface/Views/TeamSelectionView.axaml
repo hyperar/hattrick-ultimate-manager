@@ -8,21 +8,14 @@
              xmlns:converters="clr-namespace:Hyperar.HUM.UserInterface.Converters"
              xmlns:shared="clr-namespace:Hyperar.HUM.Shared;assembly=Hyperar.HUM.Shared"
              HorizontalAlignment="Center"
-             Name="Page"
              VerticalAlignment="Center"
+             Padding="20"
+             Name="Page"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
              x:Class="Hyperar.HUM.UserInterface.Views.TeamSelectionView"
              x:DataType="vm:TeamSelectionViewModel">
-
-    <UserControl.Resources>
-
-        <Image Source="/Assets/Images/DefaultTeamLogo.png" x:Key="defaultTeamLogo" />
-        <Image Source="/Assets/Images/DefaultCountryFlag.png" x:Key="defaultFlag" />
-        <converters:ByteArrayToBitmapConverter x:Key="byteArrayToBitmapConverter" />
-
-    </UserControl.Resources>
 
     <ItemsControl ItemsSource="{Binding SeniorTeams}"
                   Grid.IsSharedSizeScope="True">

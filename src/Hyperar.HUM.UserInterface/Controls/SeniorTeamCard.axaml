@@ -65,6 +65,7 @@
 
                     </Grid.Styles>
 
+                    <!-- Team Logo -->
                     <Image Grid.Column="0"
                            Grid.Row="0"
                            Height="130"
