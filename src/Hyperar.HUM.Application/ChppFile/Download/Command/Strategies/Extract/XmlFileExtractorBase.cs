@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Shared.Models.Chpp;
@@ -20,7 +21,7 @@
         {
             var tasks = new List<ImageFileDownloadTask>();
 
-            if (!ImageHelpers.ImageFileExists(avatar.BackgroundImage))
+            if (!ImageHelper.ImageFileExists(avatar.BackgroundImage))
             {
                 this.fileDownloadTaskFactory.BuildImageFileDownloadTask(
                     avatar.BackgroundImage);
@@ -30,7 +31,7 @@
             {
                 tasks.AddRange(
                     avatar.Layers.Select(x => x.Image)
-                        .Where(x => !ImageHelpers.ImageFileExists(x))
+                        .Where(x => !ImageHelper.ImageFileExists(x))
                         .Select(this.fileDownloadTaskFactory.BuildImageFileDownloadTask));
             }
 

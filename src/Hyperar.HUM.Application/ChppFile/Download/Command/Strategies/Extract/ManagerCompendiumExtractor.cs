@@ -5,6 +5,7 @@
     using System.Collections.Specialized;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Shared.Enums;
@@ -31,7 +32,7 @@
 
             if (managerCompendium.Manager.Avatar is not null)
             {
-                if (!ImageHelpers.ImageFileExists(
+                if (!ImageHelper.ImageFileExists(
                     managerCompendium.Manager.Avatar.BackgroundImage))
                 {
                     fileDownloadTasks.Insert(

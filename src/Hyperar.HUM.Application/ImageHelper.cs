@@ -1,4 +1,4 @@
-﻿namespace Hyperar.HUM.Application.ChppFile.Download.Command.Strategies
+﻿namespace Hyperar.HUM.Application
 {
     using System;
     using System.Drawing;
@@ -7,9 +7,10 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Domain.Interfaces;
     using Hyperar.HUM.Shared.Models.Chpp;
 
-    public static class ImageHelpers
+    public static class ImageHelper
     {
         internal const string FlagUrlMask = "/Img/flags/{0}.png";
 
@@ -23,7 +24,9 @@
 
         private const string scheme = "https";
 
-        internal static async Task<byte[]?> BuildAvatarAsync(Avatar? avatar, CancellationToken cancellationToken)
+        internal static async Task<byte[]?> BuildAvatarAsync(
+            Avatar? avatar,
+            CancellationToken cancellationToken)
         {
             if (avatar is null)
             {
@@ -48,7 +51,7 @@
 
             if (avatar.Layers is not null)
             {
-                for (var i = 0; i < avatar.Layers.Count(); i++)
+                for (var i = 0; i < avatar.Layers.Length; i++)
                 {
                     var layer = avatar.Layers.ElementAt(i);
 
@@ -67,6 +70,60 @@
             }
 
             return GetBytesFromImage(avatarImage);
+        }
+
+        internal static async Task<byte[]> GetAvatarBytesAsync(
+            IAvatarLayer[] avatarLayers,
+            bool useFramelessAvatar,
+            CancellationToken cancellationToken)
+        {
+            var initialIndex = useFramelessAvatar ? 1 : 0;
+            var xCoordinateOffset = useFramelessAvatar ? 9 : 0;
+            var yCoordinateOffset = useFramelessAvatar ? 10 : 0;
+
+            var backgroundImage = await CreateAvatarImageAsync(
+                avatarLayers.Single(x => x.Index == initialIndex).ImageUrl,
+                cancellationToken);
+
+            var avatarImage = new Bitmap(
+                backgroundImage.Width,
+                backgroundImage.Height,
+                PixelFormat.Format32bppArgb);
+
+            var graphics = Graphics.FromImage(avatarImage);
+
+            graphics.DrawImage(
+                backgroundImage,
+                0,
+                0,
+                backgroundImage.Width,
+                backgroundImage.Height);
+
+            foreach (var curLayer in avatarLayers.Where(x => x.Index > initialIndex).OrderBy(x => x.Index))
+            {
+                var layerImage = GetImageFromBytes(
+                    await ReadFileFromCacheAsync(
+                        curLayer.ImageUrl,
+                        cancellationToken));
+
+                graphics.DrawImage(
+                    layerImage,
+                    curLayer.XCoordinate - xCoordinateOffset,
+                    curLayer.YCoordinate - yCoordinateOffset,
+                    layerImage.Width,
+                    layerImage.Height);
+            }
+
+            var avatarBytes = Array.Empty<byte>();
+
+            using (var memoryStream = new MemoryStream())
+            {
+                avatarImage.Save(memoryStream, ImageFormat.Png);
+
+                avatarBytes = memoryStream.ToArray();
+            }
+
+            return avatarBytes;
         }
 
         internal static string GetFilePathFromUrl(string url)

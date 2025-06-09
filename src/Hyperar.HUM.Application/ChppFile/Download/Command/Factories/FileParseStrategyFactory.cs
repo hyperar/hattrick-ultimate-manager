@@ -7,6 +7,8 @@
 
     public class FileParseStrategyFactory : IFileParseStrategyFactory
     {
+        private readonly AvatarsParser avatarsParser;
+
         private readonly CheckTokenParser checkTokenParser;
 
         private readonly ErrorParser errorParser;
@@ -20,6 +22,7 @@
         private readonly WorldDetailsParser worldDetailsParser;
 
         public FileParseStrategyFactory(
+            AvatarsParser avatarsParser,
             CheckTokenParser checkTokenParser,
             ErrorParser errorParser,
             ManagerCompendiumParser managerCompendiumParser,
@@ -27,6 +30,7 @@
             TeamDetailsParser teamDetailsParser,
             WorldDetailsParser worldDetailsParser)
         {
+            this.avatarsParser = avatarsParser;
             this.checkTokenParser = checkTokenParser;
             this.errorParser = errorParser;
             this.managerCompendiumParser = managerCompendiumParser;
@@ -39,6 +43,7 @@
         {
             return fileName.ToLower() switch
             {
+                FileName.Avatars => this.avatarsParser,
                 FileName.CheckToken => this.checkTokenParser,
                 FileName.Error => this.errorParser,
                 FileName.ManagerCompendium => this.managerCompendiumParser,

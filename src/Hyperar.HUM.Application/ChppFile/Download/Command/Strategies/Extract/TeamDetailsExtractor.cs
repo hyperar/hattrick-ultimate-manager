@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Shared.Enums;
@@ -62,14 +63,14 @@
             fileDownloadTasks.InsertRange(
                 fileDownloadTasks.IndexOf(xmlFileDownloadTask),
                 teamDetails.Teams.Select(x => x.DressUri)
-                    .Where(x => !ImageHelpers.ImageFileExists(x))
+                    .Where(x => !ImageHelper.ImageFileExists(x))
                     .Select(
                         this.fileDownloadTaskFactory.BuildImageFileDownloadTask));
 
             fileDownloadTasks.InsertRange(
                 fileDownloadTasks.IndexOf(xmlFileDownloadTask),
                 teamDetails.Teams.Select(x => x.AlternateDressUri)
-                    .Where(x => !ImageHelpers.ImageFileExists(x))
+                    .Where(x => !ImageHelper.ImageFileExists(x))
                     .Select(
                         this.fileDownloadTaskFactory.BuildImageFileDownloadTask));
 
@@ -77,7 +78,7 @@
                 fileDownloadTasks.IndexOf(xmlFileDownloadTask),
                 teamDetails.Teams.Select(x => x.LogoUrl)
                     .Where(x => !string.IsNullOrWhiteSpace(x)
-                             && !ImageHelpers.ImageFileExists(x))
+                             && !ImageHelper.ImageFileExists(x))
                     .Select(
                         this.fileDownloadTaskFactory.BuildImageFileDownloadTask));
 

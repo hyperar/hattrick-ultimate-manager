@@ -110,6 +110,7 @@
 
                 // Parsers.
                 services.AddScoped<IXmlFileParser, XmlFileParser>();
+                services.AddScoped<AvatarsParser>();
                 services.AddScoped<CheckTokenParser>();
                 services.AddScoped<ErrorParser>();
                 services.AddScoped<ManagerCompendiumParser>();
@@ -118,13 +119,16 @@
                 services.AddScoped<WorldDetailsParser>();
 
                 // Extractors.
+                services.AddScoped<AvatarsExtractor>();
                 services.AddScoped<CheckTokenExtractor>();
                 services.AddScoped<EmptyExtractor>();
                 services.AddScoped<ManagerCompendiumExtractor>();
+                services.AddScoped<PlayersExtractor>();
                 services.AddScoped<TeamDetailsExtractor>();
                 services.AddScoped<WorldDetailsExtractor>();
 
                 // Persisters.
+                services.AddScoped<AvatarsPersister>();
                 services.AddScoped<EmptyPersister>();
                 services.AddScoped<ImagePersister>();
                 services.AddScoped<ManagerCompendiumPersister>();

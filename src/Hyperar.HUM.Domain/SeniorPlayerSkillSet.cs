@@ -1,18 +1,24 @@
 ﻿namespace Hyperar.HUM.Domain
 {
+    using Hyperar.HUM.Shared.Enums;
+
     public class SeniorPlayerSkillSet : EntityBase
     {
-        public int Defender { get; set; }
+        public PlayerSkillLevel Defender { get; set; }
 
-        public int Experience { get; set; }
+        public PlayerSkillLevel Experience { get; set; }
 
-        public int Keeper { get; set; }
+        public PlayerSkillLevel Form { get; set; }
 
-        public int Passing { get; set; }
+        public PlayerSkillLevel Keeper { get; set; }
 
-        public int Playmaking { get; set; }
+        public PlayerSkillLevel Loyalty { get; set; }
 
-        public int Scoring { get; set; }
+        public PlayerSkillLevel Passing { get; set; }
+
+        public PlayerSkillLevel Playmaking { get; set; }
+
+        public PlayerSkillLevel Scoring { get; set; }
 
         public int Season { get; set; }
 
@@ -20,12 +26,14 @@
 
         public long SeniorPlayerHattrickId { get; set; }
 
-        public int SetPieces { get; set; }
+        public PlayerSkillLevel SetPieces { get; set; }
+
+        public PlayerSkillLevel Stamina { get; set; }
 
         public int TotalSkillIndex { get; set; }
 
         public int Week { get; set; }
 
-        public int Winger { get; set; }
+        public PlayerSkillLevel Winger { get; set; }
     }
 }

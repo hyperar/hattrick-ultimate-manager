@@ -53,6 +53,8 @@
 
         public int TeamIndex { get; set; }
 
+        public long TrainerHattrickId { get; set; }
+
         public int UndefeatedStreak { get; set; }
 
         public int WinningStreak { get; set; }

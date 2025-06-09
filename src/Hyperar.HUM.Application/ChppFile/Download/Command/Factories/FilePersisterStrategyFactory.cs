@@ -8,6 +8,8 @@
 
     public class FilePersisterStrategyFactory : IFilePersisterStrategyFactory
     {
+        private readonly AvatarsPersister avatarsPersister;
+
         private readonly EmptyPersister emptyPersister;
 
         private readonly ImagePersister imagePersister;
@@ -21,6 +23,7 @@
         private readonly WorldDetailsPersister worldDetailsPersister;
 
         public FilePersisterStrategyFactory(
+            AvatarsPersister avatarsPersister,
             EmptyPersister emptyPersister,
             ImagePersister imagePersister,
             ManagerCompendiumPersister managerCompendiumPersister,
@@ -28,6 +31,7 @@
             TeamDetailsPersister teamDetailsPersister,
             WorldDetailsPersister worldDetailsPersister)
         {
+            this.avatarsPersister = avatarsPersister;
             this.emptyPersister = emptyPersister;
             this.imagePersister = imagePersister;
             this.managerCompendiumPersister = managerCompendiumPersister;
@@ -46,6 +50,7 @@
             {
                 return xmlFileDownloadTask.XmlFile switch
                 {
+                    XmlFileType.Avatars => this.avatarsPersister,
                     XmlFileType.Players => this.playersPersister,
                     XmlFileType.ManagerCompendium => this.managerCompendiumPersister,
                     XmlFileType.TeamDetails => this.teamDetailsPersister,

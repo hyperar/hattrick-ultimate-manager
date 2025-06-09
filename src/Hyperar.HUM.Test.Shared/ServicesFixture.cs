@@ -139,6 +139,7 @@
             // Parsers.
             services.AddScoped<IXmlFileParser, XmlFileParser>();
             services.AddScoped<IFileParseStrategyFactory, FileParseStrategyFactory>();
+            services.AddScoped<AvatarsParser>();
             services.AddScoped<CheckTokenParser>();
             services.AddScoped<ErrorParser>();
             services.AddScoped<ManagerCompendiumParser>();
@@ -148,14 +149,17 @@
 
             // Extractors.
             services.AddScoped<IFileExtractStrategyFactory, FileExtractStrategyFactory>();
+            services.AddScoped<AvatarsExtractor>();
             services.AddScoped<CheckTokenExtractor>();
             services.AddScoped<EmptyExtractor>();
             services.AddScoped<ManagerCompendiumExtractor>();
+            services.AddScoped<PlayersExtractor>();
             services.AddScoped<TeamDetailsExtractor>();
             services.AddScoped<WorldDetailsExtractor>();
 
             // Persisters.
             services.AddScoped<IFilePersisterStrategyFactory, FilePersisterStrategyFactory>();
+            services.AddScoped<AvatarsPersister>();
             services.AddScoped<EmptyPersister>();
             services.AddScoped<ImagePersister>();
             services.AddScoped<ManagerCompendiumPersister>();

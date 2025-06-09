@@ -11,5 +11,7 @@
         public virtual OAuthToken? OAuthToken { get; set; }
 
         public long? SelectedTeamHattrickId { get; set; }
+
+        public virtual UserProfileSettings? UserProfileSettings { get; set; }
     }
 }

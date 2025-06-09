@@ -6,7 +6,7 @@
 
     public class Manager : HattrickEntityBase
     {
-        public byte[]? AvatarBytes { get; set; }
+        public virtual ICollection<ManagerAvatarLayer>? AvatarLayers { get; set; }
 
         public virtual Country Country { get; set; } = new Country();
 

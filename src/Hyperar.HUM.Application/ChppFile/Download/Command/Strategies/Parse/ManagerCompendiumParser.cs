@@ -106,7 +106,7 @@
                     xmlReader,
                     NodeName.NationalTeamAssistant,
                     NodeName.NationalTeam),
-                await ReadAvatarNodeAsync(
+                await ReadNullableAvatarNodeAsync(
                     xmlReader));
 
             await xmlReader.ReadAsync();

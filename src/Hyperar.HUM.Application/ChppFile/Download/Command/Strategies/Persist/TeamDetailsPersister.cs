@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Domain.Interfaces;
@@ -106,15 +107,16 @@
                     CanBookWeekendFriendly = teamNode.PossibleToChallengeWeekend,
                     SeriesHattrickId = teamNode.LeagueLevelUnit.LeagueLevelUnitId,
                     SeriesName = teamNode.LeagueLevelUnit.LeagueLevelUnitName,
+                    TrainerHattrickId = teamNode.Trainer.PlayerId,
                     LogoBytes = string.IsNullOrEmpty(teamNode.LogoUrl)
                         ? null
-                        : await ImageHelpers.ReadFileFromCacheAsync(
+                        : await ImageHelper.ReadFileFromCacheAsync(
                             teamNode.LogoUrl,
                             cancellationToken),
-                    HomeMatchKitBytes = await ImageHelpers.ReadFileFromCacheAsync(
+                    HomeMatchKitBytes = await ImageHelper.ReadFileFromCacheAsync(
                             teamNode.DressUri,
                             cancellationToken),
-                    AwayMatchKitBytes = await ImageHelpers.ReadFileFromCacheAsync(
+                    AwayMatchKitBytes = await ImageHelper.ReadFileFromCacheAsync(
                             teamNode.AlternateDressUri,
                             cancellationToken),
                     League = league,
@@ -139,15 +141,16 @@
                 seniorTeam.WinningStreak = teamNode.NumberOfVictories ?? 0;
                 seniorTeam.CanBookMidweekFriendly = teamNode.PossibleToChallengeMidweek;
                 seniorTeam.CanBookWeekendFriendly = teamNode.PossibleToChallengeWeekend;
+                seniorTeam.TrainerHattrickId = teamNode.Trainer.PlayerId;
                 seniorTeam.LogoBytes = string.IsNullOrEmpty(teamNode.LogoUrl)
                     ? null
-                    : await ImageHelpers.ReadFileFromCacheAsync(
+                    : await ImageHelper.ReadFileFromCacheAsync(
                         teamNode.LogoUrl,
                         cancellationToken);
-                seniorTeam.HomeMatchKitBytes = await ImageHelpers.ReadFileFromCacheAsync(
+                seniorTeam.HomeMatchKitBytes = await ImageHelper.ReadFileFromCacheAsync(
                     teamNode.DressUri,
                     cancellationToken);
-                seniorTeam.AwayMatchKitBytes = await ImageHelpers.ReadFileFromCacheAsync(
+                seniorTeam.AwayMatchKitBytes = await ImageHelper.ReadFileFromCacheAsync(
                     teamNode.AlternateDressUri,
                     cancellationToken);
                 seniorTeam.Region = region;

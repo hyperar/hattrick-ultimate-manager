@@ -66,12 +66,19 @@
                     </Grid.Styles>
 
                     <!-- Manager Avatar -->
-                    <Image Grid.Column="0"
-                           Grid.Row="0"
-                           Source="{TemplateBinding AvatarBytes,
-                                                    Converter={StaticResource byteArrayToBitmapConverter},
-                                                    ConverterParameter={StaticResource defaultManagerAvatar}}"
-                           Stretch="Uniform" />
+                    <Border BorderBrush="{DynamicResource ImageBorderBrush}"
+                            BorderThickness="1"
+                            Height="125"
+                            Width="94">
+
+                        <Image Grid.Column="0"
+                               Grid.Row="0"
+                               Source="{TemplateBinding AvatarBytes,
+                                                        Converter={StaticResource byteArrayToBitmapConverter},
+                                                        ConverterParameter={StaticResource defaultManagerAvatar}}"
+                               Stretch="Uniform" />
+
+                    </Border>
 
                     <!-- Manager -->
                     <TextBlock Grid.Column="0"

@@ -2,9 +2,9 @@
 {
     using System;
     using System.Collections.Specialized;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
-    using Hyperar.HUM.Application.ChppFile.Download.Command.Strategies;
     using Hyperar.HUM.Shared.Enums;
 
     public class FileDownloadTaskFactory : IFileDownloadTaskFactory
@@ -14,8 +14,8 @@
             return new ImageFileDownloadTask
             {
                 Id = Guid.NewGuid(),
-                Title = ImageHelpers.NormalizeUrl(url),
-                Url = ImageHelpers.NormalizeUrl(url),
+                Title = ImageHelper.NormalizeUrl(url),
+                Url = ImageHelper.NormalizeUrl(url),
                 FileType = FileType.ImageFile,
                 Status = DownloadTaskStatus.Pending
             };
