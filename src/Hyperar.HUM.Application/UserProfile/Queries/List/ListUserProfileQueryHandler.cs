@@ -37,7 +37,7 @@
                     {
                         avatarBytes = await ImageHelper.GetAvatarBytesAsync(
                             curUserProfile.Manager.AvatarLayers.ToArray(),
-                            true,
+                            request.UseFramelessAvatar,
                             cancellationToken);
                     }
                 }

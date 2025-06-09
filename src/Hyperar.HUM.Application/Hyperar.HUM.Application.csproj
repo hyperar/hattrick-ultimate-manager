@@ -24,4 +24,8 @@
         <InternalsVisibleTo Include="Hyperar.HUM.Application.UnitTest" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="UserProfile\Settings\Commands\Update\" />
+    </ItemGroup>
+
 </Project>

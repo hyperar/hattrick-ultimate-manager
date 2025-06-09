@@ -17,18 +17,14 @@
 
     internal partial class UserProfileSelectionViewModel : ViewModelBase
     {
-        private readonly ISender sender;
-
         [ObservableProperty]
         private ObservableCollection<UserProfile> userProfiles = new ObservableCollection<UserProfile>();
 
         public UserProfileSelectionViewModel(
             INavigator navigator,
             ISessionStore sessionStore,
-            ISender sender) : base(navigator, sessionStore)
+            ISender sender) : base(navigator, sessionStore, sender)
         {
-            this.sender = sender;
-
             this.CreateUserProfileCommand = new AsyncRelayCommand(this.CreateUserProfileAsync);
             this.SelectUserProfileCommand = new AsyncRelayCommand<Guid>(this.SelectUserProfileAsync);
         }
@@ -64,7 +60,7 @@
 
         private async Task CreateUserProfileAsync()
         {
-            var userProfile = await this.sender.Send(
+            var userProfile = await this.Sender.Send(
                 new CreateUserProfileCommand());
 
             await this.SelectUserProfileAsync(userProfile.Id);
@@ -72,8 +68,9 @@
 
         private async Task RefreshUserProfiles()
         {
-            var userProfiles = await this.sender.Send(
-                new ListUserProfilesQuery());
+            var userProfiles = await this.Sender.Send(
+                new ListUserProfilesQuery(
+                    this.UserProfileSettings?.UseFramelessAvatars ?? true));
 
             this.UserProfiles = new ObservableCollection<UserProfile>(userProfiles);
 
@@ -85,9 +82,10 @@
         {
             this.SessionStore.SetSelectedUserProfile(userProfileId);
 
-            var userProfile = await this.sender.Send(
+            var userProfile = await this.Sender.Send(
                 new GetUserProfileByIdQuery(
-                    userProfileId));
+                    userProfileId,
+                    this.UserProfileSettings?.UseFramelessAvatars ?? true));
 
             if (userProfile.HasAuthorized)
             {

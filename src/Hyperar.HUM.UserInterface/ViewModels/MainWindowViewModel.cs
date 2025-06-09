@@ -11,35 +11,36 @@
     using Hyperar.HUM.Shared.Models.Main;
     using Hyperar.HUM.UserInterface.Command;
     using Hyperar.HUM.UserInterface.State.Interfaces;
-    using Hyperar.HUM.UserInterface.Store.Interfaces;
     using Hyperar.HUM.UserInterface.ViewModels.Interfaces;
 
-    internal partial class MainWindowViewModel : ViewModelBase, IDisposable
+    internal partial class MainWindowViewModel : ObservableObject, IDisposable
     {
         protected readonly AsyncCommandBase UpdateCurrentViewModelCommand;
 
         private readonly ViewType landingViewType;
+
+        private readonly INavigator navigator;
 
         [ObservableProperty]
         private bool isMenuOpen;
 
         public MainWindowViewModel(
             INavigator navigator,
-            ISessionStore sessionStore,
             IViewModelFactory viewModelFactory,
-            ViewType landingViewType) : base(navigator, sessionStore)
+            ViewType landingViewType)
         {
             this.landingViewType = landingViewType;
 
-            this.Navigator.CanNavigateChanged += this.Navigator_CanNavigateChanged;
-            this.Navigator.CurrentViewModelChanged += this.Navigator_CurrentViewModelChanged;
-            this.Navigator.TargetViewTypeChanged += this.Navigator_TargetViewTypeChanged;
+            this.navigator = navigator;
+            this.navigator.CanNavigateChanged += this.Navigator_CanNavigateChanged;
+            this.navigator.CurrentViewModelChanged += this.Navigator_CurrentViewModelChanged;
+            this.navigator.TargetViewTypeChanged += this.Navigator_TargetViewTypeChanged;
 
             this.SelectionModel = new SelectionModel<MenuItemTemplate?>();
             this.SelectionModel.SelectionChanged += new EventHandler<SelectionModelSelectionChangedEventArgs>(this.ListBox_OnSelectionChanged);
 
             this.ToggleMenuCommand = new RelayCommand(this.ToggleMenu);
-            this.UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this.Navigator, viewModelFactory);
+            this.UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this.navigator, viewModelFactory);
 
             this.MenuItems = new ObservableCollection<MenuItemTemplate>
             {
@@ -56,7 +57,7 @@
         {
             get
             {
-                return this.Navigator.CanNavigate;
+                return this.navigator.CanNavigate;
             }
         }
 
@@ -64,7 +65,7 @@
         {
             get
             {
-                return this.Navigator.CurrentViewModel;
+                return this.navigator.CurrentViewModel;
             }
         }
 
@@ -76,20 +77,18 @@
 
         public void Dispose()
         {
-            this.Navigator.TargetViewTypeChanged -= this.Navigator_TargetViewTypeChanged;
-            this.Navigator.CurrentViewModelChanged -= this.Navigator_CurrentViewModelChanged;
-            this.Navigator.CanNavigateChanged -= this.Navigator_CanNavigateChanged;
+            this.navigator.TargetViewTypeChanged -= this.Navigator_TargetViewTypeChanged;
+            this.navigator.CurrentViewModelChanged -= this.Navigator_CurrentViewModelChanged;
+            this.navigator.CanNavigateChanged -= this.Navigator_CanNavigateChanged;
         }
 
-        public override async Task InitializeAsync()
+        public async Task InitializeAsync()
         {
-            this.Navigator.SuspendNavigation();
+            this.navigator.SuspendNavigation();
 
             await this.UpdateCurrentViewModelCommand.ExecuteAsync(this.landingViewType);
 
-            this.Navigator.ResumeNavigation();
-
-            await base.InitializeAsync();
+            this.navigator.ResumeNavigation();
         }
 
         private void ListBox_OnSelectionChanged(object? sender, SelectionModelSelectionChangedEventArgs eventArgs)

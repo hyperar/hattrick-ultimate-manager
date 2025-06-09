@@ -11,12 +11,16 @@
 
         private readonly IRepository<Domain.UserProfile> userProfileRepository;
 
+        private readonly IRepository<Domain.UserProfileSettings> userProfileSettingsRepository;
+
         public CreateUserProfileCommandHandler(
             IDatabaseContext databaseContext,
-            IRepository<Domain.UserProfile> userProfileRepository)
+            IRepository<Domain.UserProfile> userProfileRepository,
+            IRepository<Domain.UserProfileSettings> userProfileSettingsRepository)
         {
-            this.userProfileRepository = userProfileRepository;
             this.databaseContext = databaseContext;
+            this.userProfileRepository = userProfileRepository;
+            this.userProfileSettingsRepository = userProfileSettingsRepository;
         }
 
         public async Task<Domain.UserProfile> Handle(CreateUserProfileCommand request, CancellationToken cancellationToken)
@@ -28,6 +32,13 @@
                 await this.databaseContext.BeginTransactionAsync();
 
                 userProfile = await this.userProfileRepository.InsertAsync(new Domain.UserProfile());
+
+                await this.userProfileSettingsRepository.InsertAsync(
+                    new Domain.UserProfileSettings
+                    {
+                        UseFramelessAvatars = true,
+                        UserProfile = userProfile
+                    });
             }
             catch
             {

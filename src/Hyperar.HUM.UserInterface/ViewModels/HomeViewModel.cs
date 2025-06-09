@@ -3,12 +3,14 @@
     using System.Threading.Tasks;
     using Hyperar.HUM.UserInterface.State.Interfaces;
     using Hyperar.HUM.UserInterface.Store.Interfaces;
+    using MediatR;
 
     internal class HomeViewModel : ViewModelBase
     {
         public HomeViewModel(
             INavigator navigator,
-            ISessionStore sessionStore) : base(navigator, sessionStore)
+            ISessionStore sessionStore,
+            ISender sender) : base(navigator, sessionStore, sender)
         {
         }
 
