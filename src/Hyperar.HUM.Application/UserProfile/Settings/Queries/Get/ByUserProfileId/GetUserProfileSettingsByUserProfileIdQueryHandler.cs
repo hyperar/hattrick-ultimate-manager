@@ -18,7 +18,7 @@
         public async Task<Domain.UserProfileSettings> Handle(GetUserProfileSettingsByUserProfileIdQuery request, CancellationToken cancellationToken)
         {
             return await this.userProfileSettingsRepository.Query(x => x.UserProfileId == request.UserProfileId)
-                .SingleAsync();
+                .SingleAsync(cancellationToken);
         }
     }
 }

@@ -53,7 +53,7 @@
             {
                 for (var i = 0; i < avatar.Layers.Length; i++)
                 {
-                    var layer = avatar.Layers.ElementAt(i);
+                    var layer = avatar.Layers[i];
 
                     var layerImage = GetImageFromBytes(
                         await ReadFileFromCacheAsync(

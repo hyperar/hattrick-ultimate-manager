@@ -32,7 +32,7 @@
 
         protected static AvatarLayerType GetAvatarLayerType(string imageUrl)
         {
-            if (imageUrl.IndexOf(Kits) > 0)
+            if (imageUrl.IndexOf(Kits) >= 0)
             {
                 return AvatarLayerType.Bodies;
             }

@@ -77,9 +77,8 @@
 
         public void Dispose()
         {
-            this.navigator.TargetViewTypeChanged -= this.Navigator_TargetViewTypeChanged;
-            this.navigator.CurrentViewModelChanged -= this.Navigator_CurrentViewModelChanged;
-            this.navigator.CanNavigateChanged -= this.Navigator_CanNavigateChanged;
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public async Task InitializeAsync()
@@ -89,6 +88,13 @@
             await this.UpdateCurrentViewModelCommand.ExecuteAsync(this.landingViewType);
 
             this.navigator.ResumeNavigation();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            this.navigator.TargetViewTypeChanged -= this.Navigator_TargetViewTypeChanged;
+            this.navigator.CurrentViewModelChanged -= this.Navigator_CurrentViewModelChanged;
+            this.navigator.CanNavigateChanged -= this.Navigator_CanNavigateChanged;
         }
 
         private void ListBox_OnSelectionChanged(object? sender, SelectionModelSelectionChangedEventArgs eventArgs)
