@@ -40,18 +40,18 @@
                             true,
                             cancellationToken);
                     }
-
-                    userProfiles.Add(
-                        new UserProfile(
-                            curUserProfile.Id,
-                            curUserProfile.OAuthToken != null,
-                            curUserProfile.LastDownloadDate,
-                            curUserProfile.SelectedTeamHattrickId,
-                            manager,
-                            country,
-                            avatarBytes,
-                            curUserProfile.Manager?.Country.League.FlagBytes));
                 }
+
+                userProfiles.Add(
+                    new UserProfile(
+                        curUserProfile.Id,
+                        curUserProfile.OAuthToken != null,
+                        curUserProfile.LastDownloadDate,
+                        curUserProfile.SelectedTeamHattrickId,
+                        manager,
+                        country,
+                        avatarBytes,
+                        curUserProfile.Manager?.Country.League.FlagBytes));
             }
 
             return userProfiles.ToList();
