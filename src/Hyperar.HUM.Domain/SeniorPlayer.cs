@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Hyperar.HUM.Shared.Enums;
 
     public class SeniorPlayer : HattrickEntityBase
     {
@@ -9,9 +10,11 @@
 
         public int AgeYears { get; set; }
 
-        public int Aggressiveness { get; set; }
+        public AggressivenessLevel Aggressiveness { get; set; }
 
-        public int Agreeability { get; set; }
+        public AgreeabilityLevel Agreeability { get; set; }
+
+        public virtual ICollection<SeniorPlayerAvatarLayer> AvatarLayers { get; set; } = new HashSet<SeniorPlayerAvatarLayer>();
 
         public int BookingStatus { get; set; }
 
@@ -29,13 +32,11 @@
 
         public string FirstName { get; set; } = string.Empty;
 
-        public int Form { get; set; }
-
         public bool HasMotherClubBonus { get; set; }
 
         public int HealthStatus { get; set; }
 
-        public int Honesty { get; set; }
+        public HonestyLevel Honesty { get; set; }
 
         public DateTime JoinedOn { get; set; }
 
@@ -43,9 +44,7 @@
 
         public string LastName { get; set; } = string.Empty;
 
-        public int Leadership { get; set; }
-
-        public int Loyalty { get; set; }
+        public LeadershipSkillLevel Leadership { get; set; }
 
         public string? NickName { get; set; }
 
@@ -69,9 +68,7 @@
 
         public int? ShirtNumber { get; set; }
 
-        public int Specialty { get; set; }
-
-        public int Stamina { get; set; }
+        public PlayerSpecialty Specialty { get; set; }
 
         public string? Statement { get; set; }
 

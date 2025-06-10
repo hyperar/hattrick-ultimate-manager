@@ -20,6 +20,7 @@
         }
 
         [Theory]
+        [InlineData(XmlFileType.Avatars, typeof(AvatarsPersister))]
         [InlineData(XmlFileType.ManagerCompendium, typeof(ManagerCompendiumPersister))]
         [InlineData(XmlFileType.Players, typeof(PlayersPersister))]
         [InlineData(XmlFileType.TeamDetails, typeof(TeamDetailsPersister))]
@@ -37,7 +38,6 @@
         [InlineData(XmlFileType.Achievements)]
         [InlineData(XmlFileType.Alliances)]
         [InlineData(XmlFileType.ArenaDetails)]
-        [InlineData(XmlFileType.Avatars)]
         [InlineData(XmlFileType.Bookmarks)]
         [InlineData(XmlFileType.Challenges)]
         [InlineData(XmlFileType.Club)]

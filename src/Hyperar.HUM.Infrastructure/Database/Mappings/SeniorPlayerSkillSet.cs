@@ -19,7 +19,13 @@
                 .HasColumnType(Constants.ColumnType.Int)
                 .IsRequired();
 
-            builder.Property(x => x.Experience)
+            builder.Property(p => p.Form)
+                .HasColumnOrder(
+                    this.GetColumnOrder())
+                .HasColumnType(Constants.ColumnType.Int)
+                .IsRequired();
+
+            builder.Property(p => p.Stamina)
                 .HasColumnOrder(
                     this.GetColumnOrder())
                 .HasColumnType(Constants.ColumnType.Int)
@@ -62,6 +68,18 @@
                 .IsRequired();
 
             builder.Property(x => x.SetPieces)
+                .HasColumnOrder(
+                    this.GetColumnOrder())
+                .HasColumnType(Constants.ColumnType.Int)
+                .IsRequired();
+
+            builder.Property(p => p.Loyalty)
+                .HasColumnOrder(
+                    this.GetColumnOrder())
+                .HasColumnType(Constants.ColumnType.Int)
+                .IsRequired();
+
+            builder.Property(x => x.Experience)
                 .HasColumnOrder(
                     this.GetColumnOrder())
                 .HasColumnType(Constants.ColumnType.Int)

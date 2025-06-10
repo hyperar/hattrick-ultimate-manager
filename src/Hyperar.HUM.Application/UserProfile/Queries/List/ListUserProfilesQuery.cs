@@ -4,5 +4,5 @@
     using Hyperar.HUM.Shared.Models.UserProfileSelection;
     using MediatR;
 
-    public record ListUserProfilesQuery() : IRequest<IEnumerable<UserProfile>>;
+    public record ListUserProfilesQuery(bool UseFramelessAvatar) : IRequest<IEnumerable<UserProfile>>;
 }

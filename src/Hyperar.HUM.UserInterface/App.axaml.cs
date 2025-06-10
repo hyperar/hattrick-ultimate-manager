@@ -7,7 +7,6 @@ namespace Hyperar.HUM.UserInterface
     using Hyperar.HUM.Domain.Interfaces;
     using Hyperar.HUM.UserInterface.ExtensionMethods.HostBuilder;
     using Hyperar.HUM.UserInterface.State.Interfaces;
-    using Hyperar.HUM.UserInterface.Store.Interfaces;
     using Hyperar.HUM.UserInterface.ViewModels;
     using Hyperar.HUM.UserInterface.ViewModels.Interfaces;
     using Microsoft.Extensions.Configuration;
@@ -57,7 +56,6 @@ namespace Hyperar.HUM.UserInterface
 
                 var mainViewModel = new MainWindowViewModel(
                     host.Services.GetRequiredService<INavigator>(),
-                    host.Services.GetRequiredService<ISessionStore>(),
                     host.Services.GetRequiredService<IViewModelFactory>(),
                     await landingViewFactory.GetLandingViewAsync());
 

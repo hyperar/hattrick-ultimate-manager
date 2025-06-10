@@ -10,19 +10,14 @@
 
     public abstract class XmlParserBase
     {
-        protected static async Task<Avatar?> ReadAvatarNodeAsync(XmlReader xmlReader)
+        protected static async Task<Avatar> ReadAvatarNodeAsync(XmlReader xmlReader)
         {
-            Avatar? result = null;
+            await xmlReader.ReadAsync();
 
-            if (!xmlReader.IsEmptyElement)
-            {
-                await xmlReader.ReadAsync();
-
-                result = new Avatar(
-                    (await xmlReader.ReadValueAsync()).AsString(),
-                    await ReadLayerNodes(
-                        xmlReader));
-            }
+            var result = new Avatar(
+                (await xmlReader.ReadValueAsync()).AsString(),
+                await ReadLayerNodes(
+                    xmlReader));
 
             await xmlReader.ReadAsync();
 
@@ -30,7 +25,7 @@
         }
 
         protected static async Task<IdName[]> ReadIdNameListNodeAsync(
-            XmlReader xmlReader,
+                    XmlReader xmlReader,
             string expectedName,
             string expectedChildName)
         {
@@ -78,6 +73,25 @@
             await xmlReader.ReadAsync();
 
             return node;
+        }
+
+        protected static async Task<Avatar?> ReadNullableAvatarNodeAsync(XmlReader xmlReader)
+        {
+            Avatar? result = null;
+
+            if (!xmlReader.IsEmptyElement)
+            {
+                await xmlReader.ReadAsync();
+
+                result = new Avatar(
+                    (await xmlReader.ReadValueAsync()).AsString(),
+                    await ReadLayerNodes(
+                        xmlReader));
+            }
+
+            await xmlReader.ReadAsync();
+
+            return result;
         }
 
         protected static async Task<IdName[]?> ReadNullableIdNameListNodeAsync(

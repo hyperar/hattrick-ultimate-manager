@@ -17,6 +17,7 @@
         }
 
         [Theory]
+        [InlineData(FileName.Avatars, typeof(AvatarsParser))]
         [InlineData(FileName.CheckToken, typeof(CheckTokenParser))]
         [InlineData(FileName.Error, typeof(ErrorParser))]
         [InlineData(FileName.ManagerCompendium, typeof(ManagerCompendiumParser))]
@@ -34,7 +35,6 @@
         [InlineData(FileName.Achievements)]
         [InlineData(FileName.Alliances)]
         [InlineData(FileName.ArenaDetails)]
-        [InlineData(FileName.Avatars)]
         [InlineData(FileName.Bookmarks)]
         [InlineData(FileName.Challenges)]
         [InlineData(FileName.Club)]

@@ -4,6 +4,7 @@
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Shared.Enums;
@@ -16,7 +17,7 @@
 
             ArgumentNullException.ThrowIfNull(imageFileDownloadTask);
 
-            if (!ImageHelpers.ImageFileExists(imageFileDownloadTask.Url))
+            if (!ImageHelper.ImageFileExists(imageFileDownloadTask.Url))
             {
                 using (var httpClient = new HttpClient())
                 {

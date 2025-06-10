@@ -25,6 +25,8 @@
 
         public DateTime FourthDailyUpdate { get; set; }
 
+        public byte[] InactiveFlagBytes { get; set; } = Array.Empty<byte>();
+
         public long? JuniorNationalTeamHattrickId { get; set; }
 
         public int LeagueLevels { get; set; }

@@ -17,8 +17,9 @@
         }
 
         [Theory]
+        [InlineData(XmlFileType.Avatars, typeof(AvatarsExtractor))]
         [InlineData(XmlFileType.CheckToken, typeof(CheckTokenExtractor))]
-        [InlineData(XmlFileType.Players, typeof(EmptyExtractor))]
+        [InlineData(XmlFileType.Players, typeof(PlayersExtractor))]
         [InlineData(XmlFileType.ManagerCompendium, typeof(ManagerCompendiumExtractor))]
         [InlineData(XmlFileType.WorldDetails, typeof(WorldDetailsExtractor))]
         public void FileExtractStrategyFactoryImplementedXmlFileType_ShouldBeOfType(XmlFileType xmlFile, Type returnType)
@@ -32,7 +33,6 @@
         [InlineData(XmlFileType.Achievements)]
         [InlineData(XmlFileType.Alliances)]
         [InlineData(XmlFileType.ArenaDetails)]
-        [InlineData(XmlFileType.Avatars)]
         [InlineData(XmlFileType.Bookmarks)]
         [InlineData(XmlFileType.Challenges)]
         [InlineData(XmlFileType.Club)]

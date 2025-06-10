@@ -7,6 +7,7 @@
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Domain.Interfaces;
+    using Hyperar.HUM.Shared.Enums;
     using Hyperar.HUM.Shared.Models.Chpp.Players;
     using Microsoft.EntityFrameworkCore;
 
@@ -73,8 +74,6 @@
 
         private async Task<Domain.SeniorPlayer> PersistPlayerNodeAsync(Player playerNode, Domain.SeniorTeam seniorTeam, CancellationToken cancellationToken)
         {
-            ArgumentNullException.ThrowIfNull(playerNode.StaminaSkill);
-
             var seniorPlayer = await this.seniorPlayerRepository.GetByIdAsync(playerNode.PlayerId);
 
             var country = await this.countryRepository.GetByIdAsync(
@@ -98,17 +97,14 @@
                     Notes = string.IsNullOrWhiteSpace(playerNode.OwnerNotes) ? null : playerNode.OwnerNotes,
                     Statement = string.IsNullOrWhiteSpace(playerNode.Statement) ? null : playerNode.Statement,
                     Salary = playerNode.Salary,
-                    Agreeability = playerNode.Agreeability,
-                    Aggressiveness = playerNode.Aggressiveness,
-                    Honesty = playerNode.Honesty,
-                    Leadership = playerNode.Leadership,
-                    Specialty = playerNode.Specialty,
-                    Loyalty = playerNode.Loyalty,
+                    Agreeability = (AgreeabilityLevel)playerNode.Agreeability,
+                    Aggressiveness = (AggressivenessLevel)playerNode.Aggressiveness,
+                    Honesty = (HonestyLevel)playerNode.Honesty,
+                    Leadership = (LeadershipSkillLevel)playerNode.Leadership,
+                    Specialty = (PlayerSpecialty)playerNode.Specialty,
                     BookingStatus = playerNode.Cards,
                     HealthStatus = playerNode.InjuryLevel,
                     Category = playerNode.PlayerCategoryId,
-                    Form = playerNode.PlayerForm,
-                    Stamina = playerNode.StaminaSkill.Value,
                     JuniorNationalTeamMatches = playerNode.CapsU20,
                     SeniorNationalTeamMatches = playerNode.Caps,
                     TeamMatches = playerNode.MatchesCurrentTeam,
@@ -140,12 +136,9 @@
                 seniorPlayer.Notes = string.IsNullOrWhiteSpace(playerNode.OwnerNotes) ? null : playerNode.OwnerNotes;
                 seniorPlayer.Statement = string.IsNullOrWhiteSpace(playerNode.Statement) ? null : playerNode.Statement;
                 seniorPlayer.Salary = playerNode.Salary;
-                seniorPlayer.Loyalty = playerNode.Loyalty;
                 seniorPlayer.BookingStatus = playerNode.Cards;
                 seniorPlayer.HealthStatus = playerNode.InjuryLevel;
                 seniorPlayer.Category = playerNode.PlayerCategoryId;
-                seniorPlayer.Form = playerNode.PlayerForm;
-                seniorPlayer.Stamina = playerNode.StaminaSkill.Value;
                 seniorPlayer.JuniorNationalTeamMatches = playerNode.CapsU20;
                 seniorPlayer.SeniorNationalTeamMatches = playerNode.Caps;
                 seniorPlayer.TeamMatches = playerNode.MatchesCurrentTeam;
@@ -178,6 +171,7 @@
             Domain.SeniorTeam seniorTeam,
             CancellationToken cancellationToken)
         {
+            ArgumentNullException.ThrowIfNull(playerNode.StaminaSkill);
             ArgumentNullException.ThrowIfNull(playerNode.KeeperSkill);
             ArgumentNullException.ThrowIfNull(playerNode.DefenderSkill);
             ArgumentNullException.ThrowIfNull(playerNode.PlaymakerSkill);
@@ -198,14 +192,17 @@
                 {
                     Season = seniorTeam.League.Season,
                     Week = seniorTeam.League.Week,
-                    Experience = playerNode.Experience,
-                    Keeper = playerNode.KeeperSkill.Value,
-                    Defender = playerNode.DefenderSkill.Value,
-                    Playmaking = playerNode.PlaymakerSkill.Value,
-                    Winger = playerNode.WingerSkill.Value,
-                    Passing = playerNode.PassingSkill.Value,
-                    Scoring = playerNode.ScorerSkill.Value,
-                    SetPieces = playerNode.ScorerSkill.Value,
+                    Form = (PlayerSkillLevel)playerNode.PlayerForm,
+                    Stamina = (PlayerSkillLevel)playerNode.StaminaSkill.Value,
+                    Keeper = (PlayerSkillLevel)playerNode.KeeperSkill.Value,
+                    Defender = (PlayerSkillLevel)playerNode.DefenderSkill.Value,
+                    Playmaking = (PlayerSkillLevel)playerNode.PlaymakerSkill.Value,
+                    Winger = (PlayerSkillLevel)playerNode.WingerSkill.Value,
+                    Passing = (PlayerSkillLevel)playerNode.PassingSkill.Value,
+                    Scoring = (PlayerSkillLevel)playerNode.ScorerSkill.Value,
+                    SetPieces = (PlayerSkillLevel)playerNode.ScorerSkill.Value,
+                    Loyalty = (PlayerSkillLevel)playerNode.Loyalty,
+                    Experience = (PlayerSkillLevel)playerNode.Experience,
                     TotalSkillIndex = playerNode.TSI,
                     SeniorPlayer = seniorPlayer
                 };
@@ -214,14 +211,17 @@
             }
             else
             {
-                seniorPlayerSkillSet.Experience = playerNode.Experience;
-                seniorPlayerSkillSet.Keeper = playerNode.KeeperSkill.Value;
-                seniorPlayerSkillSet.Defender = playerNode.DefenderSkill.Value;
-                seniorPlayerSkillSet.Playmaking = playerNode.PlaymakerSkill.Value;
-                seniorPlayerSkillSet.Winger = playerNode.WingerSkill.Value;
-                seniorPlayerSkillSet.Passing = playerNode.PassingSkill.Value;
-                seniorPlayerSkillSet.Scoring = playerNode.ScorerSkill.Value;
-                seniorPlayerSkillSet.SetPieces = playerNode.ScorerSkill.Value;
+                seniorPlayerSkillSet.Form = (PlayerSkillLevel)playerNode.PlayerForm;
+                seniorPlayerSkillSet.Stamina = (PlayerSkillLevel)playerNode.StaminaSkill.Value;
+                seniorPlayerSkillSet.Keeper = (PlayerSkillLevel)playerNode.KeeperSkill.Value;
+                seniorPlayerSkillSet.Defender = (PlayerSkillLevel)playerNode.DefenderSkill.Value;
+                seniorPlayerSkillSet.Playmaking = (PlayerSkillLevel)playerNode.PlaymakerSkill.Value;
+                seniorPlayerSkillSet.Winger = (PlayerSkillLevel)playerNode.WingerSkill.Value;
+                seniorPlayerSkillSet.Passing = (PlayerSkillLevel)playerNode.PassingSkill.Value;
+                seniorPlayerSkillSet.Scoring = (PlayerSkillLevel)playerNode.ScorerSkill.Value;
+                seniorPlayerSkillSet.SetPieces = (PlayerSkillLevel)playerNode.ScorerSkill.Value;
+                seniorPlayerSkillSet.Loyalty = (PlayerSkillLevel)playerNode.Loyalty;
+                seniorPlayerSkillSet.Experience = (PlayerSkillLevel)playerNode.Experience;
                 seniorPlayerSkillSet.TotalSkillIndex = playerNode.TSI;
 
                 await this.seniorPlayerSkillSetRepository.UpdateAsync(seniorPlayerSkillSet);

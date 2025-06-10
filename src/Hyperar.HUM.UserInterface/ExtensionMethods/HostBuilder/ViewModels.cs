@@ -58,9 +58,12 @@
 
         private static async Task<HomeViewModel> CreateHomeViewModelAsync(IServiceProvider services)
         {
+            var scope = services.CreateScope();
+
             var viewModel = new HomeViewModel(
                 services.GetRequiredService<INavigator>(),
-                services.GetRequiredService<ISessionStore>());
+                services.GetRequiredService<ISessionStore>(),
+                scope.ServiceProvider.GetRequiredService<ISender>());
 
             await viewModel.InitializeAsync();
 

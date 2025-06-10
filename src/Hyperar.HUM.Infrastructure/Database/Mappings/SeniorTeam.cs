@@ -94,16 +94,22 @@
                 .IsRequired();
 
             builder.Property(p => p.SeriesHattrickId)
-                            .HasColumnOrder(
-                                this.GetColumnOrder())
-                            .HasColumnType(Constants.ColumnType.BigInt)
-                            .IsRequired();
+                .HasColumnOrder(
+                    this.GetColumnOrder())
+                .HasColumnType(Constants.ColumnType.BigInt)
+                .IsRequired();
 
             builder.Property(p => p.SeriesName)
                 .HasColumnOrder(
                     this.GetColumnOrder())
                 .HasColumnType(Constants.ColumnType.NVarChar)
                 .HasMaxLength(256)
+                .IsRequired();
+
+            builder.Property(p => p.TrainerHattrickId)
+                .HasColumnOrder(
+                    this.GetColumnOrder())
+                .HasColumnType(Constants.ColumnType.BigInt)
                 .IsRequired();
 
             builder.Property(p => p.LogoBytes)

@@ -32,7 +32,8 @@
                 var sender = scope.ServiceProvider.GetRequiredService<ISender>();
 
                 var userProfiles = await sender.Send(
-                    new ListUserProfilesQuery());
+                    new ListUserProfilesQuery(
+                        true));
 
                 if (userProfiles is not null && userProfiles.Count() == 1)
                 {
@@ -51,6 +52,11 @@
                     else if (userProfile.SelectedTeamHattrickId is null)
                     {
                         landingViewType = ViewType.TeamSelection;
+                    }
+                    else
+                    {
+                        this.sessionStore.SetSelectedTeam(userProfile.SelectedTeamHattrickId.Value);
+                        landingViewType = ViewType.Home;
                     }
                 }
                 else

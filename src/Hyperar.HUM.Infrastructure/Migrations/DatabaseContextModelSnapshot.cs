@@ -17,7 +17,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Proxies:ChangeTracking", false)
                 .HasAnnotation("Proxies:CheckEquality", false)
                 .HasAnnotation("Proxies:LazyLoading", true)
@@ -136,6 +136,11 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Property<DateTime>("FourthDailyUpdate")
                         .HasColumnType("datetime")
                         .HasColumnOrder(21);
+
+                    b.Property<byte[]>("InactiveFlagBytes")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnOrder(24);
 
                     b.Property<long?>("JuniorNationalTeamHattrickId")
                         .HasColumnType("bigint")
@@ -260,10 +265,6 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                         .HasColumnType("bigint")
                         .HasColumnOrder(-1);
 
-                    b.Property<byte[]>("AvatarBytes")
-                        .HasColumnType("varbinary(max)")
-                        .HasColumnOrder(4);
-
                     b.Property<long>("CountryHattrickId")
                         .HasColumnType("bigint");
 
@@ -299,6 +300,45 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Manager", (string)null);
+                });
+
+            modelBuilder.Entity("Hyperar.HUM.Domain.ManagerAvatarLayer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(-1);
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar")
+                        .HasColumnOrder(0);
+
+                    b.Property<int>("Index")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<long>("ManagerHattrickId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("XCoordinate")
+                        .HasColumnType("int")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("YCoordinate")
+                        .HasColumnType("int")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManagerHattrickId");
+
+                    b.ToTable("ManagerAvatarLayer");
                 });
 
             modelBuilder.Entity("Hyperar.HUM.Domain.OAuthToken", b =>
@@ -389,23 +429,23 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("BookingStatus")
                         .HasColumnType("int")
-                        .HasColumnOrder(17);
+                        .HasColumnOrder(16);
 
                     b.Property<int>("CareerAssists")
                         .HasColumnType("int")
-                        .HasColumnOrder(32);
+                        .HasColumnOrder(29);
 
                     b.Property<int>("CareerGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(30);
+                        .HasColumnOrder(27);
 
                     b.Property<int>("CareerHattricks")
                         .HasColumnType("int")
-                        .HasColumnOrder(31);
+                        .HasColumnOrder(28);
 
                     b.Property<int?>("Category")
                         .HasColumnType("int")
-                        .HasColumnOrder(19);
+                        .HasColumnOrder(18);
 
                     b.Property<long>("CountryHattrickId")
                         .HasColumnType("bigint");
@@ -416,17 +456,13 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                         .HasColumnType("nvarchar")
                         .HasColumnOrder(0);
 
-                    b.Property<int>("Form")
-                        .HasColumnType("int")
-                        .HasColumnOrder(20);
-
                     b.Property<bool>("HasMotherClubBonus")
                         .HasColumnType("bit")
                         .HasColumnOrder(7);
 
                     b.Property<int>("HealthStatus")
                         .HasColumnType("int")
-                        .HasColumnOrder(18);
+                        .HasColumnOrder(17);
 
                     b.Property<int>("Honesty")
                         .HasColumnType("int")
@@ -438,7 +474,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("JuniorNationalTeamMatches")
                         .HasColumnType("int")
-                        .HasColumnOrder(22);
+                        .HasColumnOrder(19);
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -449,10 +485,6 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Property<int>("Leadership")
                         .HasColumnType("int")
                         .HasColumnOrder(14);
-
-                    b.Property<int>("Loyalty")
-                        .HasColumnType("int")
-                        .HasColumnOrder(16);
 
                     b.Property<string>("NickName")
                         .HasMaxLength(256)
@@ -470,19 +502,19 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("SeasonCupGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(28);
+                        .HasColumnOrder(25);
 
                     b.Property<int>("SeasonFriendlyGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(29);
+                        .HasColumnOrder(26);
 
                     b.Property<int>("SeasonSeriesGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(27);
+                        .HasColumnOrder(24);
 
                     b.Property<int>("SeniorNationalTeamMatches")
                         .HasColumnType("int")
-                        .HasColumnOrder(23);
+                        .HasColumnOrder(20);
 
                     b.Property<long>("SeniorTeamHattrickId")
                         .HasColumnType("bigint");
@@ -495,10 +527,6 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(15);
 
-                    b.Property<int>("Stamina")
-                        .HasColumnType("int")
-                        .HasColumnOrder(21);
-
                     b.Property<string>("Statement")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar")
@@ -506,15 +534,15 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("TeamAssists")
                         .HasColumnType("int")
-                        .HasColumnOrder(26);
+                        .HasColumnOrder(23);
 
                     b.Property<int>("TeamGoals")
                         .HasColumnType("int")
-                        .HasColumnOrder(25);
+                        .HasColumnOrder(22);
 
                     b.Property<int>("TeamMatches")
                         .HasColumnType("int")
-                        .HasColumnOrder(24);
+                        .HasColumnOrder(21);
 
                     b.HasKey("HattrickId");
 
@@ -523,6 +551,45 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.HasIndex("SeniorTeamHattrickId");
 
                     b.ToTable("SeniorPlayer", (string)null);
+                });
+
+            modelBuilder.Entity("Hyperar.HUM.Domain.SeniorPlayerAvatarLayer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(-1);
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar")
+                        .HasColumnOrder(0);
+
+                    b.Property<int>("Index")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<long>("SeniorPlayerHattrickId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("XCoordinate")
+                        .HasColumnType("int")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("YCoordinate")
+                        .HasColumnType("int")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeniorPlayerHattrickId");
+
+                    b.ToTable("SeniorPlayerAvatarLayer");
                 });
 
             modelBuilder.Entity("Hyperar.HUM.Domain.SeniorPlayerSkillSet", b =>
@@ -534,27 +601,35 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("Defender")
                         .HasColumnType("int")
-                        .HasColumnOrder(4);
+                        .HasColumnOrder(5);
 
                     b.Property<int>("Experience")
+                        .HasColumnType("int")
+                        .HasColumnOrder(12);
+
+                    b.Property<int>("Form")
                         .HasColumnType("int")
                         .HasColumnOrder(2);
 
                     b.Property<int>("Keeper")
                         .HasColumnType("int")
-                        .HasColumnOrder(3);
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("Loyalty")
+                        .HasColumnType("int")
+                        .HasColumnOrder(11);
 
                     b.Property<int>("Passing")
                         .HasColumnType("int")
-                        .HasColumnOrder(7);
+                        .HasColumnOrder(8);
 
                     b.Property<int>("Playmaking")
                         .HasColumnType("int")
-                        .HasColumnOrder(5);
+                        .HasColumnOrder(6);
 
                     b.Property<int>("Scoring")
                         .HasColumnType("int")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(9);
 
                     b.Property<int>("Season")
                         .HasColumnType("int")
@@ -565,11 +640,15 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("SetPieces")
                         .HasColumnType("int")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(10);
+
+                    b.Property<int>("Stamina")
+                        .HasColumnType("int")
+                        .HasColumnOrder(3);
 
                     b.Property<int>("TotalSkillIndex")
                         .HasColumnType("int")
-                        .HasColumnOrder(10);
+                        .HasColumnOrder(13);
 
                     b.Property<int>("Week")
                         .HasColumnType("int")
@@ -577,7 +656,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<int>("Winger")
                         .HasColumnType("int")
-                        .HasColumnOrder(6);
+                        .HasColumnOrder(7);
 
                     b.HasKey("Id");
 
@@ -595,7 +674,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Property<byte[]>("AwayMatchKitBytes")
                         .IsRequired()
                         .HasColumnType("varbinary(max)")
-                        .HasColumnOrder(18);
+                        .HasColumnOrder(19);
 
                     b.Property<bool>("CanBookMidweekFriendly")
                         .HasColumnType("bit")
@@ -616,7 +695,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Property<byte[]>("HomeMatchKitBytes")
                         .IsRequired()
                         .HasColumnType("varbinary(max)")
-                        .HasColumnOrder(17);
+                        .HasColumnOrder(18);
 
                     b.Property<bool>("IsPlayingCup")
                         .HasColumnType("bit")
@@ -635,7 +714,7 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
                     b.Property<byte[]>("LogoBytes")
                         .HasColumnType("varbinary(max)")
-                        .HasColumnOrder(16);
+                        .HasColumnOrder(17);
 
                     b.Property<long>("ManagerHattrickId")
                         .HasColumnType("bigint");
@@ -677,6 +756,10 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(3);
 
+                    b.Property<long>("TrainerHattrickId")
+                        .HasColumnType("bigint")
+                        .HasColumnOrder(16);
+
                     b.Property<int>("UndefeatedStreak")
                         .HasColumnType("int")
                         .HasColumnOrder(10);
@@ -714,6 +797,29 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserProfile", (string)null);
+                });
+
+            modelBuilder.Entity("Hyperar.HUM.Domain.UserProfileSettings", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(-1);
+
+                    b.Property<bool>("UseFramelessAvatars")
+                        .HasMaxLength(256)
+                        .HasColumnType("bit")
+                        .HasColumnOrder(0);
+
+                    b.Property<Guid>("UserProfileId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserProfileId")
+                        .IsUnique();
+
+                    b.ToTable("UserProfileSettings");
                 });
 
             modelBuilder.Entity("Hyperar.HUM.Domain.Country", b =>
@@ -770,6 +876,18 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Navigation("UserProfile");
                 });
 
+            modelBuilder.Entity("Hyperar.HUM.Domain.ManagerAvatarLayer", b =>
+                {
+                    b.HasOne("Hyperar.HUM.Domain.Manager", "Manager")
+                        .WithMany("AvatarLayers")
+                        .HasForeignKey("ManagerHattrickId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ManagerAvatarLayer_Manager");
+
+                    b.Navigation("Manager");
+                });
+
             modelBuilder.Entity("Hyperar.HUM.Domain.OAuthToken", b =>
                 {
                     b.HasOne("Hyperar.HUM.Domain.UserProfile", "UserProfile")
@@ -815,6 +933,18 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Navigation("SeniorTeam");
                 });
 
+            modelBuilder.Entity("Hyperar.HUM.Domain.SeniorPlayerAvatarLayer", b =>
+                {
+                    b.HasOne("Hyperar.HUM.Domain.SeniorPlayer", "SeniorPlayer")
+                        .WithMany("AvatarLayers")
+                        .HasForeignKey("SeniorPlayerHattrickId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_SeniorPlayerAvatarLayer_SeniorPlayer");
+
+                    b.Navigation("SeniorPlayer");
+                });
+
             modelBuilder.Entity("Hyperar.HUM.Domain.SeniorPlayerSkillSet", b =>
                 {
                     b.HasOne("Hyperar.HUM.Domain.SeniorPlayer", "SeniorPlayer")
@@ -857,6 +987,18 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Navigation("Region");
                 });
 
+            modelBuilder.Entity("Hyperar.HUM.Domain.UserProfileSettings", b =>
+                {
+                    b.HasOne("Hyperar.HUM.Domain.UserProfile", "UserProfile")
+                        .WithOne("UserProfileSettings")
+                        .HasForeignKey("Hyperar.HUM.Domain.UserProfileSettings", "UserProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_UserProfileSettings_UserProfile");
+
+                    b.Navigation("UserProfile");
+                });
+
             modelBuilder.Entity("Hyperar.HUM.Domain.Country", b =>
                 {
                     b.Navigation("Managers");
@@ -882,6 +1024,8 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
             modelBuilder.Entity("Hyperar.HUM.Domain.Manager", b =>
                 {
+                    b.Navigation("AvatarLayers");
+
                     b.Navigation("SeniorTeams");
                 });
 
@@ -892,6 +1036,8 @@ namespace Hyperar.HUM.Infrastructure.Migrations
 
             modelBuilder.Entity("Hyperar.HUM.Domain.SeniorPlayer", b =>
                 {
+                    b.Navigation("AvatarLayers");
+
                     b.Navigation("SeniorPlayerSkillSets");
                 });
 
@@ -905,6 +1051,8 @@ namespace Hyperar.HUM.Infrastructure.Migrations
                     b.Navigation("Manager");
 
                     b.Navigation("OAuthToken");
+
+                    b.Navigation("UserProfileSettings");
                 });
 #pragma warning restore 612, 618
         }

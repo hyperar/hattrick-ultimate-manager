@@ -1,7 +1,6 @@
 ﻿namespace Hyperar.HUM.Shared.Models.Chpp.Players
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
 
     public sealed record Team(long TeamId, string TeamName, Player[]? PlayerList)

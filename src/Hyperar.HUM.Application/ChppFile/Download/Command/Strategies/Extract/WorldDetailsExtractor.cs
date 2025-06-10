@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Shared.Models.Chpp.WorldDetails;
@@ -31,14 +32,14 @@
 
             ArgumentNullException.ThrowIfNull(worldDetails);
 
-            var imageList = worldDetails.LeagueList.Select(x => string.Format(ImageHelpers.FlagUrlMask, x.LeagueId))
+            var imageList = worldDetails.LeagueList.Select(x => string.Format(ImageHelper.FlagUrlMask, x.LeagueId))
                 .ToList();
 
-            imageList.AddRange(worldDetails.LeagueList.Select(x => string.Format(ImageHelpers.InactiveFlagUrlMask, x.LeagueId)));
+            imageList.AddRange(worldDetails.LeagueList.Select(x => string.Format(ImageHelper.InactiveFlagUrlMask, x.LeagueId)));
 
             fileDownloadTasks.InsertRange(
                 fileDownloadTasks.IndexOf(xmlFileDownloadTask),
-                imageList.Where(x => !ImageHelpers.ImageFileExists(x))
+                imageList.Where(x => !ImageHelper.ImageFileExists(x))
                     .Select(
                         this.fileDownloadTaskFactory.BuildImageFileDownloadTask));
 

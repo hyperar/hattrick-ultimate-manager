@@ -4,5 +4,5 @@
     using Hyperar.HUM.Shared.Models.UserProfileSelection;
     using MediatR;
 
-    public record GetUserProfileByIdQuery(Guid Id) : IRequest<UserProfile>;
+    public record GetUserProfileByIdQuery(Guid Id, bool UseFramelessAvatar) : IRequest<UserProfile>;
 }

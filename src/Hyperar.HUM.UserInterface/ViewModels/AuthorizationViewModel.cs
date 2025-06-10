@@ -21,8 +21,6 @@
 
     internal partial class AuthorizationViewModel : ViewModelBase
     {
-        private readonly ISender sender;
-
         [ObservableProperty]
         private bool accessTokenVerified;
 
@@ -44,10 +42,8 @@
         public AuthorizationViewModel(
             INavigator navigator,
             ISessionStore sessionStore,
-            ISender sender) : base(navigator, sessionStore)
+            ISender sender) : base(navigator, sessionStore, sender)
         {
-            this.sender = sender;
-
             this.CheckAccessTokenCommand = new AsyncRelayCommand(this.CheckAccessTokenAsync);
             this.GetAccessTokenCommand = new AsyncRelayCommand(this.GetAccessTokenAsync);
             this.RevokeAccessTokenCommand = new AsyncRelayCommand(this.RevokeAccessTokenAsync);
@@ -93,7 +89,7 @@
         {
             ArgumentNullException.ThrowIfNull(this.SessionStore.SelectedUserProfileId);
 
-            this.UserProfileToken = await this.sender.Send(
+            this.UserProfileToken = await this.Sender.Send(
                 new GetAccessTokenByUserProfileIdQuery(
                     this.SessionStore.SelectedUserProfileId.Value));
 
@@ -109,7 +105,7 @@
         {
             ArgumentNullException.ThrowIfNull(this.UserProfileToken);
 
-            this.AccessTokenVerified = await this.sender.Send(
+            this.AccessTokenVerified = await this.Sender.Send(
                 new CheckAccessTokenCommand(
                     this.UserProfileToken));
 
@@ -123,7 +119,7 @@
         {
             ArgumentNullException.ThrowIfNull(this.UserProfileToken);
 
-            await this.sender.Send(
+            await this.Sender.Send(
                 new DeleteTokenCommand(
                     this.UserProfileToken.Id));
 
@@ -138,14 +134,14 @@
             ArgumentException.ThrowIfNullOrWhiteSpace(this.verificationCode);
             ArgumentNullException.ThrowIfNull(this.requestToken);
 
-            var accessToken = await this.sender.Send(
+            var accessToken = await this.Sender.Send(
                 new GetAccessTokenFromHattrickQuery(
                     this.verificationCode,
                     this.requestToken));
 
             ArgumentNullException.ThrowIfNull(this.SessionStore.SelectedUserProfileId);
 
-            await this.sender.Send(
+            await this.Sender.Send(
                 new SaveTokenCommand(
                     this.SessionStore.SelectedUserProfileId.Value,
                     accessToken));
@@ -161,7 +157,7 @@
 
             ArgumentNullException.ThrowIfNull(this.SessionStore.SelectedUserProfileId);
 
-            this.UserProfileToken = await this.sender.Send(
+            this.UserProfileToken = await this.Sender.Send(
                 new GetAccessTokenByUserProfileIdQuery(
                     this.SessionStore.SelectedUserProfileId.Value));
 
@@ -170,10 +166,10 @@
 
         private async Task OpenAuthorizationWebPage()
         {
-            this.requestToken = await this.sender.Send(
+            this.requestToken = await this.Sender.Send(
                 new GetRequestTokenFromHattrickQuery());
 
-            this.authorizationUrl = await this.sender.Send(
+            this.authorizationUrl = await this.Sender.Send(
                 new GetAuthorizationUrlForRequestTokenQuery(this.requestToken));
 
             Process.Start(
@@ -188,7 +184,7 @@
         {
             ArgumentNullException.ThrowIfNull(this.UserProfileToken);
 
-            await this.sender.Send(
+            await this.Sender.Send(
                 new RevokeTokenCommand(
                     this.UserProfileToken.Token,
                     this.UserProfileToken.Secret,

@@ -150,6 +150,11 @@
                 .HasColumnOrder(
                     this.GetColumnOrder())
                 .HasColumnType(Constants.ColumnType.VarBinary);
+
+            builder.Property(p => p.InactiveFlagBytes)
+                .HasColumnOrder(
+                    this.GetColumnOrder())
+                .HasColumnType(Constants.ColumnType.VarBinary);
         }
 
         public override void MapTable(EntityTypeBuilder<Domain.League> builder)

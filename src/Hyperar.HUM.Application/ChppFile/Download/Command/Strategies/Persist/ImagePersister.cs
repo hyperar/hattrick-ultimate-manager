@@ -3,6 +3,7 @@
     using System;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
 
@@ -16,7 +17,7 @@
 
             ArgumentNullException.ThrowIfNull(imageFileDownloadTask.ImageFileBytes);
 
-            await ImageHelpers.WriteFileToCacheAsync(imageFileDownloadTask.Url, imageFileDownloadTask.ImageFileBytes, cancellationToken);
+            await ImageHelper.WriteFileToCacheAsync(imageFileDownloadTask.Url, imageFileDownloadTask.ImageFileBytes, cancellationToken);
         }
     }
 }

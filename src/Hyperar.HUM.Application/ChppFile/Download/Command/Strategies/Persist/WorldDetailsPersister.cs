@@ -3,6 +3,7 @@
     using System;
     using System.Threading;
     using System.Threading.Tasks;
+    using Hyperar.HUM.Application;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Interfaces;
     using Hyperar.HUM.Application.ChppFile.Download.Command.Models;
     using Hyperar.HUM.Domain.Interfaces;
@@ -181,11 +182,16 @@
                     ThirdDailyUpdate = leagueNode.Sequence3,
                     FourthDailyUpdate = leagueNode.Sequence5,
                     FifthDailyUpdate = leagueNode.Sequence7,
-                    FlagBytes = await ImageHelpers.ReadFileFromCacheAsync(
+                    FlagBytes = await ImageHelper.ReadFileFromCacheAsync(
                         string.Format(
-                            ImageHelpers.FlagUrlMask,
+                            ImageHelper.FlagUrlMask,
                             leagueNode.LeagueId),
-                        cancellationToken)
+                        cancellationToken),
+                    InactiveFlagBytes = await ImageHelper.ReadFileFromCacheAsync(
+                        string.Format(
+                            ImageHelper.InactiveFlagUrlMask,
+                            leagueNode.LeagueId),
+                        cancellationToken),
                 });
 
                 await this.leagueRepository.InsertAsync(league);

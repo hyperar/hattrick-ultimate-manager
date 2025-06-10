@@ -33,11 +33,6 @@
                 .HasColumnType(Constants.ColumnType.Decimal)
                 .HasPrecision(5, 1)
                 .IsRequired();
-
-            builder.Property(p => p.AvatarBytes)
-                .HasColumnOrder(
-                    this.GetColumnOrder())
-                .HasColumnType(Constants.ColumnType.VarBinary);
         }
 
         public override void MapRelationships(EntityTypeBuilder<Domain.Manager> builder)

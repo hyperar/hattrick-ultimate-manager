@@ -14,8 +14,6 @@
 
     internal partial class DownloadViewModel : ViewModelBase
     {
-        private readonly ISender sender;
-
         private CancellationTokenSource? cancellationTokenSource;
 
         [ObservableProperty]
@@ -24,10 +22,8 @@
         public DownloadViewModel(
             INavigator navigator,
             ISessionStore sessionStore,
-            ISender sender) : base(navigator, sessionStore)
+            ISender sender) : base(navigator, sessionStore, sender)
         {
-            this.sender = sender;
-
             this.DownloadReport = new DownloadReport(
                 new List<DownloadTask>(),
                 null,
@@ -70,7 +66,7 @@
                 this.DownloadReport = report;
             });
 
-            await this.sender.Send(
+            await this.Sender.Send(
                 new DownloadCommand(
                     this.SessionStore.SelectedUserProfileId.Value,
                     progressReport),

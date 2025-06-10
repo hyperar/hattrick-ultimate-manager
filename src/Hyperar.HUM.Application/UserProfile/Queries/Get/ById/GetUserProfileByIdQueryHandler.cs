@@ -1,6 +1,7 @@
 ﻿namespace Hyperar.HUM.Application.UserProfile.Queries.Get.ById
 {
     using System;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using Hyperar.HUM.Domain.Interfaces;
@@ -23,14 +24,32 @@
 
             ArgumentNullException.ThrowIfNull(userProfile);
 
+            IdName? manager = null;
+            IdName? country = null;
+            byte[]? avatarBytes = null;
+
+            if (userProfile.Manager != null)
+            {
+                manager = new IdName(userProfile.Manager.HattrickId, userProfile.Manager.UserName);
+                country = new IdName(userProfile.Manager.Country.HattrickId, userProfile.Manager.Country.Name);
+
+                if (userProfile.Manager.AvatarLayers != null)
+                {
+                    avatarBytes = await ImageHelper.GetAvatarBytesAsync(
+                        userProfile.Manager.AvatarLayers.ToArray(),
+                        request.UseFramelessAvatar,
+                        cancellationToken);
+                }
+            }
+
             return new UserProfile(
                 userProfile.Id,
                 userProfile.OAuthToken is not null,
                 userProfile.LastDownloadDate,
                 userProfile.SelectedTeamHattrickId,
-                userProfile.Manager != null ? new IdName(userProfile.Manager.HattrickId, userProfile.Manager.UserName) : null,
-                userProfile.Manager != null ? new IdName(userProfile.Manager.Country.HattrickId, userProfile.Manager.Country.Name) : null,
-                userProfile.Manager?.AvatarBytes,
+                manager,
+                country,
+                avatarBytes,
                 userProfile.Manager?.Country.League.FlagBytes);
         }
     }

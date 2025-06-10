@@ -104,12 +104,6 @@
                 .HasColumnType(Constants.ColumnType.Int)
                 .IsRequired();
 
-            builder.Property(p => p.Loyalty)
-                .HasColumnOrder(
-                    this.GetColumnOrder())
-                .HasColumnType(Constants.ColumnType.Int)
-                .IsRequired();
-
             builder.Property(p => p.BookingStatus)
                 .HasColumnOrder(
                     this.GetColumnOrder())
@@ -126,18 +120,6 @@
                 .HasColumnOrder(
                     this.GetColumnOrder())
                 .HasColumnType(Constants.ColumnType.Int);
-
-            builder.Property(p => p.Form)
-                .HasColumnOrder(
-                    this.GetColumnOrder())
-                .HasColumnType(Constants.ColumnType.Int)
-                .IsRequired();
-
-            builder.Property(p => p.Stamina)
-                .HasColumnOrder(
-                    this.GetColumnOrder())
-                .HasColumnType(Constants.ColumnType.Int)
-                .IsRequired();
 
             builder.Property(p => p.JuniorNationalTeamMatches)
                 .HasColumnOrder(
