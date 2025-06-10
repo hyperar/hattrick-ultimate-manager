@@ -186,7 +186,12 @@
                         string.Format(
                             ImageHelper.FlagUrlMask,
                             leagueNode.LeagueId),
-                        cancellationToken)
+                        cancellationToken),
+                    InactiveFlagBytes = await ImageHelper.ReadFileFromCacheAsync(
+                        string.Format(
+                            ImageHelper.InactiveFlagUrlMask,
+                            leagueNode.LeagueId),
+                        cancellationToken),
                 });
 
                 await this.leagueRepository.InsertAsync(league);
