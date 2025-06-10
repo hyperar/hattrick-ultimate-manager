@@ -28,16 +28,232 @@
         }
 
         [Fact]
-        public void Avatars_NoSupporter_HallOfFame_ShouldBeEqual()
+        public async Task Avatars_NoSupporter_HallOfFame_ShouldBeEqual()
+        {
+            var fileContent = await OpenFile(AvatarsNoSupporterHallOfFame);
+
+            Assert.NotNull(fileContent);
+
+            Assert.NotEmpty(fileContent);
+
+            var cancellationTokenSource = new CancellationTokenSource();
+
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+
+            Assert.NotNull(result);
+
+            Assert.IsType<HattrickData>(result);
+
+            var expected = new HattrickData(
+                "Avatars.xml",
+                1.1m,
+                13900623,
+                new DateTime(2025, 6, 8, 17, 53, 16),
+                new Team(
+                    834283,
+                    []));
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public async Task Avatars_NoSupporter_Players_ShouldBeEqual()
         { }
 
         [Fact]
-        public void Avatars_NoSupporter_Players_ShouldBeEqual()
-        { }
+        public async Task Avatars_Supporter_HallOfFame_ShouldBeEqual()
+        {
+            var fileContent = await OpenFile(AvatarsSupporterHallOfFame);
 
-        [Fact]
-        public void Avatars_Supporter_HallOfFame_ShouldBeEqual()
-        { }
+            Assert.NotNull(fileContent);
+
+            Assert.NotEmpty(fileContent);
+
+            var cancellationTokenSource = new CancellationTokenSource();
+
+            var result = (HattrickData)await this.XmlFileParser.ParseXmlFileAsync(fileContent, cancellationTokenSource.Token);
+
+            Assert.NotNull(result);
+
+            Assert.IsType<HattrickData>(result);
+
+            var expected = new HattrickData(
+                "Avatars.xml",
+                1.1m,
+                13900623,
+                new DateTime(2025, 6, 8, 17, 53, 1),
+                new Team(
+                    1033530,
+                    [
+                        new Player(
+                            470853181,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f5man1a.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f5e.png"),
+                                    new Layer(24, 10, "/Img/Avatar/eyes/e36a.png"),
+                                    new Layer(29, 45, "/Img/Avatar/mouths/m14c.png"),
+                                    new Layer(18, 38, "/Img/Avatar/goatees/g2.png"),
+                                    new Layer(18, 22, "/Img/Avatar/noses/n14mh.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f5h8h.png")
+                                ])),
+                        new Player(
+                            470853196,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f8man2b.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f8d.png"),
+                                    new Layer(26, 19, "/Img/Avatar/eyes/e36b.png"),
+                                    new Layer(32, 64, "/Img/Avatar/mouths/m32b.png"),
+                                    new Layer(18, 34, "/Img/Avatar/noses/n14.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f8h10i.png")
+                                ])),
+                        new Player(
+                            470853192,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f1man2b.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f1b.png"),
+                                    new Layer(24, 19, "/Img/Avatar/eyes/e24b.png"),
+                                    new Layer(29, 63, "/Img/Avatar/mouths/m17b.png"),
+                                    new Layer(22, 32, "/Img/Avatar/noses/n15.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f1h9a.png")
+                                ])),
+                        new Player(
+                            470853191,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f2man1a.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f2a.png"),
+                                    new Layer(24, 24, "/Img/Avatar/eyes/e18a.png"),
+                                    new Layer(32, 56, "/Img/Avatar/mouths/m19c.png"),
+                                    new Layer(21, 35, "/Img/Avatar/noses/n20.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f1h9a.png")
+                                ])),
+                        new Player(
+                            470853190,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f5man2b.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f5d.png"),
+                                    new Layer(24, 8, "/Img/Avatar/eyes/e30b.png"),
+                                    new Layer(29, 45, "/Img/Avatar/mouths/m14b.png"),
+                                    new Layer(18, 44, "/Img/Avatar/goatees/g3.png"),
+                                    new Layer(16, 19, "/Img/Avatar/noses/n19.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f5h7i.png")
+                                ])),
+                        new Player(
+                            470853186,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f7man1a.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f7b.png"),
+                                    new Layer(24, 7, "/Img/Avatar/eyes/e3a.png"),
+                                    new Layer(32, 41, "/Img/Avatar/mouths/m31c.png"),
+                                    new Layer(18, 8, "/Img/Avatar/noses/n28.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f7h15a.png")
+                                ])),
+                        new Player(
+                            470853183,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f1man1c.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f1e.png"),
+                                    new Layer(24, 19, "/Img/Avatar/eyes/e25a.png"),
+                                    new Layer(30, 69, "/Img/Avatar/mouths/m36c.png"),
+                                    new Layer(20, 31, "/Img/Avatar/noses/n12.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f1h3i.png")
+                                ])),
+                        new Player(
+                            465332679,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof_int.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f3hof09.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f3c.png"),
+                                    new Layer(24, 13, "/Img/Avatar/eyes/e25c.png"),
+                                    new Layer(29, 57, "/Img/Avatar/mouths/m22c.png"),
+                                    new Layer(18, 28, "/Img/Avatar/noses/n9.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f3h11b.png")
+                                ])),
+                        new Player(
+                            470853193,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f4hof12.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f4b.png"),
+                                    new Layer(24, 18, "/Img/Avatar/eyes/e31a.png"),
+                                    new Layer(31, 68, "/Img/Avatar/mouths/m39a.png"),
+                                    new Layer(19, 55, "/Img/Avatar/goatees/g5.png"),
+                                    new Layer(18, 31, "/Img/Avatar/noses/n12.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f4h8a.png")
+                                ])),
+                        new Player(
+                            470853193,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f4hof12.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f4b.png"),
+                                    new Layer(24, 18, "/Img/Avatar/eyes/e31a.png"),
+                                    new Layer(31, 68, "/Img/Avatar/mouths/m39a.png"),
+                                    new Layer(19, 55, "/Img/Avatar/goatees/g5.png"),
+                                    new Layer(18, 31, "/Img/Avatar/noses/n12.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f4h8a.png")
+                                ])),
+                        new Player(
+                            470853188,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f7hof15.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f7c.png"),
+                                    new Layer(23, 4, "/Img/Avatar/eyes/e14c.png"),
+                                    new Layer(32, 41, "/Img/Avatar/mouths/m33c.png"),
+                                    new Layer(19, 26, "/Img/Avatar/goatees/g2.png"),
+                                    new Layer(18, 10, "/Img/Avatar/noses/n39ma.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f7h1a.png")
+                                ])),
+                        new Player(
+                            470853184,
+                            new Avatar(
+                                "/Img/Avatar/backgrounds/card1.png",
+                                [
+                                    new Layer(9, 10, "/Img/Avatar/backgrounds/bg_hof.png"),
+                                    new Layer(9, 10, "/Img/Avatar/bodies/f4hof15.png"),
+                                    new Layer(9, 10, "/Img/Avatar/faces/f4c.png"),
+                                    new Layer(24, 17, "/Img/Avatar/eyes/e29c.png"),
+                                    new Layer(28, 58, "/Img/Avatar/mouths/m23c.png"),
+                                    new Layer(18, 56, "/Img/Avatar/goatees/g3.png"),
+                                    new Layer(19, 33, "/Img/Avatar/noses/n20.png"),
+                                    new Layer(9, 10, "/Img/Avatar/hair/f4h15e.png")
+                                ])),
+                    ]));
+
+            var expectedJson = JsonConvert.SerializeObject(expected);
+            var resultJson = JsonConvert.SerializeObject(result);
+
+            Assert.Equal(expected, result);
+        }
 
         [Fact]
         public async Task Avatars_Supporter_Players_ShouldBeEqual()
@@ -514,13 +730,10 @@
                                     new Layer(30, 40, "/Img/Avatar/mouths/m39c.png"),
                                     new Layer(18, 10, "/Img/Avatar/noses/n37.png"),
                                     new Layer(9, 10, "/Img/Avatar/hair/f7h6h.png")
-                                ])),
+                                ]))
                     ]));
 
-            var expectedJson = JsonConvert.SerializeObject(expected);
-            var resultJson = JsonConvert.SerializeObject(result);
-
-            Assert.Equal(expectedJson, resultJson);
+            Assert.Equal(expected, result);
         }
     }
 }

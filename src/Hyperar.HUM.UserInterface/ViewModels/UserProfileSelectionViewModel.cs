@@ -68,11 +68,11 @@
 
         private async Task RefreshUserProfiles()
         {
-            var userProfiles = await this.Sender.Send(
+            var result = await this.Sender.Send(
                 new ListUserProfilesQuery(
                     this.UserProfileSettings?.UseFramelessAvatars ?? true));
 
-            this.UserProfiles = new ObservableCollection<UserProfile>(userProfiles);
+            this.UserProfiles = new ObservableCollection<UserProfile>(result);
 
             this.OnPropertyChanged(nameof(this.CanCreateUserProfile));
             this.OnPropertyChanged(nameof(this.ShowUserProfileSelector));
